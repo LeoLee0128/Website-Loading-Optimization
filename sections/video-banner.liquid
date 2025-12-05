@@ -1,0 +1,305 @@
+  <style>
+    .hero-media { 
+        position: relative; 
+    }
+     .hero-media video,
+     .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+     .hero-overlay { 
+        display:none; 
+    }
+     .hero-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+     .hero-eyebrow {
+      margin: 0;
+      font-weight: 500;
+        font-size: 2.375rem;
+        color: #fff;
+            line-height: 1;
+    }
+     .hero-title {
+      margin: 2.8125rem 0 5.625rem;
+      font-weight: 600;
+      font-size: 6.875rem;
+      line-height: .8;
+      color:#fff
+    }
+     .hero-cta {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+        font-weight: 400;
+        font-size: 1.55625rem;
+        text-decoration: none;
+        color: #2AACE6;
+            line-height: 1;
+    }
+
+     .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.7);
+    }
+     .video-modal.is-open { 
+        display: flex; 
+    }
+     .video-modal__dialog {
+      position: relative;
+      width: min(92vw, 960px);
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+     .video-modal__video,
+     .video-modal__iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: #000;
+    }
+     .video-modal__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.15);
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      z-index:111
+    }
+     .video-modal__close:hover { 
+        background: rgba(255,255,255,.3);
+     }
+    a.hero-cta:hover span {
+        text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+     .hero-media video, .hero-media img {
+        height: 90vh;
+    }
+    .hero-eyebrow {
+        font-size: 26px;
+        width: 50%;
+        line-height: 32px;
+    }
+    .hero-title {
+      margin: 18px 0 30px;
+              font-size: 55px;
+    }
+    .hero-inner {
+        justify-content: flex-end;
+        bottom: 65px;
+    }
+    .hero-cta {
+    font-size: 18px;
+  }
+  .hero-cta img{
+      width: 22px;
+    height: 22px;
+  }
+    }
+  </style>
+
+<section id="video-{{ section.id }}" class="video-banner" data-section-id="{{ section.id }}">
+
+
+  <div class="hero-media">
+    {% if section.settings.video_mp4_url != blank %}
+      <video autoplay muted playsinline loop preload="metadata" poster="{{ section.settings.poster | image_url: width: 2000 }}">
+        <source src="{{ section.settings.video_mp4_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.poster != blank %}
+      {{ section.settings.poster | image_url: width: 2400 | image_tag: alt: section.settings.title, loading: 'eager' }}
+    {% else %}
+    {% endif %}
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    {% if section.settings.subtitle != blank %}
+      <p class="hero-eyebrow space-thin wow fadeInUp">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <h2 class="hero-title h0 space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <a class="hero-cta wow fadeInUp" href="{{ section.settings.cta_link | default: '#' }}" role="button" data-wow-delay=".2s">
+      <span>{{ section.settings.button }}</span><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9076.svg?v=1758655424">
+    </a>
+  </div>
+
+  <!-- modal -->
+  <div class="video-modal" aria-hidden="true">
+    <div class="video-modal__dialog">
+      <button class="video-modal__close" aria-label="Close">✕</button>
+      <iframe class="video-modal__iframe" src="" title="Video" allow="autoplay; fullscreen" allowfullscreen style="display:none;"></iframe>
+      <video class="video-modal__video" controls playsinline preload="metadata" style="display:none;"></video>
+    </div>
+  </div>
+
+
+</section>
+  <script>
+    (function() {
+      var root = document.getElementById('video-{{ section.id }}');
+      if (!root) return;
+
+      var cta = root.querySelector('.hero-cta');
+      var modal = root.querySelector('.video-modal');
+      var dialog = root.querySelector('.video-modal__dialog');
+      var btnClose = root.querySelector('.video-modal__close');
+      var iframeEl = root.querySelector('.video-modal__iframe');
+      var videoEl = root.querySelector('.video-modal__video');
+
+      var modalUrl = "{{ section.settings.modal_video_url | strip }}";
+      var fallbackMp4 = "{{ section.settings.video_mp4_url | strip }}";
+
+      function isYouTubeOrVimeo(url) {
+        return /youtube\.com|youtu\.be|vimeo\.com/i.test(url || '');
+      }
+
+      function openModal() {
+        var url = modalUrl || fallbackMp4;
+
+        if (!url) return;
+
+        if (isYouTubeOrVimeo(url)) {
+          var src = url;
+          if (/youtube\.com|youtu\.be/i.test(url)) {
+            if (!/embed/.test(url)) {
+              //  youtu.be/ 或常规 watch?v=
+              var idMatch = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+              if (idMatch) src = 'https://www.youtube.com/embed/' + idMatch[1];
+            }
+            src += (src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1&rel=0&modestbranding=1&playsinline=1';
+          } else if (/vimeo\.com/i.test(url)) {
+            var vid = (url.match(/vimeo\.com\/(\d+)/) || [])[1];
+            if (vid) src = 'https://player.vimeo.com/video/' + vid + '?autoplay=1&title=0&byline=0&portrait=0';
+          }
+          iframeEl.src = src;
+          iframeEl.style.display = 'block';
+          videoEl.style.display = 'none';
+        } else {
+          videoEl.src = url;
+          videoEl.style.display = 'block';
+          iframeEl.style.display = 'none';
+          var playPromise = videoEl.play && videoEl.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function(){ });
+          }
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('no-scroll');
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('no-scroll');
+
+        if (videoEl) {
+          try { videoEl.pause(); } catch(e) {}
+          videoEl.removeAttribute('src');
+          videoEl.load();
+          videoEl.style.display = 'none';
+        }
+        if (iframeEl) {
+          iframeEl.removeAttribute('src');
+          iframeEl.style.display = 'none';
+        }
+      }
+
+      if (cta) {
+        cta.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          openModal();
+        });
+      }
+
+      btnClose && btnClose.addEventListener('click', closeModal);
+      modal && modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+  </script>
+{% schema %}
+{
+  "name": "Video Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button label"
+    },
+    {
+      "type": "text",
+      "id": "cta_link",
+      "label": "CTA link (optional, kept for compatibility)"
+    },
+    {
+      "type": "text",
+      "id": "video_mp4_url",
+      "label": "Background MP4 URL (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Background image / Video poster"
+    },
+    {
+      "type": "text",
+      "id": "modal_video_url",
+      "label": "Modal video URL (YouTube/Vimeo/MP4)"
+    }
+   
+  ],
+  "presets": [
+    {
+      "name": "Video Banner"
+    }
+  ]
+}
+{% endschema %}

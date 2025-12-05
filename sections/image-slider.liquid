@@ -1,0 +1,178 @@
+<style>
+.image_slider-section {
+    padding: 8.3125rem 0 6.25rem;
+}
+.imageSwiper{
+   
+}
+.image_slider-content h3{
+   font-size: 1.5625rem;
+    margin: 0;
+    line-height: 1.75rem;
+    color: rgb(0 0 0 / 100%);
+        font-weight: 500;
+}
+.image_slider-content p{
+    font-size: 1.5625rem;
+    margin: 0;
+    line-height: 1.75rem;
+    color: rgb(0 0 0 / 50%);
+    font-weight: 500;
+}
+.image_slider-content{
+    margin-top: 2.9375rem;
+}
+.image_slider-item img {
+    width: 100%;
+}
+.image_slider-item{
+     width: 100%;
+}
+.image_sider-btn > div {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+        width: 53px;
+    height: 53px;
+}
+.image_sider-btn > div:after{
+    display:none
+}
+.image_sider-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 245px;
+    gap: 16px;
+    margin-top: 70px;
+}
+.image_sider-btn > div.swiper-button-prev{
+    transform: rotate(180deg);
+}
+ @media (max-width: 768px) {
+    .image_slider-content {
+        margin-top: 29px;
+        text-align: center;
+    }
+    .image_slider-content h3 {
+        font-size: 17.5px;
+        line-height: 19px;
+    }
+    .image_slider-content p {
+        font-size: 17.5px;
+        line-height: 19px;
+        max-width: 304px;
+        margin: auto;
+    }
+    .image_slider-section {
+        padding: 51.5px 0;
+    }
+    .image_sider-btn {
+  
+    justify-content: center;
+    margin-right: 0;
+    gap: 16px;
+    margin-top: 70px;
+}
+}
+</style>
+<section class="image_slider-section" id="{{ section.settings.custom_id }}">
+    <div class="section_full">
+        <div class="image_sliders">
+             <div class="swiper imageSwiper">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                        <div class="image_slider-item">
+                            <img src="{{ block.settings.image | img_url:'master' }}">
+                            <div class="image_slider-content">
+                                <h3 class="space-thin">{{ block.settings.title }}</h3>
+                                <p class="space-thin">{{ block.settings.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="image_sider-btn">
+             
+             <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ 'swiper.js' | asset_url }}"></script>
+<script>
+        var swiper = new Swiper(".imageSwiper", {
+              navigation: {
+        nextEl: ".image_sider-btn .swiper-button-next",
+        prevEl: ".image_sider-btn .swiper-button-prev",
+      },
+         breakpoints: { 
+          320: {  
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            slidesOffsetBefore: 20,
+            slidesOffsetAfter: 20,
+          },
+          768: {   
+               slidesPerView: 4.5,
+      spaceBetween: 60,
+       slidesOffsetBefore: 300,
+        slidesOffsetAfter: 100,
+          },
+          1280: {  
+                slidesPerView: 4.5,
+      spaceBetween: 60,
+       slidesOffsetBefore: 300,
+        slidesOffsetAfter: 100,
+          }
+        }
+    });
+</script>
+{% schema %}
+{
+  "name": "Image slider",
+  "settings": [
+  {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    }
+   
+  ],
+     "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        },
+        {
+             "type": "text", 
+             "id": "title", 
+             "label": "Title",
+            },
+             {
+             "type": "text", 
+             "id": "desc", 
+             "label": "desc",
+            }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image slider"
+    }
+  ]
+}
+{% endschema %}

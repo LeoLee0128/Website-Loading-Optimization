@@ -1,0 +1,686 @@
+<style>
+.wave_feature2-section{
+    background:url({{ section.settings.bg | img_url:'master' }});
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    {% comment %} height: 3558px; {% endcomment %}
+    padding-top:149px;
+    position: relative;
+    margin-top: -100px;
+  padding-bottom: 150px;
+     background-position: top center;
+}
+.wave_head2 img {
+    display: block;
+    margin: 0 auto 23px;
+    width: 100px;
+}
+.wave_head2 h2{
+    font-size: 66px;
+    font-weight: 600;
+    line-height: 78px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #000;
+    margin: 0 auto 23px;
+    text-align: center;
+    justify-content: center;
+
+
+        background: linear-gradient(270deg, #080400 0%, #B6A087 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    
+}
+.wave_head2 p {
+    color: rgba(24, 24, 24, 0.5);
+    font-size: 25px;
+    line-height: 28px;
+    max-width: 611px;
+    margin: 0 auto;
+}
+.s_label {
+    color: rgba(24, 24, 24, 0.5);
+    font-size: 25px;
+    line-height: 28px;
+    width: 295px;
+    text-align: left;
+}
+.f_dots1 .s_label{
+    position: absolute;
+    top: 264px;
+    left: 23px;
+}
+.f_dots2 .s_label{
+    position: absolute;
+    top: 222px;
+    left: 23px;
+    width: 318px;
+}
+.wave_feature2-left {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    text-align: left;
+    justify-content: space-between;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+.wave_feature2-info {
+    width: 475px;
+}
+.wave_feature2-info h2 {
+    color: #181818;
+    font-size: 66px;
+    line-height: 72px;
+    margin: 0;
+    display: block;
+    font-weight: 600;
+}
+.wave_feature2-info div p{
+    font-size: 25px;
+    line-height: 28px;
+    color: rgba(24, 24, 24, 0.5);
+    font-weight: 500;
+    margin: 42px 0 0;
+}
+.wave_feature2-bottom {
+    margin-top: 222px;
+}
+.wave_feature2-right {
+    max-width: 1320px;
+    margin: 135px auto 0;
+        position: relative;
+}
+.wave_feature2-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 61px 64px;
+}
+.wave_feature2-content h2 {
+    color: #fff;
+    font-size: 30px;
+    line-height: 35px;
+    margin: 11px 0 17px;
+    text-align: left;
+        position: relative;
+}
+.wave_feature2-content h2:after {
+    content: '';
+    background: url(https://cdn.shopify.com/s/files/1/0552/4891/2483/files/84c6d69f7b3c5dd7e22ff3b3359a9cbbe5b7be5514afc-JBY9ru_1x_9394862d-bef3-46b0-aff3-c5ff75d06012.png?v=1761061447);
+    width: 179px;
+    height: 107px;
+    background-size: cover;
+    display: block;
+    position: absolute;
+    left: calc(100% + 10px);
+    top: -30px;
+}
+.wave_feature2-content div{
+    text-align: left;
+    font-size: 20px;
+    line-height: 1;
+    color: rgb(255 255 255 / 50%);
+}
+.wave_feature2-list{
+    display: flex;
+    align-items: flex-start;
+    gap: 52px;
+      max-width: 1320px;
+    margin: 0 auto;
+}
+.wave_feature2-list li{
+    text-align: left;
+    font-size: 25px;
+    line-height: 25px;
+    font-weight: 500;
+    color: #181818;
+}
+.wave_feature2-list li div{
+    margin-top: 36px;
+    color: rgba(24, 24, 24, 0.5);
+}
+.wave_feature2_desc h2 {
+    color: #181818;
+    font-size: 66px;
+    line-height: 72px;
+    margin: 0 0 24px;
+    font-weight: 600;
+}
+.wave_feature2_desc div {
+    font-size: 25px;
+    line-height: 28px;
+    color: rgba(24, 24, 24, 0.5);
+    max-width: 768px;
+    margin: 0 auto;
+}
+.wave_feature2_desc {
+    margin: 155px 0 107px;
+}
+.wave_feature2-list li div strong{
+    color: #181818;
+    font-weight: 500;
+}
+.f_dots1{
+    position: absolute;
+    top: 45%;
+    left: 42.3%;
+}
+.f_dots1 .s_line{
+      width: 1px;
+    height: 404px;
+    position: absolute;
+
+    display: block;
+    background: #181818;
+  }
+  .s_line:after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #181818;
+    display: block;
+    border-radius: 13px;
+    position: absolute;
+    left: -6px;
+    top: 0;
+}
+.f_dots2{
+        position: absolute;
+    top: 33%;
+    left: 62.2%;
+}
+.f_dots2 .s_line{
+      width: 1px;
+    height: 330px;
+    position: absolute;
+
+    display: block;
+    background: #181818;
+  }
+  .s_line {
+  transition: height 0.3s ease; 
+}
+
+.s_label {
+  transition: opacity 0.3s ease;
+}
+.f_dots1 .s_line,
+.f_dots2 .s_line {
+  height: 0 ;
+}
+
+.f_dots1 .s_label,
+.f_dots2 .s_label {
+  opacity: 0;
+}
+.s_label strong {
+    font-weight: normal;
+    color: #181818;
+}
+.ej_images{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .wave_feature2-middle {
+    position: relative;
+    margin-top: 75px;
+}
+@media(max-width:1441px){
+      .wave_feature2-section {
+        background-position: top center;
+    }
+    .s_label {
+        font-size: 18px;
+        line-height: 25px;
+        width: 215px;
+    }
+    .f_dots2 .s_label {
+ 
+    width: 260px;
+}
+   
+}
+  @media(max-width:768px){
+    .wave_feature2-section{
+      background:url({{ section.settings.bg_m | img_url:'master' }});
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-align: center;
+     {% comment %} height: 2940px; {% endcomment %}
+      padding-top:63px;
+      position: relative;
+      margin-top: -50px;
+  }
+  .wave_head2 h2 {
+      font-size: 40px;
+      line-height: 40px;
+            margin-bottom: 28px;
+                padding: 0 30px;
+  }
+  .wave_head2 p{
+      font-size: 17.5px;
+    line-height: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .wave_head2 img {
+    margin: 0 auto 14px;
+    width: 35px;
+}
+.s_line:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: #181818;
+    display: block;
+    border-radius: 13px;
+    position: absolute;
+    left: -2px;
+    bottom: 0;
+    top:auto
+}
+.s_label {
+    font-size: 17.5px;
+    line-height: 20px;
+
+}
+.f_dots1 .s_line{
+    height: 127px!important;
+  }
+.f_dots1 {
+    position: absolute;
+        top: 6.8%;
+        left: 39%;
+    width: 218px;
+}
+.f_dots1 .s_label {
+    position: relative;
+    top: 0;
+    left: 10px;
+          width: 100%;
+          opacity:1!important
+}
+.f_dots2 .s_label {
+    position: relative;
+    top: 105px;
+    left: 10px;
+    width: 100%;
+  opacity:1!important
+}
+.f_dots2 {
+        position: absolute;
+        top: 41.8%;
+        left: 49.5%;
+        width: 167px;
+}
+.wave_feature2-bottom {
+    margin-top: 85px;
+}
+.wave_feature2-info h2 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .wave_feature2-info div p {
+    font-size: 17.5px;
+    line-height: 20px;
+    margin: 28px 0 0;
+}
+.wave_feature2-left {
+    gap: 40px;
+    text-align: center;
+    max-width: 100%;
+    flex-flow: column;
+}
+.wave_feature2-info {
+    width: 100%;
+}
+.wave_feature2_desc div {
+    font-size: 15.5px;
+    line-height: 19px;
+    max-width: 100%;
+  }
+  .wave_feature2_desc h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0 0 28px;
+}
+.wave_feature2-list li {
+    text-align: center;
+    font-size: 17.5px;
+    line-height: 20px;
+  }
+  .wave_feature2-list {
+            margin-top: 65px;
+    gap: 30px;
+    flex-flow: column;
+}
+.wave_feature2-list li img {
+    width: 42px;
+    display: block;
+    margin: 0 auto;
+}
+.wave_feature2-list li div {
+    margin-top: 23px;
+  }
+  .wave_feature2-content {
+      padding: 25px;
+}
+.wave_feature2_desc {
+    margin: 82px 0 39px;
+}
+.wave_feature2-right {
+    max-width: 100%;
+    margin: 0;
+}
+img.win_icon {
+    width: 35px;
+    display: block;
+    margin: 0 auto;
+}
+.wave_feature2-content h2 {
+    font-size: 22px;
+    line-height: 1;
+    margin: 11px 0;
+}
+.wave_feature2-content div {
+    font-size: 15px;
+}
+.wave_feature2-content h2:after {
+    content: '';
+    width: 112px;
+    height: 67px;
+ 
+    left: calc(100% + 5px);
+    top: -18px;
+}
+.f_dots2 .s_line{
+      height: 203px!important;
+}
+    .f_dots2 .s_line:after {
+        content: '';
+      
+        bottom: auto;
+        top: 0;
+    }
+    .wave_feature2-section {
+   
+    padding-bottom: 70px;
+  }
+  .wave_feature2-middle {
+    margin-top: 65px;
+}
+  }
+
+
+@media(max-width:480px){
+    
+}
+@media(max-width:420px){
+   
+}
+@media(max-width:392px){
+    
+   
+}
+@media(max-width:380px){
+  
+   
+}
+</style>
+<section class="wave_feature2-section">
+    <div class="wave_feature2-top">
+        <div class="wave_head2">
+            <div class="wow fadeInUp">
+                 <img src="{{ section.settings.icon | img_url:'master' }}">
+            </div>
+            <h2 class="space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="space-thin wow fadeInUp">{{ section.settings.desc }}</p>
+        </div>
+       
+    </div>
+    <div class="wave_feature2-middle">
+       <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/495_1x_dedb56ff-8136-4973-9db7-1e872c91878c.png?v=1761119023" class="ej_images desktop-img" />
+       <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/496_1x_3ac69537-9404-4800-9d86-8f41306cde29.png?v=1761121161" class="ej_images mobile-img" />
+        <div class="f_dots1">
+            <span class="dots_icon"></span>
+            <div class="s_line"></div>
+            <div class="s_label">{{ section.settings.label1 }}</div>
+        </div>
+         <div class="f_dots2">
+            <span class="dots_icon"></span>
+            <div class="s_line"></div>
+            <div class="s_label">{{ section.settings.label2 }}</div>
+        </div>
+
+      </div>
+    
+    <div class="wave_feature2-bottom">
+        <div class="container">
+        <div class="wave_feature2-left">
+            <div class="wave_feature2-info">
+              <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3555_1x_123ce840-b3d1-4bb7-a242-56cf8eff0e33.png?v=1760621058" class="win_icon wow fadeInUp" />
+                <p class="space-thin wow fadeInUp">{{ section.settings.b_subtitle }}</p>
+                <h2 class="space-thin wow fadeInUp">{{ section.settings.b_title }}</h2>
+                <div class="space-thin wow fadeInUp">{{ section.settings.b_content }}</div>
+            </div>
+            <div class="wave_feature2-image">
+                <img class="desktop-img" src="{{ section.settings.m_image | img_url:'master' }}">
+                <img class="mobile-img" src="{{ section.settings.m_image2 | img_url:'master' }}">
+            </div>
+        </div>
+        <div class="wave_feature2_desc mobile-img">
+            <h2 class="wow fadeInUp">{{ section.settings.d_title }}</h2>
+            <div class="wow fadeInUp">{{ section.settings.d_desc }}</div>
+        </div>
+        <div class="wave_feature2-right">
+            <img class="desktop-img" src="{{ section.settings.b_image | img_url:'master' }}">
+            <img class="mobile-img" src="{{ section.settings.b_image2 | img_url:'master' }}">
+            <div class="wave_feature2-content">
+                <div class="space-thin ">{{ section.settings.r_subtitle }}</div>
+                <h2 class="space-thin ">{{ section.settings.r_title }}</h2>
+                <div class="space-thin ">{{ section.settings.r_subtitle2 }}</div>
+            </div>
+        </div>
+        <div class="wave_feature2_desc desktop-img">
+            <h2 class="wow fadeInUp">{{ section.settings.d_title }}</h2>
+            <div class="wow fadeInUp">{{ section.settings.d_desc }}</div>
+        </div>
+         <ul class="wave_feature2-list">
+         {% for block in section.blocks %}
+            <li class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                <img src="{{ block.settings.icon | img_url:'master' }}">
+                <div class="space-thin">{{ block.settings.text }}</div>
+            </li>
+              {% endfor %}
+        </ul>
+        </div>
+        
+    </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  $('.s_line').css('height', '0');
+  $('.s_label').css('opacity', '0');
+  
+  $(window).scroll(function() {
+    var targetElement = $('.wave_head2 h2');
+    var targetOffset = targetElement.offset().top;
+    var windowHeight = $(window).height();
+    var scrollTop = $(window).scrollTop();
+    
+    if (scrollTop + windowHeight > targetOffset - 200) {
+      $('.f_dots1 .s_line').animate({
+        height: '404px'
+      }, 1500, function() {
+        $('.f_dots1 .s_label').animate({
+          opacity: 1
+        }, 500);
+      });
+      
+      setTimeout(function() {
+        $('.f_dots2 .s_line').animate({
+          height: '330px'
+        }, 1500, function() {
+          $('.f_dots2 .s_label').animate({
+            opacity: 1
+          }, 500);
+        });
+      }, 500);
+      
+      $(window).off('scroll');
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Wave Feature 2",
+  "class": "wave-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg",
+      "label": "Top Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_m",
+      "label": "Background Image mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Top Icon"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Top Title"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Top Description"
+    },
+
+    {
+      "type": "header",
+      "content": "Middle Dots"
+    },
+    {
+      "type": "text",
+      "id": "label1",
+      "label": "Left Label"
+    },
+    {
+      "type": "text",
+      "id": "label2",
+      "label": "Right Label",
+      "default": "Right gain label"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom Left"
+    },
+    {
+      "type": "text",
+      "id": "b_subtitle",
+      "label": "Bottom Left Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "b_title",
+      "label": "Bottom Left Title"
+    },
+    {
+      "type": "richtext",
+      "id": "b_content",
+      "label": "Bottom Left Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image",
+      "label": "Bottom Left Image"
+    },
+     {
+      "type": "image_picker",
+      "id": "m_image2",
+      "label": "Bottom Left Image mobile"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "b_image",
+      "label": "Bottom Right Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "b_image2",
+      "label": "Bottom Right Image mobile"
+    },
+    {
+      "type": "text",
+      "id": "r_subtitle",
+      "label": "Bottom Right Subtitle"
+    },
+     {
+      "type": "text",
+      "id": "r_subtitle2",
+      "label": "Bottom Right Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "r_title",
+      "label": "Bottom Right Title"
+    },
+    
+     {
+      "type": "text",
+      "id": "d_title",
+      "label": "Bottom Title"
+    },
+     {
+      "type": "text",
+      "id": "d_desc",
+      "label": "Bottom desc"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Bottom Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Feature Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Feature Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wave Feature 2"
+     
+    }
+  ]
+}
+{% endschema %}

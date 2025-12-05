@@ -1,0 +1,187 @@
+<style>
+ 
+    .box_list-section.box-{{ section.id }} .section{
+        padding-top: 267px;
+        padding-bottom: 0
+    }
+    .box-{{ section.id }} .box_list-head {
+    text-align: center;
+    margin-top: 0;
+        margin-bottom: 7rem;
+}
+.box-{{ section.id }} .box_list-head h2{
+    margin: 0;
+    font-size: 4.125rem;
+    line-height: 4.5rem;
+    color:#000;
+    font-weight:600
+}
+.box-{{ section.id }} .box_list-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+.box-{{ section.id }} .box_images {
+    width: 418px;
+    flex: none;
+}
+.box-{{ section.id }} .box-lists {
+    width: calc(100% - 388px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.625rem;
+}
+.box-{{ section.id }} .box__item {
+    position: relative;
+    width: 100%;
+}
+.box-{{ section.id }} .b-title {
+    position: absolute;
+    font-size: 1.125rem;
+    font-family: Outfit;
+    padding: 1.5rem;
+        line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
+      font-weight:500
+}
+.box-{{ section.id }} .box__item img {
+    width: 100%;
+}
+.box-{{ section.id }} .box_images h2 {
+    margin-top: 3.125rem;
+    line-height: 1;
+    font-size: 3rem;
+    font-weight: 500;
+    }
+.box_list-section{
+    background: #f6f6f6;
+}
+ @media (max-width: 1442px) {
+      .box_list-section.box-{{ section.id }} .section{
+        padding-top: 223px;
+    }
+        .box-{{ section.id }} .box_list-head {
+   
+        margin-bottom: 5rem;
+}
+}
+ @media (max-width: 768px) {
+    .box_list-section .section {
+    padding-top: 61px;
+    padding-bottom: 43.5px;
+    {% comment %} background: #F6F6F6; {% endcomment %}
+}
+    .box-{{ section.id }} .box_list-head h2 {
+    font-size: 40px;
+    line-height: 41px;
+}
+    .box-{{ section.id }} .box_list-wrapper {
+        flex-flow: column;
+        gap:0
+    }
+    .box-{{ section.id }} .box_images {
+        width: 100%;
+    }
+    .box-{{ section.id }} .box-lists {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .box-{{ section.id }} .b-title {
+        font-size: 15.5px;
+        padding: 19.5px;
+    }
+    .box-{{ section.id }} .box_images h2 {
+        margin-top: 20px;
+        margin-bottom: 28px;
+        font-size: 35px;
+        text-align: center;
+        line-height: 38px;
+    }
+    .box-{{ section.id }} .box_list-head {
+        margin-bottom: 42.5px;
+    }
+
+
+     .box_list-section.box-{{ section.id }} .section{
+        padding-top: 82px;
+    }
+  
+}
+</style>
+<section class="box_list-section box-{{ section.id }}"  id="{{ section.settings.custom_id }}">
+    <div class="section">
+        <div class="box_list-head">
+            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+        </div>
+        <div class="box_list-wrapper">
+            <div class="box_images">
+                  <img src="{{ section.settings.image | img_url:'master' }}" />
+                  <h2 class="space-thin wow fadeInUp">{{  section.settings.name }}</h2>
+            </div>
+              {% if section.blocks.size > 0 %}
+            <div class="box-lists">
+            {% for block in section.blocks %}
+                <div class="box__item" {{ block.shopify_attributes }} >
+                     <div class="b-title space-thin">{{ block.settings.i-title }}</div>
+                    <img src="{{ block.settings.icon | img_url:'master' }}" />
+                   
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Boxs list 2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    },
+     {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+   { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        },
+         {
+             "type": "text", 
+             "id": "name", 
+             "label": "Title",
+            }
+   
+  ],
+     "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "icon", 
+            "label": "Icon" 
+        },
+        {
+             "type": "text", 
+             "id": "i-title", 
+             "label": "Title",
+            }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Boxs list 2"
+    }
+  ]
+}
+{% endschema %}

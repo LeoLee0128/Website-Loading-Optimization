@@ -1,0 +1,148 @@
+<style>
+  .three_list-section{
+    margin-top:197px
+  }
+.three_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24.86px;
+    width: 100%;
+}
+a.three_btn {
+    padding: 13px 18px;
+    background: #000000;
+    font-size: 17.18px;
+    color: #fff;
+    line-height: 18.99px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 47px;
+    {% comment %} font-family: var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style); {% endcomment %}
+    transition: all .4s ease;
+    font-family:Outfit-Regular;
+}
+.three_item_desc {
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 25px;
+{% comment %} color: rgba(24, 24, 24, 0.8);
+        font-family: var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style); {% endcomment %}
+font-family:Outfit-Regular;
+}
+.three_item_title{
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 27px;
+    margin: 36px 0 20.5px;
+}
+.three_item img{
+ transition: all .4s ease;    
+}
+.img_l{
+  overflow:hidden;
+    border-radius: 15px;
+}
+.three_item img:hover{
+    transform: scale(1.1);
+}
+.three_btn:hover{
+    background:#2AACE6
+}
+ @media (max-width: 768px) {
+.three_list {
+    grid-template-columns: repeat(1, 1fr);
+            gap: 74px;
+  
+}
+.three_item_wrapper {
+    text-align: center;
+}
+.three_item_title {
+    font-size: 38px;
+    line-height: 39px;
+    margin: 30px 0 12.5px;
+}
+.three_item_desc {
+    font-size: 16.5px;
+    line-height: 22px;
+  }
+  a.three_btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 15px;
+    margin-top:30px
+  }
+  .three_list-section {
+    margin-top: 69.5px;
+}
+}
+</style>
+<section class="three_list-section">
+    <div class="container">
+        <div class="three_list">
+        
+           {% for block in section.blocks %}
+             <div class="three_item">
+               <div class="img_l"><img src="{{ block.settings.image | img_url:'master' }}" /></div>
+                <div class="three_item_wrapper">
+                    <div class="three_item_title wow fadeInUp">{{ block.settings.title }}</div>
+                    <div class="three_item_desc wow fadeInUp">{{ block.settings.desc | newline_to_br }}</div>
+                    {% if  block.settings.link !=blank %}
+                      <a href="{{ block.settings.link }}" class="three_btn">Learn more</a>
+                    {% endif %}
+                 </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Three image",
+  "settings": [
+    
+   
+  ],
+    "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+       
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        },
+        {
+             "type": "text", 
+             "id": "title", 
+             "label": "title",
+            },
+             { 
+            "type": "textarea", 
+            "id": "desc", 
+            "label": "desc" 
+        },
+         {
+             "type": "url", 
+             "id": "link", 
+             "label": "button link"
+            }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three image"
+    }
+  ]
+}
+{% endschema %}

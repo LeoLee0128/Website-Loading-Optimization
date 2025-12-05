@@ -1,0 +1,238 @@
+<style>
+    .tv_section{
+            margin-top: 321px;
+        padding-bottom:229px
+    }
+    .tv_head {
+        text-align: center;
+        max-width: 963px;
+        margin: 0 auto;
+    }
+    .tv_head ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+        margin-top: 65px;
+        margin-bottom: 88px;
+    }
+    .tv_head h2 {
+        color: #181818;
+        font-size: 66px;
+        line-height: 72px;
+        margin: 0 auto 50px;
+        font-weight: 600;
+    }
+    .tv_head p {
+        font-size: 25px;
+        line-height: 28px;
+        color: rgba(24, 24, 24, 0.5);
+        margin: 0;
+    }
+    .tv_image-text{
+        display: flex;
+        align-items: center;
+        gap: 55px;
+    margin-top: 128px;
+    }
+    .tv_feature{
+        width: 800px;
+        flex: none;
+    }
+    .tv_info h2{
+        font-size: 66px;
+        line-height: 72px;
+        color: #181818;
+        font-weight: 600;
+          margin:18px 0 24px
+    }
+    .tv__subtitle{
+         font-size: 30px;
+        line-height: 35px;
+        color: #181818;
+      
+    }
+    .tv__desc{
+         font-size: 25px;
+        line-height: 28px;
+        color: rgba(24, 24, 24, 0.5);
+    }
+    .tv__desc p {
+        margin: 0;
+        padding-right: 50px;
+    }
+    .tv_wrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+  @media (max-width: 1442px){
+    .tv_feature {
+        width: 56%;
+        flex: none;
+    }
+  }
+    @media(max-width:768px){
+      .tv_section {
+          margin-top: 172px;
+          padding-bottom: 0;
+      }
+      .tv_head h2 {
+          font-size: 40px;
+          line-height: 40px;
+          margin: 0 auto 28px;
+      }
+      .tv_head p {
+          font-size: 17.5px;
+          line-height: 20px;
+        }
+        .tv_head ul {
+    gap: 29px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.tv_head ul li{
+    width: 35px;
+    height: 35px;
+  }
+  .tv_image-text {
+    gap: 40px;
+    margin-top: 54px;
+    flex-flow: column;
+    text-align: center;
+}
+.tv_feature {
+    width: 100%;
+}
+.tv_info h2 {
+    font-size: 40px;
+    line-height: 40px;
+    margin: 18px 0 21px;
+}
+.tv__desc {
+    font-size: 17.5px;
+    line-height: 20px;
+}
+.tv__desc p {
+    padding-right: 0;
+}
+.tv__subtitle {
+    font-size: 15px;
+    line-height: 20px;
+}
+    }
+</style>
+<section class="tv_section">
+    <div class="container">
+        <div class="tv_wrapper">
+            <div class="tv_head">
+                <h2 class="wow fadeInUp">{{ section.settings.title }}</h2>
+                <div class=" wow fadeInUp">{{ section.settings.desc }}</div>
+                <ul>
+                     {% for block in section.blocks %}
+                    <li class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                         <img src="{{ block.settings.icon | img_url:'master' }}">
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                 <img class="desktop-img" src="{{ section.settings.banner | img_url:'master' }}">
+                 <img class="mobile-img" src="{{ section.settings.banner_m | img_url:'master' }}">
+            </div>
+            <div class="tv_image-text">
+                <div class="tv_info">
+                    <div class="tv__subtitle wow fadeInUp">{{ section.settings.i_subtitle }}</div>
+                    <h2 class="wow fadeInUp">{{ section.settings.i_title }}</h2>
+                    <div class="tv__desc wow fadeInUp">{{ section.settings.i_content }}</div>
+                </div>
+                <div class="tv_feature">
+                     <img class="desktop-img" src="{{ section.settings.image | img_url:'master' }}">
+                     <img class="mobile-img" src="{{ section.settings.image_m | img_url:'master' }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "TV Feature",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Subheading / Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner",
+      "label": "Main Banner Image"
+    },
+     {
+      "type": "image_picker",
+      "id": "banner_m",
+      "label": "Main Banner Image mobile"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Left Info"
+    },
+    {
+      "type": "text",
+      "id": "i_subtitle",
+      "label": "Info Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "i_title",
+      "label": "Info Title",
+      "default": "Connect to what matters"
+    },
+    {
+      "type": "richtext",
+      "id": "i_content",
+      "label": "Info Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Feature Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_m",
+      "label": "Right Feature Image mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Head Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TV Feature",
+      "blocks": [
+        {
+          "type": "icon"
+        },
+        {
+          "type": "icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

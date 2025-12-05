@@ -1,0 +1,511 @@
+
+<style>
+  .seq-{{ section.id }}.seq-section{
+    height:400vh; 
+    position:relative;
+}
+  .scroll2.section{
+padding-top:0;
+padding-bottom:0
+}
+  .seq-{{ section.id }} .seq-stage{
+    position:sticky; 
+    top:140px;
+     {% comment %} height:var(--vh); {% endcomment %}
+     height:1000px;
+    display: flex;
+    overflow: hidden;
+    align-items: flex-start;
+        justify-content: center;
+        {% comment %} margin-right: 22rem; {% endcomment %}
+  }
+  .seq-{{ section.id }} .stage-inner{
+    position:relative; 
+    width: min(44.375rem, 92vw);
+    height: min(700px, 26.625rem);
+    }
+  .seq-{{ section.id }} .frame{
+    position:absolute; 
+    inset:0; 
+    display:block; 
+    width:100%;
+    height:auto; 
+    object-fit:cover; 
+    {% comment %} filter:drop-shadow(0 30px 60px rgba(0,0,0,.35)); {% endcomment %}
+    user-select:none; 
+    pointer-events:none;
+  }
+ .seq-{{ section.id }} .frame.mobile-img{
+  display:none
+}
+  .seq-{{ section.id }} .overlay{
+    position:absolute; 
+    inset:0;
+  overflow:visible
+}
+  .seq-{{ section.id }} .overlay path{
+       stroke: #8B8B8B;
+    stroke-width: 1;
+    fill: none;
+    opacity: 1;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .seq-{{ section.id }} .copy{
+        position: absolute;
+    text-align: left;
+    opacity: 0;
+    {% comment %} filter: blur(8px); {% endcomment %}
+    /* background: rgba(0, 0, 0, 0.6); */
+    /* padding: 12px 16px; */
+    /* border-radius: 8px; */
+    min-width: 15rem;
+  }
+  .seq-{{ section.id }} .copy.left{
+    left: -38.5%;
+    top: 72%;
+    transform: translateY(-50%);
+
+  }
+  .seq-{{ section.id }} .copy.right{
+    left: 84%;
+    top: 137%;
+    transform: translateY(0);
+  }
+  .seq-{{ section.id }} .copy.bottom{
+    left: 46%;
+    top: 115%;
+    transform: translateX(-50%);
+      text-align: center;
+  }
+ .seq-{{ section.id }} .copy.bottom img{
+    margin:0 auto 1.375rem
+}
+.copy img {
+    height: 5.0625rem;
+    margin-bottom:1.375rem
+}
+  .seq-{{ section.id }} .title{
+    font-size: 1.5625rem;
+    line-height:1.75rem; 
+    margin:0;
+    font-weight:500;
+    color:#000
+  }
+  .seq-{{ section.id }} .desc{
+    line-height:1.75rem;
+     margin:0; 
+    font-size: 1.5625rem;
+    color:rgb(24 24 24 / 50%);
+    font-weight:500;
+}
+
+.seq-{{ section.id }} .dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #C2C1C1;
+}
+  .seq-{{ section.id }} .dot.left{
+    left: 29%;
+    top: 47%;
+  }  
+  .seq-{{ section.id }} .dot.middle{
+    left: 45.5%;
+    top: 46%;
+  }  
+  .seq-{{ section.id }} .dot.right {
+    top: 46%;
+    left: 72.5%;
+}
+.center_contents {
+    text-align: left;
+    margin-left: 30px;
+}
+ @media (max-width: 1600px) {
+  .seq-{{ section.id }}{
+     zoom: .8;
+  }
+ 
+}
+ @media (max-width: 1440px) {
+  .seq-{{ section.id }} .stage-inner{
+    position:relative; 
+    }
+  }
+ @media (max-width: 1280px) {
+    .seq-{{ section.id }} .dot.left{
+    top: 50.2%;
+  }  
+  .seq-{{ section.id }} .dot.middle{
+    top: 49%;
+  }  
+  .seq-{{ section.id }} .dot.right {
+    top: 49%;
+}
+  }
+ @media (max-width: 768px) {
+    .seq-{{ section.id }}.seq-section{
+    height:auto; 
+}
+  .copy img {
+      height: 30px;
+  }
+  .seq-{{ section.id }} .seq-stage{
+            top: 0;
+        overflow: hidden;
+        position: relative;
+                height: auto;
+  }
+  .seq-{{ section.id }} .stage-inner{
+        height: auto;
+        width: 100%;
+        {% comment %} overflow:hidden {% endcomment %}
+    }
+     .seq-{{ section.id }} .frame.desktop-img{
+       display:none
+    }
+  .seq-{{ section.id }} .dot {
+    display:none
+  }
+   .seq-{{ section.id }} .frame.mobile-img{
+  display:block;
+  position:relative
+}
+  .seq-{{ section.id }} .overlay{
+  display:none
+}
+.copy img{
+    display:none
+}
+  .seq-{{ section.id }} .copy.left{
+    left: 6.5%;
+    top: 60%;
+     max-width:100%
+
+  }
+    .seq-{{ section.id }} .copy.bottom{
+      left: 46%;
+      top: 14%;
+      text-align: left;
+      width:170px
+  }
+    .seq-{{ section.id }} .title{
+      font-size: 15.5px;
+      line-height:19px;
+      margin:0;
+      font-weight:500;
+    }
+  .seq-{{ section.id }} .desc{
+    font-size: 15.5px;
+      line-height:19px; 
+      margin:0;
+    color:rgb(24 24 24 / 50%)
+}
+.seq-{{ section.id }} .copy{ 
+    transform:none!important;
+  opacity:1!important;
+  max-width:100%
+}
+  .seq-{{ section.id }} .copy.right{
+    left: 52%;
+    top:81%;
+  }
+.center_contents {
+    text-align: left;
+    margin-left: 0;
+    width: 164px;
+}
+.scroll2.section {
+    padding: 0;
+}
+}
+</style>
+
+
+ <div class="section scroll2" id="{{ section.settings.custom_id }}">
+  <section class="seq-section seq-{{ section.id }}" id="seq">
+       
+    <div class="seq-stage">
+      <div class="stage-inner">
+        <img id="frame" class="frame desktop-img" src="{{ section.settings.pro_image | img_url:'master' }}" alt="" />
+        <img class="frame mobile-img" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9049_2x_1ed61882-b76a-45ba-8868-a01ae52a6166.png?v=1760175913" />
+
+        <svg class="overlay" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
+        <g class="dots">
+          <circle cx="328" cy="432" r="10" fill="#8B8B8B"/>
+          <circle cx="553" cy="432" r="10" fill="#8B8B8B"/>
+          <circle cx="960" cy="436" r="10" fill="#8B8B8B"/>
+        </g>
+          <path id="lineL" d="M320 430 L -264 430" />
+          <path id="lineM" d="M553 430 L 553 816" />
+          <path id="lineR" d="M960 440 L 1077 440 L 1077 820" />
+
+        </svg>
+
+        {% comment %} <span class="dot left"></span>
+        <span class="dot middle"></span> {% endcomment %}
+        {% comment %} <span class="dot right"></span> {% endcomment %}
+         {% for block in section.blocks %}
+                {% if block.type == 'left_item' and block.settings.image != blank %}
+                    <div class="copy left" id="copyL">
+                        <img src="{{ block.settings.image | img_url:'master' }}">
+                        <h3 class="title space-thin">{{block.settings.stitle}}</h3>
+                        <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                    </div>
+                {% endif %}
+         {% endfor %}
+         {% for block in section.blocks %}
+                {% if block.type == 'right_item' and block.settings.image != blank %}
+                       <div class="copy right" id="copyR">
+                            <img src="{{ block.settings.image | img_url:'master' }}">
+                            <h3 class="title space-thin">{{block.settings.stitle}}</h3>
+                            <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                        </div>
+                {% endif %}
+        {% endfor %}
+        {% for block in section.blocks %}
+                    {% if block.type == 'middle_item' and block.settings.image != blank %}
+                        <div class="copy bottom" id="copyM">
+                            <img src="{{ block.settings.image | img_url:'master' }}">
+                            <div class="center_contents">
+                            <h3 class="title space-thin">{{block.settings.stitle}}</h3>
+                            <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+  </section>
+    </div>
+<script>
+(function($) {
+  $(function() {
+    var section = $('.seq-{{ section.id }}');
+    if (!section.length) return;
+
+    // ================= Acceleration config =================
+    const FRAME_SPEED = 3;      // 序列帧推进倍速（越大越快，建议 2~3）
+    const FRAME_START = 0.00;     // 帧开始区间起点
+    const FRAME_RANGE = 0.5;     // 帧播放覆盖的滚动区间（0~1）
+    // =======================================================
+
+    const TOTAL_FRAMES = 60;
+    const FRAME_PATH = i => `{{ section.settings.pro_image | img_url:'master' }}`;
+
+    const clamp = (v,min=0,max=1)=>Math.max(min,Math.min(max,v));
+    const lerp = (a,b,t)=>a+(b-a)*t;
+
+    var frameImg = section.find('#frame');
+    var lineL = section.find('#lineL');
+    var lineM = section.find('#lineM');
+    var lineR = section.find('#lineR');
+    var copyL = section.find('#copyL');
+    var copyR = section.find('#copyR');
+    var copyM = section.find('#copyM');
+
+    if (!frameImg.length || !lineL.length || !lineM.length || !lineR.length) return;
+
+    // 预加载前 N 帧，避免初次闪烁
+    (function preload(n=8){
+      for(let i=1;i<=Math.min(n,TOTAL_FRAMES);i++){ 
+        const im=new Image(); 
+        im.src=FRAME_PATH(i); 
+      }
+    })();
+
+    function initPath($p){
+      var p = $p[0];
+      const len = p.getTotalLength();
+      $p.css({
+        'stroke-dasharray': len,
+        'stroke-dashoffset': len
+      });
+      return len;
+    }
+    
+    const lenL = initPath(lineL);
+    const lenM = initPath(lineM);
+    const lenR = initPath(lineR);
+
+    function getProgress(){
+      const rect = section[0].getBoundingClientRect();
+      const viewH = $(window).height();
+      const total = Math.max(1, section[0].offsetHeight - viewH);
+      return clamp(-rect.top / total);
+    }
+
+    let lastIndex = -1;
+    let isActive = false;
+
+    function render(){
+      if (!isActive) return;
+      
+      const p = getProgress();
+
+      // 序列帧（加速映射）
+      const pFrames = clamp(((p - FRAME_START) * FRAME_SPEED) / FRAME_RANGE);
+      const index = 1 + Math.round(pFrames * (TOTAL_FRAMES - 1));
+      if (index !== lastIndex){
+        frameImg.attr('src', FRAME_PATH(index));
+        lastIndex = index;
+      }
+
+      // 左线条+文案 (20%~60%)
+      const pLeft = clamp((p - 0.10) / 0.30);
+      lineL.css('stroke-dashoffset', lerp(lenL, 0, pLeft));
+      if (copyL.length) {
+        copyL.css({
+          'opacity': pLeft,
+          'transform': `translateY(-50%) translateX(${(1-pLeft)*-20}px)`
+        });
+      }
+
+      // 中线条+文案 (40%~70%)
+      const pMiddle = clamp((p - 0.40) / 0.30);
+      lineM.css('stroke-dashoffset', lerp(lenM, 0, pMiddle));
+      if (copyM.length) {
+        copyM.css({
+          'opacity': pMiddle,
+          'transform': `translateX(-50%) translateY(${(1-pMiddle)*20}px)`
+        });
+      }
+
+      // 右线条+文案 (70%~100%)
+      const pRight = clamp((p - 0.70) / 0.30);
+      lineR.css('stroke-dashoffset', lerp(lenR, 0, pRight));
+      if (copyR.length) {
+        copyR.css({
+          'opacity': pRight,
+          'transform': `translateY(-50%) translateX(${(1-pRight)*20}px)`
+        });
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ 
+          isActive = true;
+          render(); 
+        } else { 
+          isActive = false;
+        }
+      });
+    },{root:null,threshold:0,rootMargin:"200px"});
+    
+    io.observe(section[0]);
+
+    function setVH(){ 
+      $('html').css('--vh', $(window).height() + 'px');
+    }
+    setVH(); 
+    $(window).on('resize', setVH);
+  });
+})(jQuery);
+</script>
+
+{% schema %}
+{
+  "name": "Scroll image dot 2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    },
+     {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+   { 
+            "type": "image_picker", 
+            "id": "pro_image", 
+            "label": "image" 
+        }
+       
+   
+  ],
+     "blocks": [
+        {
+            "type": "left_item",
+            "name": "left item",
+            "settings": [
+                { 
+                    "type": "image_picker", 
+                    "id": "image", 
+                    "label": "Icon" 
+                },
+                 {
+                    "type": "text", 
+                    "id": "stitle", 
+                    "label": "title",
+                    },
+                {
+                    "type": "html", 
+                    "id": "sdesc", 
+                    "label": "desc",
+                    }
+            
+            ]
+        },
+        {
+            "type": "middle_item",
+            "name": "middle item",
+            "settings": [
+                { 
+                    "type": "image_picker", 
+                    "id": "image", 
+                    "label": "Icon" 
+                },
+                 {
+                    "type": "text", 
+                    "id": "stitle", 
+                    "label": "title",
+                    },
+                {
+                    "type": "html", 
+                    "id": "sdesc", 
+                    "label": "desc",
+                    }
+            
+            ]
+        },
+        {
+            "type": "right_item",
+            "name": "right item",
+            "settings": [
+                { 
+                    "type": "image_picker", 
+                    "id": "image", 
+                    "label": "Icon" 
+                },
+                 {
+                    "type": "text", 
+                    "id": "stitle", 
+                    "label": "title",
+                    },
+                {
+                    "type": "html", 
+                    "id": "sdesc", 
+                    "label": "desc",
+                    }
+            
+            ]
+        }
+  ],
+  "presets": [
+    {
+      "name": "Scroll image dot 2"
+    }
+  ]
+}
+{% endschema %}

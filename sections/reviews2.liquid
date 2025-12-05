@@ -1,0 +1,604 @@
+<style>
+  
+    .review_ss-section {
+        margin-top: 170px;
+        padding-bottom: 68.5px;
+    }
+  
+    .review_ss-header {
+        font-weight: 600;
+        margin-bottom: 68.5px;
+    }
+    .review_ss-title-s{
+        font-size: 66px;
+        line-height: 72px;
+        margin: 0;
+        color: rgba(24, 24, 24, 0.5);
+        margin-top: -10px;
+    }
+    .review_ss-title {
+        font-size: 66px;
+        line-height: 72px;
+        margin:0
+    }
+  
+    .view-more-btn {
+        background: #000000;
+        border: none;
+        width: 132px;
+        height: 45px;
+        border-radius: 45px;
+        font-size: 17.18px;
+        font-weight: 400;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+        line-height: 43px;
+        font-family:var(--font-regular-family);
+        font-weight: var(--font-regular-weight);
+        font-style: var(--font-regular-style);
+        transition: all .4s ease;
+    }
+    .view-more-btn:hover{
+        background: #2AACE6;
+    }
+    .review_ss-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 15px;
+        column-count: 4;   
+        column-gap: 15px; 
+    }
+    .reviews_top {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 4px;
+    }
+    .review_s-card {
+        display: inline-block;   
+        width: 100%;
+        margin: 0;      
+        break-inside: avoid;  
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid; 
+        background: #F4F4F4;
+        padding: 16px 23px;
+        border-radius: 10px;
+    }
+    .review_s-card.hidden-more {
+        display: none!important;
+    }
+    .review_s-media img{ 
+        width:100%; 
+        height:auto; 
+        display:block; 
+    }
+
+    /* 新增：视频统一样式 */
+    .review_s-media video.review_s-video {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @media (max-width: 1200px){
+        .review_ss-grid{ column-count: 4; }
+    }
+    @media (max-width: 992px){
+        .review_ss-grid{ 
+            column-count: 2; 
+        }
+    }
+  
+    .review_ser-name {
+        font-size: 12px;
+        color: #000;
+        margin: 0;
+    }
+    .review_s-source {
+        font-size: 12px;
+        line-height: 1;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .review_s-text {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 4px;
+    }
+  
+    .review_s-date {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+  
+    .review_s-media {
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .video-thumbnail {
+        position: relative;
+        cursor: pointer;
+    }
+    .review_s-media img.video_btn {
+        width: 114px;
+        height: auto;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .video-overlay {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .review_ss-grid{
+        position:relative
+    }
+    .review_s-card{
+        position:absolute;
+        width:auto
+    } 
+    .reviews__bottom{
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+        height: 353px;
+        opacity: 1;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 93px;
+    }
+    .review_s-card.images_card {
+        padding: 0;
+    }
+    .review_s-card.image-ttx {
+        padding: 16px;
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+    }
+    .review_s-card.video-thumbnail {
+        padding: 0;
+        background: transparent;
+    }
+    a.show-less-reviews-btn.view-more-btn {
+        margin-bottom: -80px;
+    }
+    .mmm_btn{
+        background: #fff;
+        border: none;
+        width: 132px;
+        height: 45px;
+        border-radius: 45px;
+        font-size: 17.18px;
+        font-weight: 400;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        color: #181818;
+        line-height: 43px;
+        font-family: var(--font-regular-family);
+        font-weight: var(--font-regular-weight);
+        font-style: var(--font-regular-style);
+        border: 1px solid #181818;
+        margin-left: 20px;
+    }
+    .mmm_btn.mmmactive{
+        margin-bottom: -80px;
+    }
+
+    @media (max-width: 768px) {
+        a.show-less-reviews-btn.view-more-btn {
+            margin-bottom: 0;
+        }
+        .review_ss-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .review_ss-grid{ 
+            column-count: 3;
+        }
+        .review_s-card{
+            padding:10px
+        }
+        .review_s-text {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .review_ss-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+        .review_s-source img {
+            height: 10px;
+        }
+        .reviews__bottom a {
+            font-size: 14px;
+        }
+        .review_ss-title {
+            font-size: 38px;
+            line-height: 39px;
+            text-align: center;
+        }
+        .review_ss-title-s {
+            font-size: 38px;
+            line-height: 39px;
+            margin-top: -2px;
+            text-align: center;
+        }
+        .reviews__bottom {
+            padding-bottom: 23px;
+        }
+        .review_ss-section {
+            margin-top: 72px;
+            padding-bottom: 0;
+        }
+        .review_s-media img.video_btn {
+            width: 70px;
+        }
+    }
+</style>
+
+<section class="review_ss-section">
+  <div class="container">
+    <div class="review_ss-header">
+      <h2 class="review_ss-title wow fadeInUp">{{ section.settings.title  }}</h2>
+      <h2 class="review_ss-title-s wow fadeInUp">{{ section.settings.stitle }}</h2>
+      {% if section.settings.view_more_url != blank %}
+        <a href="{{ section.settings.view_more_url }}" class="view-more-btn">{{ section.settings.view_more_text }}</a>
+      {% endif %}
+    </div>
+    
+    {% assign initial_display_count = section.settings.initial_display_count | default: 9 | plus: 0 %}
+    
+    <div class="review_ss-grid">
+      {% for block in section.blocks %}
+        {% assign block_index = forloop.index0 %}
+        <div class="review_s-card
+           {% if block.settings.media_type == 'image' %} images_card {% endif %}
+           {% if block.settings.media_type == 'video' %} video-thumbnail {% endif %}
+           {% if block.settings.media_type == 'image_txt' %} image-ttx {% endif %}
+           {% if block_index >= initial_display_count %} hidden-more {% endif %}"
+            {{ block.shopify_attributes }}>
+           
+          {% if block.settings.media_type == 'image' and block.settings.media_image != blank %}
+            <div class="review_s-media">
+              <img src="{{ block.settings.media_image | img_url: 'master' }}" alt="{{ block.settings.media_alt | escape }}">
+            </div>
+          {% elsif block.settings.media_type == 'image_txt' %}
+            <div class="review_s-media">
+              <img src="{{ block.settings.media_image | img_url: 'master' }}" alt="{{ block.settings.media_alt | escape }}">
+            </div>
+
+          {% elsif block.settings.media_type == 'video' and block.settings.video_file != blank %}
+            <div class="review_s-media">
+              {%- comment -%} 中间的播放按钮图标 {%- endcomment -%}
+              <img
+                src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/92691c477f0e677531a746a72a9535d1_784fd672-cbaf-4ed6-9181-55f85a3a5044.svg?v=1762271867"
+                class="video_btn" />
+
+              {%- comment -%}
+                优先用你在 block 里上传的 video_thumbnail，
+                没传的话就用视频自带的 preview_image
+              {%- endcomment -%}
+              {%- assign poster_image = block.settings.video_thumbnail | default: block.settings.video_file.preview_image -%}
+
+              {%- if poster_image != blank -%}
+                {%- assign poster_url = poster_image | image_url: width: 2000 -%}
+                {{ block.settings.video_file | video_tag:
+                  image_size: '2000x',
+                  class: 'review_s-video',
+                  autoplay: false,
+                  loop: true,
+                  muted: true,
+                  controls: false,
+                  playsinline: true,
+                  preload: 'metadata',
+                  poster: poster_url
+                }}
+              {%- else -%}
+                {{ block.settings.video_file | video_tag:
+                  image_size: '2000x',
+                  class: 'review_s-video',
+                  autoplay: false,
+                  loop: true,
+                  muted: true,
+                  controls: false,
+                  playsinline: true,
+                  preload: 'metadata'
+                }}
+              {%- endif -%}
+            </div>
+          {% endif %}
+
+
+
+          <div>
+            {% if block.settings.pic !=blank %}
+              <div class="reviews_top">
+                {% if block.settings.pic !=blank %}
+                  <img src="{{ block.settings.pic | img_url:'master' }}" />
+                {% endif %}
+                <div class="reviews_info">
+                  {% if block.settings.review_ser_name != blank %}
+                    <div class="review_ser-name">{{ block.settings.review_ser_name }}</div>
+                  {% endif %}
+                  {% if block.settings.source != blank %}
+                    <div class="review_s-source">{{ block.settings.source }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.review_s_text != blank %}
+              <div class="review_s-text">{{ block.settings.review_s_text }}</div>
+            {% endif %}
+            {% if block.settings.review_s_date != blank %}
+              <div class="review_s-date">{{ block.settings.review_s_date }}</div>
+            {% endif %}
+          </div>
+       
+        </div>
+      {% endfor %}
+    </div>
+
+    {% assign total_blocks = section.blocks.size %}
+    {% if total_blocks > initial_display_count %}
+      <div class="reviews__bottom" data-initial-count="{{ initial_display_count }}">
+        <a href="#" class="learn-more-reviews-btn view-more-btn">Learn more</a>
+        <a href="#" class="show-less-reviews-btn view-more-btn" style="display: none;">Show less</a>
+        {% if  section.settings.mbtn_url !=blank %}
+          <a href="{{ section.settings.mbtn_url }}" class="mmm_btn">{{ section.settings.mbtn }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+  </div>
+</section>
+
+<script>
+$(function(){
+  var $wrap = $('.review_ss-grid');
+  var gap = 15;
+  
+  // 从 data 属性获取初始显示数量
+  var initialDisplayCount = parseInt($('.reviews__bottom').data('initial-count')) || 9;
+
+  function colsFor(w){
+    if (w < 576) return 2;
+    if (w < 992) return 2;
+    if (w < 1200) return 4;
+    return 4;
+  }
+
+  function layout(){
+    var wrapW = $wrap.innerWidth();
+    var cols = colsFor(wrapW);
+    var colW = (wrapW - (cols - 1) * gap) / cols;
+    var heights = Array(cols).fill(0);
+
+    $wrap.children('.review_s-card').not('.hidden-more').each(function(){
+      var $it = $(this);
+      $it.css({width: colW});
+      var minIdx = 0;
+      for (var i = 1; i < cols; i++) if (heights[i] < heights[minIdx]) minIdx = i;
+      var left = minIdx * (colW + gap);
+      var top  = heights[minIdx];
+      $it.css({transform: 'translate(' + left + 'px,' + top + 'px)'});
+      heights[minIdx] = top + $it.outerHeight(true) + gap;
+    });
+
+    $wrap.css('height', Math.max.apply(null, heights));
+  }
+
+  layout();
+  $(window).on('resize', function(){ layout(); });
+
+  $wrap.find('img').each(function(){
+    if (this.complete) return;
+    $(this).one('load error', layout);
+  });
+
+  // Hover 自动播放视频（桌面）
+  $('.review_s-card.video-thumbnail')
+  .on('mouseenter', function(){
+    var v = $(this).find('video.review_s-video').get(0);
+    if (!v) return;
+    v.muted = true;
+    var playPromise = v.play();
+    if (playPromise && playPromise.catch) {
+      playPromise.catch(function(){});
+    }
+    $(this).find('.video_btn').hide();
+  })
+  .on('mouseleave', function(){
+    var v = $(this).find('video.review_s-video').get(0);
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
+    $(this).find('.video_btn').show();
+  });
+
+
+  // 移动端：轻触播放/暂停
+  $('.review_s-card.video-thumbnail').on('touchstart', function(){
+    var v = $(this).find('video').get(0);
+    if (!v) return;
+    if (v.paused) {
+      v.muted = true;
+      v.play().catch(function(){});
+      $(this).find('.video_btn').hide();
+    } else {
+      v.pause();
+      v.currentTime = 0;
+      v.load();
+      $(this).find('.video_btn').show();
+    }
+  });
+
+  // 展开更多
+  $('.learn-more-reviews-btn').on('click', function(e){
+    e.preventDefault();
+    $('.review_s-card.hidden-more').removeClass('hidden-more');
+    setTimeout(function(){
+      layout();
+      $wrap.find('img').each(function(){
+        if (!this.complete) {
+          $(this).one('load error', layout);
+        }
+      });
+    }, 100);
+    $(this).hide();
+    $('.show-less-reviews-btn').show();
+    $('.mmm_btn').addClass("mmmactive");
+  });
+
+  // 收起
+  $('.show-less-reviews-btn').on('click', function(e){
+    e.preventDefault();
+    $wrap.children('.review_s-card').each(function(index){
+      if (index >= initialDisplayCount) {
+        $(this).addClass('hidden-more');
+      }
+    });
+    setTimeout(function(){
+      layout();
+    }, 100);
+    $(this).hide();
+    $('.learn-more-reviews-btn').show();
+    $('.mmm_btn').removeClass("mmmactive");
+  });
+
+});
+</script>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "stitle",
+      "label": "SubTitle"
+    },
+    {
+      "type": "number",
+      "id": "initial_display_count",
+      "label": "Initial Display Count",
+      "default": 9,
+      "info": "Number of reviews to show initially before 'Learn more' button"
+    },
+    {
+      "type": "text",
+      "id": "mbtn",
+      "label": "button"
+    },
+    {
+      "type": "url",
+      "id": "mbtn_url",
+      "label": "button url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review_s",
+      "name": "review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "pic",
+          "label": "pic"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "review @"
+        },
+        {
+          "type": "text",
+          "id": "review_ser_name",
+          "label": "review_ser Name"
+        },
+        {
+          "type": "textarea",
+          "id": "review_s_text",
+          "label": "review_s Text"
+        },
+        {
+          "type": "text",
+          "id": "review_s_date",
+          "label": "review_s Date"
+        },
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "image", "label": "Image" },
+            { "value": "image_txt", "label": "Image with text" },
+            { "value": "video", "label": "Video Thumbnail" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "media_image",
+          "label": "Media Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "video_thumbnail",
+          "label": "Video image"
+        },
+        {
+          "type": "video",
+          "id": "video_file",
+          "label": "Review video (Shopify file MP4)"
+        },
+        {
+          "type": "text",
+          "id": "media_alt",
+          "label": "Media Alt Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews"
+    }
+  ]
+}
+{% endschema %}

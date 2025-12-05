@@ -1,0 +1,117 @@
+<style>
+    .two_image-section .section{
+        padding-top: 7.3125rem;
+        padding-bottom: 0.8125rem;
+    }
+.two_list {
+    display: flex;
+    gap: 1.875rem;
+    align-items: flex-start;
+}
+.two_item_one{
+width:43%
+}
+.two_item_two{
+width:54%
+}
+.two_item div{
+    font-size: 1.5625rem;
+    line-height: 1.2;
+    margin-top: 2.8125rem;
+    padding-right: 4.875rem;
+}
+.two_item p{
+    color: rgb(0 0 0 / 50%);
+    line-height: 1.75rem;
+    margin: 0;
+        font-weight: 500;
+}
+.two_item p strong{
+        font-weight: 500;
+     color: rgb(0 0 0 / 100%);
+}
+ @media (max-width: 768px) {
+    .two_list {
+        gap: 80px;
+        flex-flow: column;
+    }
+    .two_item_one {
+        width: 100%;
+    }
+    .two_item_two {
+        width: 100%;
+    }
+    .two_item div {
+     font-size: 17.5px;
+        margin-top: 31.25px;
+        line-height: 20px;
+        padding-right: 0;
+    }
+    .two_item p {
+        text-align: center;
+          font-size: 17.5px;
+        line-height: 20px;
+    }
+    .two_item p strong {
+        font-size: 17.5px;
+        display: block;
+        line-height: 23px;
+        font-weight: 500;
+    }
+    .two_image-section .section {
+            padding-top: 45px;
+               padding-bottom: 80px;
+        }
+}
+</style>
+<section class="two_image-section">
+    <div class="section">
+        <div class="two_list">
+        
+            <div class="two_item two_item_one">
+                <img src="{{ section.settings.image1 | img_url:'master' }}" />
+                <div class="space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.text1 }}</div>
+            </div>
+             <div class="two_item two_item_two">
+                <img src="{{ section.settings.image2 | img_url:'master' }}" />
+                <div class="space-thin wow fadeInUp" data-wow-delay=".2s">{{ section.settings.text2 }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Two image",
+  "settings": [
+    
+        { 
+            "type": "image_picker", 
+            "id": "image1", 
+            "label": "image" 
+        },
+        {
+             "type": "richtext", 
+             "id": "text1", 
+             "label": "content",
+            },
+             { 
+            "type": "image_picker", 
+            "id": "image2", 
+            "label": "image" 
+        },
+         {
+             "type": "richtext", 
+             "id": "text2", 
+             "label": "content",
+            }
+   
+  ],
+   
+  "presets": [
+    {
+      "name": "Two image"
+    }
+  ]
+}
+{% endschema %}

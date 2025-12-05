@@ -1,0 +1,724 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "impact_text_8EFnAL": {
+      "type": "impact-text",
+      "blocks": {
+        "item_piKh8f": {
+          "type": "item",
+          "settings": {
+            "title": "FAQs",
+            "subheading": "Answering all your queries about Cearvol OTC hearing aids and services",
+            "content": "",
+            "button_text": "",
+            "button_url": "",
+            "animate_impact_text": false,
+            "animate_impact_text_duration": 2
+          }
+        }
+      },
+      "block_order": [
+        "item_piKh8f"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "text_alignment": "center",
+        "impact_text_style": "fill",
+        "text_divider": "none",
+        "impact_text_size_ratio": 0.8,
+        "background": "",
+        "background_gradient": "linear-gradient(180deg, rgba(2, 210, 255, 0.8), rgba(170, 248, 219, 1) 86%)",
+        "heading_text_color": "",
+        "heading_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "faq_BqNfpH": {
+      "type": "faq",
+      "blocks": {
+        "item_m4VLKh": {
+          "type": "item",
+          "settings": {
+            "title": "What are over-the-counter hearing aids?",
+            "content": "<p>Hearing aids purchased directly by consumers: One of the key benefits of OTC hearing aids is their accessibility. Consumers can purchase them directly from retailers (in-store or online).<br/>Devices that feature the same technology as traditional hearing aids: Accessibility isn’t a trade-off for capability. OTC hearing aids utilize the same fundamental technology as traditional hearing aids. Modern features, like wireless technology or app functionality, may also be included.<br/>Controllable and customizable: OTC hearing aids can be controlled by the user and may be customized to fit their specific needs. These OTC devices may include self-assessment tests to ensure the best possible functionality and user experience.<br/>Regulated by the Food and Drug Administration: OTC hearing aids are regulated by the FDA with clear labeling related to use, safety, and efficacy.</p>"
+          }
+        },
+        "item_K7fgBe": {
+          "type": "item",
+          "settings": {
+            "title": "Are the Cearvol hearing aids registered with the FDA?",
+            "content": "<p>Yes, all Cearvol hearing aids are FDA-cleared self-fitting OTC hearing aid devices.</p>"
+          }
+        },
+        "item_emYVDa": {
+          "type": "item",
+          "settings": {
+            "title": "Are Cearvol devices amplifiers or hearing aids?",
+            "content": "<p>Cearvol devices are hearing aids - Exempt medical devices registered with the FDA and subject to FDA regulations on standards for performance, manufacturing, labeling, and safety. Most other options sold online are amplifiers – “Personal Sound Amplifiers” or PSAPs. They are general amplifiers that make everything louder and do not have to meet the same standards as hearing aids. By their definition, PSAPs are meant to amplify environmental sounds for “non-hearing-impaired” consumers.</p>"
+          }
+        },
+        "item_HFC7Wf": {
+          "type": "item",
+          "settings": {
+            "title": "How are Cearvol different from other hearing aids sold over the internet?",
+            "content": "<p>At Cearvol, we’ve designed and built hearing aids that are easy to use, rechargeable with a natural sound quality from its completely-in-the-canal placement when worn. While there are many differences in technology and design of hearing aids available online, Cearvol’s design, attention to the user’s experience, and customer support set us apart.<br/><br/>Cearvol hearing aids and other hearing aids sold online, as well as most models you’ll find in a doctor’s office or a hearing aid retailer, are medical devices regulated by the FDA. While the FDA has exempted most hearing aid devices from premarket approval or clearance, our hearing aids remain subject to requirements for manufacturer registration and device listing, as well as FDA regulations on standards for performance, manufacturing, labeling, and safety.<br/><br/>Most other options sold online are PSAPs or general amplifiers that make everything louder, not clearer. PSAPs are not hearing aids and don’t have to meet the same standards.Cearvol hearing aids are digital, Bluetooth-enabled OTC hearing aids that are not only sleek and stylish but also high quality devices that provide clear sound. <br/></p>"
+          }
+        },
+        "item_EtnfA6": {
+          "type": "item",
+          "settings": {
+            "title": "Will Cearvol work for my hearing loss?",
+            "content": "<p>Cearvol OTC hearing aids are designed to help adults with mild-to-moderate hearing loss.Our hearing devices are designed to work well for adults who need more clarity as opposed to more volume.But if they don’t happen to work for you, that’s why we have a 45 day money back guarantee – so there’s no risk to just giving them a try.<br/>However, it's important to note that while OTC hearing aids can be a great solution for many, they may not be suitable for everyone, especially those with severe or complex hearing loss and children under the age of 18.</p>"
+          }
+        },
+        "item_J8ae7X": {
+          "type": "item",
+          "settings": {
+            "title": "These can’t be as good as $5,000 prescription hearing aids, can they?",
+            "content": "<p>Cearvol doesn’t have all the bells and whistles of $5,000 hearing aids, but they provide all the features you NEED to improve your hearing. And they cost 95% less than prescription hearing aids. Cearvol hearings aids are digital Bluetooth, OTC hearing aids that are not only sleek and stylish but also high quality devices that provide clear sound.They work for our 10,000+ customers and if you don’t like them, you can return them to try prescription devices!</p>"
+          }
+        },
+        "item_LDQzgj": {
+          "type": "item",
+          "settings": {
+            "title": "Do I need to wear two hearing aids?",
+            "content": "<p>If you have hearing loss in both ears, then absolutely yes. Research shows that two hearing aids result in being able to hear the sound more clearly, making it possible to understand better.By wearing two hearing aids, you will experience far better sound quality than if you wear only one hearing aid. Wearing two hearing aids helps you identify where sounds are coming from.,Your ability to locate where sounds are coming from will also be improved. It can also help make the conversation even clearer and easier to understand, especially in noisy environments.</p>"
+          }
+        },
+        "item_wmTkLQ": {
+          "type": "item",
+          "settings": {
+            "title": "In which instances should you first consult a hearing healthcare professional before buying OTC hearing aids?",
+            "content": "<p>If you experience any of the following conditions, you should first consult with a hearing healthcare professional before buying hearing aids over the counter.Visible deformity of the ear, either present since birth or from trauma.Fluid, pus or blood coming out of the ear in the past 6 months.Pain or discomfort in the ear.History of excessive ear wax or suspicion that something is in the ear canal.Episodes of vertigo (a sensation of spinning or swaying) or severe dizziness.Sudden, quickly worsening, or fluctuating hearing loss in the past 6 months.Hearing loss or ringing (tinnitus) only in one ear or a noticeable difference in hearing between ears.</p>"
+          }
+        },
+        "item_kAXxbN": {
+          "type": "item",
+          "settings": {
+            "title": "What's the difference between sensorineural hearing loss and conductive hearing loss?",
+            "content": "<p>Sensorineural hearing loss is very common and is due to damage to the inner ear or auditory nerve from noise exposure, genetics, and natural aging. It develops over time and may sneak up on you. Hearing aids can usually help with this type of hearing loss and Cearvol hearing aids are designed to help you get back into the conversation.Conductive hearing loss is due to conditions that blocks the sound as if your ear is stuffed. It is often sudden or unexpected and all sounds are muffled or blocked in one or both ears. We recommend that you visit your doctor if you believe your hearing loss may be conductive, especially because conductive hearing loss may be temporary or treatable.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_m4VLKh",
+        "item_K7fgBe",
+        "item_emYVDa",
+        "item_HFC7Wf",
+        "item_EtnfA6",
+        "item_J8ae7X",
+        "item_LDQzgj",
+        "item_wmTkLQ",
+        "item_kAXxbN"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Cearvol OTC Hearing Aids",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_cxc4p8": {
+      "type": "faq",
+      "blocks": {
+        "item_D4UaGh": {
+          "type": "item",
+          "settings": {
+            "title": "Can I purchase Cearvol hearing aids for my child?",
+            "content": "<p>We do not sell hearing aids for children under the age of 18 and would advise that you visit a hearing health care professional to have your child's hearing tested. Children have different amplification needs to adults and their hearing aids need to be set up by a hearing health care professional. </p>"
+          }
+        },
+        "item_fKqrLY": {
+          "type": "item",
+          "settings": {
+            "title": "Do I need a hearing test to order Cearvol?",
+            "content": "<p>If you already have hearing test results, call and talk to our Cearvol Experts about whether Cearvol are right for you. If you don’t have results from a hearing test, talk to our Cearvol Experts about Cearvol’s hearing testing. Cearvol hearing aids are specifically designed to help those with mild to moderate high-frequency hearing loss hear better. This type of hearing loss is the most common and is caused by noise exposure or simply natural aging. Cearvol hearing aids are designed to help you so you can hear life more clearly. Each Cearvol device has 4 custom-developed Sound Profiles that are built on 10 years of research from world-renowned National Acoustics Laboratories and further refined with our own research and clinical studies. In addition to the Sound Profiles, Cearvol has a mobile app as well. So, if you have mild to moderate high-frequency hearing loss, Cearvol was meant for you.</p>"
+          }
+        },
+        "item_LqU9iD": {
+          "type": "item",
+          "settings": {
+            "title": "How do you protect my card information?",
+            "content": "<p>All credit card payments are handled by our payment service provider. They have secure systems in place to protect your information. We do not have access to, and do not store, your credit card information.</p>"
+          }
+        },
+        "item_WdCyMT": {
+          "type": "item",
+          "settings": {
+            "title": "What personal details do I need to provide to perchase a Cearvol hearing aids?",
+            "content": "<p>To create an account with Cearvol, you need to provide your mobile number, first and last name, and address.You'll also need to provide your credit card details for the once-off or monthly payment.</p>"
+          }
+        },
+        "item_bpmBLj": {
+          "type": "item",
+          "settings": {
+            "title": "My card was charged incorrectly.How can I get a refund?",
+            "content": "<p>Give us a call on +1(959)206-0088 and one of our Cearvol Experts will sort this out for you in no time at all! We'll correct the error and ensure that if you will get a refund if you need to.</p>"
+          }
+        },
+        "item_MMp64J": {
+          "type": "item",
+          "settings": {
+            "title": "When can I expect my order?",
+            "content": "<p>FAST! We ship all orders within 24-48 hours of receiving them! On average our product is delivered within 5-7 business days.</p>"
+          }
+        },
+        "item_GTF9dG": {
+          "type": "item",
+          "settings": {
+            "title": "How do I track my order?",
+            "content": "<p>Once your order is shipped, you will receive an email notification with a tracking number. You can use this tracking number to monitor the status of your shipment. You can also track your order <a href=\"https://cearvol.com/apps/17TRACK\" target=\"_blank\" title=\"https://cearvol.com/apps/17TRACK\">here.</a></p>"
+          }
+        },
+        "item_t64UPH": {
+          "type": "item",
+          "settings": {
+            "title": "My order is missing parts,What should I do?",
+            "content": "<p>We are so sorry your order was incomplete! Please double check your packaging and hearing aid box for all pieces. Sometimes they get stuck in corners and are just a little hard to see :)</p>"
+          }
+        },
+        "item_zQNqmb": {
+          "type": "item",
+          "settings": {
+            "title": "How long does it take to recharge?",
+            "content": "<p>Takes about 2 hours to fully recharge from a flat battery, also features a turbo charging feature that adds 3 hours of use in just a 10-minute charge. The Charger Plus offers 2 full charging cycles of two hearing aids without the need for a power supply. The light dots on the charger to show power level. Plus, IPX5 waterproof and sweatproof.</p>"
+          }
+        },
+        "item_trnAHi": {
+          "type": "item",
+          "settings": {
+            "title": "How does the 45-day risk-free trial work?",
+            "content": "<p>You get to try our hearing aids risk-free for 45 days. In the unlikely event that you are not completely satisfied with your hearing aids and wish to return them, you can return them for a full refund. Call +1(959)206-0088 and ask to schedule a return. They will share the necessary shipping details with you so that you can ship them. The return shipping will be at your own cost. Please keep the original packaging and include this with your return.</p>"
+          }
+        },
+        "item_cpKjQk": {
+          "type": "item",
+          "settings": {
+            "title": "When does the 45-day trial start?",
+            "content": "<p>The 45-day trial period starts from the day of delivery.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_D4UaGh",
+        "item_fKqrLY",
+        "item_LqU9iD",
+        "item_WdCyMT",
+        "item_bpmBLj",
+        "item_MMp64J",
+        "item_GTF9dG",
+        "item_t64UPH",
+        "item_zQNqmb",
+        "item_trnAHi",
+        "item_cpKjQk"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Purchasing",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_8Nnh3T": {
+      "type": "faq",
+      "blocks": {
+        "item_7LqQnh": {
+          "type": "item",
+          "settings": {
+            "title": "What should I do if the hearing aids are not working?",
+            "content": "<p>1. Please restart the device and try again.</p><p>2. If there is still no sound after restarting, please charge the hearing aids for 2 hours and then try again.</p><p>3. If the product still doesn't work, please contact us at +1(959)206-0088(opens 9am to 6pm PST, Mon-Fri) or email to <a href=\"mailto:support@cearvol.com\" title=\"mailto:support@cearvol.com\">support@cearvol.com</a></p>"
+          }
+        },
+        "item_RhWXUE": {
+          "type": "item",
+          "settings": {
+            "title": "What should I do if there is excessive background noise?",
+            "content": "<p>Please try switching to another mode of use.</p>"
+          }
+        },
+        "item_hzagft": {
+          "type": "item",
+          "settings": {
+            "title": "How to troubleshooting ‘FEEDBACK’ noises such as irregular beeping, squeaky, whistling, etc.",
+            "content": "<p>1. Lower Volume Levels: Adjust the volume levels on your hearing aids to a more comfortable level. Sometimes, a constant hum can occur when the volume is set too high. </p><p>2. Use Suitable Ear Tips: Ensure that you are using suitable ear tips for your hearing aids. This will help the hearing aids fit snugly in your ear canal, reducing the interference caused by external sounds and vibrations.</p>"
+          }
+        },
+        "item_FEPqjR": {
+          "type": "item",
+          "settings": {
+            "title": "What should I do if there is sound distortion?",
+            "content": "<p>It is normal to feel a bit strange during the initial period of wearing hearing aids, which may lead to a perception of sound distortion. Generally, it takes around 3 to 4 weeks to adapt to the product.</p>"
+          }
+        },
+        "item_6LYDdR": {
+          "type": "item",
+          "settings": {
+            "title": "When will I get used to my hearing aids?",
+            "content": "<p>Adapting to your hearing aids will take some time. Top audiologists recommend 3 weeks in order for your brain to adapt to wearing hearing aids. The recommended schedule for getting used to your hearing aids is as follows:<br/></p><p>Start by wearing your hearing aids for at least 1-2 hours per day while living your normal routine around the house in order to acclimate your ears to your hearing aids. It is normal to get irritated by the fit of your hearing aids during the first few weeks.<br/><br/>During the second week, start wearing your hearing aids outdoors. As your ears acclimate to the hearing aid, extend the use to 3-4 hours per day. At this point, you will start to notice little sounds you were unable to hear before.<br/></p><p>By the end of the third week, you can start having regular outdoor conversations at any volume, whether you're at a crowded restaurant or at work. You are now acclimated to the hearing aids!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_7LqQnh",
+        "item_RhWXUE",
+        "item_hzagft",
+        "item_FEPqjR",
+        "item_6LYDdR"
+      ],
+      "settings": {
+        "full_width": false,
+        "subheading": "",
+        "title": "Product",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_aXBwjm": {
+      "type": "faq",
+      "blocks": {
+        "item_hAcpty": {
+          "type": "item",
+          "settings": {
+            "title": "How does the hearing test work?",
+            "content": "<p>The Cearvol hearing test is conducted through the Cearvol app, to help program the Cearvol self-fitting OTC hearing aids. The app provides step-by-step instructions on how to do the hearing test. Ensure that you are in a quiet room and that your phone is on silent mode. You will hear beeping sounds through your hearing aids. These sounds will vary in pitch. Some will be high-pitched, whilst others will be low-pitched. You will need to listen very carefully as some of the sounds will be very soft. Every time that you hear the beeping sound, press a large button on the screen of your smartphone to indicate that you heard the sound.</p>"
+          }
+        },
+        "item_CHbJWj": {
+          "type": "item",
+          "settings": {
+            "title": "What can I learn from an app hearing test?",
+            "content": "<p>An app hearing test gives you a preliminary assessment of your current hearing ability. While it is not a replacement for a clinical evaluation conducted by a hearing professional such as an audiologist, it can still provide valuable insights. If you suspect you have hearing difficulties or your online check results indicate a potential issue, it's crucial to consult an audiologist or hearing care professional for a comprehensive evaluation and personalized recommendations.</p>"
+          }
+        },
+        "item_XzmQDH": {
+          "type": "item",
+          "settings": {
+            "title": "How can I adjust the volume of the hearing aid?",
+            "content": "<p>You can adjust the hearing aid volume using the volume up and down button. But please note if you are currently streaming music via Bluetooth, you will not be able to adjust the hearing aid volume. Please ensure that you are not streaming music or disconnect the Bluetooth connection before using the up and down button to adjust the hearing aid volume.</p>"
+          }
+        },
+        "item_xqX8GR": {
+          "type": "item",
+          "settings": {
+            "title": "How can I adjust the volume when I'm streaming the music via bluetooth?",
+            "content": "<p>When streaming music via Bluetooth, the volume control for the hearing aid may not be available. In this case, you would need to use the volume control on the device that is connected to the Bluetooth streaming. Adjusting the volume on your smartphone or the device you are streaming from will directly impact the volume of the streamed music in your hearing aids.</p>"
+          }
+        },
+        "item_aVpeRJ": {
+          "type": "item",
+          "settings": {
+            "title": "What should I do if I'm unable to connect to the app?",
+            "content": "<p>1. Ensure that you have established a Bluetooth connection between the hearing aid and your device before attempting to connect to the app.<br/>2. If the Bluetooth connection is already established but the app still cannot connect, please completely close the app and then restart it. After restarting, try searching for and connecting to the device again.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_hAcpty",
+        "item_CHbJWj",
+        "item_XzmQDH",
+        "item_xqX8GR",
+        "item_aVpeRJ"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Hearing Test & Cearvol App",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_iWM4NW": {
+      "type": "faq",
+      "blocks": {
+        "item_UpgNxk": {
+          "type": "item",
+          "settings": {
+            "title": "Can I request a return if I’m not completely satisfied with the hearing aid?",
+            "content": "<p>At Cearvol, our utmost priority is to ensure your complete satisfaction with your Cearvol hearing aids. If for any reason you are not satisfied with your Cearvol hearing aid within 45 days of purchase,you may return it for a full refund. See our Full <a href=\"/pages/refund-policy\" title=\"Refund Policy\">Returns Policy</a>.</p>"
+          }
+        },
+        "item_3gYFEL": {
+          "type": "item",
+          "settings": {
+            "title": "Can I get a refund if I return my hearing aids?",
+            "content": "<p>If you return your hearing aids during the 45-day trial, you will be refunded in full. The trial period starts from the date of delivery.<br/>Once we receive the returned item and accessories and verify their condition, we will notify you of the approval status for the refund. Upon successful verification, the refund will be issued back to your original payment account.</p>"
+          }
+        },
+        "item_eWBkWc": {
+          "type": "item",
+          "settings": {
+            "title": "How do I start a return process?",
+            "content": "<p>To initiate a return, please contact our customer service team by emailing <a href=\"mailto:support@cearvol.com\" title=\"mailto:support@cearvol.com\">support@cearvol.com</a> or calling +1(959)206-0088(opens 9am to 6pm PST, Mon-Fri) to request a return authorization.They will share the necessary shipping details with you so that you can ship them back to us. You will be responsible for the return shipping cost. Please keep the original packaging and include this with your return.</p>"
+          }
+        },
+        "item_QcBhXr": {
+          "type": "item",
+          "settings": {
+            "title": "How must I package the hearing aids if I'm returning them?",
+            "content": "<p>Keep the original box that your hearing aids and accessories were packed into. If you return your hearing aids, we will need the box to complete the return.</p>"
+          }
+        },
+        "item_Ny6ggy": {
+          "type": "item",
+          "settings": {
+            "title": "Can I return my hearing aids after the 45-day trial?",
+            "content": "<p>You can return your hearing aids after your 45-day trial if they are faulty. If you're still within your 3-year warranty period, we'll repair or replace your hearing aids. If you return your hearing aids after the 45-day trial and they're not faulty, you won't receive a refund.</p>"
+          }
+        },
+        "item_iK9Pkm": {
+          "type": "item",
+          "settings": {
+            "title": "If I've returned my hearing aids during the trial period,but changed my mind later,How can I get the aids again?",
+            "content": "<p>No, you won't be able to get your hearing aids back. Law requires us to dispose of all used hearing aids, so we can't refurbish and resell them.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_UpgNxk",
+        "item_3gYFEL",
+        "item_eWBkWc",
+        "item_QcBhXr",
+        "item_Ny6ggy",
+        "item_iK9Pkm"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Return&Refund",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_A8nKzH": {
+      "type": "faq",
+      "blocks": {
+        "item_7DDBDf": {
+          "type": "item",
+          "settings": {
+            "title": "Does Cearvol offer a warranty?",
+            "content": "<p>All Cearvol hearing aids come with a 3-year warranty from the date of purchase. The warranty covers manufacturer's defects. It does not cover misuse, loss, or theft.</p>"
+          }
+        },
+        "item_ptnTCW": {
+          "type": "item",
+          "settings": {
+            "title": "My hearing aids broken.Can I get new ones?",
+            "content": "<p>If your hearing aids broke before the 3-year warranty period, depending on the cause and severity of the damage, they will be repaired. If you are liable to pay a charge for the repairs, we will inform you before they are repaired.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_7DDBDf",
+        "item_ptnTCW"
+      ],
+      "settings": {
+        "full_width": false,
+        "subheading": "",
+        "title": "Warranty",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "faq_jcrCx6": {
+      "type": "faq",
+      "blocks": {
+        "item_PHKWhx": {
+          "type": "item",
+          "settings": {
+            "title": "What is the phone number for your support center?",
+            "content": "<p>Our support center is ready to assist you during Monday to Friday 9 am to 6 pm PST on +1(959)206-0088 .</p>"
+          }
+        },
+        "item_dqYTGj": {
+          "type": "item",
+          "settings": {
+            "title": "Are your support staff qualified to work with these hearing aids?",
+            "content": "<p>Our support staff have undergone extensive training in order to ensure that all your hearing related questions can be answered.</p>"
+          }
+        },
+        "item_dRwFdi": {
+          "type": "item",
+          "settings": {
+            "title": "How can I opt out of communication from Cearvol?",
+            "content": "<p>At the bottom of all our mailers we have an option for you to unsubscribe from future emails. If you would like to opt out of any telephonic communication, you are welcome to phone our Contact Center and notify our friendly Cearvol experts.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_PHKWhx",
+        "item_dqYTGj",
+        "item_dRwFdi"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Customer Support",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "multi_column_GeKWdk": {
+      "type": "multi-column",
+      "blocks": {
+        "item_m48ki3": {
+          "type": "item",
+          "settings": {
+            "column_size": "1.5",
+            "title": "Need More Help?",
+            "heading_tag": "h2",
+            "content": "<h6>Extensive Support Options to Assist You Further</h6>",
+            "link_url": "shopify://pages/contact-us",
+            "link_text": "Contact us",
+            "link_style": "button"
+          }
+        }
+      },
+      "block_order": [
+        "item_m48ki3"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "gap": "large",
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "#434343"
+      }
+    },
+    "faq_dJLBji": {
+      "type": "faq",
+      "blocks": {
+        "item_49HeT3": {
+          "type": "item",
+          "settings": {
+            "title": "How does hearing loss work?",
+            "content": "<p>The human ear is divided into three sections, namely the outer ear, middle ear and the inner ear. When we hear a sound, sound waves are sent through the outer, middle and inner ear up to the brain to be interpreted. We call this the hearing pathway. Any damage along this hearing pathway can prevent sound from being effectively transported to the brain, resulting in a loss of hearing.</p>"
+          }
+        },
+        "item_e7MA7k": {
+          "type": "item",
+          "settings": {
+            "title": "What causes hearing loss?",
+            "content": "<p>A hearing loss can occur anywhere along the hearing pathway. There are many possible causes of hearing loss. Most hearing losses are associated with some damage to the hearing system or due to reduction in function as we age. However, everybody’s hearing loss is different and may have a different cause.</p>"
+          }
+        },
+        "item_tA3NY9": {
+          "type": "item",
+          "settings": {
+            "title": "Is hearing loss permanent?",
+            "content": "<p>Some hearing losses are temporary, however, most hearing losses are associated with some damage to the hearing system or due to reduction in function as we age. These losses are not temporary. Everybody’s hearing loss is different and may have a different cause</p>"
+          }
+        },
+        "item_JDda34": {
+          "type": "item",
+          "settings": {
+            "title": "How does hearing loss affect my overall health and well-being?",
+            "content": "<p>Hearing loss can have a huge effect on your overall health and well-being. There are even studies linking untreated hearing loss to unemployment and lower income. It’s important to take care of your hearing health to keep it in the best shape possible, just like you take care of the rest of your body. Hearing aids are proven to help you overcome the stress and frustration of hearing loss and enhance your overall quality of life.</p>"
+          }
+        },
+        "item_X3wCki": {
+          "type": "item",
+          "settings": {
+            "title": "How can I tell if I have hearing loss?",
+            "content": "<p>Signs of hearing loss may include: turning up the TV or radio higher than what others prefer, experiencing the perception that others mumble, asking people to repeat themselves often, and more. You might also find yourself leaning forward to hear a conversation or having trouble hearing in noisy situations, like in a crowded restaurant.</p>"
+          }
+        },
+        "item_jVFKtk": {
+          "type": "item",
+          "settings": {
+            "title": "What if i'm ok with not doing anything about my hearing loss?",
+            "content": "<p>Hearing loss is not just about you hearing less. It's also about the impact it can have on your quality of life. Those experiencing hearing difficulties may also:<br/><br/>1.Skip out on social situations that they once enjoyed because of difficulty hearing.<br/>2.Feel tired or stressed from straining to hear the conversation.<br/>3.Feel annoyed or frustrated at others because they can’t understand them.<br/>4.Feel embarrassed to meet new people or from misunderstanding what others are saying.<br/>Ensuring good hearing health helps to promote the quality of life you deserve. If you ever feel some of these negative feelings are being provoked as a result of your hearing—or lack thereof—it’s perhaps a good time to contact Cearvol to learn more. We have a team of experts to help guide you on your journey. There are many things that stress us out in today’s world, but hearing loss doesn’t have to be one of them.</p>"
+          }
+        },
+        "item_FKmwpF": {
+          "type": "item",
+          "settings": {
+            "title": "What is tinnitus?And what does it have to do with hearing loss?",
+            "content": "<p>Tinnitus is often described as a ringing, buzzing, or hissing in the ears. We don’t know the exact cause of tinnitus, but there is a high correlation between tinnitus and hearing loss. If you are experiencing ringing, buzzing, or hissing in your ears, we recommend you visit your doctor. Your doctor may suggest a hearing aid since hearing loss and tinnitus often go hand in hand. Although a hearing aid doesn’t mask the tinnitus, it may help you focus on what you want to hear. Check back with us if your doctor recommends a hearing aid, to see if an Cearvol hearing aid might be right for you.</p>"
+          }
+        },
+        "item_BxFyDV": {
+          "type": "item",
+          "settings": {
+            "title": "Should I see my doctor for my hearing loss?",
+            "content": "<p>Although it’s not always necessary to see your doctor when you’re experiencing a hearing loss, there are some instances when you absolutely should. If you experience a sudden hearing loss, pain, balance issues, ear pressure, drainage, or other medical symptoms related to your ears, we recommend you visit your doctor. In addition, if your hearing loss is severe to profound, we encourage you to visit your doctor. Don’t forget to check back in with us if your doctor recommends a hearing aid to see if an Cearvol hearing aid might be right for you.</p>"
+          }
+        },
+        "item_NUK66q": {
+          "type": "item",
+          "settings": {
+            "title": "Will wearing hearing aids make my hearing loss better?",
+            "content": "<p>Hearing aids can improve your ability to hear and communicate, however, hearing aids won't be able to reverse your hearing loss or restore your hearing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_49HeT3",
+        "item_e7MA7k",
+        "item_tA3NY9",
+        "item_JDda34",
+        "item_X3wCki",
+        "item_jVFKtk",
+        "item_FKmwpF",
+        "item_BxFyDV",
+        "item_NUK66q"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "KNOW MORE ABOUT HEARING LOSS & HEARING AIDS",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "impact_text_8EFnAL",
+    "faq_BqNfpH",
+    "faq_cxc4p8",
+    "faq_8Nnh3T",
+    "faq_aXBwjm",
+    "faq_iWM4NW",
+    "faq_A8nKzH",
+    "faq_jcrCx6",
+    "multi_column_GeKWdk",
+    "faq_dJLBji"
+  ]
+}

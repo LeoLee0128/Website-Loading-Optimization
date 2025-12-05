@@ -1,0 +1,45 @@
+<style>
+  .One_image {
+      margin-top: 163px;
+  }
+
+ @media (max-width: 768px) {
+.One_image {
+    margin-top: 69.5px;
+}
+}
+</style>
+<section class="One-section">
+    <div class="container">
+        <div class="One_image">
+        
+           <img class="desktop-img" src="{{ section.settings.image | img_url:'master' }}" />
+           <img class="mobile-img" src="{{ section.settings.m_image | img_url:'master' }}" />
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "One image",
+  "settings": [
+     { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "Pc image" 
+        },
+         { 
+            "type": "image_picker", 
+            "id": "m_image", 
+            "label": "Mobile image" 
+        }
+   
+  ],
+  
+  "presets": [
+    {
+      "name": "One image"
+    }
+  ]
+}
+{% endschema %}

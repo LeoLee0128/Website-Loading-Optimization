@@ -1,0 +1,570 @@
+<style>
+    html{
+        overflow-x: hidden;
+    }
+    .connect__sections{
+        width: 100%;
+        overflow: hidden !important;
+}
+.response-animated {
+    position: relative;
+    width: 100%;
+}
+.pin-container {
+    width: 100%;
+    position: relative;
+}
+
+.connect_section {
+    padding-top: 118px;
+    padding-bottom: 149px;
+    background: linear-gradient(72deg, #262220 45%, #5D5A58 102%);
+}
+
+.connect_head {
+    font-size: 66px;
+    line-height: 72px;
+    margin-bottom: 70px;
+    margin-top: 0;
+    color: #fff;
+        font-weight: 600;
+}
+
+.cbx {
+    position: relative;
+    width: 100%;
+    margin-inline-start: max(var(--container-gutter, 80px), 50% - var(--container-max-width, 1400px) / 2);
+    {% comment %} min-height: 591px;  {% endcomment %}
+    min-height: 30.7825vw; 
+    height: auto; 
+    {% comment %} overflow: hidden; {% endcomment %}
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content {
+    position: relative;
+    {% comment %} width: 3198px; {% endcomment %}
+    width: 166.5625vw;
+    {% comment %} min-height: 591px; {% endcomment %}
+    min-height: 30.7825vw;
+    height: auto; 
+    will-change: transform;
+    left: 0;
+}
+
+.con {
+    display: flex;
+    align-items: center;
+    {% comment %} min-height: 591px;  {% endcomment %}
+    min-height: 30.7825vw; 
+    height: auto; 
+    {% comment %} width: 3198px; {% endcomment %}
+    width: 166.5625vw;
+    position: relative;
+}
+
+.conlist {
+    position: absolute;
+    left: 0;
+    top: 0;
+    {% comment %} width: 3198px; {% endcomment %}
+    width: 166.5625vw;
+    {% comment %} min-height: 591px;  {% endcomment %}
+    min-height: 30.7825vw; 
+    height: auto; 
+    z-index: 1;
+}
+
+.conlist ul {
+    display: flex;
+    list-style: none;
+    {% comment %} min-height: 591px;  {% endcomment %}
+    min-height: 30.7825vw; 
+    height: auto;
+    padding: 0;
+    margin: 0;
+    gap: 24px;
+    align-items: center; 
+}
+
+.conlist li {
+    {% comment %} width: 463px; {% endcomment %}
+    width: 24.11vw;
+    {% comment %} height: 591px; {% endcomment %}
+    height: 30.7825vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+    position: relative;
+}
+
+.conlist .tu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.conlist .tu img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.conlist li h2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    font-size: 24px;
+    padding: 0 0 34px 26px;
+    line-height: 28px;
+    margin: 0;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+}
+
+
+.connect_top {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    color: #fff;
+    font-size: 15.13px;
+    line-height: 17.02px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    padding: 12px 20px;
+    border-radius: 60px;
+    gap: 13px;
+    z-index: 2;
+}
+
+.connect_top img {
+    width: auto;
+    height: 20px;
+    object-fit: contain;
+}
+.mob_connect{
+    display:none
+}
+ @media (max-width: 1440px) {
+    .connect_section {
+        padding-top: 68px;
+    }
+}
+ @media (max-width: 768px) {
+    .connect__sections {
+        display: none;
+    }
+    .mob_connect{
+    display:block;
+        background: linear-gradient(18deg, #262220 38%, #5D5A58 100%);
+        padding: 58px 0 46px;
+}
+.mob_connect .swiper-slide h2{
+    position: absolute;
+    bottom: 32px;
+    color: #fff;
+    font-size: 19px;
+    line-height: 23px;
+    text-align: center;
+    padding: 0 60px;
+    margin: 0;
+}
+.connect_top {
+  
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.mob_page .swiper-button-next,
+.mob_page .swiper-button-prev {
+            position: relative;
+background: rgba(255, 255, 255, 0.5);
+    width: 53px;
+    height: 53px;
+    border-radius: 53px;
+            top: 0;
+        left: 0;
+        margin: 0;
+}
+.mob_page > div:after{
+  display:none
+}
+.mob_page {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 33px;
+}
+.connect_head {
+    font-size: 38px;
+    line-height: 35px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+}
+</style>
+
+<section class="connect__sections">
+    <div id="connect-pin-section" class="response-animated">
+        <div class="pin-container connect_section">
+            <div class="container">
+                <h2 class="connect_head">{{ section.settings.title }}</h2>
+            </div>
+            <div class="cbx">
+                <div class="content">
+                    <div class="con">
+                        <div class="conlist">
+                            <ul>
+                                {% for block in section.blocks %}
+                                <li>
+                                    <div class="connect_top">
+                                        <img src="{{ block.settings.icon | img_url:'master' }}" />
+                                        {{ block.settings.label }}
+                                    </div>
+                                    <div class="tu">
+                                        <img src="{{ block.settings.image | img_url:'master' }}" />
+                                    </div>
+                                    <h2 class="">{{ block.settings.i-title }}</h2>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>
+
+{% comment %} mobile {% endcomment %}
+ <section class="mob_connect">
+     <div class="container">
+                              <h2 class="connect_head wow fadeInUp">{{ section.settings.title }}</h2>
+                                 <div class="swiper connectSwiper">
+                <div class="swiper-wrapper">
+                                {% for block in section.blocks %}
+                                      <div class="swiper-slide">
+                                <li>
+                                    <div class="connect_top">
+                                        <img src="{{ block.settings.icon | img_url:'master' }}" />
+                                        {{ block.settings.label }}
+                                    </div>
+                                    <div class="tu">
+                                        <img src="{{ block.settings.image | img_url:'master' }}" />
+                                    </div>
+                                    <h2 class="">{{ block.settings.i-title }}</h2>
+                                </li>
+                                </div>
+                                {% endfor %}
+                          </div>
+
+                          <div class="mob_page">
+                             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
+                                <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
+                          </div>
+                          </div>
+                        </div>
+</section>
+
+{%- comment -%}GSAP/ScrollTrigger 延迟加载优化：只在 #connect-pin-section 接近视口时加载{%- endcomment -%}
+<script>
+(function() {
+  var gsapLoaded = false;
+  var scrollTriggerLoaded = false;
+  var gsapInitialized = false;
+  
+  // 初始化 GSAP ScrollTrigger 动画的函数
+  function initGSAPAnimation() {
+    if (gsapInitialized || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      return;
+    }
+    
+    gsapInitialized = true;
+    
+    try {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const pinSection = document.querySelector('#connect-pin-section');
+      const cbx = document.querySelector('.cbx');
+      const content = document.querySelector('.content');
+      const conlist = document.querySelector('.conlist');
+      const conlistUl = document.querySelector('.conlist ul');
+
+      if (!pinSection || !cbx || !content || !conlist || !conlistUl) return;
+
+      function calculateHeight() {
+        const firstLi = conlistUl.querySelector('li');
+        if (firstLi) return firstLi.offsetHeight || 591;
+        return 591;
+      }
+
+      function calculateLeftMargin() {
+        const cbxStyle = window.getComputedStyle(cbx);
+        const marginLeft = parseFloat(cbxStyle.marginLeft) || parseFloat(cbxStyle.marginInlineStart) || 0;
+        if (marginLeft > 0) return marginLeft;
+
+        const containerGutter = getComputedStyle(document.documentElement).getPropertyValue('--container-gutter') || '80px';
+        const containerMaxWidth = getComputedStyle(document.documentElement).getPropertyValue('--container-max-width') || '1400px';
+        const gutter = parseFloat(containerGutter) || 80;
+        const maxWidth = parseFloat(containerMaxWidth) || 1400;
+        const viewportWidth = pinSection.clientWidth || window.innerWidth;
+        return Math.max(gutter, (viewportWidth - maxWidth) / 2);
+      }
+
+      let tween;
+
+      function initScroll() {
+        const contentHeight = calculateHeight();
+        const viewportWidth = pinSection.clientWidth || window.innerWidth;
+        const contentWidth = content.scrollWidth; // 动态内容宽度
+        const leftMargin = calculateLeftMargin();
+
+        const scrollDistance = Math.max(0, contentWidth - viewportWidth + leftMargin);
+        const shouldPin = scrollDistance > 0;
+
+        if (cbx) cbx.style.height = contentHeight + 'px';
+
+        if (tween) {
+          tween.scrollTrigger && tween.scrollTrigger.kill();
+          tween.kill();
+          tween = null;
+        }
+        gsap.set(content, { x: 0 });
+
+        if (!shouldPin) {
+          ScrollTrigger.refresh();
+          return;
+        }
+
+        tween = gsap.to(content, {
+          x: -scrollDistance,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: pinSection,
+            start: 'top top',
+            end: `+=${scrollDistance}`,
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            pinSpacing: true
+          }
+        });
+      }
+
+      initScroll();
+
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          initScroll();
+          ScrollTrigger.refresh();
+        }, 200);
+      });
+    } catch (e) {
+      console.warn('GSAP ScrollTrigger initialization failed:', e);
+    }
+  }
+  
+  // 加载 ScrollTrigger（依赖 GSAP）
+  function loadScrollTrigger() {
+    if (scrollTriggerLoaded) return;
+    scrollTriggerLoaded = true;
+    
+    var script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+    script.defer = true;
+    script.onload = function() {
+      // ScrollTrigger 加载完成后初始化动画
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGSAPAnimation);
+      } else {
+        initGSAPAnimation();
+      }
+    };
+    document.head.appendChild(script);
+  }
+  
+  // 加载 GSAP
+  function loadGSAP() {
+    if (gsapLoaded) return;
+    gsapLoaded = true;
+    
+    var script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+    script.defer = true;
+    script.onload = function() {
+      // GSAP 加载完成后加载 ScrollTrigger
+      loadScrollTrigger();
+    };
+    document.head.appendChild(script);
+  }
+  
+  // 检查是否需要加载 GSAP
+  function checkAndLoadGSAP() {
+    const pinSection = document.querySelector('#connect-pin-section');
+    if (!pinSection) return;
+    
+    loadGSAP();
+  }
+  
+  // 策略1: 使用 IntersectionObserver 检测元素接近视口时加载
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          checkAndLoadGSAP();
+          observer.disconnect(); // 加载后断开观察
+        }
+      });
+    }, {
+      rootMargin: '500px' // 提前 500px 检测，确保动画及时加载
+    });
+    
+    // 等待 DOM 加载完成后再观察
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        var pinSection = document.querySelector('#connect-pin-section');
+        if (pinSection) {
+          observer.observe(pinSection);
+        }
+      });
+    } else {
+      var pinSection = document.querySelector('#connect-pin-section');
+      if (pinSection) {
+        observer.observe(pinSection);
+      }
+    }
+  } else {
+    // 策略2: 降级方案 - 使用 requestIdleCallback 或延迟加载
+    function fallbackLoad() {
+      if (document.querySelector('#connect-pin-section')) {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(checkAndLoadGSAP, { timeout: 2000 });
+        } else {
+          setTimeout(checkAndLoadGSAP, 1000);
+        }
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fallbackLoad);
+    } else {
+      fallbackLoad();
+    }
+  }
+  
+  // 策略3: 用户滚动时检查（确保不会错过）
+  var scrollCheckDone = false;
+  var scrollHandler = function() {
+    if (!scrollCheckDone && document.querySelector('#connect-pin-section')) {
+      scrollCheckDone = true;
+      checkAndLoadGSAP();
+      window.removeEventListener('scroll', scrollHandler, { passive: true });
+    }
+  };
+  
+  window.addEventListener('scroll', scrollHandler, { passive: true });
+  
+  // 移动端 Swiper 初始化（不依赖 GSAP，但需要等待 Swiper 加载完成）
+  function initMobileSwiper() {
+    if (typeof Swiper === 'undefined') {
+      // 如果 Swiper 还没加载，等待一段时间后重试
+      setTimeout(initMobileSwiper, 100);
+      return;
+    }
+    
+    var swiperContainer = document.querySelector(".connectSwiper");
+    if (!swiperContainer) return;
+    
+    // 检查是否已经初始化过
+    if (swiperContainer.swiper) return;
+    
+    try {
+      var swiper = new Swiper(".connectSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".mob_connect .swiper-button-next",
+          prevEl: ".mob_connect .swiper-button-prev",
+        }
+      });
+    } catch (e) {
+      console.warn('Connect Swiper initialization failed:', e);
+    }
+  }
+  
+  // 在 DOM 加载完成后尝试初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      // 延迟一点时间，确保 Swiper 有机会加载
+      setTimeout(initMobileSwiper, 200);
+    });
+  } else {
+    setTimeout(initMobileSwiper, 200);
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Connect your life",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        },
+        {
+             "type": "text", 
+             "id": "i-title", 
+             "label": "Title"
+        },
+        { 
+            "type": "image_picker", 
+            "id": "icon", 
+            "label": "icon" 
+        },
+        {
+             "type": "text", 
+             "id": "label", 
+             "label": "label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Connect your life"
+    }
+  ]
+}
+{% endschema %}

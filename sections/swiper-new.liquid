@@ -1,0 +1,501 @@
+<style>
+    .head_section {
+   padding-left: 15.5%;
+          margin-bottom: 60px
+    }
+    .head_section.section{
+      padding-top:0;
+      padding-bottom:0
+  }
+    .head_section h2{
+      font-size:4.125rem;
+    line-height: 1;
+    font-weight:600
+    }
+    .banner_slider-item {
+      position: relative;
+
+  }
+    .banner-slider-section{
+        margin-top: 10.6875rem;
+        margin-bottom: 8.5625rem;
+    }
+    .banner_slider-item{
+          position: relative;
+    }
+    .banner_slider-content {
+      position: absolute;
+      padding: 3.75rem;
+      top: 0;
+      left: 0;
+      font-size: 1.875rem;
+  }
+  .banner_slider-content p {
+      margin: 0;
+      line-height: 1.2;
+          font-weight: 500;
+  }
+  .banner-page{
+        position: relative;
+  }
+  .banner-page .swiper-pagination-bullet{
+        margin: 0!important;
+            transition: all .4s ease;
+            background: #717173;
+                opacity: 1;
+        width:10px;
+        height:10px;
+        position:relative
+  }
+  .banner-page span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+      width: 50px;
+      border-radius: 10px;
+    }
+    .swiper-pagination.banner-page{
+      display: flex;
+      background: #efeff2;
+      height: 3.6875rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 3.6875rem;
+     width: auto;
+    padding: 0 1.571875rem;
+    bottom: 0;
+    gap: 0.97125rem;
+    width: auto !important;
+    {% comment %} left: auto !important; {% endcomment %}
+    bottom: 0 !important;
+    position: relative;
+      
+    }
+    .bottom_control{
+       margin-top: 2.8125rem;
+          display: flex;
+        align-items: center;
+        justify-content: center;
+          gap: 14px;
+    }
+    .bottom_control button{
+        width: 3.6875rem;
+      height: 3.6875rem;
+      border-radius: 3.6875rem;
+      padding: 0;
+        background-color: #EFEFF2;
+    }
+    .bannerSwiper{
+        padding-bottom: 0;
+      }
+       .banner-page.swiper-pagination .swiper-pagination-bullet-active:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: #29292a;
+         border-radius: 8px;
+    }
+    .banner-page.swiper-pagination.is-playing .swiper-pagination-bullet-active:after {
+      -webkit-animation: width1 6s linear;
+      animation: width1 6s linear;
+  }
+  .banner_slider-content.text-white{
+    color:#fff
+  }
+  .banner_slider-item img {
+      width: 100%;
+  }
+    @keyframes width1 {
+      from {
+          width: 0%"
+      }
+
+      to {
+          width: 100%
+      }
+  }
+  @media (max-width: 768px) {
+    .head_section h2 {
+      font-size: 25px;
+      line-height: 27.43px;
+  }
+    .head_section {
+      padding-left: 20px;
+      margin-bottom: 45.5px;
+    }
+    .banner_slider-content {
+      padding: 21px;
+      font-size: 16px;
+    }
+  .banner-slider-section {
+      margin-top: 79.5px;
+      margin-bottom: 70px;
+  }
+  .bottom_control {
+      margin-top: 35.4px;
+      gap: 11.75px;
+  }
+  .bottom_control button {
+      width: 56px;
+      height: 56px;
+      border-radius: 56px;
+    }
+    .swiper-pagination.banner-page {
+      height: 56px;
+      border-radius: 56px;
+      padding: 0 22px;
+      gap: 15px;
+    }
+    .banner-page span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+      width: 48px;
+    }
+  }
+</style>
+
+<section class="banner-slider-section">
+  <div class="">
+    <div class="head_section">
+      <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+    </div>
+    <div class="banner_slider-list">
+      <div class="swiper bannerSwiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'color_sku' %}
+              {%- for i in (1..6) -%}
+                {%- assign pc_key = 'image' | append: i -%}
+                {%- assign m_key  = 'image' | append: i | append: '_mobile' -%}
+                {%- assign pc_img = block.settings[pc_key] -%}
+                {%- assign m_img  = block.settings[m_key] -%}
+                {%- if pc_img != blank or m_img != blank -%}
+                  <div class="swiper-slide">
+                    <div class="banner_slider-item">
+                      <img
+                        class="desktop-img"
+                        src="{{ pc_img | default: m_img | img_url:'master' }}"
+                        alt="{{ block.settings.title | default: '' | escape }}"
+                      >
+                      <img
+                        class="mobile-img"
+                        src="{{ m_img | default: pc_img | img_url:'master' }}"
+                        alt="{{ block.settings.title | default: '' | escape }}"
+                      >
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            {% else %}
+              <div class="swiper-slide">
+                <div class="banner_slider-item">
+                  <img
+                    class="desktop-img"
+                    src="{{ block.settings.image | img_url:'master' }}"
+                    alt="{{ block.settings.alt | escape }}"
+                  >
+                  <img
+                    class="mobile-img"
+                    src="{{ block.settings.mobile_image | img_url:'master' }}"
+                    alt="{{ block.settings.alt | escape }}"
+                  >
+                  <div class="banner_slider-content text-{{ block.settings.color }} space-thin">
+                    {{ block.settings.desc }}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="bottom_control">
+          <button class="s-btn" id="btn-start" aria-label="Start/Pause autoplay">
+            <svg
+              class="icon-control icon-control-play-super svg-icon play-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 56 56"
+            >
+              <path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path>
+            </svg>
+          </button>
+          <div class="swiper-pagination banner-page"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'jquery.js' | asset_url }}"></script>
+<script>
+  $(function () {
+    var swiper = new Swiper('.bannerSwiper', {
+      speed: 600,
+      allowTouchMove: true,
+      autoplay: false,
+      pagination: {
+        el: '.banner-page',
+        clickable: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+          centeredSlides: true,
+        },
+        768: {
+          slidesPerView: 1.45,
+          spaceBetween: 30,
+          centeredSlides: true,
+        },
+        1280: {
+          slidesPerView: 1.45,
+          spaceBetween: 30,
+          centeredSlides: true,
+        },
+        1580: {
+          slidesPerView: 1.45,
+          spaceBetween: 30,
+          centeredSlides: true,
+        },
+      },
+    });
+
+    var delay = 1600,
+      $btn = $('#btn-start'),
+      $pg = $('.banner-page'),
+      isPlaying = false,
+      progressTimer = null,
+      currentProgress = 0,
+      animationStartTime = 0,
+      scrollStarted = false;
+
+    var playSvg =
+      '<svg class="icon-control icon-control-play-super svg-icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path></svg>';
+    var pauseSvg =
+      '<svg class="icon-control icon-control-pause-super svg-icon pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m21.7334 36.67h2.5342c1.1483 0 1.7324-.5796 1.7324-1.7193v-13.9015c0-1.12-.5841-1.6898-1.7324-1.7193h-2.5342c-1.1483 0-1.7324.5698-1.7324 1.7193v13.9015c-.0297 1.1396.5544 1.7193 1.7324 1.7193zm9.9992 0h2.5347c1.1485 0 1.7327-.5796 1.7327-1.7193v-13.9015c0-1.12-.5842-1.7193-1.7327-1.7193h-2.5347c-1.1485 0-1.7327.5698-1.7327 1.7193v13.9015c0 1.1396.5545 1.7193 1.7327 1.7193z"></path></svg>';
+
+    function createProgressBar() {
+      var $active = $pg.find('.swiper-pagination-bullet-active');
+      if ($active.length && !$active.find('.progress-bar').length) {
+        $active.append(
+          '<div class="progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; background-color: #29292a; border-radius: 8px; width: 0%;"></div>'
+        );
+      }
+    }
+
+    function updateProgress() {
+      var $active = $pg.find('.swiper-pagination-bullet-active');
+      if ($active.length) {
+        var $progressBar = $active.find('.progress-bar');
+        if ($progressBar.length) {
+          $progressBar.css('width', currentProgress + '%');
+        }
+      }
+    }
+
+    function startProgress() {
+      createProgressBar();
+
+      if (currentProgress === 0) {
+        animationStartTime = Date.now();
+      } else {
+        // 如果从暂停状态恢复，调整开始时间
+        animationStartTime = Date.now() - (currentProgress / 100) * delay;
+      }
+
+      progressTimer = setInterval(function () {
+        var elapsed = Date.now() - animationStartTime;
+        currentProgress = Math.min((elapsed / delay) * 100, 100);
+
+        updateProgress();
+
+        if (currentProgress >= 100) {
+          currentProgress = 0;
+          clearInterval(progressTimer);
+        }
+      }, 13);
+    }
+
+    function stopProgress() {
+      if (progressTimer) {
+        clearInterval(progressTimer);
+        progressTimer = null;
+      }
+    }
+
+    function resetProgress() {
+      currentProgress = 0;
+      animationStartTime = 0;
+      var $active = $pg.find('.swiper-pagination-bullet-active');
+      if ($active.length) {
+        $active.find('.progress-bar').remove();
+      }
+    }
+
+    // 计算 .hero-cta 到顶部的距离
+    function getHeroCtaDistance() {
+      var $heroCta = $('.hero-cta');
+      if ($heroCta.length) {
+        return $heroCta.offset().top;
+      }
+      return 0;
+    }
+
+    // 检查滚动位置，决定是否自动播放
+    function checkScrollAndAutoPlay() {
+      if (!scrollStarted && !isPlaying) {
+        var heroCtaTop = getHeroCtaDistance();
+        var scrollTop = $(window).scrollTop() + $(window).height();
+
+        // 当滚动超过 .hero-cta 的位置时，开始自动播放
+        if (scrollTop >= heroCtaTop) {
+          scrollStarted = true;
+
+          // 自动播放
+          isPlaying = true;
+
+          if (!swiper.params.autoplay || swiper.params.autoplay === true) swiper.params.autoplay = {};
+          $.extend(swiper.params.autoplay, {
+            delay: delay,
+            disableOnInteraction: false,
+            autoplayDelay: 0,
+            autoplayStopOnLast: false,
+          });
+          swiper.params.autoplay.enabled = true;
+          swiper.autoplay.start();
+          $pg.addClass('is-playing').removeClass('is-paused');
+          $btn.html(pauseSvg);
+
+          startProgress();
+        }
+      }
+    }
+
+    // 监听滚动事件
+    $(window).on('scroll', function () {
+      checkScrollAndAutoPlay();
+    });
+
+    // 页面加载时也检查一次
+    checkScrollAndAutoPlay();
+
+    $btn.on('click', function (e) {
+      e.preventDefault();
+      isPlaying = !isPlaying;
+
+      if (isPlaying) {
+        scrollStarted = true; // 点击播放时，标记为已开始
+        if (!swiper.params.autoplay || swiper.params.autoplay === true) swiper.params.autoplay = {};
+        $.extend(swiper.params.autoplay, {
+          delay: delay,
+          disableOnInteraction: false,
+          autoplayDelay: 0,
+          autoplayStopOnLast: false,
+        });
+        swiper.params.autoplay.enabled = true;
+        swiper.autoplay.start();
+        $pg.addClass('is-playing').removeClass('is-paused');
+        $btn.html(pauseSvg);
+
+        startProgress();
+
+        if (!swiper.autoplay.running) {
+          requestAnimationFrame(function () {
+            swiper.autoplay.start();
+          });
+        }
+      } else {
+        swiper.autoplay.stop();
+        $pg.removeClass('is-playing').addClass('is-paused');
+        $btn.html(playSvg);
+
+        stopProgress();
+      }
+    });
+
+    swiper.on('slideChangeTransitionStart', function () {
+      stopProgress();
+      resetProgress();
+
+      if (isPlaying) {
+        setTimeout(function () {
+          startProgress();
+        }, 10);
+      }
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Banner slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "mobile image"
+        },
+
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "desc"
+        },
+        {
+          "type": "select",
+          "id": "color",
+          "label": "text colot",
+          "options": [
+            {
+              "value": "dark",
+              "label": "dark"
+            },
+            {
+              "value": "white",
+              "label": "white"
+            }
+          ],
+          "default": "dark"
+        }
+      ]
+    },
+    {
+      "type": "color_sku",
+      "name": "Color SKU",
+      "settings": [
+        { "type": "color", "id": "color", "label": "Color value" },
+        { "type": "text",  "id": "title", "label": "Color title" },
+        { "type": "image_picker", "id": "image1", "label": "Image 1 (PC)" },
+        { "type": "image_picker", "id": "image1_mobile", "label": "Image 1 (Mobile)" },
+        { "type": "image_picker", "id": "image2", "label": "Image 2 (PC)" },
+        { "type": "image_picker", "id": "image2_mobile", "label": "Image 2 (Mobile)" },
+        { "type": "image_picker", "id": "image3", "label": "Image 3 (PC)" },
+        { "type": "image_picker", "id": "image3_mobile", "label": "Image 3 (Mobile)" },
+        { "type": "image_picker", "id": "image4", "label": "Image 4 (PC)" },
+        { "type": "image_picker", "id": "image4_mobile", "label": "Image 4 (Mobile)" },
+        { "type": "image_picker", "id": "image5", "label": "Image 5 (PC)" },
+        { "type": "image_picker", "id": "image5_mobile", "label": "Image 5 (Mobile)" },
+        { "type": "image_picker", "id": "image6", "label": "Image 6 (PC)" },
+        { "type": "image_picker", "id": "image6_mobile", "label": "Image 6 (Mobile)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner slider"
+    }
+  ]
+}
+{% endschema %}

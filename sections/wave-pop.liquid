@@ -1,0 +1,485 @@
+<style>
+    html.wave-pop-open, body.wave-pop-open{
+        {% comment %} overflow: hidden;
+        overscroll-behavior: contain;
+        height: 100%;
+        touch-action: none; {% endcomment %}
+    }
+
+    section.wave_pop {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999099;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        pointer-events: auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    section.wave_pop.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mask_w {
+        display: block;
+        position: fixed;
+        top: 0;
+        inset-inline-start: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(135deg, 
+            rgba(0, 0, 0, 0.2) 0%, 
+            rgba(0, 0, 0, 0.4) 25%, 
+            rgba(0, 0, 0, 0.5) 50%, 
+            rgba(0, 0, 0, 0.4) 75%, 
+            rgba(0, 0, 0, 0.2) 100%
+        );
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        z-index: 9990;
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(1.1);
+        transition: opacity 0.5s ease, transform 0.5s ease, backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
+    }
+    
+    section.wave_pop.show .mask_w {
+        opacity: 1;
+        transform: scale(1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .wave_pop-container {
+        position: relative;
+        z-index: 10000;
+        width: 100%;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 63px 0;
+        transform: translateY(-30px);
+        transition: transform 0.3s ease;
+    }
+    
+    section.wave_pop.show .wave_pop-container {
+        transform: translateY(0);
+    }
+    
+    .wave_pop-box{
+        position: relative;
+        z-index: 10000;
+        max-width: 1320px;
+        width: min(92vw, 1320px);
+        background: #fff;
+        border-radius: 20px;
+        padding: 92px 69px;
+        margin: 0 auto;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+    
+    section.wave_pop.show .wave_pop-box {
+        transform: scale(1);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .pop_head{
+        margin-bottom: 0;
+        position: relative; 
+    }
+    
+    .pop_body{
+     
+
+    }
+    
+    .pop_head p {
+        font-size: 30px;
+        line-height: 35px;
+        margin: 0 0 21px;
+        font-weight: 500;
+    }
+    .pop_head h2 {
+        font-size: 66px;
+        line-height: 72px;
+        margin: 0 0 72px;
+        font-weight: 600;
+    }
+    .pop_item {
+        background: #F5F5F7;
+        border-radius: 15px;
+        padding: 63px 91px 58px;
+    }
+    .pop_item div{
+        font-size: 25px;
+        line-height: 28px;
+       color: rgba(24, 24, 24, 0.5);
+        margin-bottom: 67px;
+        text-align: center;
+    }
+    .pop_item div strong{
+    color: #181818;
+    font-weight:normal
+    }
+    .pop_item2{
+        background: #F5F5F7;
+        padding: 63px 21px 66px;
+        border-radius: 15px;
+        margin-top: 21px;
+        margin-bottom: 20px;
+    }
+    .pop_item2 h3{
+        font-size: 30px;
+        line-height: 1;
+        margin: 0;
+        text-align: center;
+    }
+    .pop_item2 div{
+        color: rgba(24, 24, 24, 0.5);
+        font-size: 25px;
+        line-height: 28px;
+        text-align: center;
+        margin-top: 33px;
+    }
+    .pop_item2 ul{    
+        display: flex;
+        gap: 20px;
+        margin-top: 29px;
+    }
+    .pop_item2 ul li p{
+            font-size: 30px;
+        line-height: 1;
+        text-align: center;
+    }
+    .pop_item2 ul li:nth-child(1) p{
+    color: rgba(24, 24, 24, 0.5);
+    }
+    .pop_item2 ul li:nth-child(2) p{
+    color: #006EA1;
+    }
+    .pop_item2 ul li:nth-child(2) div{
+        width: 157px;
+        height: 33px;
+        border-radius: 5.84px;
+        opacity: 1;
+        background: #006EA1;
+        font-size: 22px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 40px auto 0;
+    }
+    .pop_item h3{
+        font-size: 30px;
+        line-height: 35px;
+        text-align: center;
+        margin: 0 0 33px;
+    }
+    .close_pop img{
+        width: 38px;
+        height:38px
+    }
+    .close_pop{
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+    .close_pop:hover {
+        opacity: 1;
+    }
+    .wave_feature-button{
+        cursor: pointer;
+    }
+    @media(max-width:768px){
+        .wave_pop-box {
+    
+            border-radius: 20px;
+            padding: 40px 30px;
+        }
+        .pop_head h2 {
+            font-size: 30px;
+            line-height: 35px;
+            margin: 0 0 36px;
+        }
+        .pop_head p {
+            font-size: 15px;
+            line-height: 1;
+            margin: 0 0 11px;
+        }
+        .pop_item {
+            border-radius: 15px;
+            padding: 30px;
+        }
+        .pop_item div {
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 30px;
+    text-align: left;
+        }
+        .pop_item2 h3 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+.pop_item2 div{
+ font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 30px;
+    text-align: left;
+            margin-top: 20px;
+}
+.pop_item2 ul {
+    gap: 10px;
+    margin-top: 10px;
+    flex-flow: column;
+}
+.pop_item2 ul li p {
+    font-size: 15px;
+}
+.pop_item2 {
+    padding: 30px 20px 30px;
+   
+}
+.close_pop {
+    top: 20px;
+    right: 20px;
+}
+.close_pop img {
+    width: 30px;
+    height: 30px;
+}
+.pop_item h3 {
+    font-size: 20px;
+    line-height: 25px;
+    text-align: left;
+    margin: 0 0 20px;
+}
+.pop_item2 ul li:nth-child(2) div {
+    width: 100px;
+    height: 30px;
+   
+    font-size: 15px;
+ 
+    margin: 20px auto 0;
+}
+    }
+</style>
+<section class="wave_pop" style="display:none">
+  <div class="mask_w"></div>
+  <div class="wave_pop-container">
+    <div class="wave_pop-box">
+         <div class="close_pop"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3817.svg?v=1760699124"></div>
+      <div class="pop_head">
+        <p>{{ section.settings.head_subtitle }}</p>
+        <h2>{{ section.settings.head_title | newline_to_br }}</h2>
+       
+      </div>
+      <div class="pop_body">
+        <div class="pop_item">
+          <div>{{ section.settings.item1_text | newline_to_br }}</div>
+          {% if section.settings.item1_image != blank %}
+            <img src="{{ section.settings.item1_image | img_url: 'master' }}" alt="">
+          {% endif %}
+        </div>
+
+        <div class="pop_item2">
+          <h3>{{ section.settings.item2_title }}</h3>
+          <div>{{ section.settings.item2_text | newline_to_br }}</div>
+          <ul>
+            <li>
+              <p>{{ section.settings.before_label }}</p>
+              {% if section.settings.before_image != blank %}
+                <img src="{{ section.settings.before_image | img_url: 'master' }}" alt="">
+              {% endif %}
+            </li>
+            <li>
+              <p>{{ section.settings.after_label }}</p>
+              {% if section.settings.after_image != blank %}
+                <img src="{{ section.settings.after_image | img_url: 'master' }}" alt="">
+              {% endif %}
+              {% if section.settings.after_caption != blank %}
+                <div>{{ section.settings.after_caption }}</div>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+
+        <div class="pop_item">
+          <h3>{{ section.settings.item3_title }}</h3>
+          <div>{{ section.settings.item3_text | newline_to_br }}</div>
+          {% if section.settings.item3_image != blank %}
+            <img src="{{ section.settings.item3_image | img_url: 'master' }}" alt="">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function(){
+    $('.wave_feature-button').click(function(e){
+        e.stopPropagation();
+        $('.wave_pop').show();
+        // 使用 requestAnimationFrame 确保显示后再添加动画类
+        requestAnimationFrame(function() {
+            $('.wave_pop').addClass('show');
+        });
+        $('html, body').addClass('wave-pop-open');
+    });
+    
+    $('.close_pop').click(function(e){
+        e.stopPropagation();
+        closeModal();
+    });
+    
+    $('.mask_w').click(function(e){
+        e.preventDefault();
+        closeModal();
+    });
+    
+    $(document).keydown(function(e){
+        if(e.keyCode === 27 && $('.wave_pop').is(':visible')){
+            closeModal();
+        }
+    });
+    
+    function closeModal(){
+        $('.wave_pop').removeClass('show');
+        // 等待动画完成后再隐藏元素
+        setTimeout(function() {
+            $('.wave_pop').hide();
+        }, 500);
+        $('html, body').removeClass('wave-pop-open');
+    }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Wave Pop",
+  "tag": "section",
+  "class": "wave-pop-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "head_subtitle",
+      "label": "Subtitle (top)",
+      "default": "NAL-NL2 Fitting Formula"
+    },
+    {
+      "type": "textarea",
+      "id": "head_title",
+      "label": "Title (top)",
+      "default": "The Globally Trusted \\nGold Standard"
+    },
+
+    {
+      "type": "header",
+      "content": "Item 1"
+    },
+    {
+      "type": "textarea",
+      "id": "item1_text",
+      "label": "Item 1 text",
+      "default": "Our hearing aids utilize the widely adopted NAL-NL2 fitting formula, developed by the National Acoustic Laboratories (NAL) in Australia. Based on extensive clinical data and real user feedback, it is recognized by hearing professionals and audiologists worldwide as one of the most scientific and effective nonlinear amplification algorithms."
+    },
+    {
+      "type": "image_picker",
+      "id": "item1_image",
+      "label": "Item 1 image"
+    },
+
+    {
+      "type": "header",
+      "content": "Item 2 (Before / After)"
+    },
+    {
+      "type": "text",
+      "id": "item2_title",
+      "label": "Item 2 title",
+      "default": "Multi-Dimensional Personalized Adjustment"
+    },
+    {
+      "type": "textarea",
+      "id": "item2_text",
+      "label": "Item 2 text",
+      "default": "NAL-NL2 is more than just amplification—it's a clinically validated algorithm trusted worldwide. By balancing speech clarity with listening comfort, it tailors sound to your unique needs. The formula takes into account your hearing profile, binaural effects, age, listening experience, language, and lifestyle. With precise gain adjustment across frequencies, NAL-NL2 delivers a truly personalized hearing solution that feels natural and effortless."
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "before"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "after"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "text",
+      "id": "after_caption",
+      "label": "After caption (small text under after image)",
+      "default": "NAL-NL2"
+    },
+
+    {
+      "type": "header",
+      "content": "Item 3"
+    },
+    {
+      "type": "text",
+      "id": "item3_title",
+      "label": "Item 3 title",
+      "default": "Natural and Comfortable Listening Experience"
+    },
+    {
+      "type": "textarea",
+      "id": "item3_text",
+      "label": "Item 3 text",
+      "default": "Our hearing aids utilize the widely adopted NAL-NL2 fitting formula, developed by the National Acoustic Laboratories (NAL) in Australia. Based on extensive clinical data and real user feedback, it is recognized by hearing professionals and audiologists worldwide as one of the most scientific and effective nonlinear amplification algorithms."
+    },
+    {
+      "type": "image_picker",
+      "id": "item3_image",
+      "label": "Item 3 image"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Wave Pop"
+    }
+  ]
+}
+{% endschema %}

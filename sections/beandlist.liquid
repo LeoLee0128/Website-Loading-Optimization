@@ -1,0 +1,63 @@
+<style>
+    .brands_list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 105px 0 147px;
+    }
+    .brands_list img{
+       transition: all .4s ease;
+    }
+    .brands_list img:hover{
+      transform: scale(1.05);
+    }
+@media (max-width: 768px) {
+    .brands_list {
+    justify-content: center;
+    margin: 40px 0;
+    flex-wrap: wrap;
+    gap: 33px 50px;
+}
+.brands_list img {
+    height: 19px;
+}
+}
+</style>
+
+<section class="brand_section">
+    <div class="container">
+        <div class="brands_list">
+             {% for block in section.blocks %}
+                <img src="{{ block.settings.icon | img_url:'master' }}" class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s" />
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand list",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand list"
+     
+    }
+  ]
+}
+{% endschema %}

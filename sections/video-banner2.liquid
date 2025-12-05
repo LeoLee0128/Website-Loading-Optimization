@@ -1,0 +1,183 @@
+  <style>
+#video-{{ section.id }}{
+    .hero-media {
+    position: relative;
+}
+.hero-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+p.hero-eyebrow {
+    font-size: 26px;
+    line-height: 29px;
+    margin: 0 0 18px;
+}
+.hero-title{
+    font-size: 73px;
+    font-weight: 600;
+    line-height: 80px;
+    margin: 0;
+}
+.hero-cta{
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 0px 18px;
+    font-size: 17.18px;
+    line-height: 1;
+    height: 45px;
+    min-width: 132px;
+    display: inline-flex;
+    line-height: 42px;
+    justify-content: center;
+    margin-top:50px;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+    transition: all .4s ease;
+}
+.hero-cta:hover{
+  background:#2AACE6
+}
+.hero-media video{
+  height:41.66667vw;
+   object-fit: cover;
+}
+}
+
+@media (max-width: 768px) {
+  #video-{{ section.id }}{
+    .hero-media video{
+        height: 592px;
+      object-fit: cover;
+    }
+        .hero-title {
+        font-size: 38px;
+        line-height: 40px;
+        width: 85%;
+        text-align: center;
+    }
+        p.hero-eyebrow {
+        font-size: 21px;
+        line-height: 1;
+      }
+    .hero-inner {
+        justify-content: flex-end;
+        padding-bottom: 87px;
+    }
+
+
+
+}
+
+
+}
+  </style>
+
+<section id="video-{{ section.id }}" class="video-banner" data-section-id="{{ section.id }}">
+
+
+  <div class="hero-media">
+    {% if section.settings.video_mp4_url != blank %}
+      {% if section.settings.poster != blank %}
+        {%- comment -%} 预加载响应式图片，根据设备宽度加载合适尺寸 {%- endcomment -%}
+        <link rel="preload" as="image" href="{{ section.settings.poster | image_url: width: 800 }}" fetchpriority="high" media="(max-width: 768px)">
+        <link rel="preload" as="image" href="{{ section.settings.poster | image_url: width: 1200 }}" fetchpriority="high" media="(min-width: 769px)">
+        {%- comment -%} video poster 使用中等尺寸（1200px），比原来的 2000px 小 40%，质量仍然很好 {%- endcomment -%}
+        {%- assign poster_src = section.settings.poster | image_url: width: 1200 -%}
+        {%- comment -%} 使用 img 元素预加载 poster 图片，设置 fetchpriority="high" 以优化 LCP 性能 
+        使用 visibility: hidden 而不是 display: none，确保浏览器能识别为 LCP 候选元素 {%- endcomment -%}
+        <img src="{{ poster_src }}" alt="" fetchpriority="high" width="1" height="1" style="position: absolute; visibility: hidden; pointer-events: none;" aria-hidden="true">
+      {% endif %}
+      <video autoplay muted playsinline loop preload="none" poster="{{ poster_src | default: section.settings.poster | image_url: width: 1200 }}">
+        <source src="{{ section.settings.video_mp4_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.poster != blank %}
+      {%- comment -%} 使用响应式图片，包含 srcset 和 sizes，根据设备宽度自动选择合适尺寸 {%- endcomment -%}
+      {%- capture sizes -%}
+        (max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px
+      {%- endcapture -%}
+      {{ section.settings.poster | image_url: width: section.settings.poster.width | image_tag: 
+        alt: section.settings.title, 
+        loading: 'eager', 
+        fetchpriority: 'high',
+        sizes: sizes,
+        widths: '400,600,800,1000,1200,1400,1600,1920'
+      }}
+    {% else %}
+    {% endif %}
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    {% if section.settings.subtitle != blank %}
+      <p class="hero-eyebrow space-thin wow fadeInUp">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <h2 class="hero-title h0 space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.title | newline_to_br }}</h2>
+    {% endif %}
+
+    <a class="hero-cta wow fadeInUp" href="{{ section.settings.cta_link | default: '#' }}" role="button" data-wow-delay=".2s">
+      <span>{{ section.settings.button }}</span>
+    </a>
+  </div>
+
+ 
+
+
+</section>
+
+{% schema %}
+{
+  "name": "Video Banner home",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "video_mp4_url",
+      "label": "Background MP4 URL (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Background image / Video poster"
+    }
+   
+   
+  ],
+  "presets": [
+    {
+      "name": "Video Banner home"
+    }
+  ]
+}
+{% endschema %}

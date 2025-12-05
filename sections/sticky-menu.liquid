@@ -1,0 +1,148 @@
+<style>
+    .sticky_menu-section .section{
+        padding-top: 14px;
+    padding-bottom: 14px;
+}
+    .sticky_menu{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .sticky_menu-section{
+        position: fixed;
+        top: 100px;
+        z-index: 111;
+        background: #FBFBFD;
+        width: 100%;
+        z-index: 1000;
+    {% comment %} transition: transform 0.1s ease-out;
+      transform: translateY(-300%); {% endcomment %}
+      display:none
+    }
+    .sticky_menu h2 {
+    font-size: 24px;
+    margin: 0;
+    line-height: 1;
+}
+.sticky_menu-list a {
+    font-size: 16px;
+    color: rgba(24, 24, 24, 0.898);
+}
+.sticky_menu-list {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+a.buy_btn {
+      font-weight: 400;
+    background: #3AA4DD;
+    color: #fff;
+    font-size: 20px;
+    padding: 8px 20px;
+    line-height: 1;
+    border-radius: 40px;
+}
+ @media (max-width: 768px) {
+    .sticky_menu-item {
+        display: none;
+    }
+    .sticky_menu-section {
+        top: 56px;
+    }
+    a.buy_btn {
+  
+    font-size: 12.5px;
+    padding: 8px 20px;
+  
+}
+.sticky_menu-section .section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sticky_menu h2 {
+    font-size: 19px;
+}
+}
+</style>
+{% comment %} <section class="sticky_menu-section">
+    <div class="section">
+        <div class="sticky_menu">
+            <h2>{{ section.settings.title }}</h2>
+            <div class="sticky_menu-list">
+                  {% for block in section.blocks %}
+                        <a href="{{  block.settings.url }}" class="sticky_menu-item">{{ block.settings.menu }}</a>
+                  {% endfor %}
+
+                   <a href="#product_main" class="buy_btn">Buy</a>
+            </div>
+           
+        </div>
+    </div>
+</section> {% endcomment %}
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+   $(document).ready(function() {
+        var $menu = $('.sticky_menu-section');
+        var $hero = $('.hero-media');
+        var $header = $('.shopify-section--header');
+        
+        $(window).on('scroll', function() {
+            var scrollTop = $(window).scrollTop();
+            var heroTop = $hero.offset().top;
+            var headerVisibility = $header.css('visibility');
+            
+            if (scrollTop > heroTop) {
+                
+                if (headerVisibility === 'hidden') {
+                    $menu.css('display', 'block');
+                    $menu.css('visibility', 'visible');
+                } else {
+                    $menu.css('display', 'block');
+                    $menu.css('visibility', 'visible');
+
+                }
+            } else {
+                $menu.css('display', 'none');
+            }
+        });
+    });
+</script>
+{% schema %}
+{
+  "name": "Sticky menu",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    }
+  
+       
+   
+  ],
+     "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "text", 
+            "id": "menu", 
+            "label": "menu text" 
+        },
+        {
+             "type": "text", 
+             "id": "url", 
+             "label": "ID",
+            }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky menu"
+    }
+  ]
+}
+{% endschema %}

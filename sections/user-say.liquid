@@ -1,0 +1,260 @@
+<style>
+.say_item {
+    display: flex;
+    background: #F2F2F2;
+}
+.say_content{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+     {% comment %} font-family:var(--font-light-family);
+    font-weight: var(--font-light-weight);
+    font-style: var(--font-light-style); {% endcomment %}
+    font-family:Outfit-Light;
+}
+.touch_title {
+    font-size: 3.5vw;       
+    line-height: 3.7vw;
+    font-weight: 600;
+    margin: 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.say_section {
+    margin-top: 9vw;
+    margin-bottom: 12vw;
+}
+.say_reviews {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 72px 0 72px;
+}
+.say_page .swiper-button-next,
+.say_page .swiper-button-prev {
+    width: 5vw;
+    height: 5vw;
+    max-width: 53px;
+    max-height: 53px;
+}
+.say_user {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    margin-top: 26px;
+     {% comment %} font-family:var(--font-light-family);
+font-weight: var(--font-light-weight);
+font-style: var(--font-light-style); {% endcomment %}
+font-family:Outfit-Light;
+}
+ @media (min-width: 1080px) {
+.say_page > div {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+      left: 0;
+}
+
+}
+.say_page {
+    display: flex;
+    align-items: center;
+      gap: 16px;
+}
+.say_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 6vw;   /* 原 68px → 6vw 在 1080px 屏约为 64px */
+}
+.say_page .swiper-button-next, .say_page .swiper-button-prev {
+    background: rgba(24, 24, 24, 0.5);
+    width: 53px;
+    height: 53px;
+    border-radius: 53px;
+     transition:all .3s ease
+}
+.say_page .swiper-button-next:hover,
+.say_page .swiper-button-prev:hover{
+background: rgba(24, 24, 24, 0.65);
+}
+.say_page .swiper-button-next:after,
+.say_page .swiper-button-prev:after{
+  display:none
+}
+.say_item {
+  border-radius: 10px;
+  overflow: hidden; 
+}
+@media (min-width:1080px) {
+  .say_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .say_head .touch_title {
+    max-width: 80%;     /* 限制标题宽度 80% */
+    white-space: normal; /* 允许换行 */
+    overflow-wrap: break-word; /* 长英文/无空格也能断行 */
+  }
+}
+ @media (max-width: 768px) {
+  .touch_title {
+    font-size: 7vw;
+    line-height: 7.2vw;
+    text-align: center;
+    padding: 0 5vw;
+    /* 关键：确保可以换行，而不是被挤出屏幕 */
+    white-space: normal;          /* 覆盖可能的 nowrap */
+    word-break: break-word;       /* 对长英文单词/URL 在中间断行 */
+    overflow-wrap: break-word;    /* 让内容在边界自动换行 */
+  }
+
+  .say_head {
+    margin-bottom: 7vw;
+  }
+
+  .say_section {
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+  }
+
+  .say_page .swiper-button-next,
+  .say_page .swiper-button-prev {
+    width: 9vw;
+    height: 9vw;
+  }
+
+.say_item {
+    flex-flow: column-reverse;
+}
+.say_content {
+    font-size: 16.5px;
+    line-height: 21px;
+    text-align: center;
+}
+.say_reviews {
+    padding: 43px 16px;
+    text-align: center;
+}
+.say_user{
+ font-size: 16.5px;
+    line-height: 21px;
+    margin-top:21px
+}
+
+.say_page .swiper-button-next, .say_page .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+            top: 41%;
+}
+.say_page .swiper-button-prev{
+left:30px
+}
+.say_page .swiper-button-next{
+right:30px
+}
+      
+.say_section {
+    margin-top: 69.5px;
+    margin-bottom: 58px;
+}
+}
+
+
+
+</style>
+
+<section class="say_section">
+    <div class="container">
+        <div class="say_wrapper">
+            <div class="say_head">
+                 <h2 class="touch_title wow fadeInUp">{{ section.settings.title }}</h2>
+                 <div class="say_page">
+                     
+                    <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
+                    <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
+                 </div>
+            </div>
+            <div class="swiper saySwiper">
+                <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    <div class="say_item">
+                        <div class="say_reviews">
+                           <div class="say_content wow fadeInUp"> {{ block.settings.content }}</div>
+                            <div class="say_user wow fadeInUp">
+                                {{ block.settings.user }}
+                            </div>
+                        </div>
+                        <img src="{{ block.settings.image | img_url:'master' }}">
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper(".saySwiper", {
+      slidesPerView: 1,
+       navigation: {
+        nextEl: ".say_section .swiper-button-next",
+        prevEl: ".say_section .swiper-button-prev",
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "User say slider",
+  "settings": [
+    
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+       
+        
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+         {
+          "type": "textarea",
+          "id": "content",
+          "label": "content"
+        },
+         {
+          "type": "textarea",
+          "id": "user",
+          "label": "user name"
+        }
+       
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "User say slider"
+     
+    }
+  ]
+}
+{% endschema %}

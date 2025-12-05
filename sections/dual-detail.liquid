@@ -1,0 +1,271 @@
+<style>
+    .dual_wrapper {
+        max-width: 1320px;
+        margin: 0 auto;
+    }
+    .bt-dual-connect {
+        padding-top: 174px;
+        border-radius: 100px 100px 0 0;
+        margin-top: -100px;
+        position: relative;
+        z-index: 1;
+        background: #fff;
+    }
+    .bdc-head{
+        text-align: center;
+        margin-bottom: 113px;
+    }
+    .bdc-title{
+         color: #181818;
+        font-size: 66px;
+        line-height: 72px;
+        margin: 0 auto 40px;
+        font-weight: 600;
+    }
+    .bdc-subtitle{
+        font-size: 30px;
+        line-height: 35px;
+        color: rgba(24, 24, 24, 0.5);
+        margin: 0;
+    }
+    .bdc-row.bdc-row-1 {
+        display: flex;
+        align-items: center;
+        gap: 143px;
+        justify-content: space-between;
+    }
+    .bdc-row.bdc-row-1 .bdc-col.bdc-col-left {
+        width: 743px;
+        flex: none;
+    }
+    .bdc-text {
+        color: rgba(24, 24, 24, 0.5);
+        font-size: 25px;
+        line-height: 28px;
+        margin-top: 33px;
+        max-width: 435px;
+    }
+    .bdc-col.bdc-col-right img {
+        width: 388px;
+    }
+    .bdc-row.bdc-row-2 {
+        display: flex;
+        align-items: center;
+        gap: 111px;
+        margin-top: 86px
+    }
+    .bdc-row.bdc-row-2 .bdc-col.bdc-col-right {
+        width: 800px;
+        flex: none;
+        position:relative
+    }
+    .bdc-row.bdc-row-2 .bdc-col.bdc-col-right img {
+        width: 100%;
+    }
+    .bdc-icons img{
+        width:63px;
+    }
+    .bdc-icons{
+        margin-top:83px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+    .bdc-col.bdc-col-left h3{
+        font-size: 66px;
+        line-height: 72px;
+        margin: 0;
+        color: #181818;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    .bdc-block-content p{
+        color: rgba(24, 24, 24, 0.5);
+        font-size: 25px;
+        line-height: 28px;
+        margin: 0;
+    }
+    .phone__icon{
+        position: absolute;
+    height: auto;
+    width: 534px!important;
+    left: -290px;
+    bottom: -150px;
+  }
+  @media (max-width: 1442px){
+    .bdc-row.bdc-row-1 .bdc-col.bdc-col-left {
+      width: 56%;
+      flex: none;
+  }
+  .bdc-row.bdc-row-2 .bdc-col.bdc-col-right {
+    width: 700px;
+}
+}
+@media (max-width: 768px){
+  .phone__icon{
+  display: block!important;
+    width: 320px !important;
+    left: 0;
+    bottom: auto;
+    top: 64%;
+  }
+    .bdc-title {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0 auto 28px;
+    }
+    .bdc-col.bdc-col-right img {
+        display: none;
+    }
+    .bdc-row.bdc-row-1 .bdc-col.bdc-col-left {
+        display: none;
+    }
+    .bdc-text {
+      font-size: 17.5px;
+      line-height: 20px;
+      max-width: 100%;
+      background: #F6F6F6;
+      padding: 30px;
+      border-radius: 7px;
+      text-align: center;
+      margin-top: calc(100% + 39px);
+  }
+   .bdc-text p{
+    margin:0
+  }
+  .bdc-subtitle {
+    font-size: 17.5px;
+    line-height: 20px;
+    max-width: 185px;
+    margin: 0 auto;
+  }
+  .bt-dual-connect{
+    background:url({{ section.settings.bg_m | img_url:'master' }});
+      background-size: contain;
+      background-repeat: no-repeat;
+     height: auto;
+      padding-top:66px;
+      border-radius: 0;
+    }
+
+  .bdc-col.bdc-col-left h3 {
+      font-size: 40px;
+      line-height: 40px;
+      margin-bottom: 28px;
+  }
+  .bdc-block-content p {
+    font-size: 17.5px;
+    line-height: 20px;
+  }
+  .bdc-row.bdc-row-2 {
+    gap: 0;
+    margin-top: 75px;
+    flex-flow: column;
+    text-align: center;
+}
+.bdc-icons {
+    margin-top: 35px;
+    align-items: center;
+    gap: 23px;
+    justify-content: center;
+}
+.bdc-icons img {
+    width: 36px;
+}
+.bdc-row-2 .bdc-col.bdc-col-right .mobile-img {
+        display: block;
+    }
+    .bdc-row.bdc-row-2 .bdc-col.bdc-col-right {
+    width: 100%;
+          margin-top: 40px;
+}
+
+}
+</style>
+
+<section class="bt-dual-connect">
+  <div class="container">
+    <div class="dual_wrapper">
+    <!-- Top: Big Title + Subtitle -->
+    <header class="bdc-head">
+      <h2 class="bdc-title space-thin wow fadeInUp">{{ section.settings.title | newline_to_br }}</h2>
+      <p class="bdc-subtitle space-thin wow fadeInUp">{{ section.settings.subtitle }}</p>
+    </header>
+
+    <!-- Row 1: Left big image | Right small image + text -->
+    <div class="bdc-row bdc-row-1">
+      <div class="bdc-col bdc-col-left">
+        {% if section.settings.row1_left_image != blank %}
+          {{ section.settings.row1_left_image | image_url: width: 1200 | image_tag: class: 'bdc-img bdc-img--main', loading: 'lazy' }}
+        {% endif %}
+      </div>
+      <div class="bdc-col bdc-col-right">
+        {% if section.settings.row1_right_image != blank %}
+          {{ section.settings.row1_right_image | image_url: width: 500 | image_tag: class: 'bdc-img bdc-img--small wow fadeInUp', loading: 'lazy' }}
+        {% endif %}
+        <div class="bdc-text space-thin wow fadeInUp">{{ section.settings.row1_text }}</div>
+      </div>
+    </div>
+
+    <!-- Row 2: Left title + content + two icons/images | Right big image -->
+    <div class="bdc-row bdc-row-2">
+      <div class="bdc-col bdc-col-left">
+        <h3 class="bdc-block-title space-thin wow fadeInUp">{{ section.settings.row2_left_title }}</h3>
+        <div class="bdc-block-content space-thin wow fadeInUp">{{ section.settings.row2_left_content }}</div>
+
+        <div class="bdc-icons  wow fadeInUp">
+          {% if section.settings.row2_left_icon1 != blank %}
+            {{ section.settings.row2_left_icon1 | image_url: width: 80 | image_tag: class: 'bdc-icon', loading: 'lazy' }}
+          {% endif %}
+          {% if section.settings.row2_left_icon2 != blank %}
+            {{ section.settings.row2_left_icon2 | image_url: width: 80 | image_tag: class: 'bdc-icon', loading: 'lazy' }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="bdc-col bdc-col-right">
+        <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1x_a52f1896-7f96-4303-a0c7-9404efcde68d.png?v=1760621343" class="phone__icon" />
+        {% if section.settings.row2_right_image != blank %}
+          {{ section.settings.row2_right_image | image_url: width: 1200 | image_tag: class: 'bdc-img bdc-img--main desktop-img', loading: 'lazy' }}
+          {{ section.settings.row2_right_image_m | image_url: width: 1200 | image_tag: class: 'bdc-img bdc-img--main mobile-img', loading: 'lazy' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "BT dual connectivity",
+  "tag": "section",
+  "settings": [
+     {
+      "type": "image_picker",
+      "id": "bg_m",
+      "label": "Image mobile"
+    },
+    { "type": "textarea", "id": "title", "label": "Title", "default": "Bluetooth streaming & dual connectivity" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Stream with confidence. Connect with ease." },
+
+    { "type": "image_picker", "id": "row1_left_image", "label": "Row 1 - Left image" },
+    { "type": "image_picker", "id": "row1_right_image", "label": "Row 1 - Right small image" },
+    { "type": "richtext", "id": "row1_text", "label": "Row 1 - Right text", "default": "<p>From music to calls, experience stable, low‑lag audio thanks to advanced Bluetooth streaming. Stay connected to two devices at once and enjoy uninterrupted sound across all your daily moments.</p>" },
+
+    { "type": "text", "id": "row2_left_title", "label": "Row 2 - Left title", "default": "Universal compatibility" },
+    { "type": "richtext", "id": "row2_left_content", "label": "Row 2 - Left content", "default": "<p>Works with Android, iOS, and 98%+ of bluetooth devices.</p>" },
+    { "type": "image_picker", "id": "row2_left_icon1", "label": "Row 2 - Left icon 1" },
+    { "type": "image_picker", "id": "row2_left_icon2", "label": "Row 2 - Left icon 2" },
+    { "type": "image_picker", "id": "row2_right_image", "label": "Row 2 - Right image" },
+    { "type": "image_picker", "id": "row2_right_image_m", "label": "Row 2 - Right image mobile" }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "BT dual connectivity",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

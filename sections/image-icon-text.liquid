@@ -1,0 +1,153 @@
+<style>
+.image_icon-section {
+    padding-top: 13.3125rem
+}
+.image_icon-section .section{
+padding-top:0;
+padding-bottom:13.3125rem
+}
+.image_icon-wrapper {
+    display: flex;
+    gap: 5.8125rem;
+        align-items: center;
+}
+.imgge_icon-desc p {
+    font-size:  1.5625rem;
+    line-height: 1.75rem;
+    max-width: 450px;
+        color: rgb(0 0 0 / 50%);
+    margin-top: 1.85375rem;
+      font-weight: 500;
+}
+.imgge_icon-desc p strong{
+      color: #000;
+        font-weight: 500;
+}
+.sec_head h2 {
+  color:#000;
+    margin: 0;
+    font-size: 5.625rem;
+      line-height: .8;
+      font-weight:600
+}
+.sec_head p {
+    font-size: 1.875rem;
+    margin: 0;
+    color: rgb(0 0 0 / 50%);
+    margin-top: 2.5rem;
+    line-height: 1;
+      font-weight: 500;
+}
+.sec_head {
+    text-align: center;
+    margin-bottom: 10.125rem;
+}
+.image_icon-content img{
+  width:5.125rem
+}
+ @media (max-width: 768px) {
+    .sec_head p {
+        font-size: 17.5px;
+        margin-top: 26.89px;
+        line-height: 20px;
+            max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .image_icon-wrapper {
+        gap: 33.5px;
+        flex-flow: column;
+        text-align: center;
+    }
+    .image_icon-content img {
+        width: 52px;
+    }
+    .imgge_icon-desc p strong {
+        color: #000;
+        display: block;
+    }
+    .imgge_icon-desc p {
+      margin-top:20.5px;
+      line-height: 20px;
+        font-size: 17.5px;
+        color: rgb(0 0 0 / 50%);
+        padding: 0
+    }
+    .image_icon-section {
+        padding-top: 80.5px;
+    }
+    .sec_head {
+        margin-bottom: 48.25px;
+    }
+    .sec_head h2 {
+      font-size: 40px;
+      line-height: 40.5px;
+  }
+  .image_icon-content {
+    text-align: left;
+  }
+  .image_icon-section .section{
+padding-bottom:80px
+}
+  }
+</style>
+
+<section class="image_icon-section" id="{{ section.settings.custom_id }}">
+    <div class="section">
+        <div class="sec_head">
+            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
+        </div>
+        <div class="image_icon-wrapper">
+            <img src="{{ section.settings.image | img_url:'master' }}" class="wow fadeInUp" />
+            <div class="image_icon-content">
+                <img src="{{ section.settings.icon | img_url:'master' }}" />
+                <div class="imgge_icon-desc wow fadeInUp">{{ section.settings.desc }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Image with icon text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    },
+     {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "subtitle"
+    },
+   
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "left image"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "icon"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "desc"
+    }
+   
+  ],
+  "presets": [
+    {
+      "name": "Image with icon text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,183 @@
+<style>
+  .blogs_wrapper {
+    margin-top: 160.5px;
+    margin-bottom: 149px;
+  }
+  .blogs_head h2{
+    font-size: 66px;
+    line-height: 72px;
+    text-align: center;
+    margin-top:0;
+    margin-bottom:68.5px;
+    font-weight: 600;
+  }
+  .blogs_title{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: center;
+    margin-top: 30px;
+    font-family:var(--font-regular-family);
+    font-weight: var(--font-regular-weight);
+    font-style: var(--font-regular-style);
+  }
+
+  .blogs_section .swiper-button-next, .blogs_section .swiper-button-prev {
+    background: rgba(24, 24, 24, 0.2);
+    top: 36%;
+    transition:all .3s ease;
+    backdrop-filter: blur(15px);
+    width: 53px;
+    height: 53px;
+    border-radius: 53px;
+  }
+  .blogs_section .swiper-button-next:hover,
+  .blogs_section .swiper-button-prev:hover{
+    background: rgba(24, 24, 24, 0.65);
+  }
+  .blogs_section .swiper-button-next:after,
+  .blogs_section .swiper-button-prev:after{
+    display:none
+  }
+  .blogs_section .swiper-button-prev{
+    left:18px
+  }
+  .blogs_section .swiper-button-next{
+    right: 18px;
+  }
+  .bbb_img{
+    overflow:hidden;
+    border-radius: 10px;
+  }
+  .bbb_img img{
+    transition:all .4s ease
+  }
+  .bbb_img:hover img{
+    transform: scale(1.1);
+  }
+
+  /* 让整块可点击的 a 标签表现得像原本的容器 */
+  .blogs_item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media (max-width: 768px) {
+    .blogs_title {
+      font-size: 16.5px;
+      line-height: 21px;
+    }
+    .blogs_head h2 {
+      font-size: 38px;
+      line-height: 38px;
+      margin-bottom: 34px;
+    }
+    .blogs_wrapper {
+      margin-top: 72px;
+      margin-bottom: 75px;
+    }
+  }
+</style>
+
+<section class="blogs_section">
+    <div class="container">
+        <div class="blogs_wrapper">
+            <div class="blogs_head">
+                <h2 class="wow fadeInUp">{{ section.settings.head }}</h2>
+            </div>
+
+            <div class="swiper blogSwiper">
+                <div class="swiper-wrapper">
+
+                {% for block in section.blocks %}
+                  <div class="swiper-slide">
+
+                    {% if block.settings.link != blank %}
+                      <a href="{{ block.settings.link }}" class="blogs_item">
+                    {% else %}
+                      <div class="blogs_item">
+                    {% endif %}
+
+                        <div class="bbb_img">
+                          <img src="{{ block.settings.image | img_url:'master' }}">
+                        </div>
+
+                        <div class="blogs_title wow fadeInUp">
+                          {{ block.settings.title | newline_to_br }}
+                        </div>
+
+                    {% if block.settings.link != blank %}
+                      </a>
+                    {% else %}
+                      </div>
+                    {% endif %}
+
+                  </div>
+                {% endfor %}
+
+                </div>
+
+                <div class="swiper-button-next">
+                  <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" />
+                </div>
+                <div class="swiper-button-prev">
+                  <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper(".blogSwiper", {
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1280: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1600: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
+      },
+      navigation: {
+        nextEl: ".blogs_section .swiper-button-next",
+        prevEl: ".blogs_section .swiper-button-prev",
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Blog slider",
+  "settings": [
+    { "type": "text", "id": "head", "label": "title" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "image" },
+        { "type": "textarea", "id": "title", "label": "title" },
+        { "type": "url", "id": "link", "label": "link" }
+      ]
+    }
+  ],
+  "presets": [
+    {"name": "Blog slider"}
+  ]
+}
+{% endschema %}

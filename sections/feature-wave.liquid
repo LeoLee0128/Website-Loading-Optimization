@@ -1,0 +1,565 @@
+<style>
+.wave_feature-top{
+    background:url({{ section.settings.bg | img_url:'master' }});
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top:199px;
+        height: 1843px;
+      border-radius: 50px 50px 0;
+    background-position: top center;
+}
+.wave_head h2{
+    font-size: 66px;
+    font-weight: 600;
+    line-height: 72px;
+    color: #FFFFFF;
+    margin: 0 auto 40px;
+    max-width: 573px;
+}
+.wave_head p {
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 500;
+    color: rgb(255 255 255 / 50%);
+    max-width: 730px;
+    margin: 0 auto;
+}
+.wave_feature-list {
+    {% comment %} background: linear-gradient(90deg, #FFFFFF -31%, #9E7E62 84%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;  {% endcomment %}
+    color:#9E7E62;
+    font-size: 35px;
+    line-height: 40px;
+    font-weight: 500;
+    margin-top: 1014px;
+    gap: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.wave_feature-list li {
+    width: 260px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.wave_feature-middle {
+      text-align: center;
+    background: #19110E;
+      margin-top: -50px;
+      padding-bottom: 16px;
+        display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.wave_feature-mcontent {
+    color: rgb(255 255 255 / 50%);
+    margin: 0;
+    font-size: 25px;
+    line-height: 28px;
+    font-weight: 500;
+    max-width: 937px;
+    margin: 0 auto;
+    text-align: center;
+}
+.wave_feature-mtitle, .wave_feature-middle h2 {
+    font-size: 56px;
+    background: linear-gradient(90deg, #FFFBF3 -24%, #9E7E62 63%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    line-height: 50px;
+    font-weight: 600;
+}
+.wave_feature-middle h2{
+    margin: 0;
+        display: inline-block;
+  }
+.wave_feature-mtitle{
+  margin:18px 0 40px
+}
+.wave_feature-button {
+    width: 320px;
+    height: 55px;
+    border-radius: 50px;
+    background: #302E2E;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 23px;
+    margin: 73px auto 0;
+      position: relative;
+}
+.wave_feature-button.space-thin i {
+    background: url(https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3809.svg?v=1760431405);
+    width: 37px;
+    height: 37px;
+    background-size: cover;
+    display: block;
+    position: absolute;
+    right: 9px;
+}
+.wave_feature-bottom {
+    background: #19110E;
+  padding: 228px 0 300px;
+}
+.wave_feature-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 110px;
+    max-width: 1320px;
+    margin: 0 auto;
+      padding-bottom: 134px;
+}
+.wave_feature-image img{
+    width: 800px;
+        border-radius: 20px;
+  }
+.wave_feature-info{
+      width: 403px;
+}
+.wave_feature-info > p{
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-variation-settings: "opsz" auto;
+    font-feature-settings: "kern" on;
+    color: #C5A88D;
+    margin: 0;
+  }
+.wave_feature-info h2{
+    font-size: 66px;
+    color: #fff;
+    margin: 7px 0 26px;
+    line-height: 72px;
+    font-weight: 600;
+  }
+.wave_feature-info div p{
+    font-size: 25px;
+    color: rgb(255 255 255 / 50%);
+    line-height: 28px;
+    font-weight: 500;
+  margin: 0;
+  }
+  .wave_feature-right{
+      max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .wave_feature-right img{
+        width: 100%;
+        border-radius:20px
+  }
+  .wave_feature-content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 69px 69px;
+    color: #fff;
+  }
+  .wave_feature-content div{
+      font-size: 25px;
+    line-height: 28px;
+    margin: 0;
+  }
+  .wave_feature-content h2{
+    font-size: 66px;
+    margin: 36px 0 0;
+    line-height: 72px;
+    font-weight: 600;
+  }
+    @media(max-width:1442px){
+        .wave_feature-list{
+          gap:20px
+        }
+        .wave_feature-info {
+          width: 40%;
+          flex: none;
+      }
+    }
+
+  @media(max-width:768px){
+    .wave_feature-section{
+        background: #19110d;
+        border-radius: 50px 50px 0 0;
+        overflow: hidden;
+      }
+    .wave_feature-top{
+      background:url({{ section.settings.mbg | img_url:'master' }});
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-align: center;
+      {% comment %} padding-top:70px;
+      height: 614px; {% endcomment %}
+      background-position: center;  
+      height: 87svh;  
+      height: 87vh;   
+      min-height: 614px;  
+      max-height: 900px; 
+      padding-top: clamp(48px, 9.3svh, 120px);
+  }
+    .wave_head h2 {
+      font-size: 40px;
+      line-height: 40px;
+      margin: 0 auto 28px;
+      max-width: 90%;
+  }
+  .wave_head p {
+    font-size: 18px;
+    line-height: 20px;
+    max-width: 80%;
+}
+.wave_feature-left {
+    gap: 32px;
+    max-width: 100%;
+    padding-bottom: 0;
+    flex-flow: column;
+}
+.wave_feature-info {
+    width: 100%;
+          text-align: center;
+}
+ul.wave_feature-list img {
+    width: 40px;
+}
+.wave_feature-list li {
+    width: 150px;
+    font-size: 17px;
+    line-height: 19px;
+}
+.wave_feature-list {
+    font-size: 17.5px;
+    line-height: 19px;
+   margin-top: 365px; 
+    gap: 35px 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+        position: relative;
+        padding: 0 45px;
+}
+.wave_feature-middle h2{
+  font-size: 25px;
+    line-height: 27px;
+          padding-top: 30px;
+  }
+.wave_feature-mtitle{
+ font-size: 25px;
+    line-height: 28px;
+      margin: 5px 0 25px;
+}
+.wave_feature-mcontent  {
+    font-size: 15.5px;
+    line-height: 19px;
+        max-width: 100%;
+              padding: 0 30px;
+}
+.b_wave_feature-middle{
+   margin-top: 220px;
+  width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+ 
+}
+.wave_feature-middle {
+    background: transparent;
+       margin-top: 0;
+    padding-top: 0;
+border-radius: 40px;
+ 
+border: solid 2px transparent;
+        border-radius: 15px;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        background-image: linear-gradient(#19110c, #19110c), linear-gradient(to right, #FFFBF3, #9E7E62);
+        padding-bottom: 0;
+
+
+}
+
+.wave_feature-mcontent br {
+    display: none;
+}
+.wave_feature-info h2 {
+    font-size: 40px;
+    margin: 20px 0 28px;
+    line-height: 40px;
+}
+.wave_feature-button {
+    width: 240px;
+    height: 45px;
+    font-size: 14px;
+    margin: 40px auto 30px;
+}
+.wave_feature-info div p {
+    font-size: 15px;
+    line-height: 19px;
+    margin: 0;
+}
+.wave_feature-content h2 {
+    font-size: 40px;
+    margin: 20px 0 0;
+    line-height: 40px;
+}
+.wave_feature-content div {
+    font-size: 19px;
+    line-height: 20px;
+    margin: 0;
+}
+.wave_feature-content {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    text-align: center;
+}
+.wave_feature-right {
+    display: flex;
+    flex-flow: column-reverse;
+    gap: 40px;
+    margin-top: 80px;
+}
+.wave_feature-right img {
+    width: 100%;
+}
+.wave_feature-info > p {
+    font-size: 17.5px;
+    line-height: 20px;
+    justify-content: center;
+  }
+  .wave_feature-bottom {
+    padding: 86px 0 110px;
+}
+.wave_feature-button.space-thin i {
+    width: 28px;
+    height: 28px;
+}
+.wave_feature-content div{
+      background: linear-gradient(90deg, #FFFBF3 -24%, #9E7E62 63%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+@media(max-width:480px){
+    .wave_feature-list {
+      margin-top: 490px;
+    }
+    .b_wave_feature-middle {
+        margin-top: 250px;
+    }
+}
+@media(max-width:420px){
+    .wave_feature-list {
+      margin-top: 490px;
+    }
+    .b_wave_feature-middle {
+        margin-top: 270px;
+    }
+}
+@media(max-width:392px){
+    .wave_feature-list {
+      margin-top: 420px;
+    }
+    .b_wave_feature-middle {
+        margin-top: 250px;
+    }
+}
+@media (max-width: 380px) {
+    .wave_feature-list {
+        margin-top: 320px;
+    }
+}
+</style>
+<section class="wave_feature-section">
+    <div class="wave_feature-top">
+      
+        <div class="wave_head">
+            <h2 class="space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="space-thin wow fadeInUp">{{ section.settings.desc }}</p>
+        </div>
+        <ul class="wave_feature-list">
+         {% for block in section.blocks %}
+            <li class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                <img src="{{ block.settings.icon | img_url:'master' }}" class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                <div>{{ block.settings.text | newline_to_br }}</div>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+    <div class="b_wave_feature-middle">
+    <div class="wave_feature-middle">
+        <h2 class="space-thin wow fadeInUp">{{ section.settings.m_subtitle }}</h2>
+        <div class="wave_feature-mtitle space-thin wow fadeInUp">{{ section.settings.m_title | newline_to_br }}</div>
+        <div class="wave_feature-mcontent space-thin wow fadeInUp">{{ section.settings.m_content | newline_to_br }}</div>
+        <div class="wave_feature-button space-thin">
+            Explore Further NAL-NL2<i></i>
+        </div>
+      </div>
+    </div>
+    <div class="wave_feature-bottom">
+        <div class="container">
+        <div class="wave_feature-left">
+            <div class="wave_feature-info">
+                <p class="space-thin wow fadeInUp">{{ section.settings.b_subtitle }}</p>
+                <h2 class="space-thin wow fadeInUp">{{ section.settings.b_title }}</h2>
+                <div class="space-thin wow fadeInUp">{{ section.settings.b_content }}</div>
+            </div>
+            <div class="wave_feature-image">
+                <img class="desktop-img" src="{{ section.settings.m_image | img_url:'master' }}">
+                <img  class="mobile-img" src="{{ section.settings.m_image_m | img_url:'master' }}">
+            </div>
+        </div>
+        <div class="wave_feature-right">
+            <img class="desktop-img" src="{{ section.settings.b_image | img_url:'master' }}">
+            <img class="mobile-img" src="{{ section.settings.b_image_m | img_url:'master' }}">
+            <div class="wave_feature-content">
+                <div class="space-thin wow fadeInUp">{{ section.settings.r_subtitle }}</div>
+                <h2 class="space-thin wow fadeInUp">{{ section.settings.r_title | newline_to_br }}</h2>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Wave Feature",
+  "tag": "section",
+  "class": "wave-section",
+  "settings": [
+      {
+          "type": "image_picker",
+          "id": "bg",
+          "label": "Background image"
+        },
+         {
+          "type": "image_picker",
+          "id": "mbg",
+          "label": "Background image mobile"
+        },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Top Title"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "Top Description"
+    },
+
+    {
+      "type": "header",
+      "content": "Middle Block"
+    },
+    {
+      "type": "text",
+      "id": "m_subtitle",
+      "label": "Middle Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "m_title",
+      "label": "Middle Title"
+    },
+    {
+      "type": "textarea",
+      "id": "m_content",
+      "label": "Middle Content"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom Left"
+    },
+    {
+      "type": "text",
+      "id": "b_subtitle",
+      "label": "Bottom Left Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "b_title",
+      "label": "Bottom Left Title"
+    },
+    {
+      "type": "richtext",
+      "id": "b_content",
+      "label": "Bottom Left Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "m_image",
+      "label": "Bottom Left Image"
+    },
+     {
+      "type": "image_picker",
+      "id": "m_image_m",
+      "label": "Bottom Left Image mobile"
+    },
+
+    {
+      "type": "header",
+      "content": "Bottom Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "b_image",
+      "label": "Bottom  Image"
+    },
+     {
+      "type": "image_picker",
+      "id": "b_image_m",
+      "label": "Bottom  Image mobile"
+    },
+    {
+      "type": "text",
+      "id": "r_subtitle",
+      "label": "Bottom  Subtitle"
+    },
+    {
+      "type": "textarea",
+      "id": "r_title",
+      "label": "Bottom Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Top Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wave Feature"
+    }
+  ]
+}
+{% endschema %}

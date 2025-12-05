@@ -1,0 +1,608 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
+developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+all events, dependencies...) in the "documentation.txt" file, located in the Assets folder.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<!doctype html>
+
+<html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
+
+<head>
+
+  {%- comment -%}
+    关键内容必须直接输出（确保正常用户和 SEO）：
+    - charset、viewport、title 等基础 meta 标签
+    - 关键 CSS 和字体预加载
+    - 这些内容不能延迟加载
+  {%- endcomment -%}
+  
+  {%- comment -%} 基础 meta 标签 - 必须立即输出 {%- endcomment -%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="{{ settings.header_background }}">
+  
+  <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{
+    'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+  {%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if settings.favicon -%}
+  <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+  <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+  {%- endif -%}
+
+  {%- comment -%} 关键资源预连接 - 必须立即输出 {%- endcomment -%}
+  <link rel="preconnect" href="https://cdn.shopify.com">
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+
+  {%- unless settings.heading_font.system? -%}
+  <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endunless -%}
+
+  {%- unless settings.text_font.system? -%}
+  <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endunless -%}
+
+  {%- comment -%} 预加载粗体字体 {%- endcomment -%}
+  {%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
+  {%- unless settings.text_font.system? -%}
+  {%- if text_font_bold -%}
+  <link rel="preload" href="{{ text_font_bold | font_url }}" as="font" type="font/woff2" crossorigin>
+  {%- endif -%}
+  {%- endunless -%}
+
+  {%- comment -%} 关键 CSS - 必须立即输出 {%- endcomment -%}
+  {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+
+  {%- comment -%} 关键渲染函数 - 必须立即输出 {%- endcomment -%}
+  {%- render 'social-meta-tags' -%}
+  {%- render 'microdata-schema' -%}
+  {%- render 'css-variables' -%}
+  {%- render 'js-variables' -%}
+
+  {%- comment -%}
+    非关键内容使用 capture 包裹，应用反爬虫保护
+    这些内容可以延迟加载，不影响正常用户访问
+  {%- endcomment -%}
+  
+  
+    {% if request.path contains '/blogs/pr-news/' %}
+    <meta name="robots" content="noindex, follow">
+    {% endif %}
+
+    {%- comment -%} 预连接 Google Tag Manager 域名以优化 DNS 解析 {%- endcomment -%}
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <style>
+      {
+        % unless template=='index' or template=='page.faqs' %
+      }
+
+      .main-new {
+        margin-top: 0px;
+      }
+
+      @media screen and (max-width: 699px) {
+        .main-new {
+          margin-top: 0px;
+        }
+      }
+
+        {
+        % endunless %
+      }
+
+      .wow.animated {
+        animation-duration: 1s !important;
+        animation-fill-mode: both;
+      }
+    </style>
+
+    <meta name="google-site-verification" content="EuGs_-Z3uxybdccO-18zl7aMYRoEPVPfhTSWdxgKdOw" />
+
+    {%- comment -%}非关键 CSS 异步加载{%- endcomment -%}
+    <link rel="preload" href="{{ 'animate.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="{{ 'animate.css' | asset_url }}">
+    </noscript>
+
+    {%- comment -%}WOW.js 延迟加载优化：不在首屏立即加载，等待页面空闲或用户开始滚动时再加载{%- endcomment -%}
+    <script>
+    (function () {
+      var wowLoaded = false;
+      var wowInitialized = false;
+
+      // 检查页面上是否有需要动画的元素
+      function hasWowElements() {
+        return document.querySelector('.wow') !== null;
+      }
+
+      // 加载 WOW.js 脚本
+      function loadWowScript() {
+        if (wowLoaded) return;
+        wowLoaded = true;
+
+        var script = document.createElement('script');
+        script.src = '{{ "wow.js" | asset_url }}';
+        script.defer = true;
+        script.onload = function () {
+          initWow();
+        };
+        document.head.appendChild(script);
+      }
+
+      // 初始化 WOW 实例
+      function initWow() {
+        if (wowInitialized || typeof WOW === 'undefined') return;
+        wowInitialized = true;
+
+        try {
+          var wow = new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 0,
+            mobile: true,
+            live: true
+          });
+          wow.init();
+        } catch (e) {
+          console.warn('WOW.js initialization failed:', e);
+        }
+      }
+
+      // 策略1: 使用 requestIdleCallback 延迟加载（优先级最高）
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function () {
+          if (hasWowElements()) {
+            loadWowScript();
+          }
+        }, { timeout: 2000 }); // 最多等待 2 秒
+      } else {
+        // 策略2: 降级方案 - 页面加载完成后延迟加载
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            if (hasWowElements()) {
+              loadWowScript();
+            }
+          }, 1000); // 延迟 1 秒
+        });
+      }
+
+      // 策略3: 用户开始滚动时立即加载（确保动画及时触发）
+      var scrollTimer = null;
+      var scrollHandler = function () {
+        if (!wowLoaded && hasWowElements()) {
+          loadWowScript();
+          // 加载后移除滚动监听（只触发一次）
+          window.removeEventListener('scroll', scrollHandler);
+          window.removeEventListener('touchstart', scrollHandler);
+        }
+      };
+
+      // 监听滚动和触摸事件（移动端）
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+      window.addEventListener('touchstart', scrollHandler, { passive: true, once: true });
+
+      // 策略4: 使用 IntersectionObserver 检测首屏外的 .wow 元素进入视口时加载
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          // 如果检测到有 .wow 元素，立即加载
+          if (!wowLoaded && hasWowElements()) {
+            loadWowScript();
+            observer.disconnect();
+          }
+        }, {
+          rootMargin: '200px' // 提前 200px 检测
+        });
+
+        // 观察第一个 .wow 元素（如果存在）
+        var firstWowElement = document.querySelector('.wow');
+        if (firstWowElement) {
+          observer.observe(firstWowElement);
+        }
+      }
+    })();
+  </script>
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'sections.js' | asset_url }}"></script>
+    {{ content_for_header }}
+
+    {% if request.host == 'cearvol.com' %}
+    <link rel="alternate" hreflang="en-us" href="https://cearvol.com{{ request.path }}" />
+    <link rel="alternate" hreflang="en-gb" href="https://cearvol.co.uk{{ request.path }}" />
+    <link rel="alternate" hreflang="x-default" href="https://cearvol.com{{ request.path }}" />
+    {% elsif request.host == 'cearvol.co.uk' %}
+    <link rel="alternate" hreflang="en-us" href="https://cearvol.com{{ request.path }}" />
+    <link rel="alternate" hreflang="en-gb" href="https://cearvol.co.uk{{ request.path }}" />
+    <link rel="alternate" hreflang="x-default" href="https://cearvol.co.uk{{ request.path }}" />
+    {% endif %}
+
+    {% if request.host == 'cearvol.com' %}
+    <link rel="canonical" href="https://cearvol.com{{ request.path }}" />
+    {% endif %}
+
+    {% include 'pagefly-app-header' %}
+
+    
+</head>
+
+
+
+<body
+  class="{% if settings.show_page_transition %}page-transition{% endif %} {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
+
+  {%- render 'shadow-dom-templates' -%}
+
+  <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  {%- if request.page_type != 'password' -%}
+  {%- sections 'header-group' -%}
+  {%- sections 'overlay-group' -%}
+
+  {%- if settings.cart_type == 'popover' -%}
+  <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
+  {%- endif -%}
+  {%- endif -%}
+
+  {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type ==
+  'customers/addresses' -%}
+  {%- section 'account-banner' -%}
+  {%- endif -%}
+
+
+
+  <main role="main" id="main" class="anchor main-new">
+    {{ content_for_layout }}
+
+    {%- comment -%}
+    IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
+    added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
+    {%- endcomment -%}
+    {%- if request.page_type != 'password' -%}
+    {%- sections 'footer-group' -%}
+    {%- endif -%}
+  </main>
+
+
+
+  <link rel="stylesheet"
+    href="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/swiper-bundle.min.css?v=1763380855">
+  <script defer src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/swiper-bundle.min.js?v=1763380855"></script>
+
+  {%- comment -%} 延迟加载 Google Tag Manager 和 Google Analytics，减少主线程阻塞 {%- endcomment -%}
+  <script>
+    // 初始化 dataLayer，确保在延迟加载前可以收集事件
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    // 延迟加载 Google Analytics 和 GTM
+    function loadGoogleAnalytics() {
+      // 加载 Google Analytics (gtag.js)
+      var gtagScript = document.createElement('script');
+      gtagScript.async = true;
+      gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-4NJDTYZKXB';
+      document.head.appendChild(gtagScript);
+
+      // 配置 Google Analytics
+      gtag('js', new Date());
+      gtag('config', 'G-4NJDTYZKXB');
+    }
+
+    function loadGoogleTagManager() {
+      // 加载 Google Tag Manager
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MWRSNT3L');
+    }
+
+    // 使用 requestIdleCallback 延迟加载，如果浏览器不支持则使用 setTimeout
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function () {
+        loadGoogleAnalytics();
+        loadGoogleTagManager();
+      }, { timeout: 2000 }); // 最多等待 2 秒
+    } else {
+      // 降级方案：在页面加载完成后延迟加载
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          loadGoogleAnalytics();
+          loadGoogleTagManager();
+        }, 1000); // 延迟 1 秒加载
+      });
+    }
+  </script>
+</body>
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWRSNT3L" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+</html>
+<style>
+  .fade-translate-div {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    /* 同时过渡透明度和位移 */
+    position: relative;
+  }
+
+  /* 定义淡入时位移的动画 */
+  @keyframes fadeInTranslate {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+  }
+
+  /* 定义淡出时位移的动画 */
+  @keyframes fadeOutTranslate {
+    0% {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInTranslateLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutTranslateLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+  }
+
+  @keyframes fadeInTranslateRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOutTranslateRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  }
+</style>
+
+<script>
+  // var fadeTranslateDivs = document.querySelectorAll('.fade-translate-div');
+
+  // function isElementInViewport(el) {
+  //   var rect = el.getBoundingClientRect();
+  //   return (
+  //     rect.top >= 0 &&
+  //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  //   );
+  // }
+
+  // function onScroll() {
+  //   fadeTranslateDivs.forEach(function(div) {
+  //     if (isElementInViewport(div)) {
+  //       div.style.animation = 'fadeInTranslate 0.5s forwards';
+  //     } else {
+  //       div.style.animation = 'fadeOutTranslate 0.5s forwards';
+  //     }
+  //   });
+  // }
+
+  // window.addEventListener('scroll', onScroll);
+  // onScroll();
+
+
+  // 选中所有带有 fade-translate-div、fade-translate-div2、fade-translate-div3 类名的元素
+  // (function() {
+  //   var fadeTranslateDivs = document.querySelectorAll('.fade-translate-div, .fade-translate-div2, .fade-translate-div3');
+
+  //   function setAnimation(el, animationName, duration) {
+  //     el.style.animation = animationName + ' ' + duration + ' forwards';
+  //   }
+
+  //   var animationConfigs = {
+  //     'fade-translate-div': '1s',
+  //     'fade-translate-div2': '5s',
+  //     'fade-translate-div3': '7s'
+  //   };
+
+  //   function createObserver(callback, options) {
+  //     return new IntersectionObserver(callback, options);
+  //   }
+
+  //   function onIntersection(entries, observer) {
+  //     entries.forEach(function(entry) {
+  //       var duration = '0.5s';
+  //       Object.keys(animationConfigs).forEach(function(cls) {
+  //         if (entry.target.classList.contains(cls)) {
+  //           duration = animationConfigs[cls];
+  //           return;
+  //         }
+  //       });
+
+  //       var animationName = entry.isIntersecting ? 'fadeInTranslate' : 'fadeOutTranslate';
+  //       setAnimation(entry.target, animationName, duration);
+  //     });
+  //   }
+
+  //   if ('IntersectionObserver' in window) {
+  //     var observer = createObserver(onIntersection, { threshold: [0, 1] });
+
+  //     fadeTranslateDivs.forEach(function(div) {
+  //       observer.observe(div);
+  //     });
+  //   } else {
+  //     function onScroll() {
+  //       fadeTranslateDivs.forEach(function(div) {
+  //         var duration = '0.5s';
+  //         Object.keys(animationConfigs).forEach(function(cls) {
+  //           if (div.classList.contains(cls)) {
+  //             duration = animationConfigs[cls];
+  //             return;
+  //           }
+  //         });
+
+  //         var isVisible = isElementInViewport(div);
+  //         var animationName = isVisible ? 'fadeInTranslate' : 'fadeOutTranslate';
+  //         setAnimation(div, animationName, duration);
+  //       });
+  //     }
+
+  //     window.addEventListener('scroll', onScroll);
+  //     onScroll();
+  //   }
+
+  //   function isElementInViewport(el) {
+  //     var rect = el.getBoundingClientRect();
+  //     return (
+  //       rect.top >= 0 &&
+  //       rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  //     );
+  //   }
+  // })();
+
+
+  (function () {
+    var fadeTranslateDivs = document.querySelectorAll('.fade-translate-div, .fade-translate-div2, .fade-translate-div3, .fade-translate-left, .fade-translate-right');
+
+    function setAnimation(el, animationName, duration) {
+      el.style.animation = animationName + ' ' + duration + ' forwards';
+    }
+
+    var animationConfigs = {
+      'fade-translate-div': '2s',
+      'fade-translate-div2': '4s',
+      'fade-translate-div3': '8s',
+      'fade-translate-left': '2s', // 假设从左向右的动画持续时间为3秒
+      'fade-translate-right': '2s' // 假设从右向左的动画持续时间为3秒
+    };
+
+    function createObserver(callback, options) {
+      return new IntersectionObserver(callback, options);
+    }
+
+    function onIntersection(entries, observer) {
+      entries.forEach(function (entry) {
+        var duration = '0.5s';
+        var animationName = '';
+
+        if (entry.target.classList.contains('fade-translate-left')) {
+          duration = animationConfigs['fade-translate-left'];
+          animationName = entry.isIntersecting ? 'fadeInTranslateLeft' : 'fadeOutTranslateLeft';
+        } else if (entry.target.classList.contains('fade-translate-right')) {
+          duration = animationConfigs['fade-translate-right'];
+          animationName = entry.isIntersecting ? 'fadeInTranslateRight' : 'fadeOutTranslateRight';
+        } else {
+          Object.keys(animationConfigs).forEach(function (cls) {
+            if (entry.target.classList.contains(cls)) {
+              duration = animationConfigs[cls];
+              animationName = entry.isIntersecting ? 'fadeInTranslate' : 'fadeOutTranslate';
+              return;
+            }
+          });
+        }
+
+        setAnimation(entry.target, animationName, duration);
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = createObserver(onIntersection, { threshold: [0, 1] });
+
+      fadeTranslateDivs.forEach(function (div) {
+        observer.observe(div);
+      });
+    } else {
+      function onScroll() {
+        fadeTranslateDivs.forEach(function (div) {
+          var duration = '0.5s';
+          var animationName = '';
+          var isVisible = isElementInViewport(div);
+
+          if (div.classList.contains('fade-translate-left')) {
+            duration = animationConfigs['fade-translate-left'];
+            animationName = isVisible ? 'fadeInTranslateLeft' : 'fadeOutTranslateLeft';
+          } else if (div.classList.contains('fade-translate-right')) {
+            duration = animationConfigs['fade-translate-right'];
+            animationName = isVisible ? 'fadeInTranslateRight' : 'fadeOutTranslateRight';
+          } else {
+            Object.keys(animationConfigs).forEach(function (cls) {
+              if (div.classList.contains(cls)) {
+                duration = animationConfigs[cls];
+                animationName = isVisible ? 'fadeInTranslate' : 'fadeOutTranslate';
+                return;
+              }
+            });
+          }
+
+          setAnimation(div, animationName, duration);
+        });
+      }
+
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    }
+
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    }
+  })();
+
+</script>

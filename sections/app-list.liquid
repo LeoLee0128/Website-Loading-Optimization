@@ -1,0 +1,257 @@
+<style>
+    .appinfo_image {
+        position: relative;
+    }
+    .appinfo_txt {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+    .appinfo_txt h2 {
+        margin: 0;
+        font-size: 66px;
+        line-height: 72px;
+        color: #fff;
+        font-weight: 600;
+        width: 577px;
+        margin-bottom: 24px;
+    }
+    .appinfo_txt div {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 25px;
+        line-height: 28px;
+        max-width: 513px;
+    }
+    .appinfo_sliders {
+    background: #2C231F;
+    padding-top: 140px;
+    color: #fff;
+    border-radius: 100px 100px 0 0;
+    margin-top: -280px;
+    position: relative;
+    z-index: 1;
+}
+.appinfo_sliders .section{
+    padding-top:0;
+        padding-right: 0;
+        padding-bottom: 250px;
+}
+.appinfo_box h2{
+    font-size: 66px;
+    line-height: 72px;
+    font-weight: 600;
+    margin: 0;
+    width: 334px;
+    flex: none;
+}
+.appinfo_box{
+    display: flex;
+    align-items: flex-start;
+    gap: 78px;
+}
+.appinfo_list{
+        width: calc(100% - 412px);
+}
+.appinfo_list_slider-item img {
+    width: 100%;
+}
+
+.image_sider-btn > div {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+        width: 53px;
+    height: 53px;
+}
+.image_sider-btn > div:after{
+    display:none
+}
+.image_sider-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 245px;
+    gap: 16px;
+    margin-top: 70px;
+}
+.image_sider-btn > div.swiper-button-prev{
+    transform: rotate(180deg);
+}
+@media(max-width:1441px){
+    .appinfo_sliders {
+    
+        margin-top: -140px;
+    
+    }
+}
+@media(max-width:768px){
+    .appinfo_txt h2 {
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 28px;
+        text-align: center;
+            width: 100%;
+    }
+    .appinfo_txt div {
+        font-size: 17.5px;
+        line-height: 20px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .appinfo_txt {
+        top: 80px;
+        transform: none;
+        width: 100%;
+    }
+
+    .appinfo_sliders {
+        padding-top: 66px;
+        border-radius: 35px 35px 0 0;
+        margin-top: -36px;
+    }
+    .appinfo_box h2 {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .appinfo_list {
+        width: 100%;
+    }
+    .appinfo_box {
+        gap: 42px;
+        flex-flow: column;
+    }
+    .appinfo_sliders .section {
+        padding-bottom: 166px;
+    }
+     .image_sider-btn {
+  
+    justify-content: center;
+    margin-right: 0;
+    gap: 16px;
+    margin-top: 70px;
+}
+}
+</style>
+
+<section class="appinfo_section">
+    <div class="appinfo_wrapper">
+        <div class="appinfo_image">
+                <img class="desktop-img" src="{{ section.settings.banner | img_url:'master' }}">
+                <img class="mobile-img" src="{{ section.settings.banner_m | img_url:'master' }}">
+                <div class="appinfo_txt">
+                     <div class="container">
+                    <h2 class="wow fadeInUp">{{ section.settings.title }}</h2>
+                    <div class="wow fadeInUp">{{ section.settings.desc }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="appinfo_sliders">
+        <div class="section">
+            <div class="appinfo_box">
+                <h2 class="wow fadeInUp">{{ section.settings.i_title }}</h2>
+                <div class="appinfo_list">
+                     <div class="swiper iappSwiper">
+                        <div class="swiper-wrapper">
+                            {% for block in section.blocks %}
+                            <div class="swiper-slide">
+                                <div class="appinfo_list_slider-item">
+                                    <img src="{{ block.settings.image | img_url:'master' }}">
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                     <div class="image_sider-btn">
+             
+             <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{{ 'swiper.js' | asset_url }}"></script>
+<script>
+        var swiper = new Swiper(".iappSwiper", {
+     navigation: {
+        nextEl: ".image_sider-btn .swiper-button-next",
+        prevEl: ".image_sider-btn .swiper-button-prev",
+      },
+         breakpoints: { 
+          320: {  
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+          },
+          768: {   
+               slidesPerView: 3.8,
+      spaceBetween: 30
+          },
+          1280: {  
+                slidesPerView: 3.8,
+      spaceBetween: 30
+      
+          }
+        }
+    });
+</script>
+{% schema %}
+{
+  "name": "App detail",
+  "settings": [
+      { 
+            "type": "image_picker", 
+            "id": "banner", 
+            "label": "banner" 
+        },
+         { 
+            "type": "image_picker", 
+            "id": "banner_m", 
+            "label": "banner mobile" 
+        },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "label": "Subtitle"
+    },
+     {
+      "type": "text",
+      "id": "i_title",
+      "label": "slider title"
+    }
+   
+    
+  ],
+   "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        }
+      
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "App detail"
+    }
+  ]
+}
+{% endschema %}

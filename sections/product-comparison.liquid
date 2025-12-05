@@ -1,0 +1,735 @@
+<style>
+.product-comparison-section {
+        margin-top: 167px;
+background: linear-gradient(71deg, #262220 46%, #5D5A58 102%);
+    padding: 83.5px 0 0;
+}
+
+.product-comparison-title {
+font-size: 66px;
+font-weight: 600;
+line-height: 72px;
+margin:0 0 54.5px;
+color:#fff
+}
+
+.product-comparison-container {
+  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+}
+
+.product-module {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-module-select {
+    width: 249px;
+    height: 42px;
+    border-radius: 5px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+    background-image: url(https://cdn.shopify.com/s/files/1/0552/4891/2483/files/92691c477f0e677531a746a72a9535d1_a6689b1d-e83a-4908-8ce0-5d298860702b.svg?v=1762067417);
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    margin: 0 auto 52px;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 20.39px;
+    color: #fff;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+    transition: all .4s ease
+}
+.product-module-select:hover{
+border-color:#fff
+}
+
+.product-module-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+}
+
+.product-module-item {
+    display: none;
+}
+
+.product-module-item.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image-wrapper {
+    text-align: center;
+    margin-bottom: 63px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.product-features {
+    background: #fff;
+    border-radius: 10px 10px 0 0;
+    padding: 38px 10px 42px 82px;
+    flex: 1;
+    {% comment %} min-height: 570px; {% endcomment %}
+}
+
+.product-feature-item {
+    display: flex;
+    align-items: center;
+   font-size: 20px;
+    line-height: 40px;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+}
+
+.product-feature-item:last-child {
+    border-bottom: none;
+}
+
+.feature-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 19px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon.check {
+      background: url(https://cdn.shopify.com/s/files/1/0552/4891/2483/files/97f61400138a11a77e1253d7a8d83759_7ce66a58-1dad-4c34-aba3-4149f3b12fa0.svg?v=1762067991);
+    background-size: cover;
+}
+
+.feature-icon.cross {
+    background: url(https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1x_a214e71c-af5e-4046-91f4-7d744cb1c84d.png?v=1763046227);
+    background-size: cover;
+}
+.proc_learnmore {
+    margin-top: 45px;
+    padding-left: 48px;
+}
+
+.product-learn-more-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    width: 132px;
+    height: 45px;
+    border-radius: 45px;
+    text-decoration: none;
+    font-size: 17.18px;
+    transition: background 0.3s ease;
+    text-align: center;
+    line-height: 42px;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+        transition: all .4s ease;
+}
+
+.product-learn-more-btn:hover {
+    background: #2AACE6;
+}
+a.learn__mores {
+    width: 262px;
+    height: 45px;
+    border-radius: 117.86px;
+    font-size: 17.18px;
+    text-align: center;
+    border: 1px solid #000000;
+    display: block;
+    line-height: 42px;
+    margin: 57px auto 0;
+}
+.product-module-select {
+    {% comment %} color: #000 !important; {% endcomment %}
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.product-module-select option {
+    color: #000 !important;
+    padding: 0.521vw;
+}
+@media (max-width: 768px) {
+   .product-comparison-container {
+        gap: 11px;
+        overflow-x: scroll;
+        display: flex;
+        flex-wrap: nowrap;
+              margin-right: -20px;
+                      padding-right: 20px;
+}
+.product-comparison-title {
+    font-size: 38px;
+ 
+    line-height: 39px;
+
+    width: 60%;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.product-module-select {
+    width: 126.5px;
+    height: 26px;
+  
+    padding: 5px 9px;
+  
+    margin: 0 auto 26px;
+    font-size: 13px;
+    line-height: 13px;
+  }
+  .product-features {
+    padding: 22px 10px 42px 31px;
+}
+.product-feature-item {
+    font-size: 12px;
+    line-height: 14px;
+            margin-bottom: 15px;
+  }
+  .feature-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+  }
+  .product-learn-more-btn {
+ 
+    width: 102px;
+    height: 35px;
+    font-size: 13px;
+  
+    line-height: 34px;
+  }
+  .proc_learnmore {
+    margin-top: 25px;
+    padding-left: 0;
+}
+.product-module {
+    display: flex;
+    flex-direction: column;
+    width: 167px;
+    flex: none;
+}
+.product-comparison-section {
+    margin-top: 69.5px;
+    padding: 50px 0;
+}
+.product-image-wrapper {
+    margin-bottom: 30px;
+    min-height: auto;
+  }
+  a.learn__mores {
+    width: 162px;
+    height: 40px;
+
+    font-size: 14px;
+    line-height: 37px;
+    margin: 27px auto 0;
+}
+}
+</style>
+
+<section class="product-comparison-section">
+    <div class="container">
+    <h2 class="product-comparison-title wow fadeInUp">See which right for you</h2>
+    
+    <div class="product-comparison-container">
+        {% assign module_types = 'product_type_1,product_type_2,product_type_3' | split: ',' %}
+        {% for module_type in module_types %}
+        {% assign module_index = forloop.index0 %}
+        {% assign module_blocks = section.blocks | where: 'type', module_type %}
+        <div class="product-module" data-module="{{ forloop.index }}">
+            <select class="product-module-select" data-module-select="{{ forloop.index }}">
+                {% for block in module_blocks %}
+                <option value="{{ block.id }}" {% if forloop.first %}selected{% endif %}>
+                    {{ block.settings.product_name }}
+                </option>
+                {% endfor %}
+            </select>
+            
+            <div class="product-module-content">
+                {% for block in module_blocks %}
+                <div class="product-module-item {% if forloop.first %}active{% endif %}" data-product-id="{{ block.id }}" data-module="{{ forloop.parentloop.index }}">
+                    <div class="product-image-wrapper">
+                        <img src="{{ block.settings.product_image | img_url: 'master' }}" alt="{{ block.settings.product_name }}">
+                    </div>
+                    
+                    <div class="product-features">
+                        {% if block.settings.feature_1 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_1_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_1 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_2 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_2_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_2 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_3 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_3_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_3 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_4 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_4_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_4 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_5 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_5_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_5 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_6 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_6_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_6 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_7 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_7_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_7 }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        {% if block.settings.feature_8 != blank %}
+                        <div class="product-feature-item">
+                            <span class="feature-icon {% if block.settings.feature_8_enabled %}check{% else %}cross{% endif %}">
+                            </span>
+                            <span>{{ block.settings.feature_8 }}</span>
+                        </div>
+                        {% endif %}
+
+                          {% if block.settings.learn_more_url != blank %}
+                    <div class="proc_learnmore">
+                        <a href="{{ block.settings.learn_more_url }}" class="product-learn-more-btn">Learn more</a>
+                    </div>
+                    {% endif %}
+                    </div>
+                    
+                  
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+   
+    </div>
+</section>
+ <a href="{{ section.settings.morelink }}" class="learn__mores">Learn more</a>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.product-module-select').on('change', function() {
+        var moduleNum = $(this).data('module-select');
+        var selectedProductId = $(this).val();
+        
+        var module = $('.product-module[data-module="' + moduleNum + '"]');
+        var allItems = module.find('.product-module-item[data-module="' + moduleNum + '"]');
+        
+        allItems.removeClass('active').fadeOut(200);
+        
+        setTimeout(function() {
+            var selectedItem = module.find('.product-module-item[data-product-id="' + selectedProductId + '"]');
+            selectedItem.addClass('active').fadeIn(200);
+        }, 200);
+    });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "See which right for you"
+    },
+     {
+      "type": "url",
+      "id": "morelink",
+      "label": "more url"
+    }
+    
+  ],
+  "blocks": [
+    {
+      "type": "product_type_1",
+      "name": "Product Type 1",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_1_enabled",
+          "label": "Feature 1 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_2_enabled",
+          "label": "Feature 2 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_3_enabled",
+          "label": "Feature 3 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_4",
+          "label": "Feature 4"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_4_enabled",
+          "label": "Feature 4 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_5",
+          "label": "Feature 5"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_5_enabled",
+          "label": "Feature 5 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_6",
+          "label": "Feature 6"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_6_enabled",
+          "label": "Feature 6 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_7",
+          "label": "Feature 7"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_7_enabled",
+          "label": "Feature 7 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_8",
+          "label": "Feature 8"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_8_enabled",
+          "label": "Feature 8 Enabled",
+          "default": true
+        },
+        {
+          "type": "url",
+          "id": "learn_more_url",
+          "label": "Learn More Link"
+        }
+      ]
+    },
+    {
+      "type": "product_type_2",
+      "name": "Product Type 2",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_1_enabled",
+          "label": "Feature 1 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_2_enabled",
+          "label": "Feature 2 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_3_enabled",
+          "label": "Feature 3 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_4",
+          "label": "Feature 4"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_4_enabled",
+          "label": "Feature 4 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_5",
+          "label": "Feature 5"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_5_enabled",
+          "label": "Feature 5 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_6",
+          "label": "Feature 6"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_6_enabled",
+          "label": "Feature 6 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_7",
+          "label": "Feature 7"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_7_enabled",
+          "label": "Feature 7 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_8",
+          "label": "Feature 8"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_8_enabled",
+          "label": "Feature 8 Enabled",
+          "default": true
+        },
+        {
+          "type": "url",
+          "id": "learn_more_url",
+          "label": "Learn More Link"
+        }
+      ]
+    },
+    {
+      "type": "product_type_3",
+      "name": "Product Type 3",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_1_enabled",
+          "label": "Feature 1 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_2_enabled",
+          "label": "Feature 2 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_3_enabled",
+          "label": "Feature 3 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_4",
+          "label": "Feature 4"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_4_enabled",
+          "label": "Feature 4 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_5",
+          "label": "Feature 5"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_5_enabled",
+          "label": "Feature 5 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_6",
+          "label": "Feature 6"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_6_enabled",
+          "label": "Feature 6 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_7",
+          "label": "Feature 7"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_7_enabled",
+          "label": "Feature 7 Enabled",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_8",
+          "label": "Feature 8"
+        },
+        {
+          "type": "checkbox",
+          "id": "feature_8_enabled",
+          "label": "Feature 8 Enabled",
+          "default": true
+        },
+        {
+          "type": "url",
+          "id": "learn_more_url",
+          "label": "Learn More Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Comparison"
+    }
+  ]
+}
+{% endschema %}

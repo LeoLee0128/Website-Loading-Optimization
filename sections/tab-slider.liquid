@@ -1,0 +1,318 @@
+<style>
+    .tabs-swiper-section{
+        margin-bottom:6.6875rem
+    }
+    .tw-panel{
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .tw-panel.is-active{
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+    }
+    
+    .tw-panels {
+        position: relative;
+    }
+    
+    .tw-swiper {
+        height: auto;
+        min-height: 300px;
+    }
+    
+    div#twTabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4.1875rem;
+        gap: 1.5rem;
+    }
+    .tw-tab{
+     border: 2px solid #fff;
+        border-radius: 50px;
+        padding: 3px;
+        transition: border-color 0.3s ease;
+        cursor: pointer;
+    }
+    button.tw-tab.is-active {
+         border: 2px solid #000;
+    }
+    button.tw-tab[data-target="#panel-b"].is-active {
+    border-color: #CCBEB1;
+}
+    
+    .color-name {
+        margin-left: 0;
+        font-size: 2rem;
+        font-weight: 400;
+        transition: opacity 0.3s ease;
+        line-height: 1;
+    }
+    .tabs-swiper-section .head_section h2{
+      margin-top:0
+    }
+    
+    .image_slider-item {
+        position: relative;
+        width: 100%;
+    }
+    
+    .desktop-img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+    .mobile-img {
+        display: none;
+        width: 100%;
+        height: auto;
+    }
+    
+@media (max-width: 768px) {
+  .tw-tab {
+    width: 34px;
+}
+  .tabs-swiper-section {
+    margin-bottom: 52px;
+  }
+  div#twTabs {
+    gap: 14px;
+    margin-top: 21px;
+}
+.color-name {
+    font-size: 25px;
+  }
+  
+  .tw-swiper {
+    min-height: 250px;
+  }
+  
+  .desktop-img {
+    display: none;
+  }
+  
+  .mobile-img {
+    display: block;
+  }
+}
+</style>
+
+<section class="tabs-swiper-section">
+<div class="tabs-wrap">
+  
+   <div class="head_section"> 
+      <h2 class="h1 wow fadeInUp">{{ section.settings.title }}</h2>
+  </div>
+    <div class="tw-panels">
+        <div class="tw-panel is-active" id="panel-a">
+            <div class="swiper tw-swiper" id="swiperA">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                {% if block.type == 'slide_a' and block.settings.image != blank %}
+                    <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="image_slider-item">
+                       <img class="desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                         <img class="mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                    </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="tw-panel" id="panel-b">
+            <div class="swiper tw-swiper" id="swiperB">
+            <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                {% if block.type == 'slide_b' and block.settings.image != blank %}
+                    <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="image_slider-item">
+                        <img class="desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                         <img class="mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                    </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tw-tabs" id="twTabs">
+        <button class="tw-tab is-active" data-target="#panel-a" data-color-name="{{ section.settings.color_name_1 | default: 'Glazed Black' }}"><img src="{{ section.settings.icon1 | img_url:'master' }}" /></button>
+        <button class="tw-tab" data-target="#panel-b" data-color-name="{{ section.settings.color_name_2 | default: 'Glazed White' }}"><img src="{{ section.settings.icon2 | img_url:'master' }}" /></button>
+        <span class="color-name" id="colorName">{{ section.settings.color_name_1 | default: 'Glazed Black' }}</span>
+    </div>
+</div>
+</section>
+
+<script>
+  $(function () {
+    var swiperA = new Swiper('#swiperA', {
+        speed: 600,
+        breakpoints: { 
+            320: {  
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            centeredSlides: true
+          },
+          768: {   
+             slidesPerView: 1.45,
+            spaceBetween: 30,
+             centeredSlides: true
+          },
+          1280: {  
+             slidesPerView: 1.45,
+            spaceBetween: 30,
+             centeredSlides: true
+          }
+        }
+    });
+
+    var swiperB = new Swiper('#swiperB', {
+        speed: 600,
+        breakpoints: { 
+            320: {  
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+             centeredSlides: true
+          },
+          768: {   
+            slidesPerView: 1.45,
+            spaceBetween: 30,
+             centeredSlides: true
+          },
+          1280: {  
+            slidesPerView: 1.45,
+            spaceBetween: 30,
+             centeredSlides: true
+          }
+        }
+    });
+
+    var $tabs = $('#twTabs .tw-tab');
+    var $colorName = $('#colorName');
+    
+    function showPanel(sel) {
+      // 隐藏所有面板
+      $('.tw-panel').removeClass('is-active');
+      
+      // 显示目标面板
+      $(sel).addClass('is-active');
+      
+      // 更新对应的 swiper
+      if (sel === '#panel-a') { 
+        setTimeout(function() {
+          swiperA.update();
+          swiperA.slideTo(0, 0);
+        }, 100);
+      }
+      if (sel === '#panel-b') { 
+        setTimeout(function() {
+          swiperB.update();
+          swiperB.slideTo(0, 0);
+        }, 100);
+      }
+    }
+
+    $tabs.on('click', function () {
+      var sel = $(this).data('target');
+      var colorName = $(this).data('color-name');
+      
+      if ($(this).hasClass('is-active')) return;
+      
+      $tabs.removeClass('is-active');
+      $(this).addClass('is-active');
+      
+      $colorName.css('opacity', '0');
+      setTimeout(function() {
+        $colorName.text(colorName).css('opacity', '1');
+      }, 100);
+      
+      showPanel(sel);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Tab Swiper",
+  "settings": [
+     {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+     { 
+            "type": "image_picker", 
+            "id": "icon1", 
+            "label": "icon 1" 
+        },
+         { 
+            "type": "image_picker", 
+            "id": "icon2", 
+            "label": "icon 2" 
+        },
+        {
+            "type": "text",
+            "id": "color_name_1",
+            "label": "Color Name 1",
+            "default": "Glazed Black"
+        },
+        {
+            "type": "text",
+            "id": "color_name_2",
+            "label": "Color Name 2",
+            "default": "Glazed White"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "slide_a",
+      "name": "Slide (Tab A)",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "Image" 
+        },
+         { 
+            "type": "image_picker", 
+            "id": "mobile_image", 
+            "label": "mobile image" 
+        }
+      ]
+    },
+    {
+      "type": "slide_b",
+      "name": "Slide (Tab B)",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "Image" 
+        },
+         { 
+            "type": "image_picker", 
+            "id": "mobile_image", 
+            "label": "mobile image" 
+        }
+      ]
+    }
+  ],
+  "presets": [
+    { 
+        "name": "Tab Swiper"
+    }
+  ]
+}
+{% endschema %}

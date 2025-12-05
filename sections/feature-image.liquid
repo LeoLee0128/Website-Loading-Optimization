@@ -1,0 +1,462 @@
+
+  <style>
+    #feature-spot-{{ section.id }} { 
+        color: #ffffff; 
+    }
+    #feature-spot-{{ section.id }} .heading { 
+        text-align: center;
+        margin-bottom: 24px;
+        position: absolute;
+        color: #000;
+        top: 11.268125rem;
+        width: 100%;
+    }
+    #feature-spot-{{ section.id }} .title { 
+        margin: 0 0 2.5rem; 
+        font-weight: 600; 
+        line-height: .8; 
+        font-size:5.625rem;
+        color:#181818
+    }
+    #feature-spot-{{ section.id }} .subtitle { 
+        margin: 0 auto;
+        max-width: 900px;
+        font-size: 1.875rem;
+        line-height: 2.1875rem;
+        font-weight: 500;
+        color: rgb(24 24 24 / 50%);
+    }
+
+    #feature-spot-{{ section.id }} .visual { 
+        position: relative; 
+        width: 100%; 
+        margin-top: 0; 
+    }
+    #feature-spot-{{ section.id }} .visual picture, 
+    #feature-spot-{{ section.id }} .visual img { 
+        display: block; 
+        width: 100%; 
+  height: 1773px;
+    object-fit: cover;
+        {% comment %} height: auto; {% endcomment %}
+     }
+
+    #feature-spot-{{ section.id }} .hotspot {
+      position: absolute; 
+      transform: translate(-50%, -50%); 
+      color: #fff; max-width: 320px;
+      pointer-events: none; 
+      text-align: left;
+    }
+    #feature-spot-{{ section.id }} .hotspot .dot {
+      position: absolute; 
+      left: 0; 
+      top: 0; 
+      transform: translate(-50%, -50%);
+      width: 0.75rem; 
+      height: 0.75rem; 
+      border-radius: 50%;
+       background: #fff; 
+    }
+    #feature-spot-{{ section.id }} .hotspot .line {
+      position: absolute; 
+      left: 0; 
+      top: 0; 
+      width: 1px; 
+     height: 0;
+      background: #ffffff; 
+      opacity: .9;
+      transform-origin: top;
+
+      transform-origin: top;
+      transform: scaleY(0) rotate(var(--hs-angle, 0deg));
+      transition: height .6s ease;
+      
+    }
+    .wrap.is-active  .hotspot .line{
+       height: 15.0625rem!important;
+    }
+    .wrap.is-active .hotspot .label{
+      opacity:1!important;
+    }
+    #feature-spot-{{ section.id }} .hotspot .label {
+        position: absolute;
+        left: -10.8rem;
+        top: 15.5rem;
+        width: 24.625rem;
+ font-weight: 500; 
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity .4s ease .6s, transform .4s ease .6s;
+    }
+    #feature-spot-{{ section.id }}.is-active .hotspot .line{
+      transform: scaleY(1) rotate(var(--hs-angle, 0deg));
+    }
+    #feature-spot-{{ section.id }}.is-active .hotspot .label{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #feature-spot-{{ section.id }} .label .label-title { 
+        margin: 0 0 4px; 
+        font-weight: 700; 
+    }
+    #feature-spot-{{ section.id }} .label .label-desc { 
+        margin: 0; 
+        font-size: 1.875rem;
+        line-height: 2.1875rem
+    }
+    #feature-spot-{{ section.id }} .label .label-desc p{
+      margin:0;
+      color: rgba(255, 255, 255, 0.5);
+          font-weight: 500;
+    }
+    #feature-spot-{{ section.id }} .label .label-desc strong{
+      color: rgba(255, 255, 255, 1);
+          font-weight: 500;
+    }
+     #feature-spot-{{ section.id }} .features {
+        position: absolute;
+        bottom: 10.9375rem;
+        display: flex;
+        margin: auto;
+        {% comment %} gap: 133px; {% endcomment %}
+        max-width: 75.875rem;
+        left: 0;
+        right: 0;
+            justify-content: space-between;
+    }
+     #feature-spot-{{ section.id }} .icon img {
+        width: 54px !important;
+    }
+     #feature-spot-{{ section.id }} .icon img {
+        height: 60px;
+        object-fit: contain;
+        object-position: center;
+    }
+     #feature-spot-{{ section.id }} .feature {
+        max-width: 351px;
+    }
+     #feature-spot-{{ section.id }} p.f-title {
+        font-size: 1.5vw;
+        margin: 0;
+       margin-top:1.944375rem;
+        line-height: 3.125rem;
+ font-weight: 500; 
+
+    }
+
+  #feature-spot-{{ section.id }} p.f-desc {
+        color: rgb(255 255 255 / 50%);
+    line-height: 1.75rem;
+        margin-bottom: 0;
+    font-size: 1.5rem;
+    margin-top: 0;
+ font-weight: 500; 
+
+}
+ @media (max-width: 1600px) {
+  .wrap.is-active  .hotspot .line{
+       {% comment %} height: 10.0625rem!important; {% endcomment %}
+    }
+     #feature-spot-{{ section.id }} .hotspot .label {
+      
+        {% comment %} top: 10.5rem; {% endcomment %}
+       
+    }
+  }
+ @media (max-width: 1280px) {
+
+  #feature-spot-{{ section.id }} .heading { 
+      
+        top: 3vw;
+    }
+     #feature-spot-{{ section.id }} .features {
+        bottom: 7vw;
+
+        max-width: 90%;
+    }
+      #feature-spot-{{ section.id }} p.f-title {
+        font-size: 20px;
+        margin: 20px 0 10px;
+    }
+
+  #feature-spot-{{ section.id }} p.f-desc {
+            font-size: 18px;
+}
+ #feature-spot-{{ section.id }} .label .label-desc { 
+        font-size: 24px;
+    }
+  }
+    @media (max-width: 768px) {
+      #feature-spot-{{ section.id }} .title { 
+        font-size: 40px;
+        line-height: 40.5px;
+        margin-bottom: 28.5px;
+    }
+      #feature-spot-{{ section.id }} .subtitle { 
+        font-size: 17.36px;
+        line-height: 20px;
+              max-width: 90%;
+    }
+        #feature-spot-{{ section.id }} .heading { 
+          top: 20px;
+          width: 80%;
+          left: 0;
+          right: 0;
+          margin: auto;
+      }
+      #feature-spot-{{ section.id }} .features {
+        bottom: 62px;
+        gap: 49.3px;
+        flex-flow: column;
+        padding: 0;
+        max-width: 100%;
+        margin-left: 24px;
+        }
+         #feature-spot-{{ section.id }} .icon img {
+         width: 35px !important;
+        height: auto;
+        }
+         #feature-spot-{{ section.id }} p.f-title {
+            font-size: 15.5px;
+            margin: 21px 0 0px;
+            line-height: 20px;
+        }
+         #feature-spot-{{ section.id }} p.f-desc {
+              font-size: 15.5px;
+            line-height: 19px;
+                    max-width: 90%;
+        }
+      #feature-spot-{{ section.id }} .hotspot {
+        left: 37%!important;
+        top: 34%!important;
+      }
+      #feature-spot-{{ section.id }} .hotspot .line {
+          height: 176px!important;
+      }
+        #feature-spot-{{ section.id }} .hotspot .label { 
+          left: 15px;
+          top: 90px;
+          width: 200px;
+          opacity:1!important;
+        }
+           #feature-spot-{{ section.id }} .label .label-desc { 
+            font-size: 17.5px;
+            line-height: 20px;
+          }
+          #feature-spot-{{ section.id }} .hotspot .dot {
+     
+      width: 6.25px; 
+      height: 6.25px; 
+   
+    }
+     #feature-spot-{{ section.id }} .visual picture, 
+    #feature-spot-{{ section.id }} .visual img { 
+      
+  height: auto;
+  
+     }
+      #feature-spot-{{ section.id }} .visual picture img { 
+      
+  height: 1209px;
+  
+     }
+      #feature-spot-{{ section.id }} .visual { 
+      
+        margin-top: 50px; 
+    }
+    }
+  </style>
+<section id="feature-spot-{{ section.id }}" class="feature-spot" data-section-id="{{ section.id }}">
+
+
+  <div class="wrap" id="{{ section.settings.custom_id }}">
+  
+
+    <div class="visual">
+          <header class="heading">
+                <h2 class="title space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+                <p class="subtitle space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
+            </header>
+      {% assign img = section.settings.image_desktop | default: section.settings.image_mobile %}
+      <picture>
+        {% if section.settings.image_mobile %}
+          <source media="(max-width: 768px)" srcset="{{ section.settings.image_mobile | image_url: width: 1200 }}">
+        {% endif %}
+        {% if img %}
+          {{ img | image_url: width: 2400 | image_tag: alt: section.settings.title }}
+        {% endif %}
+      </picture>
+
+      {% if section.settings.hotspot_enable %}
+        {% assign hs_x = section.settings.hotspot_x | default: 50 %}
+        {% assign hs_y = section.settings.hotspot_y | default: 50 %}
+        {% assign hs_angle = section.settings.hotspot_line_angle | default: -65 %}
+        <div class="hotspot" style="left: {{ hs_x }}%; top: {{ hs_y }}%;">
+          <span class="dot"></span>
+          <span class="line" style="transform: rotate({{ hs_angle }}deg);"></span>
+          <div class="label">
+           
+            {% if section.settings.hotspot_text != blank %}
+              <div class="label-desc space-thin">{{ section.settings.hotspot_text }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+        {% if section.blocks.size > 0 %}
+    <div class="features">
+      {% for block in section.blocks %}
+        <div class="feature wow fadeInUp" {{ block.shopify_attributes }} data-wow-delay=".{{ forloop.index }}s">
+          <div class="icon">
+            {% if block.settings.icon != blank %}
+              {{ block.settings.icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: block.settings.title }}
+            {% else %}
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+            {% endif %}
+          </div>
+          <div>
+            <p class="f-title space-thin">{{ block.settings.title }}</p>
+            <p class="f-desc space-thin">{{ block.settings.desc }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+    </div>
+
+    
+
+  </div>
+</section>
+<script>
+    $(document).ready(function() {
+        var $subtitle = $('.visual .subtitle');
+        
+        $(window).on('scroll', function() {
+            var scrollTop = $(window).scrollTop();
+            var subtitleTop = $subtitle.offset().top;
+            
+            if (scrollTop > subtitleTop) {
+                $('.wrap').addClass("is-active")
+               
+            } else {
+               $('.wrap').removeClass("is-active")
+            }
+        });
+    });
+</script>
+{% schema %}
+{
+  "name": "Feature detail",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "image (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "image (mobile)"
+    },
+    {
+      "type": "checkbox",
+      "id": "hotspot_enable",
+      "label": "Enable hotspot",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "hotspot_x",
+      "label": "Hotspot X (%)",
+      "min": 30,
+      "max": 60,
+      "step": 0.5,
+      "unit": "%",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "hotspot_y",
+      "label": "Hotspot Y (%)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 58
+    },
+    {
+      "type": "range",
+      "id": "hotspot_line_len",
+      "label": "Line length (px)",
+      "min": 40,
+      "max": 240,
+      "step": 5,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "hotspot_line_angle",
+      "label": "Line angle (deg)",
+      "min": -180,
+      "max": 180,
+      "step": 5,
+      "unit": "°",
+      "default": -65
+    },
+
+    {
+      "type": "richtext",
+      "id": "hotspot_text",
+      "label": "Hotspot description"
+    }
+  ],
+   "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature item",
+      "limit": 6,
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "icon", 
+            "label": "Icon" 
+        },
+        {
+             "type": "text", 
+             "id": "title", 
+             "label": "Title",
+            },
+        { 
+            "type": "textarea", 
+            "id": "desc", 
+            "label": "Description"
+            }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature detail"
+    }
+  ]
+}
+{% endschema %}

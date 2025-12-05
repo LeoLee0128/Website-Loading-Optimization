@@ -1,0 +1,167 @@
+<style>
+    .box_list-section .section{
+        padding-top: 13.375rem;
+        padding-bottom: 15.3125rem
+    }
+    .box_list-head {
+    text-align: center;
+    margin-top: 0;
+        margin-bottom: 7rem;
+}
+.box_list-head h2{
+    margin: 0;
+    font-size: 4.125rem;
+    line-height: 4.5rem;
+    color:#000;
+    font-weight:600
+}
+.box_list-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+.box_images {
+    width: 50%;
+}
+.box-lists {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.625rem;
+}
+.box__item {
+    position: relative;
+    width: 100%;
+}
+.b-title {
+    position: absolute;
+    font-size: 1.125rem;
+    font-family: Outfit;
+    padding: 1.5rem;
+        line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
+      font-weight:500
+}
+.box__item img {
+    width: 100%;
+}
+.box_images h2 {
+    margin-top: 3.125rem;
+    line-height: 1;
+    font-size: 3rem;
+    font-weight: 500;
+}
+ @media (max-width: 768px) {
+    .box_list-section .section {
+    padding-top: 61px;
+    padding-bottom: 43.5px;
+    {% comment %} background: #F6F6F6; {% endcomment %}
+}
+    .box_list-head h2 {
+    font-size: 40px;
+    line-height: 41px;
+}
+    .box_list-wrapper {
+        flex-flow: column;
+    }
+    .box_images {
+        width: 100%;
+    }
+    .box-lists {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .b-title {
+        font-size: 15.5px;
+        padding: 19.5px;
+    }
+    .box_images h2 {
+        margin-top: 20px;
+        margin-bottom: 28px;
+        font-size: 35px;
+        text-align: center;
+        line-height: 38px;
+    }
+    .box_list-head {
+        margin-bottom: 42.5px;
+    }
+  
+}
+</style>
+
+<section class="box_list-section" id="{{ section.settings.custom_id }}">
+    <div class="section">
+        <div class="box_list-head">
+            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+        </div>
+        <div class="box_list-wrapper">
+            <div class="box_images">
+                  <img src="{{ section.settings.image | img_url:'master' }}" />
+                  <h2 class="space-thin wow fadeInUp">{{  section.settings.name }}</h2>
+            </div>
+              {% if section.blocks.size > 0 %}
+            <div class="box-lists">
+            {% for block in section.blocks %}
+                <div class="box__item" {{ block.shopify_attributes }}>
+                     <div class="b-title space-thin">{{ block.settings.i-title }}</div>
+                    <img src="{{ block.settings.icon | img_url:'master' }}" />
+                   
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "Boxs list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "ID"
+    },
+     {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+   { 
+            "type": "image_picker", 
+            "id": "image", 
+            "label": "image" 
+        },
+         {
+             "type": "text", 
+             "id": "name", 
+             "label": "Title",
+            }
+   
+  ],
+     "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        { 
+            "type": "image_picker", 
+            "id": "icon", 
+            "label": "Icon" 
+        },
+        {
+             "type": "text", 
+             "id": "i-title", 
+             "label": "Title",
+            }
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Boxs list"
+    }
+  ]
+}
+{% endschema %}

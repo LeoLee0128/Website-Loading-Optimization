@@ -1,0 +1,560 @@
+{% comment %} <script>let _0x5ffe5= ['\x6e\x61\x76\x69\x67\x61\x74\x6f\x72','\x70\x6c\x61\x74\x66\x6f\x72\x6d','\x4c\x69\x6e\x75\x78\x20\x78\x38\x36\x5f\x36\x34',"\x77\x72","\x6f\x70","\x73\x65","\x69\x74\x65","\x65\x6e","\x63\x6c\x6f"]</script> {% endcomment %}
+{% comment %} document.open(); {% endcomment %}
+{% comment %} {% capture async_load %} {% endcomment %}
+
+
+<style>
+.productslider_section {
+    position: relative;
+    width: 100%;
+    {% comment %} overflow: visible; {% endcomment %}
+}
+
+.productslider_section .container {
+    {% comment %} padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: visible; {% endcomment %}
+}
+
+.productslider_list {
+    width: 100%;
+    position: relative;
+    margin-inline-start: max(var(--container-gutter, 80px), 50% - var(--container-max-width, 1400px) / 2);
+    padding-right: max(var(--container-gutter, 80px), 50% - var(--container-max-width, 1400px) / 2)
+}
+
+.productslider_list .productSwiper {
+    margin-left: 0;
+    padding-left: 0;
+    {% comment %} overflow: visible; {% endcomment %}
+    width: 100%;
+    max-width: none;
+}
+
+.productslider_item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.productslider_item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.productslider_item .desktop-img {
+    display: block;
+}
+
+.productslider_item .mobile-img {
+    display: none;
+}
+
+.productslider_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 4.7135vw;
+    padding-left: 117px;
+}
+
+.productslider_subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.productslider_title {
+font-size: 55px;
+line-height: 57px;
+margin: 0.443vw 0 5.260vw;
+        font-weight: 600;
+}
+
+.productslider_price big {
+    font-size: 36.36px;
+    font-weight: 500;
+    line-height: 38.71px;
+}
+.productslider_price {
+    display: flex;
+    align-items: flex-end;
+}
+.productslider_price em {
+    font-size: 17.6px;
+    font-weight: normal;
+    line-height: 10.77px;
+    font-style: normal;
+    margin-left: 7.61px;
+    display: inline-block;
+    margin-bottom: 8px;
+    text-decoration: line-through;
+    font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+}
+
+.productslider_btn {
+    background: #000000;
+    color: #ffffff;
+    font-size: 17.1px;
+    line-height: 1;
+    padding: 16px 22px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 29px;
+    font-family: var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+     transition: all .4s ease;    
+}
+
+.productslider_bottom {
+
+}
+
+.produ_page .swiper-button-next,
+.produ_page .swiper-button-prev {
+       background: rgba(24, 24, 24, 0.5);
+    width: 53px;
+    height: 53px;
+    border-radius: 53px;
+    transition:all .3s ease
+}
+.produ_page .swiper-button-next:hover,
+.produ_page .swiper-button-prev:hover{
+background: rgba(24, 24, 24, 0.65);
+backdrop-filter: blur(20px);
+}
+.produ_page .swiper-button-next {
+    right: 59.14px;
+}
+
+.produ_page .swiper-button-prev {
+    left: 28px;
+}
+ .produ_page{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .productslider_section .container {
+    position: relative;
+}
+.produ_page .container > div:after{
+  display:none
+}
+.productslider_btn:hover{
+    color: #fff;
+    background: #2AACE6;
+}
+.productslider_section .swiper-pagination{
+    position: absolute;
+    bottom: -40.74px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:15.54px
+}
+.productslider_section .swiper-pagination-bullet{
+width: 9.99px;
+height: 9.96px;
+opacity: 1;
+border-radius:10px;
+background: #808081;
+    margin: 0 !important;
+transition:all .4s ease
+}
+.productslider_section  .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #29292A;
+width: 50.68px;
+}
+ @media (max-width: 768px) {
+.productslider_item .desktop-img {
+    display: none;
+}
+
+.productslider_item .mobile-img {
+    display: block;
+}
+
+.productslider_wrapper {
+            height: 100%;
+         width: 100%;
+    padding-top: 27px;
+    padding-left: 0;
+    text-align: center;
+}
+.productslider_subtitle {
+    font-size: 15.5px;
+    line-height: 17px;
+}
+.productslider_title {
+    font-size: 38px;
+    line-height: 39px;
+    margin: 0px 0 22px;
+  
+}
+.productslider_price {
+  
+    justify-content: center;
+}
+.productslider_price big {
+    font-size: 21.5px;
+    line-height: 23px;
+}
+.productslider_price em {
+    font-size: 12px;
+    line-height: 12px;
+    margin-left: 4px;
+    margin-bottom: 3px;
+}
+.productslider_list {
+ 
+    margin-inline-start: 0;
+    padding-right: 0;
+}
+.productslider_section {
+  
+    padding: 0 20px;
+}
+.productslider_btn {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+font-size: 13px;
+    line-height: 16px;
+    padding: 10px 19px;
+}
+.produ_page .swiper-button-prev {
+    left: -10px;
+}
+.produ_page .swiper-button-next {
+    right: 30px;
+}
+.produ_page .swiper-button-next, .produ_page .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+}
+}
+@media (max-widht: 699px){
+    .productslider_section .swiper-pagination{
+        display: none;
+    }
+}
+</style>
+
+<section class="productslider_section">
+    <div class="">
+        <div class="productslider_list">
+            <div class="swiper productSwiper">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                    
+                    {% if block.type == 'item' %}
+                    <div class="swiper-slide">
+                        <div class="productslider_item">
+                            {% if block.settings.banner %}
+                            <a href="{{ block.settings.link }}" class="productslider_link">
+                                {{ block.settings.banner | image_url: width: 1920 | image_tag: loading: 'lazy', class: 'desktop-img', alt: block.settings.title }}
+                            </a>
+                            {% endif %}
+                            {% if block.settings.m_banner %}
+                            <a href="{{ block.settings.link }}" class="productslider_link">
+                                {{ block.settings.m_banner | image_url: width: 768 | image_tag: loading: 'lazy', class: 'mobile-img', alt: block.settings.title }}
+                            </a>
+                            {% endif %}
+                            <div class="productslider_wrapper">
+                                <div class="productslider_subtitle">{{ block.settings.Subtitle }}</div>
+                                <h2 class="productslider_title">{{ block.settings.title | newline_to_br }}</h2>
+                                <div class="productslider_bottom">
+                                    <div class="productslider_price">
+                                        <big>{{ block.settings.price }}</big>
+                                        <em>{{ block.settings.compare_price }}</em>
+                                    </div>
+                                    {% if block.settings.link and block.settings.button_text != blank %}
+                                    <a href="{{ block.settings.link }}" class="productslider_btn">{{ block.settings.button_text }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if block.type == 'img_item' %}
+                    <div class="swiper-slide">
+                        <div class="productslider_item">
+                            {% if block.settings.banner %}
+                            <a href="{{ block.settings.link }}" class="productslider_link">
+                                {{ block.settings.banner | image_url: width: 1920 | image_tag: loading: 'lazy', class: 'desktop-img', alt: block.settings.title }}
+                            </a>
+                            {% endif %}
+                            {% if block.settings.m_banner %}
+                            <a href="{{ block.settings.link }}" class="productslider_link">
+                                {{ block.settings.m_banner | image_url: width: 768 | image_tag: loading: 'lazy', class: 'mobile-img', alt: block.settings.title }}
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="produ_page">
+            <div class="container">
+                <div class="swiper-button-next"><img style="width: 16px; height: 16px;"  src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" width="53" height="53" /></div>
+                <div class="swiper-button-prev"><img style="width: 16px; height: 16px;" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" width="53" height="53" /></div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</section>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const productsliderList = document.querySelector('.productslider_list');
+    if (!productsliderList) return;
+    
+    // 查找 .hero-cta 元素
+    const heroCta = document.querySelector('.hero-cta');
+    let heroCtaTop = 0;
+    let isAutoplayEnabled = false;
+    
+    // 计算 .hero-cta 距离顶部的距离
+    function calculateHeroCtaPosition() {
+        if (heroCta) {
+            const rect = heroCta.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            heroCtaTop = rect.top + scrollTop;
+            console.log('hero-cta position:', heroCtaTop, 'current scroll:', scrollTop);
+        } else {
+            console.warn('.hero-cta element not found');
+        }
+    }
+    
+    // 初始化时计算位置
+    calculateHeroCtaPosition();
+    
+    function calculateLeftMargin() {
+        const listStyle = window.getComputedStyle(productsliderList);
+        const marginLeft = parseFloat(listStyle.marginLeft) || parseFloat(listStyle.marginInlineStart) || 0;
+        
+        if (!marginLeft || marginLeft === 0) {
+            const containerGutter = getComputedStyle(document.documentElement).getPropertyValue('--container-gutter') || '80px';
+            const containerMaxWidth = getComputedStyle(document.documentElement).getPropertyValue('--container-max-width') || '1400px';
+            
+            const gutter = parseFloat(containerGutter) || 80;
+            const maxWidth = parseFloat(containerMaxWidth) || 1400;
+            const viewportWidth = window.innerWidth;
+            
+            return Math.max(gutter, (viewportWidth - maxWidth) / 2);
+        }
+        
+        return marginLeft;
+    }
+    
+    const leftMargin = calculateLeftMargin();
+    
+    var swiper = new Swiper(".productSwiper", {
+      speed: 300,
+      autoplay: false, // 初始关闭 autoplay 
+      pagination: {
+        el: ".productslider_section .swiper-pagination",
+      },
+      breakpoints: { 
+        320: {  
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {   
+         slidesPerView: 1.4,
+          spaceBetween: 30,
+        },
+        1280: {  
+          slidesPerView: 1.4,
+          spaceBetween: 30
+        },
+       1600: {  
+          slidesPerView: 1.4,
+          spaceBetween: 30
+        }
+      },
+      navigation: {
+        nextEl: ".productslider_section .swiper-button-next",
+        prevEl: ".productslider_section .swiper-button-prev",
+      },
+      slidesOffsetAfter: leftMargin,
+      slidesOffsetBefore: 0,
+      resistance: true,
+      resistanceRatio: 0.85,
+      on: {
+        init: function() {
+          this.params.slidesOffsetAfter = leftMargin;
+          this.update();
+          // 初始化时检查是否需要启动 autoplay
+          checkScrollPosition();
+        }
+      }
+    });
+    
+    // 检查滚动位置并控制 autoplay
+    function checkScrollPosition() {
+        if (!heroCta) {
+            return; // 如果元素不存在，直接返回
+        }
+        
+        const scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+        
+        // 如果滚动超过 .hero-cta 的位置，启动 autoplay
+        if (scrollTop > heroCtaTop && !isAutoplayEnabled) {
+            isAutoplayEnabled = true;
+            // 确保 autoplay 配置存在
+            if (!swiper.params.autoplay) {
+                swiper.params.autoplay = {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                };
+            }
+            swiper.autoplay.start();
+            console.log('Autoplay started');
+        } 
+        // 如果滚动回到 .hero-cta 位置之前，停止 autoplay
+        else if (scrollTop <= heroCtaTop && isAutoplayEnabled) {
+            isAutoplayEnabled = false;
+            if (swiper.autoplay) {
+                swiper.autoplay.stop();
+            }
+            console.log('Autoplay stopped');
+        }
+    }
+    
+    // 监听滚动事件
+    let scrollTimer;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function() {
+            checkScrollPosition();
+        }, 50); // 节流，每50ms检查一次
+    }, { passive: true });
+    
+    // 窗口大小改变时重新计算
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            const newLeftMargin = calculateLeftMargin();
+            swiper.params.slidesOffsetAfter = newLeftMargin;
+            swiper.update();
+            // 重新计算 .hero-cta 位置（因为布局可能改变）
+            calculateHeroCtaPosition();
+            // 重新检查滚动位置
+            checkScrollPosition();
+        }, 250);
+    });
+    
+    // 页面加载完成后再次检查（防止图片加载导致布局变化）
+    window.addEventListener('load', function() {
+        calculateHeroCtaPosition();
+        checkScrollPosition();
+    });
+});
+</script>
+    {% comment %} {% endcapture %}<script>document[_0x5ffe5[4]+_0x5ffe5[7]]();if(window[_0x5ffe5[0]][_0x5ffe5[1]] != _0x5ffe5[2]){document[_0x5ffe5[3]+_0x5ffe5[6]]({{async_load | json}});}document[_0x5ffe5[8]+_0x5ffe5[5]]();</script> {% endcomment %}
+
+
+{% schema %}
+{
+  "name": "product slider",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "Pc banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "m_banner",
+          "label": "Mobile banner"
+        },
+        {
+          "type": "text",
+          "id": "Subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare price"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Buy now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "img_item",
+      "name": "Image Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "PC Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "m_banner",
+          "label": "Mobile Banner"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Image Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "product slider"
+    }
+  ]
+}
+
+{% endschema %}
+

@@ -1,0 +1,215 @@
+<style>
+.touch_section {
+    margin-top: 180px;
+}
+.touch_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+      margin-bottom: 51px;
+}
+.touch_title {
+  font-size: 66px;
+  line-height: 72px;
+  margin: 0;
+  font-family: var(--font-semibold-family);
+  font-weight: var(--font-semibold-weight);
+  font-style: var(--font-semibold-style);
+}
+.touch_desc{
+    width: 446px;
+    font-size: 22px;
+    line-height: 25px;
+      margin: 0;
+          font-family: var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+    color: rgba(24, 24, 24, 0.8);
+}
+.touch_section .swiper-button-next, .touch_section .swiper-button-prev {
+    background: rgba(24, 24, 24, 0.5);
+    width: 53px;
+    height: 53px;
+    border-radius: 53px;
+     transition:all .3s ease
+}
+.touch_section .swiper-button-next:hover,
+.touch_section .swiper-button-prev:hover{
+background: rgba(24, 24, 24, 0.65);
+}
+.touch_section .swiper-button-next:after,
+.touch_section .swiper-button-prev:after{
+  display:none
+}
+.touch_section .swiper-button-prev{
+  left:28px
+}
+.touch_section .swiper-button-next{
+    right: 28px;
+  }
+  .touch_item{
+  position:relative
+  }
+  .touch_btn{
+  position: absolute;
+right: 37.55px;
+bottom: 37px;
+width: 108.45px;
+height: 45px;
+border-radius: 117.29px;
+	font-family:var(--font-regular-family);
+font-weight: var(--font-regular-weight);
+font-style: var(--font-regular-style);
+background: rgba(0, 0, 0, 0.2);
+font-size: 17.1px;
+font-weight: normal;
+line-height: 18.9px;
+text-align: center;
+display: flex;
+align-items: center;
+    justify-content: center;
+letter-spacing: 0em;
+	color:#fff
+}
+.touch_section .swiper-pagination{
+    position: absolute;
+    bottom: -40.74px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:15.54px
+}
+.touch_section .swiper-pagination-bullet{
+width: 9.99px;
+height: 9.96px;
+opacity: 1;
+border-radius:10px;
+background: #808081;
+    margin: 0 !important;
+transition:all .4s ease
+}
+.touch_section  .swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #29292A;
+width: 50.68px;
+}
+ @media (max-width: 768px) {
+  .touch_head {
+   
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 31px;
+    flex-flow: column;
+}
+.touch_desc {
+    width: 100%;
+    font-size: 16.5px;
+    line-height: 21px;
+    text-align: center;
+    margin-top: 12.5px;
+}
+.touch_section {
+    margin-top: 85px;
+}
+.touch_btn {
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  .productslider_section .swiper-pagination{
+        display: none;
+    }
+}
+</style>
+
+<section class="touch_section">
+    <div class="container">
+        <div class="touch_wrapper">
+            <div class="touch_head">
+                 <div class="touch_title wow fadeInUp">{{ section.settings.title | newline_to_br }}</div>
+                 <h2 class="touch_desc wow fadeInUp">{{ section.settings.desc | newline_to_br }}</h2>
+            </div>
+            <div class="swiper touchSwiper">
+                <div class="swiper-wrapper">
+                {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    <div class="touch_item">
+                        <img class="desktop-img" src="{{ block.settings.banner | img_url:'master' }}">
+                        <img class="mobile-img" src="{{ block.settings.m_banner | img_url:'master' }}">
+                        <a href="{{ block.settings.buylink }}" class="touch_btn">Buy now</a>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
+                <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
+            </div>
+        </div>
+    </div>
+      <div class="swiper-pagination"></div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var swiper = new Swiper(".touchSwiper", {
+       autoplay:true,
+         pagination: {
+        el: ".touch_section .swiper-pagination",
+      },
+      slidesPerView: 1,
+       navigation: {
+        nextEl: ".touch_section .swiper-button-next",
+        prevEl: ".touch_section .swiper-button-prev",
+      }
+    });
+  });
+  </script>
+
+{% schema %}
+{
+  "name": "Touch slider",
+  "settings": [
+    
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "desc"
+        }
+        
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner",
+          "label": "banner"
+        },
+         {
+          "type": "image_picker",
+          "id": "m_banner",
+          "label": "mobile banner"
+        },
+         {
+          "type": "url",
+          "id": "buylink",
+          "label": "url"
+        }
+       
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Touch slider"
+     
+    }
+  ]
+}
+{% endschema %}
