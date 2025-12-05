@@ -21,14 +21,14 @@
   {%- endcomment -%}
 
   <div {% render 'section-properties' %}>
-    <div class="section-stack">
-      <div class="press">
-        <press-carousel id="carousel-{{ section.id }}" class="press__list full-bleed text-center sm:unbleed" role="region">
+    <div class="perf-opt section-stack">
+      <div class="perf-opt press">
+        <press-carousel id="carousel-{{ section.id }}" class="perf-opt press__list full-bleed text-center sm:unbleed" role="region">
           {%- for block in section.blocks -%}
-            <div id="block-{{ section.id }}-{{ block.id }}" class="press__list-item snap-center {% if forloop.first %}is-selected{% endif %}" role="group" aria-label="{{ 'general.accessibility.item_nth_of_count' | t: index: forloop.index, count: section.blocks.size }}" {{ block.shopify_attributes }}>
+            <div id="block-{{ section.id }}-{{ block.id }}" class="perf-opt press__list-item snap-center {% if forloop.first %}is-selected{% endif %}" role="group" aria-label="{{ 'general.accessibility.item_nth_of_count' | t: index: forloop.index, count: section.blocks.size }}" {{ block.shopify_attributes }}>
               {%- if block.settings.show_rating -%}
-                <div class="rating">
-                  <div class="rating__stars" role="img" aria-label="{{ 'general.rating.info' | t: rating_value: block.settings.rating, rating_max: 5 }}">
+                <div class="perf-opt rating">
+                  <div class="perf-opt rating__stars" role="img" aria-label="{{ 'general.rating.info' | t: rating_value: block.settings.rating, rating_max: 5 }}">
                     {%- for i in (1..5) -%}
                       {%- if i <= block.settings.rating -%}
                         {%- render 'icon' with 'rating-star', class: 'rating__star' -%}
@@ -41,13 +41,13 @@
               {%- endif -%}
 
               {%- if block.settings.content != blank -%}
-                <blockquote class="blockquote h3" reveal-on-scroll="true">
+                <blockquote class="perf-opt blockquote h3" reveal-on-scroll="true">
                   {%- render 'styled-text', content: block.settings.content, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient -%}
                 </blockquote>
               {%- endif -%}
 
               {%- if block.settings.logo != blank or block.settings.author != blank -%}
-                <div class="v-stack gap-2">
+                <div class="perf-opt v-stack gap-2">
                   {%- if block.settings.logo != blank -%}
                     {%- liquid
                       assign loading_strategy = nil
@@ -66,7 +66,7 @@
                   {%- endif -%}
 
                   {%- if block.settings.author != blank -%}
-                    <p class="press__author text-subdued">{{ block.settings.author }}</p>
+                    <p class="perf-opt press__author text-subdued">{{ block.settings.author }}</p>
                   {%- endif -%}
                 </div>
               {%- endif -%}
@@ -75,23 +75,23 @@
         </press-carousel>
 
         {%- if section.blocks.size > 1 -%}
-          <div class="press__controls">
-            <button class="circle-button ring group" is="prev-button" aria-controls="carousel-{{ section.id }}">
-              <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
-              <span class="animated-arrow animated-arrow--reverse"></span>
+          <div class="perf-opt press__controls">
+            <button class="perf-opt circle-button ring group" is="prev-button" aria-controls="carousel-{{ section.id }}">
+              <span class="perf-opt sr-only">{{ 'general.accessibility.previous' | t }}</span>
+              <span class="perf-opt animated-arrow animated-arrow--reverse"></span>
             </button>
 
-            <page-dots aria-controls="carousel-{{ section.id }}" class="page-dots">
+            <page-dots aria-controls="carousel-{{ section.id }}" class="perf-opt page-dots">
               {%- for index in (1..section.blocks.size) -%}
-                <button type="button" class="tap-area" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
-                  <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: index }}</span>
+                <button type="button" class="perf-opt tap-area" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
+                  <span class="perf-opt sr-only">{{ 'general.accessibility.go_to_item' | t: index: index }}</span>
                 </button>
               {%- endfor -%}
             </page-dots>
 
-            <button class="circle-button ring group" is="next-button" aria-controls="carousel-{{ section.id }}">
-              <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
-              <span class="animated-arrow"></span>
+            <button class="perf-opt circle-button ring group" is="next-button" aria-controls="carousel-{{ section.id }}">
+              <span class="perf-opt sr-only">{{ 'general.accessibility.next' | t }}</span>
+              <span class="perf-opt animated-arrow"></span>
             </button>
           </div>
         {%- endif -%}

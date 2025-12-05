@@ -9,10 +9,10 @@
   </style>
 
   <div {% render 'section-properties' %}>
-    <div class="section-stack">
+    <div class="perf-opt section-stack">
       {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content, text_alignment: section.settings.text_alignment -%}
 
-      <div class="multi-column scroll-area bleed md:unbleed">
+      <div class="perf-opt multi-column scroll-area bleed md:unbleed">
         {%- for block in section.blocks -%}
           {%- liquid
             assign loading_strategy = nil
@@ -24,7 +24,7 @@
 
           {%- case block.type -%}
             {%- when 'item' -%}
-              <div class="multi-column__item justify-{{ section.settings.text_alignment }} snap-start" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {{ block.shopify_attributes }}>
+              <div class="perf-opt multi-column__item justify-{{ section.settings.text_alignment }} snap-start" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {{ block.shopify_attributes }}>
                 {%- if block.settings.video != blank -%}
                   <video-media autoplay style="--aspect-ratio: {{ block.settings.video.aspect_ratio }}">
                     {{ block.settings.video | video_tag: playsinline: true, muted: true, loop: true, preload: 'metadata', class: 'rounded' }}
@@ -35,19 +35,19 @@
                 {%- endif -%}
 
                 {%- if block.settings.title != blank or block.settings.content != blank or block.settings.link_text != blank -%}
-                  <div class="v-stack gap-4 text-{{ section.settings.text_alignment }}">
+                  <div class="perf-opt v-stack gap-4 text-{{ section.settings.text_alignment }}">
                     {%- if block.settings.title != blank -%}
-                      <p class="{{ block.settings.heading_tag }}">{{ block.settings.title | escape }}</p>
+                      <p class="perf-opt {{ block.settings.heading_tag }}">{{ block.settings.title | escape }}</p>
                     {%- endif -%}
 
                     {%- if block.settings.content != blank or block.settings.link_text != blank -%}
-                      <div class="prose">
+                      <div class="perf-opt prose">
                         {{- block.settings.content -}}
 
                         {%- if block.settings.link_text != blank -%}
                           <div>
                             {%- if block.settings.link_style == 'link' -%}
-                              <a href="{{ block.settings.link_url }}" class="link">{{ block.settings.link_text | escape }}</a>
+                              <a href="{{ block.settings.link_url }}" class="perf-opt link">{{ block.settings.link_text | escape }}</a>
                             {%- else -%}
                               {%- render 'button', href: block.settings.link_url, content: block.settings.link_text, size: 'lg' -%}
                             {%- endif -%}
@@ -60,7 +60,7 @@
               </div>
 
             {%- when 'spacer' -%}
-              <div class="multi-column__item hidden md:block" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {{ block.shopify_attributes }}></div>
+              <div class="perf-opt multi-column__item hidden md:block" style="--multi-column-item-column-count: span {{ 12.0 | divided_by: block.settings.column_size | round }}" {{ block.shopify_attributes }}></div>
           {%- endcase -%}
         {%- endfor -%}
       </div>

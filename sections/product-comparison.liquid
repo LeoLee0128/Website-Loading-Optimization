@@ -252,17 +252,17 @@ a.learn__mores {
 }
 </style>
 
-<section class="product-comparison-section">
-    <div class="container">
-    <h2 class="product-comparison-title wow fadeInUp">See which right for you</h2>
+<section class="perf-opt product-comparison-section">
+    <div class="perf-opt container">
+    <h2 class="perf-opt product-comparison-title wow fadeInUp">See which right for you</h2>
     
-    <div class="product-comparison-container">
+    <div class="perf-opt product-comparison-container">
         {% assign module_types = 'product_type_1,product_type_2,product_type_3' | split: ',' %}
         {% for module_type in module_types %}
         {% assign module_index = forloop.index0 %}
         {% assign module_blocks = section.blocks | where: 'type', module_type %}
-        <div class="product-module" data-module="{{ forloop.index }}">
-            <select class="product-module-select" data-module-select="{{ forloop.index }}">
+        <div class="perf-opt product-module" data-module="{{ forloop.index }}">
+            <select class="perf-opt product-module-select" data-module-select="{{ forloop.index }}">
                 {% for block in module_blocks %}
                 <option value="{{ block.id }}" {% if forloop.first %}selected{% endif %}>
                     {{ block.settings.product_name }}
@@ -270,81 +270,81 @@ a.learn__mores {
                 {% endfor %}
             </select>
             
-            <div class="product-module-content">
+            <div class="perf-opt product-module-content">
                 {% for block in module_blocks %}
-                <div class="product-module-item {% if forloop.first %}active{% endif %}" data-product-id="{{ block.id }}" data-module="{{ forloop.parentloop.index }}">
-                    <div class="product-image-wrapper">
+                <div class="perf-opt product-module-item {% if forloop.first %}active{% endif %}" data-product-id="{{ block.id }}" data-module="{{ forloop.parentloop.index }}">
+                    <div class="perf-opt product-image-wrapper">
                         <img src="{{ block.settings.product_image | img_url: 'master' }}" alt="{{ block.settings.product_name }}">
                     </div>
                     
-                    <div class="product-features">
+                    <div class="perf-opt product-features">
                         {% if block.settings.feature_1 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_1_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_1_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_1 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_2 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_2_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_2_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_2 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_3 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_3_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_3_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_3 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_4 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_4_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_4_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_4 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_5 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_5_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_5_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_5 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_6 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_6_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_6_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_6 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_7 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_7_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_7_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_7 }}</span>
                         </div>
                         {% endif %}
                         
                         {% if block.settings.feature_8 != blank %}
-                        <div class="product-feature-item">
-                            <span class="feature-icon {% if block.settings.feature_8_enabled %}check{% else %}cross{% endif %}">
+                        <div class="perf-opt product-feature-item">
+                            <span class="perf-opt feature-icon {% if block.settings.feature_8_enabled %}check{% else %}cross{% endif %}">
                             </span>
                             <span>{{ block.settings.feature_8 }}</span>
                         </div>
                         {% endif %}
 
                           {% if block.settings.learn_more_url != blank %}
-                    <div class="proc_learnmore">
-                        <a href="{{ block.settings.learn_more_url }}" class="product-learn-more-btn">Learn more</a>
+                    <div class="perf-opt proc_learnmore">
+                        <a href="{{ block.settings.learn_more_url }}" class="perf-opt product-learn-more-btn">Learn more</a>
                     </div>
                     {% endif %}
                     </div>
@@ -359,7 +359,7 @@ a.learn__mores {
    
     </div>
 </section>
- <a href="{{ section.settings.morelink }}" class="learn__mores">Learn more</a>
+ <a href="{{ section.settings.morelink }}" class="perf-opt learn__mores">Learn more</a>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {

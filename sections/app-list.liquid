@@ -139,39 +139,39 @@
 }
 </style>
 
-<section class="appinfo_section">
-    <div class="appinfo_wrapper">
-        <div class="appinfo_image">
-                <img class="desktop-img" src="{{ section.settings.banner | img_url:'master' }}">
-                <img class="mobile-img" src="{{ section.settings.banner_m | img_url:'master' }}">
-                <div class="appinfo_txt">
-                     <div class="container">
-                    <h2 class="wow fadeInUp">{{ section.settings.title }}</h2>
-                    <div class="wow fadeInUp">{{ section.settings.desc }}</div>
+<section class="perf-opt appinfo_section">
+    <div class="perf-opt appinfo_wrapper">
+        <div class="perf-opt appinfo_image">
+                <img class="perf-opt desktop-img" src="{{ section.settings.banner | img_url:'master' }}">
+                <img class="perf-opt mobile-img" src="{{ section.settings.banner_m | img_url:'master' }}">
+                <div class="perf-opt appinfo_txt">
+                     <div class="perf-opt container">
+                    <h2 class="perf-opt wow fadeInUp">{{ section.settings.title }}</h2>
+                    <div class="perf-opt wow fadeInUp">{{ section.settings.desc }}</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="appinfo_sliders">
-        <div class="section">
-            <div class="appinfo_box">
-                <h2 class="wow fadeInUp">{{ section.settings.i_title }}</h2>
-                <div class="appinfo_list">
-                     <div class="swiper iappSwiper">
-                        <div class="swiper-wrapper">
+    <div class="perf-opt appinfo_sliders">
+        <div class="perf-opt section">
+            <div class="perf-opt appinfo_box">
+                <h2 class="perf-opt wow fadeInUp">{{ section.settings.i_title }}</h2>
+                <div class="perf-opt appinfo_list">
+                     <div class="perf-opt swiper iappSwiper">
+                        <div class="perf-opt swiper-wrapper">
                             {% for block in section.blocks %}
-                            <div class="swiper-slide">
-                                <div class="appinfo_list_slider-item">
+                            <div class="perf-opt swiper-slide">
+                                <div class="perf-opt appinfo_list_slider-item">
                                     <img src="{{ block.settings.image | img_url:'master' }}">
                                 </div>
                             </div>
                         {% endfor %}
                         </div>
                     </div>
-                     <div class="image_sider-btn">
+                     <div class="perf-opt image_sider-btn">
              
-             <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
-             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="perf-opt swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="perf-opt swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
             </div>
                 </div>
             </div>

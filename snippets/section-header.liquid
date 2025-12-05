@@ -20,15 +20,15 @@ Supported variables
 {%- endcomment -%}
 
 {% if subheading != blank or heading != blank or content != blank or link_text != blank %}
-  <section-header class="section-header {% if text_alignment != blank %}justify-{{ text_alignment | escape }} justify-items-{{ text_alignment | escape }} text-{{ text_alignment | escape }}{% endif %}">
+  <section-header class="perf-opt section-header {% if text_alignment != blank %}justify-{{ text_alignment | escape }} justify-items-{{ text_alignment | escape }} text-{{ text_alignment | escape }}{% endif %}">
     {%- if subheading != blank or heading != blank or content != blank -%}
-      <div class="prose">
+      <div class="perf-opt prose">
         {%- if subheading != blank -%}
-          <p class="subheading">{{- subheading | escape -}}</p>
+          <p class="perf-opt subheading">{{- subheading | escape -}}</p>
         {%- endif -%}
 
         {%- if heading != blank -%}
-          <h2 class="h2" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
+          <h2 class="perf-opt h2" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
             {%- render 'styled-text', content: heading, text_color: heading_color, gradient: heading_gradient, apparition_effect: true -%}
           </h2>
         {%- endif -%}
@@ -38,9 +38,9 @@ Supported variables
     {%- endif -%}
 
     {%- if link_text != blank -%}
-      <a href="{{ link_url }}" class="text-with-icon group">
-        <span class="reversed-link">{{- link_text | escape -}}</span>
-        <span class="circle-chevron group-hover:colors">{%- render 'icon' with 'chevron-right-small', direction_aware: true -%}</span>
+      <a href="{{ link_url }}" class="perf-opt text-with-icon group">
+        <span class="perf-opt reversed-link">{{- link_text | escape -}}</span>
+        <span class="perf-opt circle-chevron group-hover:colors">{%- render 'icon' with 'chevron-right-small', direction_aware: true -%}</span>
       </a>
     {%- endif -%}
   </section-header>

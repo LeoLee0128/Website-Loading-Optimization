@@ -55,15 +55,15 @@
 }
 </style>
 
-<section class="rich_imagetext sec-{{ section.id }}" id="{{ section.settings.custom_id }}">
-    <div class="container">
-        <div class="rich_imagetext_head">
-            <h2 class="space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-            <p class="space-thin  wow fadeInUp">{{ section.settings.desc }}</p>
+<section class="perf-opt rich_imagetext sec-{{ section.id }}" id="{{ section.settings.custom_id }}">
+    <div class="perf-opt container">
+        <div class="perf-opt rich_imagetext_head">
+            <h2 class="perf-opt space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="perf-opt space-thin  wow fadeInUp">{{ section.settings.desc }}</p>
         </div>
-        <div class="rich_imagetext-wrapper">
-            <img class="desktop-img" src="{{ section.settings.image | img_url:'master' }}">
-            <img class="mobile-img" src="{{ section.settings.mobile_image | img_url:'master' }}">
+        <div class="perf-opt rich_imagetext-wrapper">
+            <img class="perf-opt desktop-img" src="{{ section.settings.image | img_url:'master' }}">
+            <img class="perf-opt mobile-img" src="{{ section.settings.mobile_image | img_url:'master' }}">
         </div>
     </div>
 </section>

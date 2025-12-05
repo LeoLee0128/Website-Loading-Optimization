@@ -10,14 +10,14 @@
 </style>
 
 <div {% render 'section-properties' %}>
-  <div class="section-stack {% if text_position != 'center' %}section-stack--horizontal{% else %}section-stack--center{% endif %} {% if text_position == 'end' %}section-stack--reverse{% endif %}">
+  <div class="perf-opt section-stack {% if text_position != 'center' %}section-stack--horizontal{% else %}section-stack--center{% endif %} {% if text_position == 'end' %}section-stack--reverse{% endif %}">
     {%- capture content -%}
       {%- if section.settings.subheading != blank -%}
-        <p class="subheading">{{ section.settings.subheading | escape }}</p>
+        <p class="perf-opt subheading">{{ section.settings.subheading | escape }}</p>
       {%- endif -%}
 
       {%- if section.settings.title != blank -%}
-        <h2 class="h2">
+        <h2 class="perf-opt h2">
           {%- render 'styled-text', content: section.settings.title, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient -%}
         </h2>
       {%- endif -%}
@@ -30,20 +30,20 @@
     {%- endcapture -%}
 
     {%- if content != blank -%}
-      <div class="section-stack__intro">
-        <div class="prose {% if text_position == 'center' %}text-center{% endif %}">
+      <div class="perf-opt section-stack__intro">
+        <div class="perf-opt prose {% if text_position == 'center' %}text-center{% endif %}">
           {{- content -}}
         </div>
       </div>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="section-stack__main">
+      <div class="perf-opt section-stack__main">
         <div {% render 'surface', class: 'accordion-box rounded', background: section.settings.accordion_background, text_color: section.settings.accordion_text_color, background_fallback: 'bg-secondary' %}>
           {%- for block in section.blocks -%}
             {%- if block.settings.title != blank and block.settings.content != blank -%}
               {%- capture accordion_content -%}
-                <div class="prose">{{ block.settings.content }}</div>
+                <div class="perf-opt prose">{{ block.settings.content }}</div>
               {%- endcapture -%}
 
               {%- render 'accordion', title: block.settings.title, content: accordion_content, block: block -%}

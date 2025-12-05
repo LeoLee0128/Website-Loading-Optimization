@@ -1,12 +1,12 @@
 {%- if collections.size == 0 -%}
-  <div class="empty-state">
-    <div class="empty-state__icon-wrapper">
+  <div class="perf-opt empty-state">
+    <div class="perf-opt empty-state__icon-wrapper">
       {%- render 'icon' with 'picto-box', width: 32, height: 32, stroke_width: 1 -%}
-      <span class="count-bubble count-bubble--lg">0</span>
+      <span class="perf-opt count-bubble count-bubble--lg">0</span>
     </div>
 
-    <div class="prose">
-      <p class="h4">{{ 'collection.general.no_collections' | t }}</p>
+    <div class="perf-opt prose">
+      <p class="perf-opt h4">{{ 'collection.general.no_collections' | t }}</p>
 
       {%- assign button_content = 'collection.general.continue_shopping' | t -%}
       {%- render 'button', href: settings.routes.root_url, size: 'xl', content: button_content -%}
@@ -37,26 +37,26 @@
     }
   </style>
 
-  <div class="container">
-    <div class="page-spacer">
-      <div class="v-stack gap-12">
-        <h1 class="h1 text-center">{{ 'collection.general.all_collections' | t }}</h1>
+  <div class="perf-opt container">
+    <div class="perf-opt page-spacer">
+      <div class="perf-opt v-stack gap-12">
+        <h1 class="perf-opt h1 text-center">{{ 'collection.general.all_collections' | t }}</h1>
 
         {%- paginate collections by 48 -%}
-          <collection-list class="collection-list">
+          <collection-list class="perf-opt collection-list">
             {% assign collections_list = section.settings.collections | default: collections %}
 
             {%- for collection in collections_list -%}
-              <a href="{{ collection.url }}" class="collection-card" reveal-js>
-                <div class="content-over-media group rounded-sm" style="--content-over-media-overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }}">
+              <a href="{{ collection.url }}" class="perf-opt collection-card" reveal-js>
+                <div class="perf-opt content-over-media group rounded-sm" style="--content-over-media-overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }}">
                   {%- if collection.featured_image != blank -%}
                     {%- capture sizes -%}(max-width: 699px) 73vw, {{ settings.page_width | divided_by: section.settings.collections_per_row }}px{%- endcapture -%}
                     {{- collection.featured_image | image_url: width: collection.featured_image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,800,1000,1200,1400,1600', class: 'zoom-image' -}}
                   {%- endif -%}
 
-                  <div class="collection-card__content-wrapper place-self-center text-center text-custom" style="--text-color: {{ section.settings.text_color.rgb }}">
-                    <div class="collection-card__content">
-                      <p class="h2">{{ collection.title | escape }}</p>
+                  <div class="perf-opt collection-card__content-wrapper place-self-center text-center text-custom" style="--text-color: {{ section.settings.text_color.rgb }}">
+                    <div class="perf-opt collection-card__content">
+                      <p class="perf-opt h2">{{ collection.title | escape }}</p>
                     </div>
 
                     {%- render 'icon' with 'circle-button-right-clipped', width: 48, height: 48 -%}

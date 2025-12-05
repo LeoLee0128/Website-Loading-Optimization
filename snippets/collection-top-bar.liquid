@@ -19,22 +19,22 @@ Supported variables
 {%- assign selected_sort_by_value = results.sort_by | default: results.default_sort_by -%}
 {%- assign selected_sort_by = results.sort_options | where: 'value', selected_sort_by_value | first -%}
 
-<div class="collection__top-bar">
+<div class="perf-opt collection__top-bar">
   {%- if show_active_filters -%}
     {%- if section.settings.filter_layout == 'drawer' -%}
-      <button class="text-with-icon group justify-self-start" aria-controls="facets-drawer" aria-expanded="false">
+      <button class="perf-opt text-with-icon group justify-self-start" aria-controls="facets-drawer" aria-expanded="false">
         {%- render 'icon' with 'filter', class: 'icon-subdued' -%}
-        <span class="reversed-link">{{- 'collection.faceting.filters' | t -}}</span>
+        <span class="perf-opt reversed-link">{{- 'collection.faceting.filters' | t -}}</span>
       </button>
     {%- elsif section.settings.filter_layout == 'sidebar' -%}
-      <div class="text-with-icon">
+      <div class="perf-opt text-with-icon">
         {%- render 'icon' with 'filter', class: 'icon-subdued' -%} {{- 'collection.faceting.filters' | t -}}
       </div>
     {%- endif -%}
   {%- endif -%}
 
   {%- if show_active_filters or show_sort_by -%}
-    <div class="facets-summary">
+    <div class="perf-opt facets-summary">
       {%- if show_active_filters -%}
         {%- if section.settings.filter_layout != 'horizontal' -%}
           {%- render 'active-facets', results: results -%}
@@ -44,7 +44,7 @@ Supported variables
           {%- capture id_prefix -%}facets-{{ section.id }}{%- endcapture -%}
           {%- assign availability_filter = results.filters | where: 'param_name', 'filter.v.availability' | first -%}
 
-          <form is="facet-form" update-on-change section-id="{{ section.id }}" method="GET" action="{{ request.path }}" class="contents">
+          <form is="facet-form" update-on-change section-id="{{ section.id }}" method="GET" action="{{ request.path }}" class="perf-opt contents">
             {%- if request.page_type == 'search' -%}
               <input type="hidden" name="q" value="{{ results.terms | escape }}">
               <input type="hidden" name="type" value="product">
@@ -53,13 +53,13 @@ Supported variables
             {%- endif -%}
 
             {%- if availability_filter -%}
-              <div class="availability-facet">
-                <label for="{{ id_prefix }}-{{ availability_filter.param_name }}" class="bold">{{- 'collection.faceting.availability_label' | t -}}</label>
-                <input id="{{ id_prefix }}-{{ availability_filter.param_name }}" type="checkbox" class="switch" name="{{ availability_filter.param_name }}" value="1" {% if availability_filter.active_values.size > 0 %}checked{% endif %}>
+              <div class="perf-opt availability-facet">
+                <label for="{{ id_prefix }}-{{ availability_filter.param_name }}" class="perf-opt bold">{{- 'collection.faceting.availability_label' | t -}}</label>
+                <input id="{{ id_prefix }}-{{ availability_filter.param_name }}" type="checkbox" class="perf-opt switch" name="{{ availability_filter.param_name }}" value="1" {% if availability_filter.active_values.size > 0 %}checked{% endif %}>
               </div>
             {%- endif -%}
 
-            <div class="facets-horizontal">
+            <div class="perf-opt facets-horizontal">
               {%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
               {%- for filter in results.filters -%}
@@ -69,16 +69,16 @@ Supported variables
 
                 {%- assign downcase_label = filter.label | downcase -%}
 
-                <button type="button" class="text-with-icon group" aria-controls="filter-dialog-{{ filter.param_name }}" aria-expanded="false">
-                  <span class="bold">{{ filter.label }}</span>
-                  <span class="circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
+                <button type="button" class="perf-opt text-with-icon group" aria-controls="filter-dialog-{{ filter.param_name }}" aria-expanded="false">
+                  <span class="perf-opt bold">{{ filter.label }}</span>
+                  <span class="perf-opt circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
                 </button>
 
-                <facet-dialog id="filter-dialog-{{ filter.param_name }}" class="facet-dialog shadow">
+                <facet-dialog id="filter-dialog-{{ filter.param_name }}" class="perf-opt facet-dialog shadow">
                   {%- case filter.type -%}
                     {%- when 'list' or 'boolean' -%}
                       {%- if filter.presentation == 'swatch' or color_label_list contains downcase_label -%}
-                        <div class="color-list h-stack wrap justify-center gap-4">
+                        <div class="perf-opt color-list h-stack wrap justify-center gap-4">
                           {%- for filter_value in filter.values -%}
                             {%- assign disabled = false -%}
 
@@ -94,7 +94,7 @@ Supported variables
                           {%- endfor -%}
                         </div>
                       {%- else -%}
-                        <div class="h-stack gap-2 justify-center wrap">
+                        <div class="perf-opt h-stack gap-2 justify-center wrap">
                           {%- for filter_value in filter.values -%}
                             {%- assign disabled = false -%}
 
@@ -103,8 +103,8 @@ Supported variables
                             {%- endif -%}
 
                             {%- capture checkbox_id -%}checkbox-{{ section.id }}-{{ filter_value.param_name }}-{{ forloop.index }}{%- endcapture -%}
-                            <input id="{{ checkbox_id }}" class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" {% if filter_value.active %}checked{% endif %} {% if disabled %}disabled{% endif %}>
-                            <label for="{{ checkbox_id }}" class="facet-dialog-option">{{ filter_value.label }} {% if section.settings.show_filter_values_count %}({{ filter_value.count }}){% endif %}</label>
+                            <input id="{{ checkbox_id }}" class="perf-opt sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" {% if filter_value.active %}checked{% endif %} {% if disabled %}disabled{% endif %}>
+                            <label for="{{ checkbox_id }}" class="perf-opt facet-dialog-option">{{ filter_value.label }} {% if section.settings.show_filter_values_count %}({{ filter_value.count }}){% endif %}</label>
                           {%- endfor -%}
                         </div>
                       {%- endif -%}
@@ -122,20 +122,20 @@ Supported variables
       {%- if show_sort_by -%}
         {%- capture sort_by_popover_id -%}popover-sort-by-{{ section.id }}{%- endcapture -%}
 
-        <facet-sort-by class="sort-by-facet">
-          <span class="bold">{{ 'collection.faceting.sort_by' | t }}:</span>
+        <facet-sort-by class="perf-opt sort-by-facet">
+          <span class="perf-opt bold">{{ 'collection.faceting.sort_by' | t }}:</span>
 
-          <button type="button" class="text-with-icon group" aria-controls="{{ sort_by_popover_id }}" aria-expanded="false">
-            <span id="{{ sort_by_popover_id }}-value" class="reversed-link">{{- selected_sort_by.name -}}</span>
-            <span class="circle-chevron group-hover:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
+          <button type="button" class="perf-opt text-with-icon group" aria-controls="{{ sort_by_popover_id }}" aria-expanded="false">
+            <span id="{{ sort_by_popover_id }}-value" class="perf-opt reversed-link">{{- selected_sort_by.name -}}</span>
+            <span class="perf-opt circle-chevron group-hover:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
           </button>
 
-          <x-popover id="{{ sort_by_popover_id }}" class="popover" close-on-listbox-select anchor-horizontal="end" anchor-vertical="end">
-            <x-listbox class="popover-listbox" aria-owns="{{ sort_by_popover_id }}-value">
+          <x-popover id="{{ sort_by_popover_id }}" class="perf-opt popover" close-on-listbox-select anchor-horizontal="end" anchor-vertical="end">
+            <x-listbox class="perf-opt popover-listbox" aria-owns="{{ sort_by_popover_id }}-value">
               {%- for sort_option in results.sort_options -%}
                 {%- if sort_option.name != blank -%}
-                  <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}" {% if sort_option.value == selected_sort_by_value %}aria-selected="true"{% endif %}>
-                    <span class="reversed-link">{{ sort_option.name }}</span>
+                  <button type="button" class="perf-opt popover-listbox__option group" role="option" value="{{ sort_option.value }}" {% if sort_option.value == selected_sort_by_value %}aria-selected="true"{% endif %}>
+                    <span class="perf-opt reversed-link">{{ sort_option.name }}</span>
                   </button>
                 {%- endif -%}
               {%- endfor -%}

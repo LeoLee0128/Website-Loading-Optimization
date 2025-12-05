@@ -369,7 +369,7 @@ if (!window.customElements.get("next-button")) {
 }
 
 // js/common/actions/copy-button.js
-import { timeline } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { timeline } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var CopyButton = class extends HTMLButtonElement {
   constructor() {
     super();
@@ -386,7 +386,7 @@ var CopyButton = class extends HTMLButtonElement {
   }
   get animationElement() {
     return this._animationElement = this._animationElement || document.createRange().createContextualFragment(`
-      <span class="button__feedback">  
+      <span class="perf-opt button__feedback">  
         <svg role="presentation" focusable="false" fill="none" width="18px" height="18px" viewBox="0 0 20 20">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
           <path d="m6 9.8 2.63 2.8L14 7" stroke="currentColor" stroke-width="2"/>
@@ -412,7 +412,7 @@ if (!window.customElements.get("copy-button")) {
 }
 
 // js/common/actions/custom-button.js
-import { animate, timeline as timeline2, stagger } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate, timeline as timeline2, stagger } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var CustomButton = class extends HTMLButtonElement {
   static get observedAttributes() {
     return ["aria-busy"];
@@ -435,7 +435,7 @@ var CustomButton = class extends HTMLButtonElement {
   }
   get animationElement() {
     return this._animationElement = this._animationElement || document.createRange().createContextualFragment(`
-      <span class="button__loader">
+      <span class="perf-opt button__loader">
         <span></span>
         <span></span>
         <span></span>
@@ -481,7 +481,7 @@ if (!window.customElements.get("share-button")) {
 }
 
 // js/common/animation/heading.js
-import { stagger as stagger2 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { stagger as stagger2 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 function getHeadingKeyframe(element, options = {}) {
   if (!element) {
     return [];
@@ -506,7 +506,7 @@ function getHeadingKeyframe(element, options = {}) {
 }
 
 // js/common/animation/reveal-items.js
-import { animate as animate2, stagger as stagger3, inView } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate2, stagger as stagger3, inView } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var _reveal, reveal_fn;
 var RevealItems = class extends HTMLElement {
   constructor() {
@@ -687,7 +687,7 @@ if (!window.customElements.get("height-observer")) {
 }
 
 // js/common/behavior/safe-sticky.js
-import { inView as inView2 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { inView as inView2 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var _resizeObserver, _checkPositionListener, _initialTop, _lastKnownY, _currentTop, _position, _recalculateStyles, recalculateStyles_fn, _checkPosition, checkPosition_fn;
 var SafeSticky = class extends HTMLElement {
   constructor() {
@@ -991,7 +991,7 @@ if (!window.customElements.get("split-lines")) {
 }
 
 // js/common/carousel/effect-carousel.js
-import { timeline as timeline3, inView as inView3 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { timeline as timeline3, inView as inView3 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 
 // js/common/carousel/base-carousel.js
 var BaseCarousel = class extends HTMLElement {
@@ -1242,7 +1242,7 @@ if (!window.customElements.get("scroll-carousel")) {
 }
 
 // js/common/cart/cart-count.js
-import { animate as animate3 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate3 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 
 // js/common/cart/fetch-cart.js
 var createCartPromise = () => {
@@ -1305,10 +1305,10 @@ if (!window.customElements.get("cart-count")) {
 }
 
 // js/common/cart/cart-drawer.js
-import { animate as animate4 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate4 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 
 // js/common/overlay/dialog-element.js
-import { FocusTrap, Delegate } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { FocusTrap, Delegate } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var DialogElement = class _DialogElement extends HTMLElement {
   static get observedAttributes() {
     return ["id", "open"];
@@ -1508,7 +1508,7 @@ if (!window.customElements.get("close-button")) {
 }
 
 // js/common/overlay/drawer.js
-import { animate as motionAnimate, timeline as motionTimeline } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as motionAnimate, timeline as motionTimeline } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var reduceDrawerAnimation = window.matchMedia("(prefers-reduced-motion: reduce)").matches || JSON.parse("false");
 var Drawer = class extends DialogElement {
   constructor() {
@@ -1597,7 +1597,7 @@ if (!window.customElements.get("x-drawer")) {
 }
 
 // js/common/overlay/popover.js
-import { animate as motionAnimate2, timeline as motionTimeline2 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as motionAnimate2, timeline as motionTimeline2 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var Popover = class extends DialogElement {
   constructor() {
     super();
@@ -1681,7 +1681,7 @@ if (!window.customElements.get("x-popover")) {
 }
 
 // js/common/overlay/privacy-bar.js
-import { Delegate as Delegate2 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { Delegate as Delegate2 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var PrivacyBar = class extends HTMLElement {
   constructor() {
     super();
@@ -1911,9 +1911,9 @@ var CartNoteDialog = class extends DialogElement {
   }
   _onNoteChanged(event) {
     if (event.target.value === "") {
-      this.controls.forEach((control) => control.innerHTML = `<span class="link text-sm text-subdued">${window.themeVariables.strings.addOrderNote}</span>`);
+      this.controls.forEach((control) => control.innerHTML = `<span class="perf-opt link text-sm text-subdued">${window.themeVariables.strings.addOrderNote}</span>`);
     } else {
-      this.controls.forEach((control) => control.innerHTML = `<span class="link text-sm text-subdued">${window.themeVariables.strings.editOrderNote}</span>`);
+      this.controls.forEach((control) => control.innerHTML = `<span class="perf-opt link text-sm text-subdued">${window.themeVariables.strings.editOrderNote}</span>`);
     }
   }
 };
@@ -1970,7 +1970,7 @@ var FreeShippingBar = class extends HTMLElement {
     if (this.totalPrice >= this.threshold) {
       messageElement.innerHTML = this.getAttribute("reached-message");
     } else {
-      const replacement = `<span class="bold text-accent">${formatMoney(this.threshold - this.totalPrice).replace(/\$/g, "$$$$")}</span>`;
+      const replacement = `<span class="perf-opt bold text-accent">${formatMoney(this.threshold - this.totalPrice).replace(/\$/g, "$$$$")}</span>`;
       messageElement.innerHTML = this.getAttribute("unreached-message").replace(new RegExp("({{.*}})", "g"), replacement);
     }
   }
@@ -2091,9 +2091,9 @@ var ShippingEstimator = class extends HTMLElement {
       return `<li>${shippingRate["presentment_name"]}: ${shippingRate["currency"]} ${shippingRate["price"]}</li>`;
     });
     this.resultsElement.innerHTML = `
-      <div class="v-stack gap-2">
+      <div class="perf-opt v-stack gap-2">
         <p>${shippingRates.length === 0 ? window.themeVariables.strings.shippingEstimatorNoResults : shippingRates.length === 1 ? window.themeVariables.strings.shippingEstimatorOneResult : window.themeVariables.strings.shippingEstimatorMultipleResults}</p>
-        ${formattedShippingRates === "" ? "" : `<ul class="list-disc" role="list">${formattedShippingRates.join("")}</ul>`}
+        ${formattedShippingRates === "" ? "" : `<ul class="perf-opt list-disc" role="list">${formattedShippingRates.join("")}</ul>`}
       </div>
     `;
   }
@@ -2102,9 +2102,9 @@ var ShippingEstimator = class extends HTMLElement {
       return `<li>${errors[errorKey]}</li>`;
     });
     this.resultsElement.innerHTML = `
-      <div class="v-stack gap-2">
+      <div class="perf-opt v-stack gap-2">
         <p>${window.themeVariables.strings.shippingEstimatorError}</p>
-        <ul class="list-disc" role="list">${formattedShippingRates}</ul>
+        <ul class="perf-opt list-disc" role="list">${formattedShippingRates}</ul>
       </div>
     `;
   }
@@ -2167,7 +2167,7 @@ if (!window.customElements.get("facet-drawer")) {
 }
 
 // js/common/facets/facet-floating-filter.js
-import { animate as animate5 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate5 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var FacetFloatingFilter = class extends HTMLElement {
   connectedCallback() {
     new IntersectionObserver(this._onFooterVisibilityChanged.bind(this), { rootMargin: "50px 0px" }).observe(document.querySelector(".shopify-section--footer"));
@@ -2322,20 +2322,20 @@ if (!window.customElements.get("facet-sort-by")) {
 }
 
 // js/common/feedback/pill-loader.js
-import { animate as animate6, timeline as timeline4, stagger as stagger4 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate6, timeline as timeline4, stagger as stagger4 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var PillLoader = class extends HTMLElement {
   static get observedAttributes() {
     return ["aria-busy"];
   }
   connectedCallback() {
     this.innerHTML = `
-      <div class="loader-dots">
+      <div class="perf-opt loader-dots">
         <span></span>
         <span></span>
         <span></span>
       </div>
       
-      <svg class="loader-checkmark" fill="none" width="9" height="8" viewBox="0 0 9 8">
+      <svg class="perf-opt loader-checkmark" fill="none" width="9" height="8" viewBox="0 0 9 8">
         <path d="M1 3.5 3.3 6 8 1" stroke="currentColor" stroke-width="2"/>
       </svg>
     `;
@@ -2713,7 +2713,7 @@ var ProductLoader = class {
 };
 
 // js/common/product/product-card.js
-import { Delegate as Delegate3 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { Delegate as Delegate3 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var ProductCard = class extends HTMLElement {
   constructor() {
     super();
@@ -2886,7 +2886,7 @@ var BuyButtons = class extends HTMLElement {
     errorBanner.style.gridColumn = "1/-1";
     errorBanner.style.marginBottom = "1rem";
     errorBanner.innerHTML = `
-      <svg role="presentation" focusable="false" width="18" height="18" class="offset-icon icon icon-error" style="--icon-height: 18px" viewBox="0 0 18 18">
+      <svg role="presentation" focusable="false" width="18" height="18" class="perf-opt offset-icon icon icon-error" style="--icon-height: 18px" viewBox="0 0 18 18">
         <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
         <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
       </svg>
@@ -3138,7 +3138,7 @@ if (!window.customElements.get("variant-sku")) {
 }
 
 // js/common/product/product-gallery.js
-import { PhotoSwipeLightbox } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { PhotoSwipeLightbox } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var ProductGallery = class extends HTMLElement {
   constructor() {
     super();
@@ -3166,7 +3166,7 @@ var ProductGallery = class extends HTMLElement {
       return this._photoswipe;
     }
     const photoswipe = new PhotoSwipeLightbox({
-      pswpModule: () => import("//cearvol.com/cdn/shop/t/31/assets/photoswipe.min.js?v=20290624223189769891762014363"),
+      pswpModule: () => import("//cearvol.com/cdn/shop/t/40/assets/photoswipe.min.js?v=17341949536480865531764566322"),
       bgOpacity: 1,
       maxZoomLevel: parseInt(this.getAttribute("allow-zoom")) || 3,
       closeTitle: window.themeVariables.strings.closeGallery,
@@ -3190,17 +3190,17 @@ var ProductGallery = class extends HTMLElement {
         order: 5,
         appendTo: "wrapper",
         html: `
-          <div class="pagination">
-            <button class="pagination__item group" rel="prev">
-              <span class="animated-arrow animated-arrow--reverse"></span>
+          <div class="perf-opt pagination">
+            <button class="perf-opt pagination__item group" rel="prev">
+              <span class="perf-opt animated-arrow animated-arrow--reverse"></span>
             </button>
             
-            <span class="pagination__current text-sm">
-              <span class="pagination__current-page">1</span> / <span class="pagination__page-count"></span>
+            <span class="perf-opt pagination__current text-sm">
+              <span class="perf-opt pagination__current-page">1</span> / <span class="perf-opt pagination__page-count"></span>
             </span>
             
-            <button class="pagination__item group" rel="next">
-              <span class="animated-arrow"></span>
+            <button class="perf-opt pagination__item group" rel="next">
+              <span class="perf-opt animated-arrow"></span>
             </button>
           </div>
         `,
@@ -3389,7 +3389,7 @@ if (!window.customElements.get("product-quick-add")) {
 }
 
 // js/common/product/quick-buy-drawer.js
-import { animate as animate7, timeline as timeline5 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate7, timeline as timeline5 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var QuickBuyDrawer = class extends Drawer {
   constructor() {
     super();
@@ -3645,7 +3645,7 @@ if (!window.customElements.get("variant-option-value")) {
 }
 
 // js/common/media/base-media.js
-import { inView as inView4 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { inView as inView4 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var BaseMedia = class extends HTMLElement {
   static get observedAttributes() {
     return ["playing"];
@@ -3874,7 +3874,7 @@ if (!window.customElements.get("video-media")) {
 }
 
 // js/common/navigation/accordion-disclosure.js
-import { timeline as timeline6 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { timeline as timeline6 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 
 // js/common/navigation/animated-details.js
 var AnimatedDetails = class extends HTMLDetailsElement {
@@ -3955,7 +3955,7 @@ if (!window.customElements.get("accordion-disclosure")) {
 }
 
 // js/common/navigation/tabs.js
-import { animate as animate8 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate8 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var Tabs = class extends HTMLElement {
   static get observedAttributes() {
     return ["selected-index"];
@@ -4043,7 +4043,7 @@ if (!window.customElements.get("x-tabs")) {
 }
 
 // js/common/search/predictive-search.js
-import { animate as animate9 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate9 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var PredictiveSearch = class extends HTMLElement {
   constructor() {
     super();
@@ -4155,7 +4155,7 @@ if (!window.customElements.get("search-drawer")) {
 }
 
 // js/common/text/section-header.js
-import { animate as animate10, inView as inView5 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { animate as animate10, inView as inView5 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 var _reveal2, reveal_fn2;
 var SectionHeader = class extends HTMLElement {
   constructor() {
@@ -4195,7 +4195,7 @@ if (!window.customElements.get("marquee-text")) {
 }
 
 // js/theme.js
-import { Delegate as Delegate4 } from "//cearvol.com/cdn/shop/t/31/assets/vendor.min.js?v=52426788336887041471762014363";
+import { Delegate as Delegate4 } from "//cearvol.com/cdn/shop/t/40/assets/vendor.min.js?v=52426788336887041471764566322";
 (() => {
   const delegateDocument = new Delegate4(document.documentElement);
   if (window.themeVariables.settings.showPageTransition && "animate" in document.documentElement && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {

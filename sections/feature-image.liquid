@@ -267,16 +267,16 @@
     }
     }
   </style>
-<section id="feature-spot-{{ section.id }}" class="feature-spot" data-section-id="{{ section.id }}">
+<section id="feature-spot-{{ section.id }}" class="perf-opt feature-spot" data-section-id="{{ section.id }}">
 
 
-  <div class="wrap" id="{{ section.settings.custom_id }}">
+  <div class="perf-opt wrap" id="{{ section.settings.custom_id }}">
   
 
-    <div class="visual">
-          <header class="heading">
-                <h2 class="title space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-                <p class="subtitle space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
+    <div class="perf-opt visual">
+          <header class="perf-opt heading">
+                <h2 class="perf-opt title space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+                <p class="perf-opt subtitle space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
             </header>
       {% assign img = section.settings.image_desktop | default: section.settings.image_mobile %}
       <picture>
@@ -292,23 +292,23 @@
         {% assign hs_x = section.settings.hotspot_x | default: 50 %}
         {% assign hs_y = section.settings.hotspot_y | default: 50 %}
         {% assign hs_angle = section.settings.hotspot_line_angle | default: -65 %}
-        <div class="hotspot" style="left: {{ hs_x }}%; top: {{ hs_y }}%;">
-          <span class="dot"></span>
-          <span class="line" style="transform: rotate({{ hs_angle }}deg);"></span>
-          <div class="label">
+        <div class="perf-opt hotspot" style="left: {{ hs_x }}%; top: {{ hs_y }}%;">
+          <span class="perf-opt dot"></span>
+          <span class="perf-opt line" style="transform: rotate({{ hs_angle }}deg);"></span>
+          <div class="perf-opt label">
            
             {% if section.settings.hotspot_text != blank %}
-              <div class="label-desc space-thin">{{ section.settings.hotspot_text }}</div>
+              <div class="perf-opt label-desc space-thin">{{ section.settings.hotspot_text }}</div>
             {% endif %}
           </div>
         </div>
       {% endif %}
 
         {% if section.blocks.size > 0 %}
-    <div class="features">
+    <div class="perf-opt features">
       {% for block in section.blocks %}
-        <div class="feature wow fadeInUp" {{ block.shopify_attributes }} data-wow-delay=".{{ forloop.index }}s">
-          <div class="icon">
+        <div class="perf-opt feature wow fadeInUp" {{ block.shopify_attributes }} data-wow-delay=".{{ forloop.index }}s">
+          <div class="perf-opt icon">
             {% if block.settings.icon != blank %}
               {{ block.settings.icon | image_url: width: 64 | image_tag: loading: 'lazy', alt: block.settings.title }}
             {% else %}
@@ -316,8 +316,8 @@
             {% endif %}
           </div>
           <div>
-            <p class="f-title space-thin">{{ block.settings.title }}</p>
-            <p class="f-desc space-thin">{{ block.settings.desc }}</p>
+            <p class="perf-opt f-title space-thin">{{ block.settings.title }}</p>
+            <p class="perf-opt f-desc space-thin">{{ block.settings.desc }}</p>
           </div>
         </div>
       {% endfor %}

@@ -81,31 +81,31 @@ Color swatch specific parameters:
 -%}
 
 {%- unless url -%}
-  <input class="sr-only" type="{% if allow_multiple %}checkbox{% else %}radio{% endif %}" name="{{ name }}" {% if form %}form="{{ form | escape }}"{% endif %} id="{{ id | escape }}" value="{{ value | escape }}" {% if disabled %}disabled{% endif %} {% if selected %}checked="checked"{% endif %}>
+  <input class="perf-opt sr-only" type="{% if allow_multiple %}checkbox{% else %}radio{% endif %}" name="{{ name }}" {% if form %}form="{{ form | escape }}"{% endif %} id="{{ id | escape }}" value="{{ value | escape }}" {% if disabled %}disabled{% endif %} {% if selected %}checked="checked"{% endif %}>
 {%- endunless -%}
 
 {%- case type -%}
   {%- when 'thumbnail' -%}
     {%- if image != blank -%}
       {%- capture thumbnail_markup -%}
-        <span class="sr-only">{{ label | default: value }}</span>
+        <span class="perf-opt sr-only">{{ label | default: value }}</span>
         {{- image | image_url: width: image.width | image_tag: sizes: '60px', widths: '60,120', class: 'object-cover' -}}
       {%- endcapture -%}
 
       {%- if url -%}
-        <a href="{{ url }}" class="thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %} {% if bordered %}border{% endif %}">
+        <a href="{{ url }}" class="perf-opt thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %} {% if bordered %}border{% endif %}">
           {{- thumbnail_markup -}}
         </a>
       {%- else -%}
-        <label class="thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if bordered %}border{% endif %}" for="{{ id | escape }}" data-option-value>
+        <label class="perf-opt thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if bordered %}border{% endif %}" for="{{ id | escape }}" data-option-value>
           {{- thumbnail_markup -}}
         </label>
       {%- endif -%}
     {%- else -%}
       {%- if url == blank -%}
-        <label class="block-swatch" for="{{ id | escape }}" data-option-value>{{ label | default: value }}</label>
+        <label class="perf-opt block-swatch" for="{{ id | escape }}" data-option-value>{{ label | default: value }}</label>
       {%- else -%}
-        <a href="{{ url }}" class="block-swatch {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %}" for="{{ id | escape }}" data-option-value>{{ label | default: value }}</a>
+        <a href="{{ url }}" class="perf-opt block-swatch {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %}" for="{{ id | escape }}" data-option-value>{{ label | default: value }}</a>
       {%- endif -%}
     {%- endif -%}
 
@@ -115,18 +115,18 @@ Color swatch specific parameters:
 
     {%- capture block_markup -%}
       {%- if show_swatch -%}
-        <span class="block-swatch__color {% if white_label_list contains value_downcase %}ring-inset{% endif %}" style="{{ swatch_style }}"></span>
+        <span class="perf-opt block-swatch__color {% if white_label_list contains value_downcase %}ring-inset{% endif %}" style="{{ swatch_style }}"></span>
       {%- endif -%}
 
       <span>{{ label | default: value }}</span>
     {%- endcapture -%}
 
     {%- if url -%}
-      <a href="{{ url }}" class="block-swatch {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %}">
+      <a href="{{ url }}" class="perf-opt block-swatch {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %}">
         {{- block_markup -}}
       </a>
     {%- else -%}
-      <label class="block-swatch" for="{{ id | escape }}" data-option-value>
+      <label class="perf-opt block-swatch" for="{{ id | escape }}" data-option-value>
         {{- block_markup -}}
       </label>
     {%- endif -%}
@@ -136,12 +136,12 @@ Color swatch specific parameters:
     {%- assign value_downcase = value | downcase -%}
 
     {%- if url -%}
-      <a href="{{ url }}" class="color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %} {% if white_label_list contains value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
-        <span class="sr-only">{{ label | default: value }}</span>
+      <a href="{{ url }}" class="perf-opt color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected %}is-selected{% endif %} {% if white_label_list contains value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
+        <span class="perf-opt sr-only">{{ label | default: value }}</span>
       </a>
     {%- else -%}
-      <label class="color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if white_label_list contains value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" for="{{ id | escape }}" data-option-value {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
-        <span class="sr-only">{{ label | default: value }}</span>
+      <label class="perf-opt color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if white_label_list contains value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" for="{{ id | escape }}" data-option-value {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
+        <span class="perf-opt sr-only">{{ label | default: value }}</span>
       </label>
     {%- endif -%}
 {%- endcase -%}

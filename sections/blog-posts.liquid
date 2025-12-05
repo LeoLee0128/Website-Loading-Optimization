@@ -20,10 +20,10 @@
 </style>
 
 <div {% render 'section-properties' %}>
-  <div class="section-stack">
+  <div class="perf-opt section-stack">
     {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content, link_text: section.settings.link_text, link_url: section.settings.link_url -%}
 
-    <div class="blog-posts {% unless section.blocks.first.settings.stack_items %}scroll-area bleed md:unbleed{% endunless %}">
+    <div class="perf-opt blog-posts {% unless section.blocks.first.settings.stack_items %}scroll-area bleed md:unbleed{% endunless %}">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'blog' -%}

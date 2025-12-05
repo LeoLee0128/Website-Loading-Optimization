@@ -69,16 +69,16 @@
 }
 </style>
 
-<section class="power_grid-section">
-  <div class="container">
-    <h2 class="power_grid-title space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-    <div class="power_grid-list">
+<section class="perf-opt power_grid-section">
+  <div class="perf-opt container">
+    <h2 class="perf-opt power_grid-title space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+    <div class="perf-opt power_grid-list">
          {% for block in section.blocks %}
-            <div class="power_grid-item">
+            <div class="perf-opt power_grid-item">
                     <img src="{{ block.settings.image | img_url:'master' }}">
-                    <div class="power_grid-content">
-                        <h2 class="space-thin wow fadeInUp">{{ block.settings.i_title }}</h2>
-                        <p class="space-thin wow fadeInUp">{{ block.settings.i_desc }}</p>
+                    <div class="perf-opt power_grid-content">
+                        <h2 class="perf-opt space-thin wow fadeInUp">{{ block.settings.i_title }}</h2>
+                        <p class="perf-opt space-thin wow fadeInUp">{{ block.settings.i_desc }}</p>
                     </div>
             </div>
         {% endfor %}

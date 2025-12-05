@@ -103,17 +103,17 @@ color: rgba(24, 24, 24, 0.898);
 }
 </style>
 
-<section class="image_text-section sec-{{ section.id }}" id="{{ section.settings.custom_id }}">
-    <div class="section">
-        <div class="img_head">
-            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+<section class="perf-opt image_text-section sec-{{ section.id }}" id="{{ section.settings.custom_id }}">
+    <div class="perf-opt section">
+        <div class="perf-opt img_head">
+            <h2 class="perf-opt h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
         </div>
-        <div class="image_text-wrapper">
-            <img class="desktop-img" src="{{ section.settings.image | img_url:'master' }}">
-            <img class="mobile-img" src="{{ section.settings.mobile_image | img_url:'master' }}">
-            <div class="image_text-content text-{{ section.settings.color }}">
-                <h3 class="space-thin">{{ section.settings.i-title }}</h3>
-                <div class="imgge_text-desc space-thin">{{ section.settings.desc }}</div>
+        <div class="perf-opt image_text-wrapper">
+            <img class="perf-opt desktop-img" src="{{ section.settings.image | img_url:'master' }}">
+            <img class="perf-opt mobile-img" src="{{ section.settings.mobile_image | img_url:'master' }}">
+            <div class="perf-opt image_text-content text-{{ section.settings.color }}">
+                <h3 class="perf-opt space-thin">{{ section.settings.i-title }}</h3>
+                <div class="perf-opt imgge_text-desc space-thin">{{ section.settings.desc }}</div>
             </div>
         </div>
     </div>

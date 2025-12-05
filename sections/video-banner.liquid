@@ -126,10 +126,10 @@
     }
   </style>
 
-<section id="video-{{ section.id }}" class="video-banner" data-section-id="{{ section.id }}">
+<section id="video-{{ section.id }}" class="perf-opt video-banner" data-section-id="{{ section.id }}">
 
 
-  <div class="hero-media">
+  <div class="perf-opt hero-media">
     {% if section.settings.video_mp4_url != blank %}
       <video autoplay muted playsinline loop preload="metadata" poster="{{ section.settings.poster | image_url: width: 2000 }}">
         <source src="{{ section.settings.video_mp4_url }}" type="video/mp4">
@@ -140,28 +140,28 @@
     {% endif %}
   </div>
 
-  <div class="hero-overlay"></div>
+  <div class="perf-opt hero-overlay"></div>
 
-  <div class="hero-inner">
+  <div class="perf-opt hero-inner">
     {% if section.settings.subtitle != blank %}
-      <p class="hero-eyebrow space-thin wow fadeInUp">{{ section.settings.subtitle }}</p>
+      <p class="perf-opt hero-eyebrow space-thin wow fadeInUp">{{ section.settings.subtitle }}</p>
     {% endif %}
 
     {% if section.settings.title != blank %}
-      <h2 class="hero-title h0 space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.title }}</h2>
+      <h2 class="perf-opt hero-title h0 space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.title }}</h2>
     {% endif %}
 
-    <a class="hero-cta wow fadeInUp" href="{{ section.settings.cta_link | default: '#' }}" role="button" data-wow-delay=".2s">
+    <a class="perf-opt hero-cta wow fadeInUp" href="{{ section.settings.cta_link | default: '#' }}" role="button" data-wow-delay=".2s">
       <span>{{ section.settings.button }}</span><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9076.svg?v=1758655424">
     </a>
   </div>
 
   <!-- modal -->
-  <div class="video-modal" aria-hidden="true">
-    <div class="video-modal__dialog">
-      <button class="video-modal__close" aria-label="Close">✕</button>
-      <iframe class="video-modal__iframe" src="" title="Video" allow="autoplay; fullscreen" allowfullscreen style="display:none;"></iframe>
-      <video class="video-modal__video" controls playsinline preload="metadata" style="display:none;"></video>
+  <div class="perf-opt video-modal" aria-hidden="true">
+    <div class="perf-opt video-modal__dialog">
+      <button class="perf-opt video-modal__close" aria-label="Close">✕</button>
+      <iframe class="perf-opt video-modal__iframe" src="" title="Video" allow="autoplay; fullscreen" allowfullscreen style="display:none;"></iframe>
+      <video class="perf-opt video-modal__video" controls playsinline preload="metadata" style="display:none;"></video>
     </div>
   </div>
 

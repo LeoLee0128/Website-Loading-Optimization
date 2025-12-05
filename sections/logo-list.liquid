@@ -30,10 +30,10 @@
   </style>
 
   <div {% render 'section-properties' %}>
-    <div class="section-stack {% if section.settings.text_alignment == 'center' %}sm:justify-items-center{% endif %}">
-      <div class="prose {% if section.settings.text_alignment == 'center' %}text-center{% endif %}">
+    <div class="perf-opt section-stack {% if section.settings.text_alignment == 'center' %}sm:justify-items-center{% endif %}">
+      <div class="perf-opt prose {% if section.settings.text_alignment == 'center' %}text-center{% endif %}">
         {%- if section.settings.title != blank -%}
-          <h2 class="h2">
+          <h2 class="perf-opt h2">
             {%- render 'styled-text', content: section.settings.title, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient -%}
           </h2>
         {%- endif -%}
@@ -41,7 +41,7 @@
         {{- section.settings.content -}}
       </div>
 
-      <reveal-items class="logo-list {% unless section.settings.stack_mobile %}scroll-area bleed sm:unbleed{% endunless %}">
+      <reveal-items class="perf-opt logo-list {% unless section.settings.stack_mobile %}scroll-area bleed sm:unbleed{% endunless %}">
         {%- for block in section.blocks -%}
           {%- liquid
             assign loading_strategy = nil

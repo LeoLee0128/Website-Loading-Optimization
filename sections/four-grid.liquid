@@ -125,22 +125,22 @@ font-size: 12px;
 }
 </style>
 
-<section class="icon_list-section" id="{{ section.settings.custom_id }}">
-    <div class="section">
-        <div class="icon_list-head">
-            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-            <p class="space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
+<section class="perf-opt icon_list-section" id="{{ section.settings.custom_id }}">
+    <div class="perf-opt section">
+        <div class="perf-opt icon_list-head">
+            <h2 class="perf-opt h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="perf-opt space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
         </div>
-        <div class="iicon_list-wrapper">
+        <div class="perf-opt iicon_list-wrapper">
               {% if section.blocks.size > 0 %}
-            <div class="icon-lists">
+            <div class="perf-opt icon-lists">
             {% for block in section.blocks %}
-                <div class="icon__item" {{ block.shopify_attributes }}>
+                <div class="perf-opt icon__item" {{ block.shopify_attributes }}>
                     <img src="{{ block.settings.icon | img_url:'master' }}" />
                     <div>
-                        <div class="i-title space-thin">{{ block.settings.i-title }}</div>
-                        <div class="i-desc space-thin">{{ block.settings.desc }}</div>
-                        <i class="ok_icon"></i>
+                        <div class="perf-opt i-title space-thin">{{ block.settings.i-title }}</div>
+                        <div class="perf-opt i-desc space-thin">{{ block.settings.desc }}</div>
+                        <i class="perf-opt ok_icon"></i>
                     </div>
                 </div>
             {% endfor %}

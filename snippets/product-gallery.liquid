@@ -31,22 +31,22 @@ only way to do it on Shopify right now.
   {%- endfor -%}
 {%- endif -%}
 
-<product-gallery form="{{ product_form_id }}" {%- if section.settings.enable_image_zoom -%}allow-zoom="{{ section.settings.max_image_zoom_level }}"{% endif %} class="product-gallery {% if section.settings.mobile_carousel_control contains 'dots' %}product-gallery--mobile-dots{% endif %} {% if section.settings.desktop_media_layout contains 'grid' %}product-gallery--desktop-grid{% else %}product-gallery--desktop-carousel{% endif %} {% if section.settings.desktop_media_layout == 'carousel_thumbnails_left' %}product-gallery--desktop-thumbnails-left{% endif %} {% if section.settings.mobile_media_size == 'expanded' %}product-gallery--mobile-expanded{% endif %}">
+<product-gallery form="{{ product_form_id }}" {%- if section.settings.enable_image_zoom -%}allow-zoom="{{ section.settings.max_image_zoom_level }}"{% endif %} class="perf-opt product-gallery {% if section.settings.mobile_carousel_control contains 'dots' %}product-gallery--mobile-dots{% endif %} {% if section.settings.desktop_media_layout contains 'grid' %}product-gallery--desktop-grid{% else %}product-gallery--desktop-carousel{% endif %} {% if section.settings.desktop_media_layout == 'carousel_thumbnails_left' %}product-gallery--desktop-thumbnails-left{% endif %} {% if section.settings.mobile_media_size == 'expanded' %}product-gallery--mobile-expanded{% endif %}">
   {%- capture page_dots -%}
-    <page-dots  {% if section.settings.show_thumbnails %} {% else %} style="display:none" {% endif %}  class="page-dots {% if section.settings.mobile_carousel_control == 'floating_dots' %}page-dots--blurred{% endif %} md:hidden" aria-controls="{{ product_gallery_id }}">
+    <page-dots  {% if section.settings.show_thumbnails %} {% else %} style="display:none" {% endif %}  class="perf-opt page-dots {% if section.settings.mobile_carousel_control == 'floating_dots' %}page-dots--blurred{% endif %} md:hidden" aria-controls="{{ product_gallery_id }}">
       {%- for media in product.media -%}
-        <button type="button" class="tap-area" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}">
-          <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: media.position }}</span>
+        <button type="button" class="perf-opt tap-area" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}">
+          <span class="perf-opt sr-only">{{ 'general.accessibility.go_to_item' | t: index: media.position }}</span>
         </button>
       {%- endfor -%}
     </page-dots>
   {%- endcapture -%}
 
-  <div class="product-gallery__ar-wrapper">
-    <div class="product-gallery__media-list-wrapper">
+  <div class="perf-opt product-gallery__ar-wrapper">
+    <div class="perf-opt product-gallery__media-list-wrapper">
       {%- if section.settings.desktop_media_layout contains 'carousel' and product.media.size > 1 -%}
-        <custom-cursor class="product-gallery__cursor" {% if default_media.media_type != 'image' %}hidden{% endif %}>
-          <div class="circle-button circle-button--fill circle-button--lg">
+        <custom-cursor class="perf-opt product-gallery__cursor" {% if default_media.media_type != 'image' %}hidden{% endif %}>
+          <div class="perf-opt circle-button circle-button--fill circle-button--lg">
             {%- render 'icon' with 'chevron-right' -%}
           </div>
         </custom-cursor>
@@ -57,7 +57,7 @@ only way to do it on Shopify right now.
       MEDIA LIST
       --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
-      <media-carousel desktop-mode="{{ section.settings.desktop_media_layout }}" adaptive-height initial-index="{{ default_media.position | minus: 1 }}" {% if section.settings.enable_video_autoplay %}autoplay{% endif %} id="{{ product_gallery_id }}" class="product-gallery__media-list {% if section.settings.mobile_media_size == 'expanded' %}full-bleed{% else %}bleed{% endif %} scroll-area md:unbleed">
+      <media-carousel desktop-mode="{{ section.settings.desktop_media_layout }}" adaptive-height initial-index="{{ default_media.position | minus: 1 }}" {% if section.settings.enable_video_autoplay %}autoplay{% endif %} id="{{ product_gallery_id }}" class="perf-opt product-gallery__media-list {% if section.settings.mobile_media_size == 'expanded' %}full-bleed{% else %}bleed{% endif %} scroll-area md:unbleed">
         {%- assign media_attached_to_variant = product.images | where: 'attached_to_variant?', true | map: 'src' -%}
 
         {%- for media in product.media -%}
@@ -75,7 +75,7 @@ only way to do it on Shopify right now.
               {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), {% if forloop.first or media_attached_to_variant contains media.src %}min(1200px, 60vw){% else %}min(580px, 30vw){% endif %}{%- endcapture -%}
           {%- endcase -%}
 
-          <div class="product-gallery__media {% if media.alt contains '@expand' %}product-gallery__media--expand{% endif %} {% if section.settings.mobile_carousel_control != 'free_scroll' %}snap-center{% endif %}" data-media-type="{{ media.media_type }}" data-media-id="{{ media.id }}" {% if filtered_indexes contains media.position %}hidden{% endif %}>
+          <div class="perf-opt product-gallery__media {% if media.alt contains '@expand' %}product-gallery__media--expand{% endif %} {% if section.settings.mobile_carousel_control != 'free_scroll' %}snap-center{% endif %}" data-media-type="{{ media.media_type }}" data-media-id="{{ media.id }}" {% if filtered_indexes contains media.position %}hidden{% endif %}>
             {%- if default_media == media -%}
               {%- assign preload = true -%}
             {%- else -%}
@@ -85,9 +85,9 @@ only way to do it on Shopify right now.
             {%- render 'media', media: media, sizes: sizes, preload: preload, autoplay: section.settings.enable_video_autoplay, loop: section.settings.enable_video_looping, group: 'product' -%}
 
             {%- if section.settings.enable_image_zoom and section.settings.desktop_media_layout contains 'grid' and media.media_type == 'image' -%}
-              <div class="product-gallery__zoom hidden md:block">
-                <button type="button" is="product-zoom-button" class="circle-button circle-button--fill ring">
-                  <span class="sr-only">{{ 'product.gallery.zoom' | t }}</span>
+              <div class="perf-opt product-gallery__zoom hidden md:block">
+                <button type="button" is="product-zoom-button" class="perf-opt circle-button circle-button--fill ring">
+                  <span class="perf-opt sr-only">{{ 'product.gallery.zoom' | t }}</span>
                   {%- render 'icon' with 'image-zoom' -%}
                 </button>
               </div>
@@ -97,9 +97,9 @@ only way to do it on Shopify right now.
       </media-carousel>
 
       {%- if section.settings.enable_image_zoom -%}
-        <div class="product-gallery__zoom {% if section.settings.desktop_media_layout contains 'grid' %}md:hidden{% endif %}">
-          <button type="button" is="product-zoom-button" class="circle-button circle-button--fill ring">
-            <span class="sr-only">{{ 'product.gallery.zoom' | t }}</span>
+        <div class="perf-opt product-gallery__zoom {% if section.settings.desktop_media_layout contains 'grid' %}md:hidden{% endif %}">
+          <button type="button" is="product-zoom-button" class="perf-opt circle-button circle-button--fill ring">
+            <span class="perf-opt sr-only">{{ 'product.gallery.zoom' | t }}</span>
             {%- render 'icon' with 'image-zoom' -%}
           </button>
         </div>
@@ -121,8 +121,8 @@ only way to do it on Shopify right now.
     {%- if first_3d_model -%}
       <link rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
 
-      <button class="button button--lg button--subdued w-full" data-shopify-xr data-shopify-model3d-id="{{ first_3d_model.id }}" data-shopify-model3d-default-id="{{ first_3d_model.id }}" data-shopify-title="{{ product.title | escape }}" data-shopify-xr-hidden>
-        <span class="text-with-icon justify-center">
+      <button class="perf-opt button button--lg button--subdued w-full" data-shopify-xr data-shopify-model3d-id="{{ first_3d_model.id }}" data-shopify-model3d-default-id="{{ first_3d_model.id }}" data-shopify-title="{{ product.title | escape }}" data-shopify-xr-hidden>
+        <span class="perf-opt text-with-icon justify-center">
           {%- render 'icon' with 'media-view-in-space' -%}
           {{- 'product.general.view_in_space' | t -}}
         </span>
@@ -143,15 +143,15 @@ only way to do it on Shopify right now.
   
     {%- if section.settings.mobile_carousel_control == 'thumbnails' or section.settings.desktop_media_layout contains 'thumbnails' -%}
       
-      <scroll-shadow class="product-gallery__thumbnail-list-wrapper">
+      <scroll-shadow class="perf-opt product-gallery__thumbnail-list-wrapper">
       
-        <page-dots    {% if section.settings.show_thumbnails %} {% else %} style="display:none" {% endif %} align-selected class="product-gallery__thumbnail-list scroll-area bleed md:unbleed" aria-controls="{{ product_gallery_id }}">
+        <page-dots    {% if section.settings.show_thumbnails %} {% else %} style="display:none" {% endif %} align-selected class="perf-opt product-gallery__thumbnail-list scroll-area bleed md:unbleed" aria-controls="{{ product_gallery_id }}">
           {%- for media in product.media -%}
-            <button type="button" class="product-gallery__thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
+            <button type="button" class="perf-opt product-gallery__thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
               {{- media | image_url: width: media.preview_image.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 56px, 64px', widths: '56,64,112,128,168,192', class: 'object-contain' -}}
 
               {%- unless media.media_type == 'image' -%}
-                <div class="product-gallery__media-badge">
+                <div class="perf-opt product-gallery__media-badge">
                   {%- if media.media_type == 'model' -%}
                     {%- render 'icon' with 'play-model', width: 10, height: 12 -%}
                   {%- else -%}
@@ -171,11 +171,11 @@ only way to do it on Shopify right now.
 {% for block in section.blocks %}
   {% if block.type == "tab_product" %}
     {% if block.settings.show_tab_product %}
-     <div class="tab_vottoms">
-           <div class="tab__products">
-        <button class="active">Products</button>
-        <button class="">Scenarios</button>
-        <button class="">Video</button>
+     <div class="perf-opt tab_vottoms">
+           <div class="perf-opt tab__products">
+        <button class="perf-opt active">Products</button>
+        <button class="perf-opt ">Scenarios</button>
+        <button class="perf-opt ">Video</button>
       </div>
 </div>
 {% endif %}

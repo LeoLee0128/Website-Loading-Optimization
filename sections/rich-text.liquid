@@ -33,12 +33,12 @@ font-style: var(--font-light-style);
         {%- case block.type -%}
           {%- when 'subheading' -%}
             {%- if block.settings.text != blank -%}
-              <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+              <p class="perf-opt bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
             {%- endif -%}
 
           {%- when 'heading' -%}
             {%- if block.settings.text != blank -%}
-              <p class="{{ block.settings.heading_tag }} hyphenate" {{ block.shopify_attributes }}>
+              <p class="perf-opt {{ block.settings.heading_tag }} hyphenate" {{ block.shopify_attributes }}>
                 {%- render 'styled-text', content: block.settings.text, text_color: block.settings.text_color, gradient: block.settings.gradient -%}
               </p>
             {%- endif -%}
@@ -141,20 +141,20 @@ font-style: var(--font-light-style);
     {%- endfor -%}
 
     {%- if blocks_before_divider != blank and blocks_after_divider != blank -%}
-      <div class="split-rich-text">
-        <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
+      <div class="perf-opt split-rich-text">
+        <div class="perf-opt prose justify-items-{{ text_position }} text-{{ text_position }}">
           {{- blocks_before_divider -}}
         </div>
 
-        <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
+        <div class="perf-opt prose justify-items-{{ text_position }} text-{{ text_position }}">
           {{- blocks_after_divider -}}
         </div>
       </div>
     {%- endif -%}
 
-    <div class="rich-text justify-{{ text_position }} {% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
-      <div class="rich-text__wrapper">
-        <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
+    <div class="perf-opt rich-text justify-{{ text_position }} {% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
+      <div class="perf-opt rich-text__wrapper">
+        <div class="perf-opt prose justify-items-{{ text_position }} text-{{ text_position }}">
           {{- blocks_before_divider -}}
           {{- blocks_after_divider -}}
         </div>

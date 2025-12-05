@@ -86,25 +86,25 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="{{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
-        <div class="prose">
+      <div class="perf-opt {{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
+        <div class="perf-opt prose">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'subheading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                  <p class="perf-opt bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
                 {%- endif -%}
 
               {%- when 'heading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="{{ block.settings.heading_tag }} wow fadeInUp" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {{ block.shopify_attributes }}>
+                  <p class="perf-opt {{ block.settings.heading_tag }} wow fadeInUp" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {{ block.shopify_attributes }}>
                     {%- render 'styled-text', content: block.settings.text, apparition_effect: true -%}
                   </p>
                 {%- endif -%}
 
               {%- when 'richtext' -%}
                 {%- if block.settings.content != blank -%}
-                  <div {{ block.shopify_attributes }} class="attributes richtext__p wow fadeInUp">
+                  <div {{ block.shopify_attributes }} class="perf-opt attributes richtext__p wow fadeInUp">
                     {{- block.settings.content -}}
                   </div>
                   <style>

@@ -19,15 +19,15 @@
 {%- endif -%}
 
 {%- capture newsletter_content -%}
-  <div class="newsletter-content {% unless section.settings.image %}text-center justify-items-center{% endunless %}">
+  <div class="perf-opt newsletter-content {% unless section.settings.image %}text-center justify-items-center{% endunless %}">
     {%- if section.settings.show_icon -%}
       {%- render 'icon' with 'picto-at-sign', width: 32, height: 32, class: 'newsletter-content__icon' -%}
     {%- endif -%}
 
     {%- if section.settings.title != blank or section.settings.content -%}
-      <div class="prose">
+      <div class="perf-opt prose">
         {%- if section.settings.title != blank -%}
-          <h2 class="h2">{{ section.settings.title }}</h2>
+          <h2 class="perf-opt h2">{{ section.settings.title }}</h2>
         {%- endif -%}
 
         {{- section.settings.content -}}
@@ -48,7 +48,7 @@
 
         <input type="hidden" name="contact[tags]" value="newsletter">
 
-        <div class="fieldset-with-submit">
+        <div class="perf-opt fieldset-with-submit">
           {%- capture label -%}{{ 'general.newsletter.email' | t }}{%- endcapture -%}
           {%- render 'input', name: 'contact[email]', label: label, type: 'email', required: true, autocomplete: 'email', enterkeyhint: 'send' -%}
           {%- render 'button', type: 'submit', content: section.settings.button_text, size: 'xl', icon: 'picto-envelope', background: section.settings.button_background, text_color: section.settings.button_text_color -%}
@@ -56,7 +56,7 @@
       {%- endif -%}
 
       {%- if section.settings.subtext != blank -%}
-        <p class="text-xs text-subdued">{{ section.settings.subtext | escape }}</p>
+        <p class="perf-opt text-xs text-subdued">{{ section.settings.subtext | escape }}</p>
       {%- endif -%}
     {%- endform -%}
   </div>
@@ -64,7 +64,7 @@
 
 <div {% render 'section-properties' %}>
   {%- if section.settings.image != blank -%}
-    <div class="newsletter">
+    <div class="perf-opt newsletter">
       {%- capture sizes -%}(max-width: 999px) 100vw, min(50vw, {{ settings.page_width }}px / 2){%- endcapture -%}
       {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: sizes, class: 'h-full object-cover' -}}
 

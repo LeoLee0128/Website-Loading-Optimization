@@ -41,7 +41,7 @@ LIQUID
 {%- endcomment -%}
 
 <div {% render 'section-properties' %}>
-  <media-with-text class="media-with-text {% if section.settings.spacing == 'none' %}{% if section.settings.full_width %}full-bleed{% else %}rounded{% endif %}{% endif %}">
+  <media-with-text class="perf-opt media-with-text {% if section.settings.spacing == 'none' %}{% if section.settings.full_width %}full-bleed{% else %}rounded{% endif %}{% endif %}">
     {%- for block in section.blocks -%}
       <style>
         #shopify-section-{{ section.id }} .media-with-text__content .h2 {
@@ -83,8 +83,8 @@ font-style: var(--font-light-style);
           }
         }
       </style>
-      <div id="block-{{ section.id }}-{{ block.id }}" class="media-with-text__item" {{ block.shopify_attributes }}>
-        <div class="media-with-text__media {% unless section.settings.spacing == 'none' %}rounded{% endunless %}" reveal-on-scroll="true">
+      <div id="block-{{ section.id }}-{{ block.id }}" class="perf-opt media-with-text__item" {{ block.shopify_attributes }}>
+        <div class="perf-opt media-with-text__media {% unless section.settings.spacing == 'none' %}rounded{% endunless %}" reveal-on-scroll="true">
           {%- liquid
             assign loading_strategy = nil
   
@@ -147,7 +147,7 @@ font-style: var(--font-light-style);
 
         {%- capture content_class -%}media-with-text__content {% unless section.settings.spacing == 'none' %}rounded{% endunless %}{%- endcapture -%}
         <div {% render 'surface', class: content_class, background: block.settings.background, background_gradient: block.settings.background_gradient, text_color: block.settings.text_color %}>
-          <div class="prose break-all {{ block.settings.text_position }}" reveal-on-scroll="true">
+          <div class="perf-opt prose break-all {{ block.settings.text_position }}" reveal-on-scroll="true">
             {%- if block.settings.custom_icon != blank -%}
               {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
               {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
@@ -157,11 +157,11 @@ font-style: var(--font-light-style);
             {%- endif -%}
 
             {%- if block.settings.subheading != blank -%}
-              <p class="subheading">{{ block.settings.subheading | escape }}</p>
+              <p class="perf-opt subheading">{{ block.settings.subheading | escape }}</p>
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="h2">
+              <p class="perf-opt h2">
                 {%- render 'styled-text', content: block.settings.title, gradient: block.settings.text_gradient -%}
               </p>
             {%- endif -%}

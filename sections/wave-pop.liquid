@@ -278,25 +278,25 @@
 }
     }
 </style>
-<section class="wave_pop" style="display:none">
-  <div class="mask_w"></div>
-  <div class="wave_pop-container">
-    <div class="wave_pop-box">
-         <div class="close_pop"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3817.svg?v=1760699124"></div>
-      <div class="pop_head">
+<section class="perf-opt wave_pop" style="display:none">
+  <div class="perf-opt mask_w"></div>
+  <div class="perf-opt wave_pop-container">
+    <div class="perf-opt wave_pop-box">
+         <div class="perf-opt close_pop"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3817.svg?v=1760699124"></div>
+      <div class="perf-opt pop_head">
         <p>{{ section.settings.head_subtitle }}</p>
         <h2>{{ section.settings.head_title | newline_to_br }}</h2>
        
       </div>
-      <div class="pop_body">
-        <div class="pop_item">
+      <div class="perf-opt pop_body">
+        <div class="perf-opt pop_item">
           <div>{{ section.settings.item1_text | newline_to_br }}</div>
           {% if section.settings.item1_image != blank %}
             <img src="{{ section.settings.item1_image | img_url: 'master' }}" alt="">
           {% endif %}
         </div>
 
-        <div class="pop_item2">
+        <div class="perf-opt pop_item2">
           <h3>{{ section.settings.item2_title }}</h3>
           <div>{{ section.settings.item2_text | newline_to_br }}</div>
           <ul>
@@ -318,7 +318,7 @@
           </ul>
         </div>
 
-        <div class="pop_item">
+        <div class="perf-opt pop_item">
           <h3>{{ section.settings.item3_title }}</h3>
           <div>{{ section.settings.item3_text | newline_to_br }}</div>
           {% if section.settings.item3_image != blank %}

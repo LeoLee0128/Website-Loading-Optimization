@@ -134,9 +134,9 @@ font-style: var(--font-regular-style);
 }
     }
 </style>
-<div class="footer">
-  <div class="container">
-    <div class="footer__wrapper">
+<div class="perf-opt footer">
+  <div class="perf-opt container">
+    <div class="perf-opt footer__wrapper">
       {%- comment -%}
       ------------------------------------------------------------------------------------------------------------------
       BLOCK AREA
@@ -144,24 +144,24 @@ font-style: var(--font-regular-style);
       {%- endcomment -%}
 
       {%- if section.blocks.size > 0 -%}
-        <div class="footer__block-list empty:hidden">
+        <div class="perf-opt footer__block-list empty:hidden">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'text' -%}
                 {%- if block.settings.title != blank or block.settings.content != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
-                  <div class="footer__block footer__block--text" {{ block.shopify_attributes }}>
+                  <div class="perf-opt footer__block footer__block--text" {{ block.shopify_attributes }}>
                     {%- if block.settings.title != blank -%}
-                      <p class="bold">{{ block.settings.title | escape }}</p>
+                      <p class="perf-opt bold">{{ block.settings.title | escape }}</p>
                     {%- endif -%}
 
                     {%- if block.settings.content != blank -%}
-                      <div class="prose text-subdued">
+                      <div class="perf-opt prose text-subdued">
                         {{- block.settings.content -}}
                       </div>
                     {%- endif -%}
 
                     {%- if shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
-                      <div class="follow-on-shop">
+                      <div class="perf-opt follow-on-shop">
                         {{- shop | login_button: action: 'follow' -}}
                       </div>
                     {%- endif -%}
@@ -170,15 +170,15 @@ font-style: var(--font-regular-style);
 
               {%- when 'links' -%}
                 {%- if block.settings.menu != blank -%}
-                  <div class="footer__block footer__block--menu" {{ block.shopify_attributes }}>
+                  <div class="perf-opt footer__block footer__block--menu" {{ block.shopify_attributes }}>
                     {%- if block.settings.show_menu_title -%}
-                      <p class="bold">{{ block.settings.menu_title | default: block.settings.menu.title }}</p>
+                      <p class="perf-opt bold">{{ block.settings.menu_title | default: block.settings.menu.title }}</p>
                     {%- endif -%}
 
-                    <ul class="v-stack gap-3" role="list">
+                    <ul class="perf-opt v-stack gap-3" role="list">
                       {%- for link in block.settings.menu.links -%}
                         <li>
-                          <a href="{{ link.url }}" class="inline-block link-faded break-all">{{ link.title }}</a>
+                          <a href="{{ link.url }}" class="perf-opt inline-block link-faded break-all">{{ link.title }}</a>
                         </li>
                       {%- endfor -%}
                     </ul>
@@ -186,7 +186,7 @@ font-style: var(--font-regular-style);
                 {%- endif -%}
 
               {%- when 'newsletter' -%}
-                <div class="footer__block footer__block--newsletter" {{ block.shopify_attributes }}>
+                <div class="perf-opt footer__block footer__block--newsletter" {{ block.shopify_attributes }}>
                   {%- if block.settings.image != blank -%}
                     {%- capture sizes -%}{{ block.settings.image_width }}px{%- endcapture -%}
                     {%- capture widths -%}{{ block.settings.image_width }}, {{ block.settings.image_width | times: 2 | at_most: block.settings.image.width }}{%- endcapture -%}
@@ -194,13 +194,13 @@ font-style: var(--font-regular-style);
                     {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', style: style, sizes: sizes, widths: widths -}}
                   {%- endif -%}
 
-                  <div class="v-stack gap-6">
+                  <div class="perf-opt v-stack gap-6">
                     {%- if block.settings.title != blank -%}
-                      <p class="{{ block.settings.heading_size }}">{{- block.settings.title | escape -}}</p>
+                      <p class="perf-opt {{ block.settings.heading_size }}">{{- block.settings.title | escape -}}</p>
                     {%- endif -%}
 
                     {%- if block.settings.content != blank -%}
-                      <div class="prose text-subdued">
+                      <div class="perf-opt prose text-subdued">
                         {{- block.settings.content -}}
                       </div>
                     {%- endif -%}
@@ -234,7 +234,7 @@ font-style: var(--font-regular-style);
       ------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
-      <div class="footer__aside empty:hidden">
+      <div class="perf-opt footer__aside empty:hidden">
         {%- comment -%}
         ----------------------------------------------------------------------------------------------------------------
         SOCIAL MEDIA + LOCALIZATION
@@ -254,11 +254,11 @@ font-style: var(--font-regular-style);
         {%- endif -%}
 
         {%- if social_media != blank or country_selector or locale_selector -%}
-          <div class="footer__aside-top">
+          <div class="perf-opt footer__aside-top">
             {{- social_media -}}
 
             {%- if country_selector or locale_selector -%}
-              <div class="h-stack gap-6">
+              <div class="perf-opt h-stack gap-6">
                 {%- if social_media == blank -%}
                   {%- assign popover_horizontal_position = 'start' -%}
                 {%- else -%}
@@ -283,16 +283,16 @@ font-style: var(--font-regular-style);
         ----------------------------------------------------------------------------------------------------------------
         {%- endcomment -%}
 
-        <div class="footer__aside-bottom">
+        <div class="perf-opt footer__aside-bottom">
           {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
-            <div class="footer__payment-icons h-stack wrap gap-2">
+            <div class="perf-opt footer__payment-icons h-stack wrap gap-2">
               {%- for type in shop.enabled_payment_types -%}
                 {{- type | payment_type_svg_tag -}}
               {%- endfor -%}
             </div>
           {%- endif -%}
 
-          <p class="footer__copyright text-sm text-subdued">© {{ 'now' | date: '%Y' }}, {{ shop.name }}. {{ powered_by_link }}</p>
+          <p class="perf-opt footer__copyright text-sm text-subdued">© {{ 'now' | date: '%Y' }}, {{ shop.name }}. {{ powered_by_link }}</p>
         </div>
       </div>
     </div>

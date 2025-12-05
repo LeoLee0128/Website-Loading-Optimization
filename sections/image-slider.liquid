@@ -78,28 +78,28 @@
 }
 }
 </style>
-<section class="image_slider-section" id="{{ section.settings.custom_id }}">
-    <div class="section_full">
-        <div class="image_sliders">
-             <div class="swiper imageSwiper">
-                <div class="swiper-wrapper">
+<section class="perf-opt image_slider-section" id="{{ section.settings.custom_id }}">
+    <div class="perf-opt section_full">
+        <div class="perf-opt image_sliders">
+             <div class="perf-opt swiper imageSwiper">
+                <div class="perf-opt swiper-wrapper">
                     {% for block in section.blocks %}
-                    <div class="swiper-slide">
-                        <div class="image_slider-item">
+                    <div class="perf-opt swiper-slide">
+                        <div class="perf-opt image_slider-item">
                             <img src="{{ block.settings.image | img_url:'master' }}">
-                            <div class="image_slider-content">
-                                <h3 class="space-thin">{{ block.settings.title }}</h3>
-                                <p class="space-thin">{{ block.settings.desc }}</p>
+                            <div class="perf-opt image_slider-content">
+                                <h3 class="perf-opt space-thin">{{ block.settings.title }}</h3>
+                                <p class="perf-opt space-thin">{{ block.settings.desc }}</p>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
                 </div>
             </div>
-            <div class="image_sider-btn">
+            <div class="perf-opt image_sider-btn">
              
-             <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
-             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="perf-opt swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
+             <div class="perf-opt swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9013.svg?v=1760877827" /></div>
             </div>
         </div>
     </div>

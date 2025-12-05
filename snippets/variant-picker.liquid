@@ -23,7 +23,7 @@ Supported variables
 {%- assign variant_image_options = block.settings.variant_image_options | replace: ', ', ',' | downcase | split: ',' -%}
 
 {%- unless product.has_only_default_variant or hide_sold_out_variants and product.available == false -%}
-  <variant-picker class="variant-picker" handle="{{ product.handle }}" form="{{ form_id }}" {% if update_url %}update-url{% endif %} {% if hide_sold_out_variants %}hide-sold-out-variants{% endif %}>
+  <variant-picker class="perf-opt variant-picker" handle="{{ product.handle }}" form="{{ form_id }}" {% if update_url %}update-url{% endif %} {% if hide_sold_out_variants %}hide-sold-out-variants{% endif %}>
     {%- for option in product.options_with_values -%}
       {% liquid
         assign option_downcase = option.name | downcase
@@ -52,24 +52,24 @@ Supported variables
         endif
       %}
 
-      <fieldset class="variant-picker__option">
-        <div class="variant-picker__option-info">
-          <div class="h-stack gap-2">
-            <legend class="text-subdued">{{ option.name }}:</legend>
+      <fieldset class="perf-opt variant-picker__option">
+        <div class="perf-opt variant-picker__option-info">
+          <div class="perf-opt h-stack gap-2">
+            <legend class="perf-opt text-subdued">{{ option.name }}:</legend>
             <variant-option-value form="{{ form_id }}" for="option{{ option.position }}">{{ option.selected_value }}</variant-option-value>
           </div>
 
           {%- if hide_size_chart != true and block.settings.size_chart_page != blank and size_label_list contains option_downcase -%}
             {%- capture drawer_id -%}size-chart-{{ section.id }}-{{ block.id }}{%- endcapture -%}
 
-            <button type="button" class="text-sm text-subdued" aria-controls="{{ drawer_id | escape }}" aria-expanded="false">
-              <span class="link">{{ 'product.general.size_chart' | t }}</span>
+            <button type="button" class="perf-opt text-sm text-subdued" aria-controls="{{ drawer_id | escape }}" aria-expanded="false">
+              <span class="perf-opt link">{{ 'product.general.size_chart' | t }}</span>
             </button>
 
-            <x-drawer id="{{ drawer_id }}" class="drawer drawer--lg">
-              <span class="h5" slot="header">{{ block.settings.size_chart_page.title }}</span>
+            <x-drawer id="{{ drawer_id }}" class="perf-opt drawer drawer--lg">
+              <span class="perf-opt h5" slot="header">{{ block.settings.size_chart_page.title }}</span>
 
-              <div class="prose">
+              <div class="perf-opt prose">
                 {{- block.settings.size_chart_page.content -}}
               </div>
             </x-drawer>
@@ -79,27 +79,27 @@ Supported variables
         {%- if resolved_option_selector_style == 'dropdown' -%}
           {%- capture popover_id -%}popover-variant-picker-{{ section.id }}-{{ product.id }}-{{ option.position }}{%- endcapture -%}
 
-          <div class="relative">
-            <button type="button" class="select" aria-controls="{{ popover_id }}" aria-expanded="false">
+          <div class="perf-opt relative">
+            <button type="button" class="perf-opt select" aria-controls="{{ popover_id }}" aria-expanded="false">
               <span id="{{ popover_id }}-selected-value">{{- option.selected_value -}}</span>
               {%- render 'icon' with 'chevron-bottom', class: 'select-chevron' -%}
             </button>
 
-            <x-popover id="{{ popover_id }}" class="popover" initial-focus="[aria-selected='true']" close-on-listbox-select anchor-horizontal="start" anchor-vertical="end">
-              <p class="h5" slot="title">{{ option.name }}</p>
+            <x-popover id="{{ popover_id }}" class="perf-opt popover" initial-focus="[aria-selected='true']" close-on-listbox-select anchor-horizontal="start" anchor-vertical="end">
+              <p class="perf-opt h5" slot="title">{{ option.name }}</p>
 
-              <x-listbox data-option-selector class="popover-listbox" aria-owns="{{ popover_id }}-selected-value">
+              <x-listbox data-option-selector class="perf-opt popover-listbox" aria-owns="{{ popover_id }}-selected-value">
                 <input type="hidden" name="option{{ option.position }}" form="{{ form_id }}" value="{{ option.selected_value | escape }}">
 
                 {%- for value in option.values -%}
-                  <button type="button" class="popover-listbox__option" role="option" value="{{ value | escape }}" {% if value == option.selected_value %}aria-selected="true"{% endif %} data-option-value>{{ value }}</button>
+                  <button type="button" class="perf-opt popover-listbox__option" role="option" value="{{ value | escape }}" {% if value == option.selected_value %}aria-selected="true"{% endif %} data-option-value>{{ value }}</button>
                 {%- endfor -%}
               </x-listbox>
             </x-popover>
           </div>
         {%- else -%}
-          <div {% unless block.settings.stack_blocks %}class="scroll-area bleed sm:unbleed"{% endunless %}>
-            <div data-option-selector class="variant-picker__option-values {% if block.settings.stack_blocks %}wrap{% else %}scroll-area bleed sm:unbleed{% endif %} {% if resolved_option_selector_style == 'swatch' and settings.color_swatch_style == 'rectangle' %}variant-picker__option-values--color gap-4{% else %}gap-2{% endif %}">
+          <div {% unless block.settings.stack_blocks %}class="perf-opt scroll-area bleed sm:unbleed"{% endunless %}>
+            <div data-option-selector class="perf-opt variant-picker__option-values {% if block.settings.stack_blocks %}wrap{% else %}scroll-area bleed sm:unbleed{% endif %} {% if resolved_option_selector_style == 'swatch' and settings.color_swatch_style == 'rectangle' %}variant-picker__option-values--color gap-4{% else %}gap-2{% endif %}">
               {% liquid
                 assign name = 'option' | append: option.position
 

@@ -99,8 +99,8 @@ LIQUID
 {%- endif -%}
 
 <div {% render 'section-properties', narrow: is_narrow %}>
-  <multiple-images-with-text class="multiple-images-with-text">
-    <multiple-images-with-text-image-list reversed swipeable="false" layout="{{ section.settings.images_layout }}" class="multiple-images-with-text__image-list">
+  <multiple-images-with-text class="perf-opt multiple-images-with-text">
+    <multiple-images-with-text-image-list reversed swipeable="false" layout="{{ section.settings.images_layout }}" class="perf-opt multiple-images-with-text__image-list">
       {%- if visible_images_count == 0 -%}
         {{- 'collection-1' | placeholder_svg_tag: 'placeholder' -}}
       {%- else -%}
@@ -141,23 +141,23 @@ LIQUID
       {%- endif -%}
     </multiple-images-with-text-image-list>
 
-    <div class="multiple-images-with-text__content-with-nav">
-      <multiple-images-with-text-content-list swipeable="false" class="multiple-images-with-text__content-list">
+    <div class="perf-opt multiple-images-with-text__content-with-nav">
+      <multiple-images-with-text-content-list swipeable="false" class="perf-opt multiple-images-with-text__content-list">
         {%- assign outputted_text_count = 0 -%}
 
         {%- for block in section.blocks -%}
           {%- if block.settings.subheading != blank or block.settings.title != blank or block.settings.content != blank -%}
-            <div class="prose {% if outputted_text_count == 0 %}is-selected{% else %}reveal-invisible{% endif %}" {% if block.settings.image != blank %}image-id="image-{{ block.id }}"{% endif %} {{ block.shopify_attributes }}>
+            <div class="perf-opt prose {% if outputted_text_count == 0 %}is-selected{% else %}reveal-invisible{% endif %}" {% if block.settings.image != blank %}image-id="image-{{ block.id }}"{% endif %} {{ block.shopify_attributes }}>
               {%- if block.settings.subheading != blank -%}
-                <p class="subheading">{{ block.settings.subheading | escape }}</p>
+                <p class="perf-opt subheading">{{ block.settings.subheading | escape }}</p>
               {%- endif -%}
 
               {%- if block.settings.title != blank -%}
-                <p class="h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {% if block.settings.title_color != blank %}style="color:{{ block.settings.title_color }}"{% endif %}>
+                <p class="perf-opt h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {% if block.settings.title_color != blank %}style="color:{{ block.settings.title_color }}"{% endif %}>
                   {%- render 'styled-text', content: block.settings.title, apparition_effect: true -%}
                 </p>
               {%- endif -%}
-              <div class="multiple-images-with-text__content"  {% if block.settings.content_color != blank %}style="color:{{ block.settings.content_color }}"{% endif %}>
+              <div class="perf-opt multiple-images-with-text__content"  {% if block.settings.content_color != blank %}style="color:{{ block.settings.content_color }}"{% endif %}>
                 {{- block.settings.content -}}
               </div>
               {%- if block.settings.button_text != blank -%}
@@ -171,15 +171,15 @@ LIQUID
       </multiple-images-with-text-content-list>
 
       {%- if outputted_text_count > 1 -%}
-        <div class="prev-next-buttons">
-          <button is="prev-button" class="circle-button ring group">
-            <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
-            <span class="animated-arrow animated-arrow--reverse"></span>
+        <div class="perf-opt prev-next-buttons">
+          <button is="prev-button" class="perf-opt circle-button ring group">
+            <span class="perf-opt sr-only">{{ 'general.accessibility.previous' | t }}</span>
+            <span class="perf-opt animated-arrow animated-arrow--reverse"></span>
           </button>
 
-          <button is="next-button" class="circle-button ring group">
-            <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
-            <span class="animated-arrow"></span>
+          <button is="next-button" class="perf-opt circle-button ring group">
+            <span class="perf-opt sr-only">{{ 'general.accessibility.next' | t }}</span>
+            <span class="perf-opt animated-arrow"></span>
           </button>
         </div>
       {%- endif -%}

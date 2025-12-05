@@ -150,14 +150,14 @@
   }
 </style>
 
-<section class="banner-slider-section">
-  <div class="">
-    <div class="head_section">
-      <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+<section class="perf-opt banner-slider-section">
+  <div class="perf-opt ">
+    <div class="perf-opt head_section">
+      <h2 class="perf-opt h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
     </div>
-    <div class="banner_slider-list">
-      <div class="swiper bannerSwiper">
-        <div class="swiper-wrapper">
+    <div class="perf-opt banner_slider-list">
+      <div class="perf-opt swiper bannerSwiper">
+        <div class="perf-opt swiper-wrapper">
           {% for block in section.blocks %}
             {% if block.type == 'color_sku' %}
               {%- for i in (1..6) -%}
@@ -166,15 +166,15 @@
                 {%- assign pc_img = block.settings[pc_key] -%}
                 {%- assign m_img  = block.settings[m_key] -%}
                 {%- if pc_img != blank or m_img != blank -%}
-                  <div class="swiper-slide">
-                    <div class="banner_slider-item">
+                  <div class="perf-opt swiper-slide">
+                    <div class="perf-opt banner_slider-item">
                       <img
-                        class="desktop-img"
+                        class="perf-opt desktop-img"
                         src="{{ pc_img | default: m_img | img_url:'master' }}"
                         alt="{{ block.settings.title | default: '' | escape }}"
                       >
                       <img
-                        class="mobile-img"
+                        class="perf-opt mobile-img"
                         src="{{ m_img | default: pc_img | img_url:'master' }}"
                         alt="{{ block.settings.title | default: '' | escape }}"
                       >
@@ -183,19 +183,19 @@
                 {%- endif -%}
               {%- endfor -%}
             {% else %}
-              <div class="swiper-slide">
-                <div class="banner_slider-item">
+              <div class="perf-opt swiper-slide">
+                <div class="perf-opt banner_slider-item">
                   <img
-                    class="desktop-img"
+                    class="perf-opt desktop-img"
                     src="{{ block.settings.image | img_url:'master' }}"
                     alt="{{ block.settings.alt | escape }}"
                   >
                   <img
-                    class="mobile-img"
+                    class="perf-opt mobile-img"
                     src="{{ block.settings.mobile_image | img_url:'master' }}"
                     alt="{{ block.settings.alt | escape }}"
                   >
-                  <div class="banner_slider-content text-{{ block.settings.color }} space-thin">
+                  <div class="perf-opt banner_slider-content text-{{ block.settings.color }} space-thin">
                     {{ block.settings.desc }}
                   </div>
                 </div>
@@ -203,17 +203,17 @@
             {% endif %}
           {% endfor %}
         </div>
-        <div class="bottom_control">
-          <button class="s-btn" id="btn-start" aria-label="Start/Pause autoplay">
+        <div class="perf-opt bottom_control">
+          <button class="perf-opt s-btn" id="btn-start" aria-label="Start/Pause autoplay">
             <svg
-              class="icon-control icon-control-play-super svg-icon play-icon"
+              class="perf-opt icon-control icon-control-play-super svg-icon play-icon"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 56 56"
             >
               <path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path>
             </svg>
           </button>
-          <div class="swiper-pagination banner-page"></div>
+          <div class="perf-opt swiper-pagination banner-page"></div>
         </div>
       </div>
     </div>
@@ -265,15 +265,15 @@
       scrollStarted = false;
 
     var playSvg =
-      '<svg class="icon-control icon-control-play-super svg-icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path></svg>';
+      '<svg class="perf-opt icon-control icon-control-play-super svg-icon play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m23.7555 36.6237c.4478 0 .8598-.1343 1.4241-.4568l10.9178-6.3322c.8598-.5016 1.3614-1.021 1.3614-1.8361 0-.8061-.5016-1.3255-1.3614-1.8271l-10.9178-6.3322c-.5643-.3314-.9762-.4657-1.4241-.4657-.9315 0-1.7555.7165-1.7555 1.9435v13.3629c0 1.227.824 1.9435 1.7555 1.9435z"></path></svg>';
     var pauseSvg =
-      '<svg class="icon-control icon-control-pause-super svg-icon pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m21.7334 36.67h2.5342c1.1483 0 1.7324-.5796 1.7324-1.7193v-13.9015c0-1.12-.5841-1.6898-1.7324-1.7193h-2.5342c-1.1483 0-1.7324.5698-1.7324 1.7193v13.9015c-.0297 1.1396.5544 1.7193 1.7324 1.7193zm9.9992 0h2.5347c1.1485 0 1.7327-.5796 1.7327-1.7193v-13.9015c0-1.12-.5842-1.7193-1.7327-1.7193h-2.5347c-1.1485 0-1.7327.5698-1.7327 1.7193v13.9015c0 1.1396.5545 1.7193 1.7327 1.7193z"></path></svg>';
+      '<svg class="perf-opt icon-control icon-control-pause-super svg-icon pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="m21.7334 36.67h2.5342c1.1483 0 1.7324-.5796 1.7324-1.7193v-13.9015c0-1.12-.5841-1.6898-1.7324-1.7193h-2.5342c-1.1483 0-1.7324.5698-1.7324 1.7193v13.9015c-.0297 1.1396.5544 1.7193 1.7324 1.7193zm9.9992 0h2.5347c1.1485 0 1.7327-.5796 1.7327-1.7193v-13.9015c0-1.12-.5842-1.7193-1.7327-1.7193h-2.5347c-1.1485 0-1.7327.5698-1.7327 1.7193v13.9015c0 1.1396.5545 1.7193 1.7327 1.7193z"></path></svg>';
 
     function createProgressBar() {
       var $active = $pg.find('.swiper-pagination-bullet-active');
       if ($active.length && !$active.find('.progress-bar').length) {
         $active.append(
-          '<div class="progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; background-color: #29292a; border-radius: 8px; width: 0%;"></div>'
+          '<div class="perf-opt progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; background-color: #29292a; border-radius: 8px; width: 0%;"></div>'
         );
       }
     }

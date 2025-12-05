@@ -3665,10 +3665,10 @@ var Swiper = function() {
                 let a = t.params.loop ? Math.ceil(s / t.params.slidesPerGroup) : t.snapGrid.length;
                 t.params.freeMode && t.params.freeMode.enabled && a > s && (a = s);
                 for (let s = 0; s < a; s += 1)
-                    e.renderBullet ? r += e.renderBullet.call(t, s, e.bulletClass) : r += `<${e.bulletElement} ${t.isElement ? 'part="bullet"' : ""} class="${e.bulletClass}"></${e.bulletElement}>`
+                    e.renderBullet ? r += e.renderBullet.call(t, s, e.bulletClass) : r += `<${e.bulletElement} ${t.isElement ? 'part="bullet"' : ""} class="perf-opt ${e.bulletClass}"></${e.bulletElement}>`
             }
-            "fraction" === e.type && (r = e.renderFraction ? e.renderFraction.call(t, e.currentClass, e.totalClass) : `<span class="${e.currentClass}"></span> / <span class="${e.totalClass}"></span>`),
-            "progressbar" === e.type && (r = e.renderProgressbar ? e.renderProgressbar.call(t, e.progressbarFillClass) : `<span class="${e.progressbarFillClass}"></span>`),
+            "fraction" === e.type && (r = e.renderFraction ? e.renderFraction.call(t, e.currentClass, e.totalClass) : `<span class="perf-opt ${e.currentClass}"></span> / <span class="perf-opt ${e.totalClass}"></span>`),
+            "progressbar" === e.type && (r = e.renderProgressbar ? e.renderProgressbar.call(t, e.progressbarFillClass) : `<span class="perf-opt ${e.progressbarFillClass}"></span>`),
             t.pagination.bullets = [],
             a.forEach((s => {
                 "custom" !== e.type && (s.innerHTML = r || ""),

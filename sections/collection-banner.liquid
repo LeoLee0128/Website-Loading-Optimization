@@ -6,13 +6,13 @@
 
 {%- capture collection_header -%}
   {%- if section.settings.show_collection_title -%}
-    <h1 class="{{ section.settings.collection_title_size }}" {% if settings.heading_apparition != 'none' and show_image %}reveal-on-scroll="true"{% endif %}>
+    <h1 class="perf-opt {{ section.settings.collection_title_size }}" {% if settings.heading_apparition != 'none' and show_image %}reveal-on-scroll="true"{% endif %}>
       {%- render 'styled-text', content: collection.title, apparition_effect: true -%}
     </h1>
   {%- endif -%}
 
   {%- if section.settings.show_collection_description and collection.description != blank -%}
-    <div class="prose">
+    <div class="perf-opt prose">
       {{- collection.description -}}
     </div>
   {%- endif -%}
@@ -63,8 +63,8 @@
       </picture>
 
       {%- if collection_header != blank -%}
-        <div class="{{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
-          <div class="v-stack gap-4 sm:gap-6">
+        <div class="perf-opt {{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
+          <div class="perf-opt v-stack gap-4 sm:gap-6">
             {{- collection_header -}}
           </div>
         </div>
@@ -77,13 +77,13 @@
           {%- assign featured_product_position = 'place-self-end' -%}
         {%- endif -%}
 
-        <div class="{{ featured_product_position }} hidden md:block">
-          <div class="collection-featured-product">
+        <div class="perf-opt {{ featured_product_position }} hidden md:block">
+          <div class="perf-opt collection-featured-product">
             {%- if section.settings.featured_product_heading != blank -%}
-              <p class="collection-featured-product__title text-xs bold">{{ section.settings.featured_product_heading | escape }}</p>
+              <p class="perf-opt collection-featured-product__title text-xs bold">{{ section.settings.featured_product_heading | escape }}</p>
             {%- endif -%}
 
-            <a href="{{ section.settings.featured_product.url }}" class="collection-featured-product__content">
+            <a href="{{ section.settings.featured_product.url }}" class="perf-opt collection-featured-product__content">
               {%- render 'horizontal-product', product: section.settings.featured_product, size: 'sm', output_link: false -%}
             </a>
           </div>
@@ -93,9 +93,9 @@
   </div>
 {%- else -%}
   {%- if collection_header != blank -%}
-    <div class="collection-header">
-      <div class="container">
-        <div class="v-stack gap-4 sm:gap-6">
+    <div class="perf-opt collection-header">
+      <div class="perf-opt container">
+        <div class="perf-opt v-stack gap-4 sm:gap-6">
           {{- collection_header -}}
         </div>
       </div>

@@ -35,13 +35,13 @@ Supported variables
     {%- endif -%}
 
     {%- if block.settings.title != blank -%}
-      <span class="bold text-sm">{{ block.settings.title | escape }}</span>
+      <span class="perf-opt bold text-sm">{{ block.settings.title | escape }}</span>
     {%- endif -%}
   {%- endcapture -%}
 
   {%- if icon_with_title != blank -%}
     {%- if block.settings.icon_position == 'aligned' -%}
-      <div class="text-with-icon">
+      <div class="perf-opt text-with-icon">
         {{- icon_with_title -}}
       </div>
     {%- else -%}
@@ -50,7 +50,7 @@ Supported variables
   {%- endif -%}
 
   {%- if block.settings.content != blank -%}
-    <div class="prose text-sm">
+    <div class="perf-opt prose text-sm">
       {{- block.settings.content -}}
     </div>
   {%- endif -%}

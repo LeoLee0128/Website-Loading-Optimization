@@ -81,18 +81,18 @@ font-family:Outfit-Regular;
 }
 }
 </style>
-<section class="three_list-section">
-    <div class="container">
-        <div class="three_list">
+<section class="perf-opt three_list-section">
+    <div class="perf-opt container">
+        <div class="perf-opt three_list">
         
            {% for block in section.blocks %}
-             <div class="three_item">
-               <div class="img_l"><img src="{{ block.settings.image | img_url:'master' }}" /></div>
-                <div class="three_item_wrapper">
-                    <div class="three_item_title wow fadeInUp">{{ block.settings.title }}</div>
-                    <div class="three_item_desc wow fadeInUp">{{ block.settings.desc | newline_to_br }}</div>
+             <div class="perf-opt three_item">
+               <div class="perf-opt img_l"><img src="{{ block.settings.image | img_url:'master' }}" /></div>
+                <div class="perf-opt three_item_wrapper">
+                    <div class="perf-opt three_item_title wow fadeInUp">{{ block.settings.title }}</div>
+                    <div class="perf-opt three_item_desc wow fadeInUp">{{ block.settings.desc | newline_to_br }}</div>
                     {% if  block.settings.link !=blank %}
-                      <a href="{{ block.settings.link }}" class="three_btn">Learn more</a>
+                      <a href="{{ block.settings.link }}" class="perf-opt three_btn">Learn more</a>
                     {% endif %}
                  </div>
             </div>

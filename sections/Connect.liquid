@@ -220,27 +220,27 @@ background: rgba(255, 255, 255, 0.5);
 }
 </style>
 
-<section class="connect__sections">
-    <div id="connect-pin-section" class="response-animated">
-        <div class="pin-container connect_section">
-            <div class="container">
-                <h2 class="connect_head">{{ section.settings.title }}</h2>
+<section class="perf-opt connect__sections">
+    <div id="connect-pin-section" class="perf-opt response-animated">
+        <div class="perf-opt pin-container connect_section">
+            <div class="perf-opt container">
+                <h2 class="perf-opt connect_head">{{ section.settings.title }}</h2>
             </div>
-            <div class="cbx">
-                <div class="content">
-                    <div class="con">
-                        <div class="conlist">
+            <div class="perf-opt cbx">
+                <div class="perf-opt content">
+                    <div class="perf-opt con">
+                        <div class="perf-opt conlist">
                             <ul>
                                 {% for block in section.blocks %}
                                 <li>
-                                    <div class="connect_top">
+                                    <div class="perf-opt connect_top">
                                         <img src="{{ block.settings.icon | img_url:'master' }}" />
                                         {{ block.settings.label }}
                                     </div>
-                                    <div class="tu">
+                                    <div class="perf-opt tu">
                                         <img src="{{ block.settings.image | img_url:'master' }}" />
                                     </div>
-                                    <h2 class="">{{ block.settings.i-title }}</h2>
+                                    <h2 class="perf-opt ">{{ block.settings.i-title }}</h2>
                                 </li>
                                 {% endfor %}
                             </ul>
@@ -254,30 +254,30 @@ background: rgba(255, 255, 255, 0.5);
 </section>
 
 {% comment %} mobile {% endcomment %}
- <section class="mob_connect">
-     <div class="container">
-                              <h2 class="connect_head wow fadeInUp">{{ section.settings.title }}</h2>
-                                 <div class="swiper connectSwiper">
-                <div class="swiper-wrapper">
+ <section class="perf-opt mob_connect">
+     <div class="perf-opt container">
+                              <h2 class="perf-opt connect_head wow fadeInUp">{{ section.settings.title }}</h2>
+                                 <div class="perf-opt swiper connectSwiper">
+                <div class="perf-opt swiper-wrapper">
                                 {% for block in section.blocks %}
-                                      <div class="swiper-slide">
+                                      <div class="perf-opt swiper-slide">
                                 <li>
-                                    <div class="connect_top">
+                                    <div class="perf-opt connect_top">
                                         <img src="{{ block.settings.icon | img_url:'master' }}" />
                                         {{ block.settings.label }}
                                     </div>
-                                    <div class="tu">
+                                    <div class="perf-opt tu">
                                         <img src="{{ block.settings.image | img_url:'master' }}" />
                                     </div>
-                                    <h2 class="">{{ block.settings.i-title }}</h2>
+                                    <h2 class="perf-opt ">{{ block.settings.i-title }}</h2>
                                 </li>
                                 </div>
                                 {% endfor %}
                           </div>
 
-                          <div class="mob_page">
-                             <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
-                                <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
+                          <div class="perf-opt mob_page">
+                             <div class="perf-opt swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
+                                <div class="perf-opt swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
                           </div>
                           </div>
                         </div>

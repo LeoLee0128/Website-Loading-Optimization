@@ -12,46 +12,37 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
 <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
 
 <head>
-
   {%- comment -%}
     关键内容必须直接输出（确保正常用户和 SEO）：
     - charset、viewport、title 等基础 meta 标签
     - 关键 CSS 和字体预加载
     - 这些内容不能延迟加载
   {%- endcomment -%}
-  
   {%- comment -%} 基础 meta 标签 - 必须立即输出 {%- endcomment -%}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="{{ settings.header_background }}">
-  
-  <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{
-    'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
-
   {%- if page_description -%}
   <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
-
-  <link rel="canonical" href="{{ canonical_url }}">
 
   {%- if settings.favicon -%}
   <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
   <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
   {%- endif -%}
-
+  <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{
+    'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+ <link rel="canonical" href="{{ canonical_url }}">
   {%- comment -%} 关键资源预连接 - 必须立即输出 {%- endcomment -%}
   <link rel="preconnect" href="https://cdn.shopify.com">
   <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
   <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
-
   {%- unless settings.heading_font.system? -%}
   <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
   {%- endunless -%}
-
   {%- unless settings.text_font.system? -%}
   <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
   {%- endunless -%}
-
   {%- comment -%} 预加载粗体字体 {%- endcomment -%}
   {%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
   {%- unless settings.text_font.system? -%}
@@ -59,45 +50,35 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
   <link rel="preload" href="{{ text_font_bold | font_url }}" as="font" type="font/woff2" crossorigin>
   {%- endif -%}
   {%- endunless -%}
-
   {%- comment -%} 关键 CSS - 必须立即输出 {%- endcomment -%}
   {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
-
-  {%- comment -%} 关键渲染函数 - 必须立即输出 {%- endcomment -%}
-  {%- render 'social-meta-tags' -%}
+{%- render 'social-meta-tags' -%}  
+  {%- comment -%} 关键渲染函数 - 必须立即输出 {%- endcomment -%}  
   {%- render 'microdata-schema' -%}
   {%- render 'css-variables' -%}
   {%- render 'js-variables' -%}
-
   {%- comment -%}
     非关键内容使用 capture 包裹，应用反爬虫保护
     这些内容可以延迟加载，不影响正常用户访问
   {%- endcomment -%}
-  
-  
     {% if request.path contains '/blogs/pr-news/' %}
     <meta name="robots" content="noindex, follow">
     {% endif %}
-
     {%- comment -%} 预连接 Google Tag Manager 域名以优化 DNS 解析 {%- endcomment -%}
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
     <style>
       {
         % unless template=='index' or template=='page.faqs' %
       }
-
       .main-new {
         margin-top: 0px;
       }
-
       @media screen and (max-width: 699px) {
         .main-new {
           margin-top: 0px;
         }
       }
-
         {
         % endunless %
       }
@@ -107,9 +88,7 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
         animation-fill-mode: both;
       }
     </style>
-
     <meta name="google-site-verification" content="EuGs_-Z3uxybdccO-18zl7aMYRoEPVPfhTSWdxgKdOw" />
-
     {%- comment -%}非关键 CSS 异步加载{%- endcomment -%}
     <link rel="preload" href="{{ 'animate.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -218,7 +197,7 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
     <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
     <script type="module" src="{{ 'sections.js' | asset_url }}"></script>
     {{ content_for_header }}
-
+    {% render "scripts" %}
     {% if request.host == 'cearvol.com' %}
     <link rel="alternate" hreflang="en-us" href="https://cearvol.com{{ request.path }}" />
     <link rel="alternate" hreflang="en-gb" href="https://cearvol.co.uk{{ request.path }}" />
@@ -228,31 +207,23 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
     <link rel="alternate" hreflang="en-gb" href="https://cearvol.co.uk{{ request.path }}" />
     <link rel="alternate" hreflang="x-default" href="https://cearvol.co.uk{{ request.path }}" />
     {% endif %}
-
     {% if request.host == 'cearvol.com' %}
     <link rel="canonical" href="https://cearvol.com{{ request.path }}" />
     {% endif %}
-
     {% include 'pagefly-app-header' %}
-
-    
 </head>
-
-
-
 <body
-  class="{% if settings.show_page_transition %}page-transition{% endif %} {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
-
+  class="perf-opt {% if settings.show_page_transition %}page-transition{% endif %} {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
   {%- render 'shadow-dom-templates' -%}
 
-  <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  <a href="#main" class="perf-opt skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if request.page_type != 'password' -%}
   {%- sections 'header-group' -%}
   {%- sections 'overlay-group' -%}
 
   {%- if settings.cart_type == 'popover' -%}
-  <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
+  <cart-notification-drawer open-from="bottom" class="perf-opt quick-buy-drawer drawer"></cart-notification-drawer>
   {%- endif -%}
   {%- endif -%}
 
@@ -263,7 +234,7 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
 
 
 
-  <main role="main" id="main" class="anchor main-new">
+  <main role="main" id="main" class="perf-opt anchor main-new">
     {{ content_for_layout }}
 
     {%- comment -%}
@@ -328,14 +299,12 @@ all events, dependencies...) in the "documentation.txt" file, located in the Ass
       });
     }
   </script>
+  <link rel="preload" href="{{ 'splide.min.js' | asset_url }}" as="script"><script src="{{ 'splide.min.js' | asset_url }}"></script>
 </body>
-
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWRSNT3L" height="0" width="0"
     style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 </html>
 <style>
   .fade-translate-div {

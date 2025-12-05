@@ -53,9 +53,9 @@ font-style: var(--font-light-style);
   MOBILE VARIATION
   ----------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
-  <images-with-text-scrolling class="images-scrolling-mobile scroll-area bleed sm:unbleed">
+  <images-with-text-scrolling class="perf-opt images-scrolling-mobile scroll-area bleed sm:unbleed">
     {%- for block in section.blocks -%}
-      <div class="images-scrolling-mobile__item snap-start" {{ block.shopify_attributes }}>
+      <div class="perf-opt images-scrolling-mobile__item snap-start" {{ block.shopify_attributes }}>
         {%- if block.settings.image != blank -%}
           {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 100vw, 650px', widths: '200,300,400,600,800,1000,1200,1400,1600', class: 'rounded-sm' -}}
         {%- else -%}
@@ -63,12 +63,12 @@ font-style: var(--font-light-style);
           {{- image_placeholder | placeholder_svg_tag: 'placeholder' -}}
         {%- endif -%}
 
-        <div class="images-scrolling__content">
+        <div class="perf-opt images-scrolling__content">
           {%- if section.settings.show_counter -%}
-            <span class="images-scrolling__counter bold">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
+            <span class="perf-opt images-scrolling__counter bold">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
           {%- endif -%}
 
-          <div class="prose" style="--images-scrolling-item-icon-width: {{ block.settings.icon_width }}px">
+          <div class="perf-opt prose" style="--images-scrolling-item-icon-width: {{ block.settings.icon_width }}px">
             {%- if block.settings.custom_icon != blank -%}
               {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
               {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
@@ -78,7 +78,7 @@ font-style: var(--font-light-style);
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
+              <p class="perf-opt h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
                 {%- render 'styled-text', content: block.settings.title, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient, apparition_effect: true -%}
               </p>
             {%- endif -%}
@@ -95,15 +95,15 @@ font-style: var(--font-light-style);
   DESKTOP VARIATION
   ----------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
-  <images-with-text-scrolling scrolling-experience="{{ section.settings.desktop_image_effect }}" class="images-scrolling-desktop">
-    <div class="images-scrolling-desktop__content-list">
+  <images-with-text-scrolling scrolling-experience="{{ section.settings.desktop_image_effect }}" class="perf-opt images-scrolling-desktop">
+    <div class="perf-opt images-scrolling-desktop__content-list">
       {%- for block in section.blocks -%}
-        <div class="images-scrolling__content {% unless forloop.first %}opacity-0{% endunless %}">
+        <div class="perf-opt images-scrolling__content {% unless forloop.first %}opacity-0{% endunless %}">
           {%- if section.settings.show_counter -%}
-            <span class="images-scrolling__counter bold">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
+            <span class="perf-opt images-scrolling__counter bold">{{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
           {%- endif -%}
 
-          <div class="prose" style="--images-scrolling-item-icon-width: {{ block.settings.icon_width }}px">
+          <div class="perf-opt prose" style="--images-scrolling-item-icon-width: {{ block.settings.icon_width }}px">
             {%- if block.settings.custom_icon != blank -%}
               {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
               {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
@@ -113,7 +113,7 @@ font-style: var(--font-light-style);
             {%- endif -%}
 
             {%- if block.settings.title != blank -%}
-              <p class="h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
+              <p class="perf-opt h1" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
                 {%- render 'styled-text', content: block.settings.title, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient, apparition_effect: true -%}
               </p>
             {%- endif -%}
@@ -124,7 +124,7 @@ font-style: var(--font-light-style);
       {%- endfor -%}
     </div>
 
-    <div class="images-scrolling-desktop__media-wrapper">
+    <div class="perf-opt images-scrolling-desktop__media-wrapper">
       {%- for block in section.blocks -%}
         {%- if block.settings.image != blank -%}
           {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 100vw, 650px', widths: '200,300,400,600,800,1000,1200,1400,1600', class: 'rounded-sm' -}}

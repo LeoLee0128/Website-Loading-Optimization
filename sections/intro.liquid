@@ -393,38 +393,38 @@
         }
     </style>
 
-    <div class="power-section" id="{{ section.settings.custom_id }}">
-        <div class="top-section">
-            <div class="power-title">
-                <div class="power-subtitle space-thin wow fadeInUp">{{section.settings.subtitle}}</div>
-                <div class="power-main-title space-thin wow fadeInUp">{{section.settings.title}}</div>
-                <div class="power-subtitle-2">
+    <div class="perf-opt power-section" id="{{ section.settings.custom_id }}">
+        <div class="perf-opt top-section">
+            <div class="perf-opt power-title">
+                <div class="perf-opt power-subtitle space-thin wow fadeInUp">{{section.settings.subtitle}}</div>
+                <div class="perf-opt power-main-title space-thin wow fadeInUp">{{section.settings.title}}</div>
+                <div class="perf-opt power-subtitle-2">
                     {{section.settings.multiple_txt}}
-                    <div class="echo-text ">{{section.settings.multiple_txt}}</div>
-                    <div class="echo-text space-thin">{{section.settings.multiple_txt}}</div>
-                    <div class="echo-text space-thin">{{section.settings.multiple_txt}}</div>
-                    <div class="echo-text space-thin">{{section.settings.multiple_txt}}</div>
-                    <div class="echo-text space-thin">{{section.settings.multiple_txt}}</div>
+                    <div class="perf-opt echo-text ">{{section.settings.multiple_txt}}</div>
+                    <div class="perf-opt echo-text space-thin">{{section.settings.multiple_txt}}</div>
+                    <div class="perf-opt echo-text space-thin">{{section.settings.multiple_txt}}</div>
+                    <div class="perf-opt echo-text space-thin">{{section.settings.multiple_txt}}</div>
+                    <div class="perf-opt echo-text space-thin">{{section.settings.multiple_txt}}</div>
                 </div>
             </div>
             
-            <div class="airpods-case">
+            <div class="perf-opt airpods-case">
                 <img src="{{ section.settings.image | img_url:'master'}}" />
-                <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3174_2x_b0186a18-ff8f-4fd7-bcd9-be58ba90a1d2.png?v=1760088491" class="desktop-img line_opp" />
-                <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3550_1x_84a9c53f-03ab-451c-a045-449f5f44fdb7.png?v=1760180556" class="mobile-img line_opp" />
+                <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3174_2x_b0186a18-ff8f-4fd7-bcd9-be58ba90a1d2.png?v=1760088491" class="perf-opt desktop-img line_opp" />
+                <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/3550_1x_84a9c53f-03ab-451c-a045-449f5f44fdb7.png?v=1760180556" class="perf-opt mobile-img line_opp" />
                 
             </div>
         </div>
 
-        <div class="bottom-section">
-            <div class="content-wrapper">
+        <div class="perf-opt bottom-section">
+            <div class="perf-opt content-wrapper">
                
 
-                <div class="power-stats">
+                <div class="perf-opt power-stats">
                         {% for block in section.blocks %}
-                            <div class="stat-item wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
-                                <div class="stat-number space-thin">{{ block.settings.name }}</div>
-                                <div class="stat-label space-thin">{{ block.settings.desc }}</div>
+                            <div class="perf-opt stat-item wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                                <div class="perf-opt stat-number space-thin">{{ block.settings.name }}</div>
+                                <div class="perf-opt stat-label space-thin">{{ block.settings.desc }}</div>
                             </div>
                      {% endfor %}
                 </div>

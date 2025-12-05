@@ -193,14 +193,14 @@
       {%- endcapture -%}
 
       <a {% if mega_menu_block.settings[image_link_setting] %}href="{{ mega_menu_block.settings[image_link_setting] }}"{% endif %}
-         class="content-over-media {% unless is_promo_stretch %}rounded-sm{% endunless %} group {% if is_promo_carousel and forloop.first == false %}reveal-invisible{% endif %}"
+         class="perf-opt content-over-media {% unless is_promo_stretch %}rounded-sm{% endunless %} group {% if is_promo_carousel and forloop.first == false %}reveal-invisible{% endif %}"
          style="--text-color: {{ mega_menu_block.settings[image_text_color_setting].rgb }}; grid-area: {% if is_promo_carousel %}1 / -1{% elsif is_promo_collage %}promo-{{ i }}{% endif %}; ">
 
         {{- mega_menu_block.settings[image_setting] | image_url: width: image.width | image_tag: loading: 'lazy', sizes: image_sizes, widths: '200,300,400,500,600,800,1000', class: "zoom-image" -}}
 
         {%- if mega_menu_block.settings[image_heading_setting] != blank -%}
-          <div class="place-self-end-center text-custom">
-            <p class="" style="font-size: var(--promo-heading-font-size); line-height: var(--promo-heading-line-height, 1.4)">{{- mega_menu_block.settings[image_heading_setting] | escape -}}</p>
+          <div class="perf-opt place-self-end-center text-custom">
+            <p class="perf-opt " style="font-size: var(--promo-heading-font-size); line-height: var(--promo-heading-line-height, 1.4)">{{- mega_menu_block.settings[image_heading_setting] | escape -}}</p>
           </div>
         {%- endif -%}
       </a>
@@ -208,39 +208,39 @@
   {%- endfor -%}
 
   {%- if mega_menu_block.settings.product != blank -%}
-    <div {% if is_promo_collage or is_promo_carousel %}style="grid-area: {% if is_promo_collage %}promo-{{ promo_item_count }}{% elsif is_promo_carousel %}1 / -1{% endif %}"{% endif %} class="align-self-stretch {% if is_promo_carousel and promo_item_count > 0 %}reveal-invisible{% endif %}">
+    <div {% if is_promo_collage or is_promo_carousel %}style="grid-area: {% if is_promo_collage %}promo-{{ promo_item_count }}{% elsif is_promo_carousel %}1 / -1{% endif %}"{% endif %} class="perf-opt align-self-stretch {% if is_promo_carousel and promo_item_count > 0 %}reveal-invisible{% endif %}">
       {%- render 'product-card', product: mega_menu_block.settings.product, background: mega_menu_block.settings.product_card_background, text_color: mega_menu_block.settings.product_card_text_color, show_vendor: false, show_rating: false, show_badges: false, show_swatches: false, show_secondary_image: false, text_alignment: 'center' -%}
     </div>
   {%- endif -%}
 {%- endcapture -%}
 
-<div class="navigation-promo__wrapper {% if use_carousel_fallback_until %}{{ use_carousel_fallback_until }}:hidden{% endif %} {% if hide_promo_until != blank %}{{ hide_promo_until }}-max:hidden{% endif %}" id="navigation-promo-{{ promo_id }}">
+<div class="perf-opt navigation-promo__wrapper {% if use_carousel_fallback_until %}{{ use_carousel_fallback_until }}:hidden{% endif %} {% if hide_promo_until != blank %}{{ hide_promo_until }}-max:hidden{% endif %}" id="navigation-promo-{{ promo_id }}">
   {%- if is_promo_grid or is_promo_collage -%}
-   <h4 class="proootitle">OTC Hearing Aids</h4>
-    <div class="navigation-promo navigation-promo--{{ mega_menu_block.settings.promo_content_layout }} {% if is_promo_grid %}scroll-area bleed{% endif %}">
+   <h4 class="perf-opt proootitle">OTC Hearing Aids</h4>
+    <div class="perf-opt navigation-promo navigation-promo--{{ mega_menu_block.settings.promo_content_layout }} {% if is_promo_grid %}scroll-area bleed{% endif %}">
       {{ promo_block_content }}
     </div>
-   <h4 class="proootitle mt33">Product Comparison</h4>
-   <a href="{{ mega_menu_block.settings.clink }}" class="promo_Comparison">
+   <h4 class="perf-opt proootitle mt33">Product Comparison</h4>
+   <a href="{{ mega_menu_block.settings.clink }}" class="perf-opt promo_Comparison">
     <img src="{{ mega_menu_block.settings.cimage | img_url:'master' }}" />
     <p>{{ mega_menu_block.settings.ctitle }}</p>
    </a>
   {%- else -%}
-    <div class="relative">
+    <div class="perf-opt relative">
       {%- capture carousel_id -%}promo-carousel-{{ promo_id }}{%- endcapture -%}
-      <mega-menu-promo-carousel id="{{ carousel_id }}" class="navigation-promo navigation-promo--{% if force_carousel_mode or use_carousel_fallback_until %}carousel{% else %}{{ mega_menu_block.settings.promo_content_layout }}{% endif %}" role="region" style="--navigation-promo-gap: 0">
+      <mega-menu-promo-carousel id="{{ carousel_id }}" class="perf-opt navigation-promo navigation-promo--{% if force_carousel_mode or use_carousel_fallback_until %}carousel{% else %}{{ mega_menu_block.settings.promo_content_layout }}{% endif %}" role="region" style="--navigation-promo-gap: 0">
         {{ promo_block_content }}
       </mega-menu-promo-carousel>
 
       {%- if promo_item_count > 1 -%}
-        <div class="navigation-promo__carousel-controls">
+        <div class="perf-opt navigation-promo__carousel-controls">
           <button is="prev-button" aria-controls="{{ carousel_id }}">
-            <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+            <span class="perf-opt sr-only">{{ 'general.accessibility.previous' | t }}</span>
             {%- render 'icon' with 'circle-button-left-clipped', width: 26, height: 26, direction_aware: true -%}
           </button>
 
           <button is="next-button" aria-controls="{{ carousel_id }}">
-            <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+            <span class="perf-opt sr-only">{{ 'general.accessibility.next' | t }}</span>
             {%- render 'icon' with 'circle-button-right-clipped', width: 26, height: 26, direction_aware: true -%}
           </button>
         </div>

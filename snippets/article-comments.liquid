@@ -13,29 +13,29 @@ Supported parameters
 * comments_pagination
 {%- endcomment -%}
 
-<div class="article-comments" {{ block_attributes }} id="blog-post-comments">
+<div class="perf-opt article-comments" {{ block_attributes }} id="blog-post-comments">
   {%- if article.comments_count > 0 -%}
-    <div class="comments-list bg-secondary">
-      <h3 class="h4">{{ 'blog.comments.count' | t: count: article.comments_count }}</h3>
+    <div class="perf-opt comments-list bg-secondary">
+      <h3 class="perf-opt h4">{{ 'blog.comments.count' | t: count: article.comments_count }}</h3>
 
       {%- paginate article.comments by comments_pagination -%}
-        <div class="divide-y v-stack gap-4 sm:gap-8">
+        <div class="perf-opt divide-y v-stack gap-4 sm:gap-8">
           {%- for comment in article.comments -%}
-            <article class="comment">
+            <article class="perf-opt comment">
               {%- if show_gravatar -%}
-                <img class="comment__gravatar rounded-full" loading="lazy" width="32" height="32" src="//www.gravatar.com/avatar/{{ comment.email | md5 }}" alt="{{ comment.author }}">
+                <img class="perf-opt comment__gravatar rounded-full" loading="lazy" width="32" height="32" src="//www.gravatar.com/avatar/{{ comment.email | md5 }}" alt="{{ comment.author }}">
               {%- endif -%}
 
-              <div class="v-stack gap-2 sm:gap-3">
-                <div class="v-stack gap-1">
-                  <p class="bold text-base">{{ comment.author }}</p>
+              <div class="perf-opt v-stack gap-2 sm:gap-3">
+                <div class="perf-opt v-stack gap-1">
+                  <p class="perf-opt bold text-base">{{ comment.author }}</p>
 
-                  <div class="prose">
+                  <div class="perf-opt prose">
                     {{- comment.content -}}
                   </div>
                 </div>
 
-                <time class="text-xs text-subdued">{{ comment.created_at | date: format: 'date_at_time' }}</time>
+                <time class="perf-opt text-xs text-subdued">{{ comment.created_at | date: format: 'date_at_time' }}</time>
               </div>
             </article>
           {%- endfor -%}
@@ -46,11 +46,11 @@ Supported parameters
     </div>
   {%- endif -%}
 
-  <div class="article-comments__form v-stack gap-6 sm:gap-8 border">
-    <div class="v-stack gap-4">
-      <p class="h4">{{ 'blog.comments.leave_comment' | t }}</p>
+  <div class="perf-opt article-comments__form v-stack gap-6 sm:gap-8 border">
+    <div class="perf-opt v-stack gap-4">
+      <p class="perf-opt h4">{{ 'blog.comments.leave_comment' | t }}</p>
 
-      <div class="text-subdued prose text-sm">
+      <div class="perf-opt text-subdued prose text-sm">
         {%- if blog.moderated? -%}
           <p>{{ 'blog.comments.moderated' | t }}</p>
         {%- endif -%}
@@ -60,7 +60,7 @@ Supported parameters
     </div>
 
     {%- form 'new_comment', article, class: 'form' -%}
-      <div class="fieldset">
+      <div class="perf-opt fieldset">
         {%- if form.posted_successfully? -%}
           {%- capture content -%}
             {%- if blog.moderated? -%}
@@ -78,7 +78,7 @@ Supported parameters
           {%- endif -%}
         {%- endif -%}
 
-        <div class="input-row">
+        <div class="perf-opt input-row">
           {%- assign label = 'blog.comments.name' | t -%}
           {%- render 'input', type: 'text', name: 'comment[author]', label: label, value: customer.name, required: true, autocomplete: 'name' -%}
 
@@ -90,7 +90,7 @@ Supported parameters
         {%- render 'input', name: 'comment[body]', label: label, multiline: 4, required: true -%}
       </div>
 
-      <div class="justify-self-start">
+      <div class="perf-opt justify-self-start">
         {%- assign button_content = 'blog.comments.submit' | t -%}
         {%- render 'button', content: button_content, type: 'submit', size: 'xl' -%}
       </div>

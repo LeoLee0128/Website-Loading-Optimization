@@ -45,18 +45,18 @@
       {%- if section.settings.mobile_video != blank -%}
         {%- assign poster_image = section.settings.poster | default: section.settings.mobile_video.preview_image -%}
   
-        <video-media {% if section.settings.autoplay %}autoplay{% endif %} class="sm:hidden" {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"{% endif %}>
+        <video-media {% if section.settings.autoplay %}autoplay{% endif %} class="perf-opt sm:hidden" {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"{% endif %}>
           {{- section.settings.mobile_video | video_tag: class: 'object-cover sm:hidden', controls: section.settings.show_controls, playsinline: true, muted: section.settings.autoplay, loop: section.settings.autoplay, preload: 'metadata', image_size: '400x' -}}
           {{- poster_image | image_url: width: poster_image.width | image_tag: sizes: '100vw', widths: '200,300,400,500,600,700,800,900,1000,1200' -}}
         </video-media>
       {%- endif -%}
 
-      <video-media {% if section.settings.autoplay %}autoplay{% endif %} {% if section.settings.mobile_video != blank %}class="hidden sm:block"{% endif %} {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.video.aspect_ratio }}"{% endif %}>
+      <video-media {% if section.settings.autoplay %}autoplay{% endif %} {% if section.settings.mobile_video != blank %}class="perf-opt hidden sm:block"{% endif %} {% if section.settings.video_size == 'auto' %}style="--aspect-ratio: {{ section.settings.video.aspect_ratio }}"{% endif %}>
         {{- section.settings.video | video_tag: playsinline: true, preload: 'metadata', muted: section.settings.autoplay, loop: section.settings.autoplay, controls: show_controls, image_size: '800x' -}}
         {{- poster -}}
       </video-media>
     {%- else -%}
-      <video-media host="{{ section.settings.external_video_url.type }}" {% if section.settings.autoplay %}autoplay class="pointer-events-none"{% endif %}>
+      <video-media host="{{ section.settings.external_video_url.type }}" {% if section.settings.autoplay %}autoplay class="perf-opt pointer-events-none"{% endif %}>
         {{- poster -}}
 
         <template>
@@ -70,26 +70,26 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="place-self-center text-center">
-        <div class="prose">
+      <div class="perf-opt place-self-center text-center">
+        <div class="perf-opt prose">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when 'play' -%}
                 {%- unless section.settings.autoplay -%}
-                  <button class="video-play-button" type="button" {{ block.shopify_attributes }}>
-                    <span class="sr-only">{{ 'general.accessibility.play_video' | t }}</span>
+                  <button class="perf-opt video-play-button" type="button" {{ block.shopify_attributes }}>
+                    <span class="perf-opt sr-only">{{ 'general.accessibility.play_video' | t }}</span>
                     {%- render 'icon' with 'play-button', width: 48, height: 48 -%}
                   </button>
                 {%- endunless -%}
 
               {%- when 'subheading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                  <p class="perf-opt bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
                 {%- endif -%}
 
               {%- when 'heading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="{{ block.settings.heading_tag }}" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+                  <p class="perf-opt {{ block.settings.heading_tag }}" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
                 {%- endif -%}
 
               {%- when 'richtext' -%}

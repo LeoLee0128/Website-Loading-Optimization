@@ -41,15 +41,15 @@ Supported variables
   endcase
 -%}
 
-<price-list {% if form_id %}role="region" aria-live="polite"{% endif %} class="price-list {% if size == 'lg' %}price-list--lg{% endif %} {% if text_alignment == 'center' %}justify-center{% endif %}" {{ block.shopify_attributes }}>
+<price-list {% if form_id %}role="region" aria-live="polite"{% endif %} class="perf-opt price-list {% if size == 'lg' %}price-list--lg{% endif %} {% if text_alignment == 'center' %}justify-center{% endif %}" {{ block.shopify_attributes }}>
   {%- if variant != blank -%}
     {%- comment -%}
     --------------------------------------------------------------------------------------------------------------------
     VARIANT CASE (used on product page, quick view...)
     --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
-    <sale-price {% if form_id %}form="{{ form_id }}"{% endif %} class="{% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
-      <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+    <sale-price {% if form_id %}form="{{ form_id }}"{% endif %} class="perf-opt {% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
+      <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
         {{- variant.price | money_with_currency -}}
@@ -58,8 +58,8 @@ Supported variables
       {%- endif -%}
     </sale-price>
 
-    <compare-at-price {% if form_id %}form="{{ form_id }}"{% endif %} {% unless variant.compare_at_price > variant.price %}hidden{% endunless %} class="{{ compare_at_price_classes }}">
-      <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+    <compare-at-price {% if form_id %}form="{{ form_id }}"{% endif %} {% unless variant.compare_at_price > variant.price %}hidden{% endunless %} class="perf-opt {{ compare_at_price_classes }}">
+      <span class="perf-opt sr-only">{{ 'product.price.regular_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
         {{- variant.compare_at_price | money_with_currency -}}
@@ -73,8 +73,8 @@ Supported variables
     LINE ITEM CASE (used on cart, order page...)
     --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
-    <sale-price class="{% if line_item.original_line_price > line_item.final_line_price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
-      <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+    <sale-price class="perf-opt {% if line_item.original_line_price > line_item.final_line_price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
+      <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
         {{- line_item.final_line_price | money_with_currency -}}
@@ -84,8 +84,8 @@ Supported variables
     </sale-price>
 
     {%- if line_item.original_line_price > line_item.final_line_price -%}
-      <compare-at-price class="{{ compare_at_price_classes }}">
-        <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+      <compare-at-price class="perf-opt {{ compare_at_price_classes }}">
+        <span class="perf-opt sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
           {{- line_item.original_line_price | money_with_currency -}}
@@ -112,13 +112,13 @@ Supported variables
       {%- endcapture -%}
 
       {%- if cheapest_variant.price < cheapest_variant.compare_at_price -%}
-        <sale-price class="{{ on_sale_price_classes }}">
-          <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+        <sale-price class="perf-opt {{ on_sale_price_classes }}">
+          <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
           {{- 'product.price.from_price_html' | t: price_min: price_min -}}
         </sale-price>
 
-        <compare-at-price class="{{ compare_at_price_classes }}">
-          <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+        <compare-at-price class="perf-opt {{ compare_at_price_classes }}">
+          <span class="perf-opt sr-only">{{ 'product.price.regular_price' | t }}</span>
 
           {%- if settings.currency_code_enabled -%}
             {{- cheapest_variant.compare_at_price | money_with_currency -}}
@@ -127,14 +127,14 @@ Supported variables
           {%- endif -%}
         </compare-at-price>
       {%- else -%}
-        <sale-price class="{{ regular_price_classes }}">
-          <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+        <sale-price class="perf-opt {{ regular_price_classes }}">
+          <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
           {{- 'product.price.from_price_html' | t: price_min: price_min -}}
         </sale-price>
       {%- endif -%}
     {%- elsif product.price < product.compare_at_price -%}
-      <sale-price class="{{ on_sale_price_classes }}">
-        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+      <sale-price class="perf-opt {{ on_sale_price_classes }}">
+        <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
           {{- product.price | money_with_currency -}}
@@ -143,8 +143,8 @@ Supported variables
         {%- endif -%}
       </sale-price>
 
-      <compare-at-price class="{{ compare_at_price_classes }}">
-        <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+      <compare-at-price class="perf-opt {{ compare_at_price_classes }}">
+        <span class="perf-opt sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
           {{- product.compare_at_price | money_with_currency -}}
@@ -169,13 +169,13 @@ Supported variables
         {%- endif -%}
       {%- endcapture -%}
 
-      <sale-price class="{{ regular_price_classes }}">
-        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+      <sale-price class="perf-opt {{ regular_price_classes }}">
+        <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
         {{- 'product.price.from_price_html' | t: price_min: price_min, price_max: price_max -}}
       </sale-price>
     {%- else -%}
-      <sale-price class="{{ regular_price_classes }}">
-        <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+      <sale-price class="perf-opt {{ regular_price_classes }}">
+        <span class="perf-opt sr-only">{{ 'product.price.sale_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
           {{- product.price | money_with_currency -}}
@@ -190,7 +190,7 @@ Supported variables
     {%- assign unit_price_item = variant | default: line_item | default: product.selected_or_first_available_variant -%}
 
     {%- if unit_price_item.unit_price or form_id != blank -%}
-      <unit-price {% if form_id %}form="{{ form_id }}"{% endif %} {% unless unit_price_item.unit_price %}hidden{% endunless %} class="{{ unit_price_classes }}">
+      <unit-price {% if form_id %}form="{{ form_id }}"{% endif %} {% unless unit_price_item.unit_price %}hidden{% endunless %} class="perf-opt {{ unit_price_classes }}">
         {%- assign unit_price_measurement = unit_price_item.unit_price_measurement -%}
 
         {%- if unit_price_measurement.reference_value != 1 -%}

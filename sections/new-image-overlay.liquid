@@ -85,18 +85,18 @@ font-style: var(--font-regular-style);
   }
 }
 </style>
-<section class="overlay-section">
-    <div class="container_full">
-        <div class="overlay_wrapper">
-           {% comment %} <img class="desktop-img" src="{{ section.settings.image | img_url:'master' }}" />
-           <img class="mobile-img" src="{{ section.settings.m_image | img_url:'master' }}" /> {% endcomment %}
+<section class="perf-opt overlay-section">
+    <div class="perf-opt container_full">
+        <div class="perf-opt overlay_wrapper">
+           {% comment %} <img class="perf-opt desktop-img" src="{{ section.settings.image | img_url:'master' }}" />
+           <img class="perf-opt mobile-img" src="{{ section.settings.m_image | img_url:'master' }}" /> {% endcomment %}
              <video autoplay muted playsinline loop preload="metadata" poster="{{ section.settings.poster | image_url: width: 2000 }}">
         <source src="{{ section.settings.video_mp4_url}}" type="video/mp4">
       </video>
-          <div class="new_overlay">
-            <div class="overlay_subtitle wow fadeInUp">{{ section.settings.subtitle }}</div>
-            <h2 class="overlay_title wow fadeInUp">{{ section.settings.title | newline_to_br }}</h2>
-            <a href="{{ section.settings.link}}" class="overlay_btn">Learn more</a>
+          <div class="perf-opt new_overlay">
+            <div class="perf-opt overlay_subtitle wow fadeInUp">{{ section.settings.subtitle }}</div>
+            <h2 class="perf-opt overlay_title wow fadeInUp">{{ section.settings.title | newline_to_br }}</h2>
+            <a href="{{ section.settings.link}}" class="perf-opt overlay_btn">Learn more</a>
           </div>
         </div>
     </div>

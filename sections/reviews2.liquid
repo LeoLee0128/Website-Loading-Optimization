@@ -261,22 +261,22 @@
     }
 </style>
 
-<section class="review_ss-section">
-  <div class="container">
-    <div class="review_ss-header">
-      <h2 class="review_ss-title wow fadeInUp">{{ section.settings.title  }}</h2>
-      <h2 class="review_ss-title-s wow fadeInUp">{{ section.settings.stitle }}</h2>
+<section class="perf-opt review_ss-section">
+  <div class="perf-opt container">
+    <div class="perf-opt review_ss-header">
+      <h2 class="perf-opt review_ss-title wow fadeInUp">{{ section.settings.title  }}</h2>
+      <h2 class="perf-opt review_ss-title-s wow fadeInUp">{{ section.settings.stitle }}</h2>
       {% if section.settings.view_more_url != blank %}
-        <a href="{{ section.settings.view_more_url }}" class="view-more-btn">{{ section.settings.view_more_text }}</a>
+        <a href="{{ section.settings.view_more_url }}" class="perf-opt view-more-btn">{{ section.settings.view_more_text }}</a>
       {% endif %}
     </div>
     
     {% assign initial_display_count = section.settings.initial_display_count | default: 9 | plus: 0 %}
     
-    <div class="review_ss-grid">
+    <div class="perf-opt review_ss-grid">
       {% for block in section.blocks %}
         {% assign block_index = forloop.index0 %}
-        <div class="review_s-card
+        <div class="perf-opt review_s-card
            {% if block.settings.media_type == 'image' %} images_card {% endif %}
            {% if block.settings.media_type == 'video' %} video-thumbnail {% endif %}
            {% if block.settings.media_type == 'image_txt' %} image-ttx {% endif %}
@@ -284,20 +284,20 @@
             {{ block.shopify_attributes }}>
            
           {% if block.settings.media_type == 'image' and block.settings.media_image != blank %}
-            <div class="review_s-media">
+            <div class="perf-opt review_s-media">
               <img src="{{ block.settings.media_image | img_url: 'master' }}" alt="{{ block.settings.media_alt | escape }}">
             </div>
           {% elsif block.settings.media_type == 'image_txt' %}
-            <div class="review_s-media">
+            <div class="perf-opt review_s-media">
               <img src="{{ block.settings.media_image | img_url: 'master' }}" alt="{{ block.settings.media_alt | escape }}">
             </div>
 
           {% elsif block.settings.media_type == 'video' and block.settings.video_file != blank %}
-            <div class="review_s-media">
+            <div class="perf-opt review_s-media">
               {%- comment -%} 中间的播放按钮图标 {%- endcomment -%}
               <img
                 src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/92691c477f0e677531a746a72a9535d1_784fd672-cbaf-4ed6-9181-55f85a3a5044.svg?v=1762271867"
-                class="video_btn" />
+                class="perf-opt video_btn" />
 
               {%- comment -%}
                 优先用你在 block 里上传的 video_thumbnail，
@@ -337,26 +337,26 @@
 
           <div>
             {% if block.settings.pic !=blank %}
-              <div class="reviews_top">
+              <div class="perf-opt reviews_top">
                 {% if block.settings.pic !=blank %}
                   <img src="{{ block.settings.pic | img_url:'master' }}" />
                 {% endif %}
-                <div class="reviews_info">
+                <div class="perf-opt reviews_info">
                   {% if block.settings.review_ser_name != blank %}
-                    <div class="review_ser-name">{{ block.settings.review_ser_name }}</div>
+                    <div class="perf-opt review_ser-name">{{ block.settings.review_ser_name }}</div>
                   {% endif %}
                   {% if block.settings.source != blank %}
-                    <div class="review_s-source">{{ block.settings.source }}</div>
+                    <div class="perf-opt review_s-source">{{ block.settings.source }}</div>
                   {% endif %}
                 </div>
               </div>
             {% endif %}
 
             {% if block.settings.review_s_text != blank %}
-              <div class="review_s-text">{{ block.settings.review_s_text }}</div>
+              <div class="perf-opt review_s-text">{{ block.settings.review_s_text }}</div>
             {% endif %}
             {% if block.settings.review_s_date != blank %}
-              <div class="review_s-date">{{ block.settings.review_s_date }}</div>
+              <div class="perf-opt review_s-date">{{ block.settings.review_s_date }}</div>
             {% endif %}
           </div>
        
@@ -366,11 +366,11 @@
 
     {% assign total_blocks = section.blocks.size %}
     {% if total_blocks > initial_display_count %}
-      <div class="reviews__bottom" data-initial-count="{{ initial_display_count }}">
-        <a href="#" class="learn-more-reviews-btn view-more-btn">Learn more</a>
-        <a href="#" class="show-less-reviews-btn view-more-btn" style="display: none;">Show less</a>
+      <div class="perf-opt reviews__bottom" data-initial-count="{{ initial_display_count }}">
+        <a href="#" class="perf-opt learn-more-reviews-btn view-more-btn">Learn more</a>
+        <a href="#" class="perf-opt show-less-reviews-btn view-more-btn" style="display: none;">Show less</a>
         {% if  section.settings.mbtn_url !=blank %}
-          <a href="{{ section.settings.mbtn_url }}" class="mmm_btn">{{ section.settings.mbtn }}</a>
+          <a href="{{ section.settings.mbtn_url }}" class="perf-opt mmm_btn">{{ section.settings.mbtn }}</a>
         {% endif %}
       </div>
     {% endif %}

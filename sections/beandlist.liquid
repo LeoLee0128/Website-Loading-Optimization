@@ -24,11 +24,11 @@
 }
 </style>
 
-<section class="brand_section">
-    <div class="container">
-        <div class="brands_list">
+<section class="perf-opt brand_section">
+    <div class="perf-opt container">
+        <div class="perf-opt brands_list">
              {% for block in section.blocks %}
-                <img src="{{ block.settings.icon | img_url:'master' }}" class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s" />
+                <img src="{{ block.settings.icon | img_url:'master' }}" class="perf-opt wow fadeInUp" data-wow-delay=".{{ forloop.index }}s" />
             {% endfor %}
         </div>
     </div>

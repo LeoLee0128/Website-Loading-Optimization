@@ -9,8 +9,8 @@
       {%- endform -%}
     {%- endcapture -%}
 
-    <newsletter-popup id="newsletter-drawer" open-from="right" class="drawer newsletter-drawer" {% if section.settings.show_only_once %}only-once{% endif %} apparition-delay="{{ section.settings.apparition_delay }}" {% if posted_successfully %}open{% endif %} handle-section-events>
-      <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" class="sm-max:hidden">
+    <newsletter-popup id="newsletter-drawer" open-from="right" class="perf-opt drawer newsletter-drawer" {% if section.settings.show_only_once %}only-once{% endif %} apparition-delay="{{ section.settings.apparition_delay }}" {% if posted_successfully %}open{% endif %} handle-section-events>
+      <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" class="perf-opt sm-max:hidden">
         {%- render 'icon' with 'close', width: 19, height: 19 -%}
       </button>
 
@@ -20,10 +20,10 @@
         {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', widths: widths, sizes: sizes -}}
       {%- endif -%}
 
-      <div class="newsletter-drawer__content v-stack gap-4 text-center">
-        <div class="v-stack gap-6">
+      <div class="perf-opt newsletter-drawer__content v-stack gap-4 text-center">
+        <div class="perf-opt v-stack gap-6">
           {%- if section.settings.title != blank -%}
-            <p class="h5">{{- section.settings.title -}}</p>
+            <p class="perf-opt h5">{{- section.settings.title -}}</p>
           {%- endif -%}
 
           {%- form 'customer', id: newsletter_id, class: 'form' -%}
@@ -40,7 +40,7 @@
                 {%- render 'banner', status: 'error', content: content -%}
               {%- endif -%}
 
-              <div class="fieldset">
+              <div class="perf-opt fieldset">
                 <input type="hidden" name="contact[tags]" value="newsletter">
 
                 {%- assign label = 'blog.comments.email' | t -%}
@@ -53,7 +53,7 @@
         </div>
 
         {%- if section.settings.subtext != blank -%}
-          <p class="text-xs text-subdued">{{- section.settings.subtext -}}</p>
+          <p class="perf-opt text-xs text-subdued">{{- section.settings.subtext -}}</p>
         {%- endif -%}
       </div>
     </newsletter-popup>

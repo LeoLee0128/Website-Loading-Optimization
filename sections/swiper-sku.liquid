@@ -90,13 +90,13 @@ font-style: var(--font-light-style);
 }
 </style>
 
-<div class="swiper-automatic-sku" data-section-id="{{ section.id }}">
-  <div class="swiper-automatic-title">{{ section.settings.title }}</div>
+<div class="perf-opt swiper-automatic-sku" data-section-id="{{ section.id }}">
+  <div class="perf-opt swiper-automatic-title">{{ section.settings.title }}</div>
 
 
 
-  <div class="swiper-container automatic-container-{{ section.id }}">
-    <div class="swiper-wrapper">
+  <div class="perf-opt swiper-container automatic-container-{{ section.id }}">
+    <div class="perf-opt swiper-wrapper">
       {%- assign first_sku = section.blocks | where: 'type', 'color_sku' | first -%}
       {%- for i in (1..6) -%}
         {%- assign pc_key = 'image' | append: i -%}
@@ -104,7 +104,7 @@ font-style: var(--font-light-style);
         {%- assign pc_img = first_sku.settings[pc_key] -%}
         {%- assign m_img  = first_sku.settings[m_key] -%}
         {%- if pc_img != blank or m_img != blank -%}
-          <div class="swiper-slide">
+          <div class="perf-opt swiper-slide">
             <picture>
               {%- if m_img != blank -%}
                 <source media="(max-width: 768px)" srcset="{{ m_img | img_url: '750x750' }}">
@@ -117,26 +117,26 @@ font-style: var(--font-light-style);
     </div>
   </div>
 
-    <div class="color-sku-container">
-    <div class="color-sku-oval">
+    <div class="perf-opt color-sku-container">
+    <div class="perf-opt color-sku-oval">
       {% for sku in section.blocks %}
-        <div class="color-dot {% if forloop.first %}active{% endif %}"
+        <div class="perf-opt color-dot {% if forloop.first %}active{% endif %}"
              data-sku-index="{{ forloop.index0 }}"
              style="color:{{ sku.settings.color }}">
-          <span class="circle" style="background-color:{{ sku.settings.color }}"></span>
+          <span class="perf-opt circle" style="background-color:{{ sku.settings.color }}"></span>
         </div>
       {% endfor %}
     </div>
   </div>
   
-<div class="bottom-pagination">
-    <div class="controls">
+<div class="perf-opt bottom-pagination">
+    <div class="perf-opt controls">
       <!-- 去掉 .play/.pause/.replay 这些易冲突的类，只留 .icon；用 data-state 存状态 -->
-      <button class="automatic-play-pause-btn" data-section="{{ section.id }}" data-state="play">
-        <span class="icon"><span data-icon></span></span>
+      <button class="perf-opt automatic-play-pause-btn" data-section="{{ section.id }}" data-state="play">
+        <span class="perf-opt icon"><span data-icon></span></span>
       </button>
     </div>
-    <div class="automatic-pagination automatic-pagination-{{ section.id }}"></div>
+    <div class="perf-opt automatic-pagination automatic-pagination-{{ section.id }}"></div>
   </div> 
 </div>
 
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const mv = mArray[i] || '';
       if (!pc && !mv) continue;
       if (swiper.slides[i]) { setSlidePictureContent(swiper.slides[i], pc, mv, i); swiper.slides[i].style.display = 'block'; }
-      else { swiper.appendSlide('<div class="swiper-slide"></div>'); setSlidePictureContent(swiper.slides[swiper.slides.length-1], pc, mv, i); }
+      else { swiper.appendSlide('<div class="perf-opt swiper-slide"></div>'); setSlidePictureContent(swiper.slides[swiper.slides.length-1], pc, mv, i); }
     }
     for (let j = maxLen; j < swiper.slides.length; j++) swiper.slides[j].style.display = 'none';
 

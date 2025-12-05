@@ -121,31 +121,31 @@ width: 50.68px;
 }
 </style>
 
-<section class="touch_section">
-    <div class="container">
-        <div class="touch_wrapper">
-            <div class="touch_head">
-                 <div class="touch_title wow fadeInUp">{{ section.settings.title | newline_to_br }}</div>
-                 <h2 class="touch_desc wow fadeInUp">{{ section.settings.desc | newline_to_br }}</h2>
+<section class="perf-opt touch_section">
+    <div class="perf-opt container">
+        <div class="perf-opt touch_wrapper">
+            <div class="perf-opt touch_head">
+                 <div class="perf-opt touch_title wow fadeInUp">{{ section.settings.title | newline_to_br }}</div>
+                 <h2 class="perf-opt touch_desc wow fadeInUp">{{ section.settings.desc | newline_to_br }}</h2>
             </div>
-            <div class="swiper touchSwiper">
-                <div class="swiper-wrapper">
+            <div class="perf-opt swiper touchSwiper">
+                <div class="perf-opt swiper-wrapper">
                 {% for block in section.blocks %}
-                <div class="swiper-slide">
-                    <div class="touch_item">
-                        <img class="desktop-img" src="{{ block.settings.banner | img_url:'master' }}">
-                        <img class="mobile-img" src="{{ block.settings.m_banner | img_url:'master' }}">
-                        <a href="{{ block.settings.buylink }}" class="touch_btn">Buy now</a>
+                <div class="perf-opt swiper-slide">
+                    <div class="perf-opt touch_item">
+                        <img class="perf-opt desktop-img" src="{{ block.settings.banner | img_url:'master' }}">
+                        <img class="perf-opt mobile-img" src="{{ block.settings.m_banner | img_url:'master' }}">
+                        <a href="{{ block.settings.buylink }}" class="perf-opt touch_btn">Buy now</a>
                     </div>
                 </div>
                 {% endfor %}
                 </div>
-                <div class="swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
-                <div class="swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
+                <div class="perf-opt swiper-button-next"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" /></div>
+                <div class="perf-opt swiper-button-prev"><img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" /></div>
             </div>
         </div>
     </div>
-      <div class="swiper-pagination"></div>
+      <div class="perf-opt swiper-pagination"></div>
 </section>
 <script>
   document.addEventListener('DOMContentLoaded', function() {

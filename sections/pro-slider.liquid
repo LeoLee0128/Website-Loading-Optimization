@@ -253,36 +253,36 @@ font-size: 13px;
 }
 </style>
 
-<section class="productslider_section">
-    <div class="">
-        <div class="productslider_list">
-            <div class="swiper productSwiper">
-                <div class="swiper-wrapper">
+<section class="perf-opt productslider_section">
+    <div class="perf-opt ">
+        <div class="perf-opt productslider_list">
+            <div class="perf-opt swiper productSwiper">
+                <div class="perf-opt swiper-wrapper">
                     {% for block in section.blocks %}
                     
                     {% if block.type == 'item' %}
-                    <div class="swiper-slide">
-                        <div class="productslider_item">
+                    <div class="perf-opt swiper-slide">
+                        <div class="perf-opt productslider_item">
                             {% if block.settings.banner %}
-                            <a href="{{ block.settings.link }}" class="productslider_link">
+                            <a href="{{ block.settings.link }}" class="perf-opt productslider_link">
                                 {{ block.settings.banner | image_url: width: 1920 | image_tag: loading: 'lazy', class: 'desktop-img', alt: block.settings.title }}
                             </a>
                             {% endif %}
                             {% if block.settings.m_banner %}
-                            <a href="{{ block.settings.link }}" class="productslider_link">
+                            <a href="{{ block.settings.link }}" class="perf-opt productslider_link">
                                 {{ block.settings.m_banner | image_url: width: 768 | image_tag: loading: 'lazy', class: 'mobile-img', alt: block.settings.title }}
                             </a>
                             {% endif %}
-                            <div class="productslider_wrapper">
-                                <div class="productslider_subtitle">{{ block.settings.Subtitle }}</div>
-                                <h2 class="productslider_title">{{ block.settings.title | newline_to_br }}</h2>
-                                <div class="productslider_bottom">
-                                    <div class="productslider_price">
+                            <div class="perf-opt productslider_wrapper">
+                                <div class="perf-opt productslider_subtitle">{{ block.settings.Subtitle }}</div>
+                                <h2 class="perf-opt productslider_title">{{ block.settings.title | newline_to_br }}</h2>
+                                <div class="perf-opt productslider_bottom">
+                                    <div class="perf-opt productslider_price">
                                         <big>{{ block.settings.price }}</big>
                                         <em>{{ block.settings.compare_price }}</em>
                                     </div>
                                     {% if block.settings.link and block.settings.button_text != blank %}
-                                    <a href="{{ block.settings.link }}" class="productslider_btn">{{ block.settings.button_text }}</a>
+                                    <a href="{{ block.settings.link }}" class="perf-opt productslider_btn">{{ block.settings.button_text }}</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -291,15 +291,15 @@ font-size: 13px;
                     {% endif %}
 
                     {% if block.type == 'img_item' %}
-                    <div class="swiper-slide">
-                        <div class="productslider_item">
+                    <div class="perf-opt swiper-slide">
+                        <div class="perf-opt productslider_item">
                             {% if block.settings.banner %}
-                            <a href="{{ block.settings.link }}" class="productslider_link">
+                            <a href="{{ block.settings.link }}" class="perf-opt productslider_link">
                                 {{ block.settings.banner | image_url: width: 1920 | image_tag: loading: 'lazy', class: 'desktop-img', alt: block.settings.title }}
                             </a>
                             {% endif %}
                             {% if block.settings.m_banner %}
-                            <a href="{{ block.settings.link }}" class="productslider_link">
+                            <a href="{{ block.settings.link }}" class="perf-opt productslider_link">
                                 {{ block.settings.m_banner | image_url: width: 768 | image_tag: loading: 'lazy', class: 'mobile-img', alt: block.settings.title }}
                             </a>
                             {% endif %}
@@ -311,14 +311,14 @@ font-size: 13px;
                 </div>
             </div>
         </div>
-        <div class="produ_page">
-            <div class="container">
-                <div class="swiper-button-next"><img style="width: 16px; height: 16px;"  src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" width="53" height="53" /></div>
-                <div class="swiper-button-prev"><img style="width: 16px; height: 16px;" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" width="53" height="53" /></div>
+        <div class="perf-opt produ_page">
+            <div class="perf-opt container">
+                <div class="perf-opt swiper-button-next"><img style="width: 16px; height: 16px;"  src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" width="53" height="53" /></div>
+                <div class="perf-opt swiper-button-prev"><img style="width: 16px; height: 16px;" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" width="53" height="53" /></div>
             </div>
         </div>
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="perf-opt swiper-pagination"></div>
 </section>
 
 

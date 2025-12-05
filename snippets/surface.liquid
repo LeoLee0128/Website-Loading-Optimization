@@ -38,7 +38,7 @@ Supported variables
 {%- endunless -%}
 
 {%- if class != blank -%}
-  class="{{ class | strip }}"
+  class="perf-opt {{ class | strip }}"
 {%- endif -%}
 
 {%- if style != blank -%}

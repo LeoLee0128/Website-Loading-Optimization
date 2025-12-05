@@ -1,15 +1,15 @@
-<div class="sm:container">
-  <div class="customer-form">
+<div class="perf-opt sm:container">
+  <div class="perf-opt customer-form">
     <div {% render 'surface', class: 'customer-form__box', background_fallback: 'bg-secondary' %}>
-      <div class="customer-form__box-inner text-center">
-        <div class="v-stack gap-12">
-          <h1 class="h2">
+      <div class="perf-opt customer-form__box-inner text-center">
+        <div class="perf-opt v-stack gap-12">
+          <h1 class="perf-opt h2">
             {%- assign content = 'customer.activate_account.title' | t -%}
             {%- render 'styled-text', content: content, gradient: section.settings.heading_gradient -%}
           </h1>
 
           {%- form 'activate_customer_password', class: 'form' -%}
-            <div class="fieldset">
+            <div class="perf-opt fieldset">
               {%- if form.errors -%}
                 {%- assign form_errors = form.errors | default_errors -%}
                 {%- render 'banner', status: 'error', content: form_errors -%}
@@ -22,7 +22,7 @@
               {%- render 'input', type: 'password', name: 'customer[password_confirmation]', label: password_label_confirmation, autocomplete: 'new-password' -%}
             </div>
 
-            <div class="fieldset">
+            <div class="perf-opt fieldset">
               {%- assign submit_label = 'customer.activate_account.submit' | t -%}
               {%- render 'button', content: submit_label, type: 'submit', size: 'xl', stretch: true, secondary: true -%}
 

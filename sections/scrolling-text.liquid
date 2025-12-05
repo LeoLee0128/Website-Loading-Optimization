@@ -27,19 +27,19 @@ font-style: var(--font-light-style);
   <div {% render 'section-properties', tight: is_tight %}>
     {%- capture section_content -%}
       {%- for i in (1..10) -%}
-        <span class="scrolling-text__text heading {% unless forloop.first %}motion-reduce:hidden{% endunless %}" {% unless forloop.first %}aria-hidden="true"{% endunless %}>
+        <span class="perf-opt scrolling-text__text heading {% unless forloop.first %}motion-reduce:hidden{% endunless %}" {% unless forloop.first %}aria-hidden="true"{% endunless %}>
           {%- render 'styled-text', content: section.settings.text, gradient: section.settings.text_gradient, style: section.settings.text_style -%}
         </span>
       {%- endfor -%}
     {%- endcapture -%}
 
-    <div class="scrolling-text {% if section.settings.scrolling_mode == 'scroll' %}scrolling-text--scroll{% else %}scrolling-text--auto{% endif %}">
+    <div class="perf-opt scrolling-text {% if section.settings.scrolling_mode == 'scroll' %}scrolling-text--scroll{% else %}scrolling-text--auto{% endif %}">
       {%- if section.settings.scrolling_mode == 'scroll' -%}
-        <scrolling-text class="scrolling-text__wrapper">
+        <scrolling-text class="perf-opt scrolling-text__wrapper">
           {{- section_content -}}
         </scrolling-text>
        {%- else -%}
-         <marquee-text scrolling-speed="{{ section.settings.scrolling_speed }}" class="scrolling-text__wrapper">
+         <marquee-text scrolling-speed="{{ section.settings.scrolling_speed }}" class="perf-opt scrolling-text__wrapper">
            {{- section_content -}}
          </marquee-text>
       {%- endif -%}

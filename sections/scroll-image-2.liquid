@@ -225,16 +225,16 @@ padding-bottom:0
 </style>
 
 
- <div class="section scroll2" id="{{ section.settings.custom_id }}">
-  <section class="seq-section seq-{{ section.id }}" id="seq">
+ <div class="perf-opt section scroll2" id="{{ section.settings.custom_id }}">
+  <section class="perf-opt seq-section seq-{{ section.id }}" id="seq">
        
-    <div class="seq-stage">
-      <div class="stage-inner">
-        <img id="frame" class="frame desktop-img" src="{{ section.settings.pro_image | img_url:'master' }}" alt="" />
-        <img class="frame mobile-img" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9049_2x_1ed61882-b76a-45ba-8868-a01ae52a6166.png?v=1760175913" />
+    <div class="perf-opt seq-stage">
+      <div class="perf-opt stage-inner">
+        <img id="frame" class="perf-opt frame desktop-img" src="{{ section.settings.pro_image | img_url:'master' }}" alt="" />
+        <img class="perf-opt frame mobile-img" src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/9049_2x_1ed61882-b76a-45ba-8868-a01ae52a6166.png?v=1760175913" />
 
-        <svg class="overlay" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
-        <g class="dots">
+        <svg class="perf-opt overlay" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
+        <g class="perf-opt dots">
           <circle cx="328" cy="432" r="10" fill="#8B8B8B"/>
           <circle cx="553" cy="432" r="10" fill="#8B8B8B"/>
           <circle cx="960" cy="436" r="10" fill="#8B8B8B"/>
@@ -245,34 +245,34 @@ padding-bottom:0
 
         </svg>
 
-        {% comment %} <span class="dot left"></span>
-        <span class="dot middle"></span> {% endcomment %}
-        {% comment %} <span class="dot right"></span> {% endcomment %}
+        {% comment %} <span class="perf-opt dot left"></span>
+        <span class="perf-opt dot middle"></span> {% endcomment %}
+        {% comment %} <span class="perf-opt dot right"></span> {% endcomment %}
          {% for block in section.blocks %}
                 {% if block.type == 'left_item' and block.settings.image != blank %}
-                    <div class="copy left" id="copyL">
+                    <div class="perf-opt copy left" id="copyL">
                         <img src="{{ block.settings.image | img_url:'master' }}">
-                        <h3 class="title space-thin">{{block.settings.stitle}}</h3>
-                        <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                        <h3 class="perf-opt title space-thin">{{block.settings.stitle}}</h3>
+                        <p class="perf-opt desc space-thin">{{block.settings.sdesc}}</p>
                     </div>
                 {% endif %}
          {% endfor %}
          {% for block in section.blocks %}
                 {% if block.type == 'right_item' and block.settings.image != blank %}
-                       <div class="copy right" id="copyR">
+                       <div class="perf-opt copy right" id="copyR">
                             <img src="{{ block.settings.image | img_url:'master' }}">
-                            <h3 class="title space-thin">{{block.settings.stitle}}</h3>
-                            <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                            <h3 class="perf-opt title space-thin">{{block.settings.stitle}}</h3>
+                            <p class="perf-opt desc space-thin">{{block.settings.sdesc}}</p>
                         </div>
                 {% endif %}
         {% endfor %}
         {% for block in section.blocks %}
                     {% if block.type == 'middle_item' and block.settings.image != blank %}
-                        <div class="copy bottom" id="copyM">
+                        <div class="perf-opt copy bottom" id="copyM">
                             <img src="{{ block.settings.image | img_url:'master' }}">
-                            <div class="center_contents">
-                            <h3 class="title space-thin">{{block.settings.stitle}}</h3>
-                            <p class="desc space-thin">{{block.settings.sdesc}}</p>
+                            <div class="perf-opt center_contents">
+                            <h3 class="perf-opt title space-thin">{{block.settings.stitle}}</h3>
+                            <p class="perf-opt desc space-thin">{{block.settings.sdesc}}</p>
                             </div>
                         </div>
                     {% endif %}

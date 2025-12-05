@@ -51,7 +51,7 @@ Supported variables
 {%- endcapture -%}
 
 {%- if class != blank -%}
-  <span class="{{ class }}" style="{{ style }}">{{- text_content -}}</span>
+  <span class="perf-opt {{ class }}" style="{{ style }}">{{- text_content -}}</span>
 {%- else -%}
   {{- text_content -}}
 {%- endif -%}

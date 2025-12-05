@@ -24,13 +24,13 @@ Supported variables
     {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 64px, 80px', widths: '64,128,80,160', class: 'horizontal-product__image rounded-xs' -}}
   {%- endif -%}
 
-  <div class="horizontal-product__info">
-    <div class="v-stack gap-0.5">
+  <div class="perf-opt horizontal-product__info">
+    <div class="perf-opt v-stack gap-0.5">
       {%- if output_link == false -%}
-        <span class="text-sm bold">{{ product.title }}</span>
+        <span class="perf-opt text-sm bold">{{ product.title }}</span>
       {%- else -%}
-        <a href="{{ product.url }}" data-instant class="text-sm bold">
-          <span class="reversed-link hover:show">{{ product.title }}</span>
+        <a href="{{ product.url }}" data-instant class="perf-opt text-sm bold">
+          <span class="perf-opt reversed-link hover:show">{{ product.title }}</span>
         </a>
       {%- endif -%}
 
@@ -38,7 +38,7 @@ Supported variables
     </div>
 
     {%- if show_add_to_cart -%}
-      <div class="horizontal-product__cta">
+      <div class="perf-opt horizontal-product__cta">
         {%- if product.available -%}
           {%- capture unique_id -%}{{ section.id }}-{{ block.id }}-{{ product.id }}{%- endcapture -%}
           {%- capture button_content -%}{{ 'product.general.add_to_cart_short' | t }}{%- endcapture -%}
@@ -56,7 +56,7 @@ Supported variables
 
             {%- render 'button', content: button_content, size: 'sm', subdued: true, aria_controls: quick_buy_id -%}
 
-            <quick-buy-drawer id="{{ quick_buy_id }}" header-bordered open-from="bottom" handle="{{ product.handle }}?variant={{ product.selected_or_first_available_variant.id }}" role="region" aria-live="polite" class="quick-buy-drawer drawer">
+            <quick-buy-drawer id="{{ quick_buy_id }}" header-bordered open-from="bottom" handle="{{ product.handle }}?variant={{ product.selected_or_first_available_variant.id }}" role="region" aria-live="polite" class="perf-opt quick-buy-drawer drawer">
               {%- comment -%}Quick buy content is filled on demand for performance reasons {%- endcomment -%}
             </quick-buy-drawer>
           {%- endif -%}

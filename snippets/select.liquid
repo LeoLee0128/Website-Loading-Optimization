@@ -26,14 +26,14 @@ Supported variables
   {% if required %}required{% endif %}
 {%- endcapture -%}
 
-<div class="form-control" {{ block.shopify_attributes }}>
-  <select id="{{ id }}" class="select select--native is-floating" name="{{ name }}" {{ optional_attributes }}>
+<div class="perf-opt form-control" {{ block.shopify_attributes }}>
+  <select id="{{ id }}" class="perf-opt select select--native is-floating" name="{{ name }}" {{ optional_attributes }}>
     {{- options -}}
   </select>
 
   {%- render 'icon' with 'chevron-bottom', class: 'select-chevron' -%}
 
   {%- if label != blank -%}
-    <label for="{{ id }}" class="floating-label">{{ label }}</label>
+    <label for="{{ id }}" class="perf-opt floating-label">{{ label }}</label>
   {%- endif -%}
 </div>

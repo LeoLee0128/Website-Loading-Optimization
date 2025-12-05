@@ -14,19 +14,19 @@ Supported variables
 * show_buttons: if set to true prev/next buttons are also being shown
 {%- endcomment -%}
 
-<div class="scrollbar peer-not-scrollable:hidden">
-  <scroll-progress observes="{{ observes }}" class="scrollbar__progress" style="--scroll-progress: {{ default_progress }}"></scroll-progress>
+<div class="perf-opt scrollbar peer-not-scrollable:hidden">
+  <scroll-progress observes="{{ observes }}" class="perf-opt scrollbar__progress" style="--scroll-progress: {{ default_progress }}"></scroll-progress>
 
   {%- if show_buttons -%}
-    <div aria-controls="{{ observes }}" class="scrollbar__buttons">
-      <button is="prev-button" class="circle-button ring group" aria-controls="{{ observes }}" disabled>
-        <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
-        <span class="animated-arrow animated-arrow--reverse"></span>
+    <div aria-controls="{{ observes }}" class="perf-opt scrollbar__buttons">
+      <button is="prev-button" class="perf-opt circle-button ring group" aria-controls="{{ observes }}" disabled>
+        <span class="perf-opt sr-only">{{ 'general.accessibility.previous' | t }}</span>
+        <span class="perf-opt animated-arrow animated-arrow--reverse"></span>
       </button>
 
-      <button is="next-button" class="circle-button ring group" aria-controls="{{ observes }}">
-        <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
-        <span class="animated-arrow"></span>
+      <button is="next-button" class="perf-opt circle-button ring group" aria-controls="{{ observes }}">
+        <span class="perf-opt sr-only">{{ 'general.accessibility.next' | t }}</span>
+        <span class="perf-opt animated-arrow"></span>
       </button>
     </div>
   {%- endif -%}

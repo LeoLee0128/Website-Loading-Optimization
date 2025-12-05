@@ -385,51 +385,51 @@ border: solid 2px transparent;
     }
 }
 </style>
-<section class="wave_feature-section">
-    <div class="wave_feature-top">
+<section class="perf-opt wave_feature-section">
+    <div class="perf-opt wave_feature-top">
       
-        <div class="wave_head">
-            <h2 class="space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-            <p class="space-thin wow fadeInUp">{{ section.settings.desc }}</p>
+        <div class="perf-opt wave_head">
+            <h2 class="perf-opt space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="perf-opt space-thin wow fadeInUp">{{ section.settings.desc }}</p>
         </div>
-        <ul class="wave_feature-list">
+        <ul class="perf-opt wave_feature-list">
          {% for block in section.blocks %}
-            <li class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
-                <img src="{{ block.settings.icon | img_url:'master' }}" class="wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+            <li class="perf-opt wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
+                <img src="{{ block.settings.icon | img_url:'master' }}" class="perf-opt wow fadeInUp" data-wow-delay=".{{ forloop.index }}s">
                 <div>{{ block.settings.text | newline_to_br }}</div>
             </li>
           {% endfor %}
         </ul>
     </div>
-    <div class="b_wave_feature-middle">
-    <div class="wave_feature-middle">
-        <h2 class="space-thin wow fadeInUp">{{ section.settings.m_subtitle }}</h2>
-        <div class="wave_feature-mtitle space-thin wow fadeInUp">{{ section.settings.m_title | newline_to_br }}</div>
-        <div class="wave_feature-mcontent space-thin wow fadeInUp">{{ section.settings.m_content | newline_to_br }}</div>
-        <div class="wave_feature-button space-thin">
+    <div class="perf-opt b_wave_feature-middle">
+    <div class="perf-opt wave_feature-middle">
+        <h2 class="perf-opt space-thin wow fadeInUp">{{ section.settings.m_subtitle }}</h2>
+        <div class="perf-opt wave_feature-mtitle space-thin wow fadeInUp">{{ section.settings.m_title | newline_to_br }}</div>
+        <div class="perf-opt wave_feature-mcontent space-thin wow fadeInUp">{{ section.settings.m_content | newline_to_br }}</div>
+        <div class="perf-opt wave_feature-button space-thin">
             Explore Further NAL-NL2<i></i>
         </div>
       </div>
     </div>
-    <div class="wave_feature-bottom">
-        <div class="container">
-        <div class="wave_feature-left">
-            <div class="wave_feature-info">
-                <p class="space-thin wow fadeInUp">{{ section.settings.b_subtitle }}</p>
-                <h2 class="space-thin wow fadeInUp">{{ section.settings.b_title }}</h2>
-                <div class="space-thin wow fadeInUp">{{ section.settings.b_content }}</div>
+    <div class="perf-opt wave_feature-bottom">
+        <div class="perf-opt container">
+        <div class="perf-opt wave_feature-left">
+            <div class="perf-opt wave_feature-info">
+                <p class="perf-opt space-thin wow fadeInUp">{{ section.settings.b_subtitle }}</p>
+                <h2 class="perf-opt space-thin wow fadeInUp">{{ section.settings.b_title }}</h2>
+                <div class="perf-opt space-thin wow fadeInUp">{{ section.settings.b_content }}</div>
             </div>
-            <div class="wave_feature-image">
-                <img class="desktop-img" src="{{ section.settings.m_image | img_url:'master' }}">
-                <img  class="mobile-img" src="{{ section.settings.m_image_m | img_url:'master' }}">
+            <div class="perf-opt wave_feature-image">
+                <img class="perf-opt desktop-img" src="{{ section.settings.m_image | img_url:'master' }}">
+                <img  class="perf-opt mobile-img" src="{{ section.settings.m_image_m | img_url:'master' }}">
             </div>
         </div>
-        <div class="wave_feature-right">
-            <img class="desktop-img" src="{{ section.settings.b_image | img_url:'master' }}">
-            <img class="mobile-img" src="{{ section.settings.b_image_m | img_url:'master' }}">
-            <div class="wave_feature-content">
-                <div class="space-thin wow fadeInUp">{{ section.settings.r_subtitle }}</div>
-                <h2 class="space-thin wow fadeInUp">{{ section.settings.r_title | newline_to_br }}</h2>
+        <div class="perf-opt wave_feature-right">
+            <img class="perf-opt desktop-img" src="{{ section.settings.b_image | img_url:'master' }}">
+            <img class="perf-opt mobile-img" src="{{ section.settings.b_image_m | img_url:'master' }}">
+            <div class="perf-opt wave_feature-content">
+                <div class="perf-opt space-thin wow fadeInUp">{{ section.settings.r_subtitle }}</div>
+                <h2 class="perf-opt space-thin wow fadeInUp">{{ section.settings.r_title | newline_to_br }}</h2>
             </div>
         </div>
         </div>

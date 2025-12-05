@@ -128,29 +128,29 @@ font-style: var(--font-regular-style); {% endcomment %}
 </style>
 
 <height-observer variable="header">
-  <store-header class="header" {% if section.settings.hide_on_scroll %}hide-on-scroll="100"{% endif %} {% if section.settings.enable_sticky %}sticky{% endif %}>
-    <div class="header__wrapper">
+  <store-header class="perf-opt header" {% if section.settings.hide_on_scroll %}hide-on-scroll="100"{% endif %} {% if section.settings.enable_sticky %}sticky{% endif %}>
+    <div class="perf-opt header__wrapper">
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
       MAIN NAV AREA
       --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
-      <div class="header__main-nav">
-        <div class="header__icon-list">
-          <button type="button" class="tap-area {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" aria-controls="header-sidebar-menu">
-            <span class="sr-only">{{ 'header.general.open_menu' | t }}</span>
+      <div class="perf-opt header__main-nav">
+        <div class="perf-opt header__icon-list">
+          <button type="button" class="perf-opt tap-area {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" aria-controls="header-sidebar-menu">
+            <span class="perf-opt sr-only">{{ 'header.general.open_menu' | t }}</span>
             {%- render 'icon' with 'hamburger' -%}
           </button>
 
-          <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
-            <span class="sr-only">{{ 'header.general.open_search' | t }}</span>
+          <a href="{{ routes.search_url }}" class="perf-opt tap-area sm:hidden" aria-controls="search-drawer">
+            <span class="perf-opt sr-only">{{ 'header.general.open_search' | t }}</span>
             {%- render 'icon' with 'search' -%}
           </a>
 
           {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
-            <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
-              <ul class="contents" role="list">
+            <nav class="perf-opt header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
+              <ul class="perf-opt contents" role="list">
                 {%- for link in section.settings.menu.links -%}
                   {% liquid
                     assign link_title_downcase = link.title | strip | downcase
@@ -169,7 +169,7 @@ font-style: var(--font-regular-style); {% endcomment %}
 
                   <li>
                     {%- if link.levels == 0 and mega_menu_block == '' -%}
-                      <a href="{{ link.url }}" class="bold link-faded-reverse" {% if link.current %}aria-current="page"{% endif %}>{{- link.title -}}</a>
+                      <a href="{{ link.url }}" class="perf-opt bold link-faded-reverse" {% if link.current %}aria-current="page"{% endif %}>{{- link.title -}}</a>
                     {%- else -%}
                       {%- if mega_menu_block != '' -%}
                         {%- comment -%}
@@ -180,48 +180,48 @@ font-style: var(--font-regular-style); {% endcomment %}
                         {%- endcomment -%}
                         {%- unless mega_menu_block.settings.layout == 'drawer' -%}
                           <details is="mega-menu-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}" {{ mega_menu_block.shopify_attributes }}>
-                            <summary class="text-with-icon gap-2.5  link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
+                            <summary class="perf-opt text-with-icon gap-2.5  link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
                               {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
                             </summary>
 
                            {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
                           </details>
                         {%- else -%}
-                          <button aria-controls="navigation-drawer-{{ forloop.index }}" aria-expanded="false" class="text-with-icon gap-2.5 bold link-faded-reverse">
+                          <button aria-controls="navigation-drawer-{{ forloop.index }}" aria-expanded="false" class="perf-opt text-with-icon gap-2.5 bold link-faded-reverse">
                             {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
                           </button>
 
-                          <navigation-drawer class="navigation-drawer drawer lg-max:hidden" id="navigation-drawer-{{ forloop.index }}" open-from="left" mega-menu>
+                          <navigation-drawer class="perf-opt navigation-drawer drawer lg-max:hidden" id="navigation-drawer-{{ forloop.index }}" open-from="left" mega-menu>
                             {%- render 'navigation-panel', navigation_layout: section.settings.layout, main_menu: link, is_mega_menu: true, mega_menu_block: mega_menu_block -%}
                           </navigation-drawer>
                         {%- endunless -%}
                       {%- else -%}
-                        <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
-                          <summary class="text-with-icon gap-2.5 bold link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
+                        <details class="perf-opt relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
+                          <summary class="perf-opt text-with-icon gap-2.5 bold link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
                             {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
                           </summary>
 
-                          <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
-                            <ul class="contents" role="list">
+                          <div class="perf-opt dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
+                            <ul class="perf-opt contents" role="list">
                               {%- for sub_link in link.links -%}
                                 <li>
                                   {%- if sub_link.levels == 0 -%}
-                                    <a href="{{ sub_link.url }}" class="dropdown-menu__item group" {% if sub_link.current %}aria-current="page"{% endif %}>
-                                      <span><span class="reversed-link">{{ sub_link.title }}</span></span>
+                                    <a href="{{ sub_link.url }}" class="perf-opt dropdown-menu__item group" {% if sub_link.current %}aria-current="page"{% endif %}>
+                                      <span><span class="perf-opt reversed-link">{{ sub_link.title }}</span></span>
                                     </a>
                                   {%- else -%}
-                                    <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
-                                      <summary class="dropdown-menu__item group" {% if sub_link.url != '#' %}data-url="{{ sub_link.url | escape }}"{% endif %}>
-                                        <span><span class="reversed-link">{{- sub_link.title -}}</span></span>
+                                    <details class="perf-opt relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
+                                      <summary class="perf-opt dropdown-menu__item group" {% if sub_link.url != '#' %}data-url="{{ sub_link.url | escape }}"{% endif %}>
+                                        <span><span class="perf-opt reversed-link">{{- sub_link.title -}}</span></span>
                                         {%- render 'icon' with 'chevron-right' -%}
                                       </summary>
 
-                                      <div class="dropdown-menu">
-                                        <ul class="contents" role="list">
+                                      <div class="perf-opt dropdown-menu">
+                                        <ul class="perf-opt contents" role="list">
                                           {%- for sub_sub_link in sub_link.links -%}
                                             <li>
-                                              <a href="{{ sub_sub_link.url }}" class="dropdown-menu__item group" {% if sub_sub_link.current %}aria-current="page"{% endif %}>
-                                                <span><span class="reversed-link">{{ sub_sub_link.title }}</span></span>
+                                              <a href="{{ sub_sub_link.url }}" class="perf-opt dropdown-menu__item group" {% if sub_sub_link.current %}aria-current="page"{% endif %}>
+                                                <span><span class="perf-opt reversed-link">{{ sub_sub_link.title }}</span></span>
                                               </a>
                                             </li>
                                           {%- endfor -%}
@@ -254,23 +254,23 @@ font-style: var(--font-regular-style); {% endcomment %}
         {%- if section.settings.logo -%}
           {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
           {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
-          <span class="sr-only">{{ shop.name }}</span>
+          <span class="perf-opt sr-only">{{ shop.name }}</span>
           {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
 
           {%- if section.settings.transparent_logo -%}
             {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
           {%- endif -%}
         {%- else -%}
-          <span class="header__logo-text h4">{{ shop.name }}</span>
+          <span class="perf-opt header__logo-text h4">{{ shop.name }}</span>
         {%- endif -%}
       {%- endcapture -%}
 
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__logo">
+        <h1 class="perf-opt header__logo">
           <a href="{{ routes.root_url }}">{{ logo_content }}</a>
         </h1>
       {% else %}
-        <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
+        <a href="{{ routes.root_url }}" class="perf-opt header__logo">{{ logo_content }}</a>
       {% endif %}
 
       {%- comment -%}
@@ -279,28 +279,28 @@ font-style: var(--font-regular-style); {% endcomment %}
       --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
-      <div class="header__secondary-nav">
+      <div class="perf-opt header__secondary-nav">
         {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
-          <nav class="header__link-list" role="navigation">
-            <ul class="contents">
+          <nav class="perf-opt header__link-list" role="navigation">
+            <ul class="perf-opt contents">
               {%- for link in section.settings.secondary_menu.links -%}
                 <li>
-                  <a href="{{ link.url }}" class="bold link-faded-reverse">{{ link.title }}</a>
+                  <a href="{{ link.url }}" class="perf-opt bold link-faded-reverse">{{ link.title }}</a>
                 </li>
               {%- endfor -%}
             </ul>
           </nav>
         {%- endif -%}
 
-        <div class="header__icon-list">
+        <div class="perf-opt header__icon-list">
           {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
-            <div class="hidden md:block shrink-0">
+            <div class="perf-opt hidden md:block shrink-0">
               {%- render 'localization-selector', type: 'country', show_country_name: section.settings.show_country_name, show_country_flag: section.settings.show_country_flag, popover_vertical_position: 'end' -%}
             </div>
           {%- endif -%}
 
           {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
-            <div class="hidden md:block shrink-0">
+            <div class="perf-opt hidden md:block shrink-0">
               {%- render 'localization-selector', type: 'locale', popover_vertical_position: 'end' -%}
             </div>
           {%- endif -%}
@@ -308,21 +308,21 @@ font-style: var(--font-regular-style); {% endcomment %}
         
           
           {%- if shop.customer_accounts_enabled -%}
-            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="hidden tap-area sm:block">
-              <span class="sr-only">{{ 'header.general.open_account' | t }}</span>
+            <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="perf-opt hidden tap-area sm:block">
+              <span class="perf-opt sr-only">{{ 'header.general.open_account' | t }}</span>
               {%- render 'icon' with 'account' -%}
             </a>
           {%- endif -%}
-  <a href="{{ routes.search_url }}" class="hidden tap-area sm:block" aria-controls="search-drawer">
-            <span class="sr-only">{{ 'header.general.open_search' | t }}</span>
+  <a href="{{ routes.search_url }}" class="perf-opt hidden tap-area sm:block" aria-controls="search-drawer">
+            <span class="perf-opt sr-only">{{ 'header.general.open_search' | t }}</span>
             {%- render 'icon' with 'search' -%}
           </a>
-          <a href="{{ routes.cart_url }}" data-no-instant class="relative tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
-            <span class="sr-only">{{ 'header.general.open_cart' | t }}</span>
+          <a href="{{ routes.cart_url }}" data-no-instant class="perf-opt relative tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
+            <span class="perf-opt sr-only">{{ 'header.general.open_cart' | t }}</span>
             {%- render 'icon' with 'cart' -%}
 
-            <div class="header__cart-count">
-              <cart-count class="count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}" aria-hidden="true">
+            <div class="perf-opt header__cart-count">
+              <cart-count class="perf-opt count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}" aria-hidden="true">
                 {{- cart.item_count -}}
               </cart-count>
             </div>
@@ -333,17 +333,17 @@ font-style: var(--font-regular-style); {% endcomment %}
     {% if product.template_suffix =="new-nano" %}
     
     
-  {% comment %} <section class="sticky_menu-section" style="">
-    <div class="section">
-        <div class="sticky_menu">
+  {% comment %} <section class="perf-opt sticky_menu-section" style="">
+    <div class="perf-opt section">
+        <div class="perf-opt sticky_menu">
             <h2>Nano</h2>
-            <div class="sticky_menu-list">
+            <div class="perf-opt sticky_menu-list">
                    {% for block in section.blocks %}
                 {% if block.type == 'product_menu' %}
-                         <a href="{{  block.settings.url }}" class="sticky_menu-item">{{ block.settings.menu }}</a>
+                         <a href="{{  block.settings.url }}" class="perf-opt sticky_menu-item">{{ block.settings.menu }}</a>
                    {% endif %}
 {% endfor %}
-   <a href="#product_main" class="buy_btn">Buy Now</a>
+   <a href="#product_main" class="perf-opt buy_btn">Buy Now</a>
             </div>
            
         </div>
@@ -367,8 +367,8 @@ font-style: var(--font-regular-style); {% endcomment %}
 {%- assign secondary_menu = section.settings.secondary_menu -%}
 
 {%- if main_menu.links.size > 0 or secondary_menu.links.size > 0 -%}
-  <navigation-drawer mobile-opening="{{ section.settings.opening_from }}" open-from="left" id="header-sidebar-menu" class="navigation-drawer drawer {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" {% if request.design_mode %}handle-section-events{% endif %}>
-    <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" {%- if section.settings.opening_from == 'bottom' -%}class="sm-max:hidden"{%- endif -%}>
+  <navigation-drawer mobile-opening="{{ section.settings.opening_from }}" open-from="left" id="header-sidebar-menu" class="perf-opt navigation-drawer drawer {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" {% if request.design_mode %}handle-section-events{% endif %}>
+    <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" {%- if section.settings.opening_from == 'bottom' -%}class="perf-opt sm-max:hidden"{%- endif -%}>
       {%- render 'icon' with 'close', width: 19, height: 19 -%}
     </button>
 

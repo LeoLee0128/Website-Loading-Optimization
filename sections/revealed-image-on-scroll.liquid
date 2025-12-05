@@ -3,14 +3,14 @@
 LIQUID
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
-<revealed-image class="revealed-image bg-custom">
-  <span class="revealed-image__scroll-tracker"></span>
+<revealed-image class="perf-opt revealed-image bg-custom">
+  <span class="perf-opt revealed-image__scroll-tracker"></span>
 
   {%- assign background = section.settings.background | default: settings.background -%}
 
-  <div class="revealed-image__scroller bg-custom" style="--background: {{ background.rgb }}">
-    <div class="revealed-image__wrapper">
-      <div class="revealed-image__image-clipper">
+  <div class="perf-opt revealed-image__scroller bg-custom" style="--background: {{ background.rgb }}">
+    <div class="perf-opt revealed-image__wrapper">
+      <div class="perf-opt revealed-image__image-clipper">
         {%- if section.settings.image != blank -%}
           {%- if section.settings.mobile_image == blank -%}
             {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
@@ -25,13 +25,13 @@ LIQUID
 
       {%- capture content -%}
         {%- if section.settings.subheading != blank or section.settings.title != blank -%}
-          <div class="revealed-image__content-inner">
+          <div class="perf-opt revealed-image__content-inner">
             {%- if section.settings.subheading != blank -%}
-              <p class="subheading">{{ section.settings.subheading | escape }}</p>
+              <p class="perf-opt subheading">{{ section.settings.subheading | escape }}</p>
             {%- endif -%}
 
             {%- if section.settings.title != blank -%}
-              <p class="h0">{{ section.settings.title | escape }}</p>
+              <p class="perf-opt h0">{{ section.settings.title | escape }}</p>
             {%- endif -%}
           </div>
         {%- endif -%}

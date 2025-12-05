@@ -3,21 +3,21 @@
 LIQUID
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
-<div class="sm:container">
-  <div class="customer-form">
+<div class="perf-opt sm:container">
+  <div class="perf-opt customer-form">
     {%- if section.settings.image != blank -%}
       {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: '50vw', widths: '300,400,500,600,700,800,1000,1200,1400', class: 'customer-form__image rounded' -}}
     {%- endif -%}
 
     <div {% render 'surface', class: 'customer-form__box', background_gradient: section.settings.background_gradient, background: section.settings.background, text_color: section.settings.text_color, background_fallback: 'bg-secondary' %}>
-      <account-login class="customer-form__box-inner text-center">
-        <div id="login" class="v-stack gap-12">
-          <h1 class="h2">
+      <account-login class="perf-opt customer-form__box-inner text-center">
+        <div id="login" class="perf-opt v-stack gap-12">
+          <h1 class="perf-opt h2">
             {%- assign content = 'customer.login.title' | t -%}
             {%- render 'styled-text', content: content, gradient: section.settings.heading_gradient -%}
           </h1>
 
-          <div class="v-stack gap-6">
+          <div class="perf-opt v-stack gap-6">
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
@@ -35,7 +35,7 @@ LIQUID
                     {%- form 'customer_login', class: 'form' -%}
                       <input type="hidden" name="checkout_url" value="{{ block.settings.return_to | default: routes.account_url }}">
 
-                      <div class="fieldset">
+                      <div class="perf-opt fieldset">
                         {%- if form.errors -%}
                           {%- render 'banner', status: 'error', content: form.errors.messages['form'] -%}
                         {%- endif -%}
@@ -46,8 +46,8 @@ LIQUID
                         {%- assign password_label = 'customer.login.password' | t -%}
                         {%- render 'input', type: 'password', name: 'customer[password]', label: password_label, autocomplete: 'current-password', required: true -%}
 
-                        <div class="fieldset-link justify-self-start">
-                          <a href="#recover" class="link text-sm text-subdued">{{ 'customer.login.forgot_password' | t }}</a>
+                        <div class="perf-opt fieldset-link justify-self-start">
+                          <a href="#recover" class="perf-opt link text-sm text-subdued">{{ 'customer.login.forgot_password' | t }}</a>
                         </div>
                       </div>
 
@@ -55,7 +55,7 @@ LIQUID
                       {%- render 'button', content: submit_label, type: 'submit', size: 'xl', stretch: true, secondary: true, background: section.settings.button_background, text_color: section.settings.button_text_color -%}
 
                       <div>
-                        <a href="{{ routes.account_register_url }}" class="link text-subdued">{{ 'customer.login.sign_up' | t }}</a>
+                        <a href="{{ routes.account_register_url }}" class="perf-opt link text-subdued">{{ 'customer.login.sign_up' | t }}</a>
                       </div>
                     {%- endform -%}
                   </div>
@@ -64,14 +64,14 @@ LIQUID
           </div>
         </div>
 
-        <div id="recover" class="v-stack gap-12" hidden>
-          <h1 class="h2">
+        <div id="recover" class="perf-opt v-stack gap-12" hidden>
+          <h1 class="perf-opt h2">
             {%- assign content = 'customer.recover_password.title' | t -%}
             {%- render 'styled-text', content: content, gradient: section.settings.heading_gradient -%}
           </h1>
 
           {%- form 'recover_customer_password', class: 'form' -%}
-            <div class="fieldset">
+            <div class="perf-opt fieldset">
               {%- if form.errors -%}
                 {%- render 'banner', status: 'error', content: form.errors.messages['form'] -%}
               {%- endif -%}
@@ -91,7 +91,7 @@ LIQUID
             {%- endunless -%}
 
             <div>
-              <a href="#login" class="link text-subdued">{{ 'customer.recover_password.back_to_login' | t }}</a>
+              <a href="#login" class="perf-opt link text-subdued">{{ 'customer.recover_password.back_to_login' | t }}</a>
             </div>
           {%- endform -%}
         </div>

@@ -49,16 +49,16 @@ LIQUID
 {%- endcomment -%}
 
 <div {% render 'section-properties' %}>
-  <div class="section-stack {% if text_position != 'center' %}section-stack--horizontal{% else %}section-stack--center{% endif %} {% if text_position == 'end' %}section-stack--reverse{% endif %}">
+  <div class="perf-opt section-stack {% if text_position != 'center' %}section-stack--horizontal{% else %}section-stack--center{% endif %} {% if text_position == 'end' %}section-stack--reverse{% endif %}">
     {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank or section.settings.button_text != blank -%}
-      <div class="section-stack__intro">
-        <div class="prose {% if text_position == 'center' %}text-center{% endif %}">
+      <div class="perf-opt section-stack__intro">
+        <div class="perf-opt prose {% if text_position == 'center' %}text-center{% endif %}">
           {%- if section.settings.subheading != blank -%}
-            <p class="subheading">{{ section.settings.subheading | escape }}</p>
+            <p class="perf-opt subheading">{{ section.settings.subheading | escape }}</p>
           {%- endif -%}
 
           {%- if section.settings.title != blank -%}
-            <h2 class="h2">
+            <h2 class="perf-opt h2">
               {%- render 'styled-text', content: section.settings.title, text_color: section.settings.heading_color, gradient: section.settings.heading_gradient -%}
             </h2>
           {%- endif -%}
@@ -72,7 +72,7 @@ LIQUID
       </div>
     {%- endif -%}
 
-    <div class="section-stack__main">
+    <div class="perf-opt section-stack__main">
       {%- assign text_color = section.settings.chart_text_color | default: settings.text_color -%}
       {%- assign background_color = section.settings.chart_background -%}
 
@@ -81,7 +81,7 @@ LIQUID
       {%- endif -%}
 
       <feature-chart max-rows="{{ section.settings.max_rows }}" {% render 'surface', class: 'feature-chart', background: background_color, text_color: text_color %}>
-        <div class="feature-chart__table {% if values_column_count > 1 %}feature-chart__table--multi-columns{% endif %} feature-chart__table--product divide-y scroll-area">
+        <div class="perf-opt feature-chart__table {% if values_column_count > 1 %}feature-chart__table--multi-columns{% endif %} feature-chart__table--product divide-y scroll-area">
           {%- assign headings_block = section.blocks | where: 'type', 'headings' | first -%}
           {%- assign values_blocks = section.blocks | where: 'type', 'values' -%}
           {%- assign outputted_count = 0 -%}
@@ -105,9 +105,9 @@ LIQUID
               {%- if product_column.settings.product != blank -%}
                 {%- assign chart_product = product_column.settings.product -%}
 
-                <div class="feature-chart__product">
+                <div class="perf-opt feature-chart__product">
                   {%- if section.settings.viewing_product != blank and request.page_type == 'product' and product == chart_product -%}
-                    <span class="badge">{{ section.settings.viewing_product }}</span>
+                    <span class="perf-opt badge">{{ section.settings.viewing_product }}</span>
                   {%- endif -%}
 
                   {%- if chart_product.featured_media -%}
@@ -122,7 +122,7 @@ LIQUID
 
                       {%- for color_label in color_label_list -%}
                         {%- if chart_product.options_by_name[color_label] != blank -%}
-                          <div class="h-stack gap-2 sm:gap-2-5">
+                          <div class="perf-opt h-stack gap-2 sm:gap-2-5">
                             {%- for option_value in chart_product.options_by_name[color_label].values -%}
                               {%- render 'option-value', type: 'swatch', value: option_value, url: option_value.variant.url, size: 'sm' -%}
                             {%- endfor -%}
@@ -134,10 +134,10 @@ LIQUID
                     {%- endif -%}
                   {%- endcapture -%}
 
-                  <div class="v-stack {% if color_swatch != blank %}gap-6{% else %}gap-5{% endif %}">
-                    <div class="v-stack gap-2">
-                      <div class="v-stack sm:gap-0.5">
-                        <a href="{{ chart_product.url }}" class="bold line-clamp">{{ chart_product.title }}</a>
+                  <div class="perf-opt v-stack {% if color_swatch != blank %}gap-6{% else %}gap-5{% endif %}">
+                    <div class="perf-opt v-stack gap-2">
+                      <div class="perf-opt v-stack sm:gap-0.5">
+                        <a href="{{ chart_product.url }}" class="perf-opt bold line-clamp">{{ chart_product.title }}</a>
                         {%- render 'price-list', product: chart_product, hide_unit_price: true -%}
                       </div>
 
@@ -145,23 +145,23 @@ LIQUID
                     </div>
 
                     {%- if section.settings.view_product != blank -%}
-                      <div class="feature-chart__view-button-container hidden justify-self-start md:block">
+                      <div class="perf-opt feature-chart__view-button-container hidden justify-self-start md:block">
                         {%- render 'button', href: chart_product.url, content: section.settings.view_product, background: product_column.settings.view_button_background, text_color: product_column].settings.view_button_text_color, subdued: true -%}
                       </div>
                     {%- endif -%}
                   </div>
                 </div>
               {%- else -%}
-                <div class="feature-chart__product">
+                <div class="perf-opt feature-chart__product">
                   <div>
                     {%- capture product_placeholder -%}{% cycle 'product-apparel-1', 'product-apparel-2', 'product-apparel-3' %}{%- endcapture -%}
                     {{- product_placeholder | placeholder_svg_tag: 'feature-chart__product-placeholder' -}}
                   </div>
 
-                  <div class="v-stack gap-5">
-                    <div class="v-stack gap-2">
-                      <div class="v-stack sm:gap-0.5">
-                        <span class="bold line-clamp">{{ 'general.on_boarding.product_title' | t }}</span>
+                  <div class="perf-opt v-stack gap-5">
+                    <div class="perf-opt v-stack gap-2">
+                      <div class="perf-opt v-stack sm:gap-0.5">
+                        <span class="perf-opt bold line-clamp">{{ 'general.on_boarding.product_title' | t }}</span>
                       </div>
                     </div>
                   </div>
@@ -171,12 +171,12 @@ LIQUID
           {%- endcapture -%}
 
           {%- if section.settings.show_product_info -%}
-            <div class="feature-chart__table-row feature-chart__table-row--product">
+            <div class="perf-opt feature-chart__table-row feature-chart__table-row--product">
               {{- product_row -}}
             </div>
 
             {%- if total_rows_count > 6 -%}
-              <div class="feature-chart__table-row feature-chart__table-row--product feature-chart__table-row--sticky">
+              <div class="perf-opt feature-chart__table-row feature-chart__table-row--product feature-chart__table-row--sticky">
                 {{- product_row -}}
               </div>
             {%- endif -%}
@@ -190,9 +190,9 @@ LIQUID
 
             {%- comment -%}We only output the line if at least one value is defined{%- endcomment -%}
             {%- if heading_value != blank and values_blocks[0].settings[value_key] != blank or values_blocks[1].settings[value_key] != blank or values_blocks[2].settings[value_key] != blank -%}
-              <div class="feature-chart__table-row" {% if outputted_count > section.settings.max_rows %}hidden{% endif %}>
+              <div class="perf-opt feature-chart__table-row" {% if outputted_count > section.settings.max_rows %}hidden{% endif %}>
                 {%- if heading_value != blank -%}
-                  <div class="feature-chart__heading bold" {% if outputted_count == 0 %}{{ headings_block.shopify_attributes }}{% endif %}>{{ heading_value }}</div>
+                  <div class="perf-opt feature-chart__heading bold" {% if outputted_count == 0 %}{{ headings_block.shopify_attributes }}{% endif %}>{{ heading_value }}</div>
                 {%- endif -%}
 
                 {%- for i in (0..2) -%}
@@ -200,13 +200,13 @@ LIQUID
                     {%- assign value = values_blocks[i].settings[value_key] -%}
                     {%- assign stripped_value = value | strip_html | strip -%}
 
-                    <div class="feature-chart__value prose text-subdued" {% if outputted_count == 0 %}{{ values_blocks[i].shopify_attributes }}{% endif %}>
+                    <div class="perf-opt feature-chart__value prose text-subdued" {% if outputted_count == 0 %}{{ values_blocks[i].shopify_attributes }}{% endif %}>
                       {%- if stripped_value == 'FALSE' -%}
-                        <svg fill="none" class="icon offset-icon" width="16" height="16" viewBox="0 0 16 16" style="--icon-height: 16px">
+                        <svg fill="none" class="perf-opt icon offset-icon" width="16" height="16" viewBox="0 0 16 16" style="--icon-height: 16px">
                           <path d="m.94 3.06 12 12 2.12-2.12-12-12L.94 3.06Zm2.12 12 12-12L12.94.94l-12 12 2.12 2.12Z" fill="{{ section.settings.chart_true_false_color | default: section.settings.chart_text_color | default: settings.text_color }}"></path>
                         </svg>
                       {%- elsif stripped_value == 'TRUE' -%}
-                        <svg fill="none" class="icon offset-icon" width="20" height="16" viewBox="0 0 20 16" style="--icon-height: 16px">
+                        <svg fill="none" class="perf-opt icon offset-icon" width="20" height="16" viewBox="0 0 20 16" style="--icon-height: 16px">
                           <path d="m2 7.6 5.259 5.6L18 2" stroke="{{ section.settings.chart_true_false_color | default: section.settings.chart_text_color | default: settings.text_color }}" stroke-width="3"></path>
                         </svg>
                       {%- else -%}
@@ -223,10 +223,10 @@ LIQUID
         </div>
 
         {%- if outputted_count > section.settings.max_rows -%}
-          <div class="feature-chart__toggle">
-            <button data-action="toggle-rows" data-view-more="{{ section.settings.view_all_text | escape }}" data-view-less="{{ section.settings.view_less_text | escape }}" class="text-with-icon group">
-              <span class="feature-chart__toggle-text reversed-link">{{- section.settings.view_all_text | escape -}}</span>
-              <span class="circle-chevron group-hover:colors">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+          <div class="perf-opt feature-chart__toggle">
+            <button data-action="toggle-rows" data-view-more="{{ section.settings.view_all_text | escape }}" data-view-less="{{ section.settings.view_less_text | escape }}" class="perf-opt text-with-icon group">
+              <span class="perf-opt feature-chart__toggle-text reversed-link">{{- section.settings.view_all_text | escape -}}</span>
+              <span class="perf-opt circle-chevron group-hover:colors">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
             </button>
           </div>
         {%- endif -%}

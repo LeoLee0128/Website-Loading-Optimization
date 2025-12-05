@@ -44,25 +44,25 @@ Supported variables
 {%- if type == 'hidden' -%}
   <input type="hidden" name="{{ name }}" value="{{ value }}">
 {%- else -%}
-  <div class="form-control" {{ block.shopify_attributes }}>
+  <div class="perf-opt form-control" {{ block.shopify_attributes }}>
     {%- if multiline != blank -%}
-      <textarea id="{{ id }}" class="textarea is-floating" is="resizable-textarea" name="{{ name }}" placeholder=" " rows="{{ multiline }}" {{ optional_attributes }}>{{- value -}}</textarea>
+      <textarea id="{{ id }}" class="perf-opt textarea is-floating" is="resizable-textarea" name="{{ name }}" placeholder=" " rows="{{ multiline }}" {{ optional_attributes }}>{{- value -}}</textarea>
     {%- else -%}
-      <input id="{{ id }}" class="input is-floating" type="{{ type | default: 'text' }}" {% if type == 'email' or type == 'tel' %}dir="ltr"{% endif %} name="{{ name }}" placeholder=" " {{ optional_attributes }}>
+      <input id="{{ id }}" class="perf-opt input is-floating" type="{{ type | default: 'text' }}" {% if type == 'email' or type == 'tel' %}dir="ltr"{% endif %} name="{{ name }}" placeholder=" " {{ optional_attributes }}>
     {%- endif -%}
 
     {%- if show_max_characters_count and maxlength > 0 -%}
-      <span class="form-control__max-characters-count text-sm text-subdued text-end">{{ 'general.form.max_characters' | t: max_chars: maxlength }}</span>
+      <span class="perf-opt form-control__max-characters-count text-sm text-subdued text-end">{{ 'general.form.max_characters' | t: max_chars: maxlength }}</span>
     {%- endif -%}
 
     {%- if label != blank -%}
-      <label for="{{ id }}" class="floating-label">{{ label }}</label>
+      <label for="{{ id }}" class="perf-opt floating-label">{{ label }}</label>
     {%- endif -%}
 
     {%- if self_submit -%}
-      <div class="self-submit-button">
-        <button type="submit" class="circle-chevron hover:colors">
-          <span class="sr-only">{{ 'general.newsletter.subscribe' | t }}</span>
+      <div class="perf-opt self-submit-button">
+        <button type="submit" class="perf-opt circle-chevron hover:colors">
+          <span class="perf-opt sr-only">{{ 'general.newsletter.subscribe' | t }}</span>
           {%- render 'icon' with 'chevron-right-small', direction_aware: true -%}
         </button>
       </div>

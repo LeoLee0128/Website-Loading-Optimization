@@ -65,7 +65,7 @@ Supported variables
   {%- endcomment -%}
 
   {%- if product.media.size > 0 -%}
-    <div class="product-card__figure">
+    <div class="perf-opt product-card__figure">
       <a href="{{ product.url }}" data-instant>
         {%- capture sizes -%}
           {%- if stacked -%}
@@ -93,37 +93,37 @@ Supported variables
       </a>
 
       {%- if show_quick_buy and product.available -%}
-        <div class="product-card__quick-buy">
+        <div class="perf-opt product-card__quick-buy">
           {%- assign quick_add_label = 'product.general.quick_add' | t -%}
 
           {%- if product.variants.size == 1 and product.selling_plan_groups.size == 0 -%}
             {%- form 'product', product, is: 'product-form' -%}
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-              <div class="pointer-fine:hidden">
-                <button type="submit" is="custom-button" class="product-card__mobile-quick-buy-button" aria-label="{{ quick_add_label | escape }}">
+              <div class="perf-opt pointer-fine:hidden">
+                <button type="submit" is="custom-button" class="perf-opt product-card__mobile-quick-buy-button" aria-label="{{ quick_add_label | escape }}">
                   {%- render 'icon' with 'quick-buy-cart' -%}
                 </button>
               </div>
 
-              <div class="pointer-coarse:hidden">
+              <div class="perf-opt pointer-coarse:hidden">
                 {%- render 'button', type: 'submit', content: quick_add_label -%}
               </div>
             {%- endform -%}
           {%- else -%}
             {%- capture quick_buy_id -%}quick-buy-{{ section.id }}-{{ product.id }}{%- endcapture -%}
 
-            <div class="pointer-fine:hidden">
-              <button type="button" aria-controls="{{ quick_buy_id }}" aria-expanded="false" aria-label="{{ quick_add_label | escape }}" is="custom-button" class="product-card__mobile-quick-buy-button">
+            <div class="perf-opt pointer-fine:hidden">
+              <button type="button" aria-controls="{{ quick_buy_id }}" aria-expanded="false" aria-label="{{ quick_add_label | escape }}" is="custom-button" class="perf-opt product-card__mobile-quick-buy-button">
                 {%- render 'icon' with 'quick-buy-cart' -%}
               </button>
             </div>
 
-            <div class="pointer-coarse:hidden">
+            <div class="perf-opt pointer-coarse:hidden">
               {%- render 'button', content: quick_add_label, aria_controls: quick_buy_id -%}
             </div>
 
-            <quick-buy-drawer id="{{ quick_buy_id }}" header-bordered open-from="bottom" handle="{{ product.handle }}?variant={{ product.selected_or_first_available_variant.id }}" role="region" aria-live="polite" class="quick-buy-drawer drawer">
+            <quick-buy-drawer id="{{ quick_buy_id }}" header-bordered open-from="bottom" handle="{{ product.handle }}?variant={{ product.selected_or_first_available_variant.id }}" role="region" aria-live="polite" class="perf-opt quick-buy-drawer drawer">
               {%- comment -%}Quick buy content is filled on demand for performance reasons {%- endcomment -%}
             </quick-buy-drawer>
           {%- endif -%}
@@ -138,10 +138,10 @@ Supported variables
   --------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  <div class="product-card__info {% if text_alignment == 'center' %}product-card__info--center{% endif %}">
+  <div class="perf-opt product-card__info {% if text_alignment == 'center' %}product-card__info--center{% endif %}">
     {%- if show_vendor and product.vendor != blank -%}
       {%- if show_rating and text_alignment != 'center' -%}
-        <div class="rating-with-text w-full">
+        <div class="perf-opt rating-with-text w-full">
           {%- render 'vendor' with product.vendor, class: 'text-xs' -%}
 
           {%- capture rating_class -%}{% if mobile_reduced %}hidden sm:flex{% endif %}{%- endcapture -%}
@@ -152,10 +152,10 @@ Supported variables
       {%- endif -%}
     {%- endif -%}
 
-    <div class="v-stack gap-0.5 w-full {% if text_alignment == 'center' %}justify-items-center{% endif %}">
+    <div class="perf-opt v-stack gap-0.5 w-full {% if text_alignment == 'center' %}justify-items-center{% endif %}">
       {%- if show_rating and show_vendor == false or product.vendor == blank -%}
-        <div class="rating-with-text">
-          <span class="product-card__title"><a href="{{ product.url }}" class="bold" data-instant>{{ product.title }}</a></span>
+        <div class="perf-opt rating-with-text">
+          <span class="perf-opt product-card__title"><a href="{{ product.url }}" class="perf-opt bold" data-instant>{{ product.title }}</a></span>
 
           {%- if text_alignment != 'center' -%}
             {%- capture rating_class -%}{% if mobile_reduced %}hidden sm:flex{% endif %}{%- endcapture -%}
@@ -163,7 +163,7 @@ Supported variables
           {%- endif -%}
         </div>
       {%- else -%}
-        <span class="product-card__title"><a href="{{ product.url }}" class="bold" data-instant>{{ product.title }}</a></span>
+        <span class="perf-opt product-card__title"><a href="{{ product.url }}" class="perf-opt bold" data-instant>{{ product.title }}</a></span>
       {%- endif -%}
 
       {%- render 'price-list', product: product, text_alignment: text_alignment -%}
@@ -182,13 +182,13 @@ Supported variables
           {%- assign product_option = product.options_by_name[color_label] -%}
           {%- capture name -%}swatch-{{ section.id }}-{{ product.id }}-{{ product_option.position }}{%- endcapture -%}
 
-          <div class="product-card__aside">
+          <div class="perf-opt product-card__aside">
             {%- case settings.product_color_display -%}
               {%- when 'count' -%}
-                <p class="product-card__color-count text-sm text-subdued">{{- 'product.general.available_colors_count' | t: count: product_option.values.size -}}</p>
+                <p class="perf-opt product-card__color-count text-sm text-subdued">{{- 'product.general.available_colors_count' | t: count: product_option.values.size -}}</p>
 
               {%- when 'swatch' -%}
-                <fieldset class="product-card__swatch-list h-stack {% if settings.color_swatch_style == 'rectangle' %}gap-2.5{% else %}gap-0.5{% endif %}" data-option-position="{{ product_option.position }}">
+                <fieldset class="perf-opt product-card__swatch-list h-stack {% if settings.color_swatch_style == 'rectangle' %}gap-2.5{% else %}gap-0.5{% endif %}" data-option-position="{{ product_option.position }}">
                   {%- liquid
                     for option_value in product_option.values limit: 4
                       if forloop.first or product.selected_or_first_available_variant.matched and option_value == product_option.selected_value
@@ -206,12 +206,12 @@ Supported variables
                   -%}
 
                   {% if product_option.values.size > 4 %}
-                    <a href="{{ product.url }}" data-instant class="color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
+                    <a href="{{ product.url }}" data-instant class="perf-opt color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
                   {% endif %}
                 </fieldset>
 
               {%- when 'variant' -%}
-                <fieldset class="product-card__variant-list" data-option-position="{{ product_option.position }}">
+                <fieldset class="perf-opt product-card__variant-list" data-option-position="{{ product_option.position }}">
                   {%- for option_value in product_option.values limit: 4 -%}
                     {%- if forloop.first or option_value.variant.matched and option_value == product_option.selected_value -%}
                       {%- assign selected = true -%}
@@ -223,7 +223,7 @@ Supported variables
                   {%- endfor -%}
 
                   {%- if product_option.values.size > 4 -%}
-                    <a href="{{ product.url }}" data-instant class="thumbnail-swatch__view-more text-xs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
+                    <a href="{{ product.url }}" data-instant class="perf-opt thumbnail-swatch__view-more text-xs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
                   {%- endif -%}
                 </fieldset>
               {%- endcase -%}

@@ -92,17 +92,17 @@ padding-bottom:80px
   }
 </style>
 
-<section class="image_icon-section" id="{{ section.settings.custom_id }}">
-    <div class="section">
-        <div class="sec_head">
-            <h2 class="h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
-            <p class="space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
+<section class="perf-opt image_icon-section" id="{{ section.settings.custom_id }}">
+    <div class="perf-opt section">
+        <div class="perf-opt sec_head">
+            <h2 class="perf-opt h1 space-thin wow fadeInUp">{{ section.settings.title }}</h2>
+            <p class="perf-opt space-thin wow fadeInUp" data-wow-delay=".1s">{{ section.settings.subtitle }}</p>
         </div>
-        <div class="image_icon-wrapper">
-            <img src="{{ section.settings.image | img_url:'master' }}" class="wow fadeInUp" />
-            <div class="image_icon-content">
+        <div class="perf-opt image_icon-wrapper">
+            <img src="{{ section.settings.image | img_url:'master' }}" class="perf-opt wow fadeInUp" />
+            <div class="perf-opt image_icon-content">
                 <img src="{{ section.settings.icon | img_url:'master' }}" />
-                <div class="imgge_icon-desc wow fadeInUp">{{ section.settings.desc }}</div>
+                <div class="perf-opt imgge_icon-desc wow fadeInUp">{{ section.settings.desc }}</div>
             </div>
         </div>
     </div>

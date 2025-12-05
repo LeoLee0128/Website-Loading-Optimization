@@ -104,53 +104,53 @@
 }
 </style>
 
-<section class="tabs-swiper-section">
-<div class="tabs-wrap">
+<section class="perf-opt tabs-swiper-section">
+<div class="perf-opt tabs-wrap">
   
-   <div class="head_section"> 
-      <h2 class="h1 wow fadeInUp">{{ section.settings.title }}</h2>
+   <div class="perf-opt head_section"> 
+      <h2 class="perf-opt h1 wow fadeInUp">{{ section.settings.title }}</h2>
   </div>
-    <div class="tw-panels">
-        <div class="tw-panel is-active" id="panel-a">
-            <div class="swiper tw-swiper" id="swiperA">
-            <div class="swiper-wrapper">
+    <div class="perf-opt tw-panels">
+        <div class="perf-opt tw-panel is-active" id="panel-a">
+            <div class="perf-opt swiper tw-swiper" id="swiperA">
+            <div class="perf-opt swiper-wrapper">
                 {% for block in section.blocks %}
                 {% if block.type == 'slide_a' and block.settings.image != blank %}
-                    <div class="swiper-slide" {{ block.shopify_attributes }}>
-                    <div class="image_slider-item">
-                       <img class="desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
-                         <img class="mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                    <div class="perf-opt swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="perf-opt image_slider-item">
+                       <img class="perf-opt desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                         <img class="perf-opt mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
                     </div>
                     </div>
                 {% endif %}
                 {% endfor %}
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="perf-opt swiper-pagination"></div>
             </div>
         </div>
 
-        <div class="tw-panel" id="panel-b">
-            <div class="swiper tw-swiper" id="swiperB">
-            <div class="swiper-wrapper">
+        <div class="perf-opt tw-panel" id="panel-b">
+            <div class="perf-opt swiper tw-swiper" id="swiperB">
+            <div class="perf-opt swiper-wrapper">
                 {% for block in section.blocks %}
                 {% if block.type == 'slide_b' and block.settings.image != blank %}
-                    <div class="swiper-slide" {{ block.shopify_attributes }}>
-                    <div class="image_slider-item">
-                        <img class="desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
-                         <img class="mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                    <div class="perf-opt swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="perf-opt image_slider-item">
+                        <img class="perf-opt desktop-img" src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
+                         <img class="perf-opt mobile-img" src="{{ block.settings.mobile_image | img_url:'master' }}" alt="{{ block.settings.alt | escape }}">
                     </div>
                     </div>
                 {% endif %}
                 {% endfor %}
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="perf-opt swiper-pagination"></div>
             </div>
         </div>
     </div>
-    <div class="tw-tabs" id="twTabs">
-        <button class="tw-tab is-active" data-target="#panel-a" data-color-name="{{ section.settings.color_name_1 | default: 'Glazed Black' }}"><img src="{{ section.settings.icon1 | img_url:'master' }}" /></button>
-        <button class="tw-tab" data-target="#panel-b" data-color-name="{{ section.settings.color_name_2 | default: 'Glazed White' }}"><img src="{{ section.settings.icon2 | img_url:'master' }}" /></button>
-        <span class="color-name" id="colorName">{{ section.settings.color_name_1 | default: 'Glazed Black' }}</span>
+    <div class="perf-opt tw-tabs" id="twTabs">
+        <button class="perf-opt tw-tab is-active" data-target="#panel-a" data-color-name="{{ section.settings.color_name_1 | default: 'Glazed Black' }}"><img src="{{ section.settings.icon1 | img_url:'master' }}" /></button>
+        <button class="perf-opt tw-tab" data-target="#panel-b" data-color-name="{{ section.settings.color_name_2 | default: 'Glazed White' }}"><img src="{{ section.settings.icon2 | img_url:'master' }}" /></button>
+        <span class="perf-opt color-name" id="colorName">{{ section.settings.color_name_1 | default: 'Glazed Black' }}</span>
     </div>
 </div>
 </section>

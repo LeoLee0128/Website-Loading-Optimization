@@ -80,30 +80,30 @@
   }
 </style>
 
-<section class="blogs_section">
-    <div class="container">
-        <div class="blogs_wrapper">
-            <div class="blogs_head">
-                <h2 class="wow fadeInUp">{{ section.settings.head }}</h2>
+<section class="perf-opt blogs_section">
+    <div class="perf-opt container">
+        <div class="perf-opt blogs_wrapper">
+            <div class="perf-opt blogs_head">
+                <h2 class="perf-opt wow fadeInUp">{{ section.settings.head }}</h2>
             </div>
 
-            <div class="swiper blogSwiper">
-                <div class="swiper-wrapper">
+            <div class="perf-opt swiper blogSwiper">
+                <div class="perf-opt swiper-wrapper">
 
                 {% for block in section.blocks %}
-                  <div class="swiper-slide">
+                  <div class="perf-opt swiper-slide">
 
                     {% if block.settings.link != blank %}
-                      <a href="{{ block.settings.link }}" class="blogs_item">
+                      <a href="{{ block.settings.link }}" class="perf-opt blogs_item">
                     {% else %}
-                      <div class="blogs_item">
+                      <div class="perf-opt blogs_item">
                     {% endif %}
 
-                        <div class="bbb_img">
+                        <div class="perf-opt bbb_img">
                           <img src="{{ block.settings.image | img_url:'master' }}">
                         </div>
 
-                        <div class="blogs_title wow fadeInUp">
+                        <div class="perf-opt blogs_title wow fadeInUp">
                           {{ block.settings.title | newline_to_br }}
                         </div>
 
@@ -118,10 +118,10 @@
 
                 </div>
 
-                <div class="swiper-button-next">
+                <div class="perf-opt swiper-button-next">
                   <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/1_9c6e02f9-7c3b-4fc3-a92f-dbbf58dc2ee3.svg?v=1762024501" />
                 </div>
-                <div class="swiper-button-prev">
+                <div class="perf-opt swiper-button-prev">
                   <img src="https://cdn.shopify.com/s/files/1/0552/4891/2483/files/2_1d25874c-2c54-438b-a453-69ecba9f6a35.svg?v=1762024549" />
                 </div>
             </div>

@@ -20,12 +20,12 @@ LIQUID
 {%- endcomment -%}
 
 <div {% render 'section-properties' %}>
-  <div class="section-stack">
+  <div class="perf-opt section-stack">
 
     {%- render 'section-header', heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content -%}
 
-    <div class="shop-the-look">
-      <div class="relative">
+    <div class="perf-opt shop-the-look">
+      <div class="perf-opt relative">
         {%- if section.settings.image != blank -%}
           {%- capture sizes -%}(max-width:700px) 100vw, min({{ settings.page_width | divided_by: 2 }}px, 50vw){%- endcapture -%}
           {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: widths: '300,400,500,600,800,1000', class: 'rounded', sizes: sizes -}}
@@ -36,16 +36,16 @@ LIQUID
         {%- if section.blocks.size > 0 -%}
           {%- capture dots -%}
             {%- for block in section.blocks -%}
-              <button type="button" style="--shop-the-look-dot-top: {{ block.settings.vertical_position }}%; --shop-the-look-dot-left: {{ block.settings.horizontal_position }}%;" class="shop-the-look__dot" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
-                <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: forloop.index }}</span>
+              <button type="button" style="--shop-the-look-dot-top: {{ block.settings.vertical_position }}%; --shop-the-look-dot-left: {{ block.settings.horizontal_position }}%;" class="perf-opt shop-the-look__dot" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
+                <span class="perf-opt sr-only">{{ 'general.accessibility.go_to_item' | t: index: forloop.index }}</span>
               </button>
             {%- endfor -%}
           {%- endcapture -%}
           <shop-the-look-dots>
-            <page-dots aria-controls="scroll-carousel-{{ section.id }}" class="sm:hidden">
+            <page-dots aria-controls="scroll-carousel-{{ section.id }}" class="perf-opt sm:hidden">
               {{ dots }}
             </page-dots>
-            <page-dots aria-controls="effect-carousel-{{ section.id }}" class="sm-max:hidden">
+            <page-dots aria-controls="effect-carousel-{{ section.id }}" class="perf-opt sm-max:hidden">
               {{ dots }}
             </page-dots>
           </shop-the-look-dots>
@@ -53,7 +53,7 @@ LIQUID
       </div>
 
       {%- if section.blocks.size > 0 -%}
-        <div class="shop-the-look__products">
+        <div class="perf-opt shop-the-look__products">
           {%- assign horizontal_products_blends = true -%}
           {%- assign section_background = section.settings.background_gradient | default: section.settings.background | default: settings.background -%}
 
@@ -61,8 +61,8 @@ LIQUID
             {%- assign horizontal_products_blends = false -%}
           {%- endif -%}
 
-          <scroll-carousel selector=".horizontal-product" class="shop-the-look__carousel sm:hidden {% unless section.settings.stack_mobile %}scroll-area bleed sm:unbleed{% endunless %}" id="scroll-carousel-{{ section.id }}" role="region">
-            <div class="horizontal-product-list {% if horizontal_products_blends %}border {% if section.settings.stack_mobile %}divide-y{% else %}divide-x{% endif %}{% else %}separate{% endif %}">
+          <scroll-carousel selector=".horizontal-product" class="perf-opt shop-the-look__carousel sm:hidden {% unless section.settings.stack_mobile %}scroll-area bleed sm:unbleed{% endunless %}" id="scroll-carousel-{{ section.id }}" role="region">
+            <div class="perf-opt horizontal-product-list {% if horizontal_products_blends %}border {% if section.settings.stack_mobile %}divide-y{% else %}divide-x{% endif %}{% else %}separate{% endif %}">
               {%- for block in section.blocks -%}
                 {%- if block.settings.product != blank -%}
                   {%- render 'horizontal-product', product: block.settings.product, show_add_to_cart: true, background: section.settings.product_card_mobile_background, text_color: section.settings.product_card_mobile_text_color -%}
@@ -71,9 +71,9 @@ LIQUID
             </div>
           </scroll-carousel>
 
-          <effect-carousel class="shop-the-look__carousel sm-max:hidden" id="effect-carousel-{{ section.id }}" role="region">
+          <effect-carousel class="perf-opt shop-the-look__carousel sm-max:hidden" id="effect-carousel-{{ section.id }}" role="region">
             {%- for block in section.blocks -%}
-              <div {% unless forloop.first %}class="reveal-invisible"{% endunless %} {{ block.shopify_attributes }}>
+              <div {% unless forloop.first %}class="perf-opt reveal-invisible"{% endunless %} {{ block.shopify_attributes }}>
                 {%- if block.settings.product != blank -%}
                   {%- render 'product-card', product: block.settings.product, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true -%}
                 {%- else -%}
@@ -85,15 +85,15 @@ LIQUID
           </effect-carousel>
 
           {%- if section.blocks.size > 1 -%}
-            <div class="shop-the-look__controls sm-max:hidden">
-              <button is="prev-button" class="circle-button ring group" aria-controls="effect-carousel-{{ section.id }}">
-                <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
-                <span class="animated-arrow animated-arrow--reverse"></span>
+            <div class="perf-opt shop-the-look__controls sm-max:hidden">
+              <button is="prev-button" class="perf-opt circle-button ring group" aria-controls="effect-carousel-{{ section.id }}">
+                <span class="perf-opt sr-only">{{ 'general.accessibility.previous' | t }}</span>
+                <span class="perf-opt animated-arrow animated-arrow--reverse"></span>
               </button>
 
-              <button is="next-button" class="circle-button ring group" aria-controls="effect-carousel-{{ section.id }}">
-                <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
-                <span class="animated-arrow"></span>
+              <button is="next-button" class="perf-opt circle-button ring group" aria-controls="effect-carousel-{{ section.id }}">
+                <span class="perf-opt sr-only">{{ 'general.accessibility.next' | t }}</span>
+                <span class="perf-opt animated-arrow"></span>
               </button>
             </div>
           {%- endif -%}

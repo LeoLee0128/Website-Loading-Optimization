@@ -1,6 +1,6 @@
 .country-flags {
-  background: -webkit-image-set(url("//cearvol.com/cdn/shop/t/31/assets/country-flags.png?v=37230036826556269641762014363") 1x, url("//cearvol.com/cdn/shop/t/31/assets/country-flags-2x.png?v=119388446682176363021762014363") 2x) no-repeat top left;
-  background: image-set(url("//cearvol.com/cdn/shop/t/31/assets/country-flags.png?v=37230036826556269641762014363") 1x, url("//cearvol.com/cdn/shop/t/31/assets/country-flags-2x.png?v=119388446682176363021762014363") 2x) no-repeat top left;
+  background: -webkit-image-set(url("//cearvol.com/cdn/shop/t/40/assets/country-flags.png?v=37230036826556269641764566322") 1x, url("//cearvol.com/cdn/shop/t/40/assets/country-flags-2x.png?v=119388446682176363021764566322") 2x) no-repeat top left;
+  background: image-set(url("//cearvol.com/cdn/shop/t/40/assets/country-flags.png?v=37230036826556269641764566322") 1x, url("//cearvol.com/cdn/shop/t/40/assets/country-flags-2x.png?v=119388446682176363021764566322") 2x) no-repeat top left;
   width: 20px;
   height: 20px;
   flex-shrink: 0;
